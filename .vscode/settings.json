@@ -1,0 +1,77 @@
+{
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex -> biber -> pdflatex TWICE",
+            "tools": [
+                "pdflatex",
+                "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },        
+        {
+            "name": "lualatex",
+            "tools": [
+                "lualatex",
+                "biber",
+                "lualatex",
+                "lualatex"
+            ]
+        }
+        
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bcf",
+        "*.ilg",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.nlo",
+        "*.nls*",
+        "*.run.xml",
+        "*.fdb_latexmk"
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+                "%DOC%.tex"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-output-directory=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ]
+}

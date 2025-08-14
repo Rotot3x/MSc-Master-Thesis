@@ -1,0 +1,3 @@
+{"rule":"DE_CASE","sentence":"^\\QGithub Regeln\nJede Änderung wird zunächst in einem Branch, der nicht der main Branch ist, erarbeitet und anschließend via PullRequest zum Merge in den Master angefragt.\\E$"}
+{"rule":"DE_DU_UPPER_LOWER","sentence":"^\\Qentwicklungsbranch1\nDu möchtest deine Änderungen Reviewn lassen, also stellst du einen PullRequest für den main Branch.\\E$"}
+{"rule":"DE_DASH","sentence":"^\\Q$ \\LaTeX $- Befehle für diese Arbeit\nÜberschriften Ebenen\\E$"}

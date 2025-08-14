@@ -1,0 +1,67 @@
+\newpage
+\section{Stand der Forschung} \label{sec:Stand der Forschung}
+
+Die Entwicklung von Blockchain-Technologien und dezentralen Identitätskonzepten bildet die Grundlage für \ac{SSI}. \textcite[S. 2]{giannopoulou_SelfsovereignIdentity_2021} definieren \ac{SSI} als ein Identitätsmanagementsystem ohne zentrale Autoritäten, das auf dezentralen Architekturen basiert und Sicherheit, Privatsphäre sowie individuelle Selbstbestimmung betont.
+
+Die Analyse der identifizierten Quellen (\autoref{tab:quellenuebersicht} und \ref{sec:Anhang_Systematische Literaturrecherche}) verdeutlicht, dass bisherige Arbeiten meist einzelne Aspekte oder wenige Aspektkombinationen aus \ac{PQC}-Integration, dezentralen Identitätsarchitekturen oder \ac{KRITIS}-Sicherheit betrachten. So zeigen \textcite{alam_PrivatelyGeneratedKeyPairsPostQuantumCryptographyDistributedNetwork_2024} und \textcite{szymanski_QuantumSafeSoftwareDefinedDeterministicInternetThingsIoTHardwareEnforcedCyberSecurityCriticalInfrastructures_2024} konkrete Ansätze zur Einbindung von \ac{PQC} und hardwarebasiertem Schutz in \ac{KRITIS}, während \textcite{nouma_TrustworthyEfficientDigitalTwinsPostQuantumEraHybridHardwareAssistedSignatures_2024} einen Ansatz für \ac{PQC}-Signaturen und \enquote{Digital Twins} präsentieren. \textcite{sharif_EIDASRegulationSurveyTechnologicalTrendsEuropeanElectronicIdentitySchemes_2022} und \textcite{radanliev_ReviewComparisonUSEUUKRegulationsCyberRiskSecurityCurrentBlockchainTechnologies_2023} untersuchen regulatorische Anforderungen in Identitätsarchitekturen. 
+
+Die Bewertung der Literatur (\autoref{tab:quellenuebersicht}) zeigt, dass lediglich fünf Publikationen eine hohe Relevanz besitzen und gleichzeitig innovative Beiträge zu mindestens zwei Kernbereichen liefern, während die Mehrzahl der 61 identifizierten Quellen entweder thematisch breiter aufgestellt ist oder nur einzelne Teilaspekte abdeckt.
+
+Arbeiten mittlerer Relevanz vertiefen beispielsweise Sicherheit in \ac{IoT}-Kontexten \parencite{enaya_SurveyBlockchainBasedApplicationsIoT_2025} oder analysieren Blockchain in der digitalen Forensik \parencite{atlam_BlockchainForensicsSystematicLiteratureReviewTechniquesApplicationsChallengesFutureDirections_2024}.
+
+Weniger relevante Quellen bieten überwiegend nur ergänzende Einblicke, etwa zu Cloud-Performance \parencite{zboril_PerformanceComparisonCloudvirtualmachines_2025} oder KI-gestützter Datenanalyse \parencite{kumar_AIPoweredEvolutionBigData_2024}.
+
+\subsection*{Identifikation der Forschungslücke} \label{sec:Identifikation der Forschungslücke}
+
+Blockchain-basierte \ac{SSI}-Ansätze werden als Alternative zu zentralisierten Systemen erforscht, doch die aktuelle Forschung weist weiterhin Lücken auf.
+
+Vor allem mangelt es an der Integration quantenresistenter Algorithmen in SSI-Architekturen. Lösungen sind meist nicht auf \ac{PQC} ausgelegt, wie \textcite[S. 2]{dutto_PostQuantumZeroKnowledgeVerifiableCredentialSystemSelfSovereignIdentity_2022} beschreiben. Die Entwicklung und Bewertung \ac{PQC}-basierter Ansätze ist daher ein offenes Feld.
+
+Ebenso bestehen Defizite in der spezifischen Anpassung dieser Lösungen an die regulatorischen und technischen Anforderungen von \ac{KRITIS}-Sektoren, wie in \textcite[Kap. 2.5 \& 2.6]{bundesamtfursicherheitinderinformationstechnikbsi_KonkretisierungAnforderungenUndMassnahmengemass8aAbsatz1undAbsatz1aBSIG_2024} dargestellt. \textcite[S. 10]{derbundesbeauftragtefuerdendatenschutzunddieinformationsfreiheitbfdi_AntwortenBundesbeauftragtenFuerDatenschutzundInformationsfreiheitaufFragenzuroeffentlichenSachverstaendigenanhoerungAusschusses_2022} fordert, dass digitale Identitätslösungen Datenschutz und Compliance (\enquote{Privacy by Design} und \enquote{Privacy by Default}) gewährleisten. Bezüglich der technischen Anforderungen wird ein rein softwarebasierter Schutz als unzureichend angesehen \parencite[S. 6]{derbundesbeauftragtefuerdendatenschutzunddieinformationsfreiheitbfdi_AntwortenBundesbeauftragtenFuerDatenschutzundInformationsfreiheitaufFragenzuroeffentlichenSachverstaendigenanhoerungAusschusses_2022}.
+
+Bislang existiert kein wissenschaftlicher Ansatz, der \ac{SSI}, \ac{PQC}, hardwarebasierte Sicherheit und regulatorische Konformität domänenspezifisch für \ac{KRITIS} integriert und evaluiert.
+
+\subsection*{Ableitung der Forschungsfragen} \label{sec:Ableitung der Forschungsfragen}
+
+Dieses Exposé skizziert ein Forschungsvorhaben zur Entwicklung und Evaluation eines quantenresistenten \ac{SSI}-Prototyps, der gezielt regulatorische und sicherheitskritische Anforderungen von \ac{KRITIS}-Infrastrukturen adressiert. Dafür werden moderne \ac{IdM}-Ansätze mit \ac{PQC} kombiniert und die \ac{DSR}-Methodik genutzt, um theoretische und praktische Lösungsansätze zu entwickeln.
+
+Die drohende Verfügbarkeit leistungsfähiger Quantencomputern gefährdet bisher sichere kryptografische Verfahren wie \ac{ECDSA} und \ac{RSA}, was gerade in \ac{SSI}-Systemen für \ac{KRITIS} erhebliche Risiken bedeutet. Trotz \ac{NIST}-Initiativen zur \ac{PQC}-Standardisierung von ML-KEM, ML-DSA und SLH-DSA \parencite{nationalinstituteofstandardsandtechnologyus_ModulelatticebasedKeyencapsulationMechanismstandard_2024,nationalinstituteofstandardsandtechnologyus_ModulelatticebasedDigitalSignaturestandard_2024,nationalinstituteofstandardsandtechnologyus_StatelessHashbasedDigitalsignaturestandard_2024} mangelt es an praxistauglichen \ac{SSI}-Architekturen, die quantenresistente Algorithmen, Compliance-Anforderungen \parencite{bundesamtfuersicherheitinderinformationstechnikbsi_KryptographischeVerfahrenEmpfehlungenundSchluessellaengenTeil2VerwendungTransportLayerSecurityTLS_2025} und \gls{Kryptoagilität} für Algorithmenupdates vereinen.
+
+\pagebreak
+
+Angesichts dessen sind die zentralen Forschungsfragen dieser Arbeit in \autoref{tab:forschungsfragen} dargestellt.
+
+\begin{longtable}{L{0.5cm}L{3.5cm}L{10cm}}
+    \caption{Forschungsfragen}
+    \label{tab:forschungsfragen} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Kategorie} & \textbf{Forschungsfrage} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Kategorie} & \textbf{Forschungsfrage} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung.} \\
+    \endlastfoot
+    1 & Systemarchitektur \newline \& \newline Compliance &
+    Wie kann ein blockchain-basiertes \ac{SSI}-System unter Einsatz von \ac{PQC} gestaltet werden, um die regulatorischen und technischen Anforderungen von \ac{KRITIS} nachhaltig zu erfüllen? \\
+    \midrule
+    2 & Algorithmenauswahl \newline \& \newline Sicherheitsbewertung &
+    Welche \ac{PQC}-Algorithmen eignen sich für die Integration in \ac{SSI}-Systeme hinsichtlich Sicherheit, Performance und Interoperabilität, insbesondere im Kontext von \ac{KRITIS}? \\
+    \midrule
+    3 & Performance \newline \& \newline Skalierbarkeit &
+    Wie wirkt sich die Integration von \ac{PQC} auf die Performance und Skalierbarkeit eines blockchain-basierten \ac{SSI}-Prototyps aus? \\
+    \midrule
+    4 & Kryptografische Agilität &
+    Welche kryptografischen Agilitätsmechanismen sind erforderlich, um zukünftige \ac{PQC}-Algorithmenupdates ohne Systemunterbrechung zu ermöglichen? \\
+\end{longtable}
+
+Die Auswahl der Forschungsfragen zielt darauf ab, alle wesentlichen Aspekte der Entwicklung eines quantenresistenten \ac{SSI}-Prototyps für \ac{KRITIS} umfassend abzudecken. Die Kategorien erfassen die zentralen Herausforderungen aus regulatorischer, technischer und kryptografischer Perspektive.
+
+Die erste Kategorie betrifft Systemarchitektur und Einhaltung von Compliance-Vorgaben im \ac{KRITIS}-Kontext, basierend auf Regularien wie dem IT-Sicherheitsgesetz 2.0 \parencite{bundesrepublikdeutschland_ZweitesGesetzZurErhoehungSicherheitinformationstechnischerSysteme_2021} und der NIS2-Richtlinie \parencite{europaeischeunion_RichtlinieEU20222555EuropaeischenParlamentsundRatesvom14Dezember2022_2022}. Zweitens stehen Auswahl und Bewertung geeigneter \ac{PQC}-Algorithmen im Fokus. Drittens werden Auswirkungen auf Nutzbarkeit und Performance untersucht. Viertens wird die notwendige \gls{Kryptoagilität} analysiert, um zukünftiger technischer Entwicklung begegnen zu können.

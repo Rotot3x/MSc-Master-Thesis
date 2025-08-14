@@ -1,0 +1,32 @@
+.DS_Store
+
+# Diese Dateien werden beim kompilieren erzeugt:
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.ilg
+*.lof
+*.log
+*.lot
+*.nlo
+*.nls*
+*.out
+*.run.xml
+*.sub
+*.suc
+*.syc
+*.sym
+*.synctex.gz
+*.toc
+*.synctex(busy)
+
+# IDEs
+.texpadtmp/
+thesis_main.pdf
+thesis_englisch.pdf
+
+# Datenschutz
+unterschrift.png

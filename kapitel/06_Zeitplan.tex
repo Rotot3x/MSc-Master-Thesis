@@ -1,0 +1,62 @@
+\newpage
+\section{Zeitplan} \label{sec:Zeit- und Ressourcenplanung}
+
+\begin{center}
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=0.95cm,
+    y unit title=1cm,
+    y unit chart=0.8cm,
+    time slot format=isodate-yearmonth,
+    time slot unit=month,
+    bar label font=\small,
+    group label font=\bfseries\small,
+    milestone label font=\color{milestone}\itshape,
+    bar height=0.6,
+    bar/.append style={fill=mainblue},
+    milestone/.append style={fill=milestone, draw=milestone},
+    bar label node/.append style={text width=7cm, align=left},
+    group label node/.append style={fill=lightblue, text width=7cm, align=left},
+    milestone label node/.append style={text width=7cm, align=left},
+    title label font=\bfseries\footnotesize,
+]{2025-07}{2026-02}
+  \gantttitlecalendar{year, month=shortname} \\
+
+  % Meilenstein Anmeldung
+  \ganttmilestone{09.07.2025: Anmeldung Master Thesis }{2025-06} \\
+  \ganttmilestone{06.08.2025: Offizieller Beginn }{2025-07} \\
+
+  % Hauptphasen
+  \ganttgroup{1. Einarbeitung und Literaturrecherche}{2025-08}{2025-08} \\
+  \ganttbar{Systematische Literaturrecherche}{2025-08}{2025-08} \\
+  \ganttbar{Vertiefende Einarbeitung}{2025-08}{2025-08} \\
+
+  \ganttgroup{2. Anforderungsanalyse und Architektur}{2025-08}{2025-09} \\
+  \ganttbar{Anforderungsanalyse}{2025-08}{2025-08} \\
+  \ganttbar{Systemarchitektur-Design}{2025-08}{2025-09} \\
+
+  \ganttgroup{3. Prototyp-Entwicklung}{2025-09}{2025-11} \\
+  \ganttbar{Implementierung Kernkomponenten}{2025-09}{2025-11} \\
+  \ganttbar{Integration PQC/Kryptoagilität}{2025-10}{2025-11} \\
+
+  \ganttgroup{4. Evaluation und Validierung}{2025-11}{2025-12} \\
+  \ganttbar{Funktionstests, Use Cases}{2025-11}{2025-11} \\
+  \ganttbar{Performance- und Sicherheitsanalyse}{2025-12}{2025-12} \\
+
+  \ganttgroup{5. Dokumentation und Abgabe}{2025-12}{2026-01} \\
+  \ganttbar{Ergebnisauswertung und Diskussion}{2025-12}{2026-01} \\
+  \ganttbar{Schreiben der Masterarbeit}{2025-12}{2026-01} \\
+  \ganttbar{Korrektur, Feinschliff, Abgabe}{2026-01}{2026-01} \\
+
+  % Meilensteine Bearbeitung und Abschluss
+  \ganttmilestone{06.01.2026: Ende der Bearbeitung}{2026-01-06} \\
+  \ganttmilestone{17.02.2026: Kolloquium}{2026-02-17}
+\end{ganttchart}
+\end{center}
+
+\noindent\textbf{Legende:} \\
+\textcolor{mainblue}{\rule{1cm}{0.25cm}} Arbeitspakete \quad
+\textcolor{milestone}{\rule{1cm}{0.25cm}} Meilensteine
+
+\noindent\textit{Anmerkung.} Eigene Darstellung.
