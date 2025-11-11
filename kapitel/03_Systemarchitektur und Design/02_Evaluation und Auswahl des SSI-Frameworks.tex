@@ -2,26 +2,60 @@
 
 \subsubsection{Evaluationsmethodik und -kriterien} \label{Evaluationsmethodik und -kriterien}
 \subsubsection{SSI-Framework-Vergleich} \label{SSI-Framework-Vergleich}
+
+acapy ist das beste ==> \parencite{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}
+
 \subsubsection{Blockchain-Plattform-Auswahl} \label{Blockchain-Plattform-Auswahl}
 \subsubsection{Technologie-Stack-Integration} \label{Technologie-Stack-Integration}
+
+ENCAPSULATION ==> Paper?
+
+
+Das Herzstück von blockchainbasiertem SSI
+
+Das Herzstück von SSI sind drei fundamentale Komponenten:
+
+    Decentralized Identifiers (DIDs) - eindeutige Identifikatoren
+
+Verifiable Credentials - kryptographisch signierte digitale Nachweise
+
+Verifiable Data Registry (Blockchain) - unveränderliche Registrierung für Verifikation
+
+Die kritischen kryptographischen Schnittstellen in deinem Indy-Besu System sind:
+
+    DID-Erzeugung und -Management (Contract: 0x3333)
+
+    Credential Definition Signing (Contract: 0x4444)
+
+    Schema-Validierung (Contract: 0x5555)
+
+    Node-zu-Node Kommunikation (QBFT Konsens)
+
+
+
+
+https://lacnet.com/generation-of-post-quantum-certificates/ ==> 
+
+We decided not to modify this protocol because that would require maintenance of a new blockchain technology. Instead, our goal was to keep using the Hyperledger Besu technology and develop a layer on top to make it quantum-resistant.
+
+
 \subsubsection{Auswahlentscheidungen und Begründung} \label{Auswahlentscheidungen und Begründung}
 
 - Kriterien für die Framework-Auswahl (Open Source, PQC-Kompatibilität) \\
 - Vergleich und Entscheidung (z.B. Hyperledger Indy/Aries) \\
 - Anpassungen und Erweiterungen für die ermittelten Anforderungen
 
+Layer Sicht:
 
-Infrastructure ==> indy on besu \\
-Identifier + Cryptographic material ==> Indy DID \\
+Agent ==> ACA-Py (als Edge Agent aufgesetzt)
 Credential \& Presentations ==> AnonCreds W3C VCs \\
-Agent ==> ACA-Py
+Identifier + Cryptographic material ==> Indy DID \\
+Infrastructure ==> indy on besu \\
 
 
 - Open Source
 - Modular aufgebaut sein
 
-
-F
 
 Begründung der Kategorien und wissenschaftliche Quellen
 Architektur/Blockchain

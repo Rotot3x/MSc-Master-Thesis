@@ -1,2 +1,225 @@
 \newpage
+\section{Methodik} \label{sec:Methodik}
+
+\fixme{Vertiefung relevanter Themenbereiche basierend auf den Erkenntnissen aus der Artefakt-Entwicklung erfolgt unsystematisch...}
+
+Abgrenzung Herleitung des Themas und Relevanz systematisch vs. DSR unsystematische Literaturrecherche bedarfsspezifisch?
+
+\subsection{Systematische Literaturrecherche} \label{sec:Systematische Literaturrecherche}
+
+Die systematische Literaturrecherche für diese Seminararbeit folgt einer Anzahl ausgewählter Methoden der PRISMA 2020 Richtlinien, dessen aktualisierte Leitlinien Transparenz und Vollständigkeit bei der Darstellung von Vorgehen und Ergebnissen systematischer Reviews fördern. Ziel ist es, den Erkenntnisstand zu einem spezifischen Forschungsproblem durch eine strukturierte Identifikation, Selektion, Bewertung und Synthese einschlägiger Studien methodisch nachvollziehbar zu dokumentieren, wodurch eine belastbare Grundlage für die Analyse der Forschungslücke und die Ableitung von Forschungsfragen geschaffen wird \parencite[S. 1--3]{page_PRISMA2020Statementupdatedguidelinereportingsystematicreviews_2021}. Die PRISMA 2020 Richtlinien fordern u.a. die offene Darlegung der Suchstrategien, der Auswahlkriterien sowie der Bewertungs- und Syntheseverfahren, um die Nachvollziehbarkeit und Replizierbarkeit des Forschungsprozesses sicherzustellen \parencite[S. 1--6]{page_PRISMA2020Explanationelaborationupdatedguidanceexemplarsreportingsystematicreviews_2021}.
+
+Die systematische Literaturrecherche wurde in zwei zeitlich getrennten Iterationen durchgeführt, um den evolving Charakter des Forschungsfeldes zu adressieren und die Aktualität der Wissensbasis sicherzustellen. Beide Iterationen dienen ausschließlich der initialen Problemidentifikation, der Ergründung des Forschungsstands sowie der Ableitung der Forschungslücke und initialen Forschungsfragen.
+
+\subsubsection{Erste Iteration (30. Mai 2025)}
+
+Die erste Iteration fand im Rahmen des Exposés statt und etablierte die methodische Grundlage für das gesamte Forschungsprojekt. Diese initiale Recherche identifizierte 61 relevante Quellen mit differenzierter Relevanzklassifizierung (hoch/mittel/niedrig) und ermöglichte die Formulierung der Forschungsfragen sowie die Identifikation der Forschungslücke im Bereich Post-Quantum-Kryptografie für Self-Sovereign-Identity-Systeme in kritischen Infrastrukturen. Die detaillierte Dokumentation dieser ersten Iteration \fixme{aus dem Exposé} wurde in \ref{sec:Anhang_Dokumentation der ersten Iteration der systematischen Literaturrecherche (Exposé)} dieser Masterarbeit integriert, um Transparenz und Reproduzierbarkeit zu gewährleisten.
+
+\subsubsection{Zweite Iteration (02. November 2025)}
+
+Die zweite Iteration erfolgt im Rahmen der Masterarbeit unter Berücksichtigung der in der ersten Iteration definierten ausgewählten Methoden der PRISMA 2020 Richtlinien (\autoref{tab:Ausgewählte Methoden der PRISMA 2020 Richtlinien}).
+
+Angepasst wurde der Suchzeitraum (Zeitrahmen: 30. Mai 2025 bis 02. November 2025) innerhalb der Ein- und Ausschlusskriterien, um die Wissensbasis zu aktualisieren und neu erschienene Publikationen im dynamischen Forschungsfeld der Post-Quantum-Kryptografie und blockchain-basierten SSI-Systeme zu erfassen (\autoref{tab:einausschlusskriterien_iteration2}).
+
+\begin{longtable}{L{3cm}L{4cm}L{4cm}L{3cm}}
+    \caption{Ein- und Ausschlusskriterien für die systematische Literaturrecherche}
+    \label{tab:einausschlusskriterien_iteration2} \\
+    \toprule
+    \textbf{Kategorie} & \textbf{Einschluss} & \textbf{Ausschluss} & \textbf{Begründung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{4}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Kategorie} & \textbf{Einschluss} & \textbf{Ausschluss} & \textbf{Begründung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{4}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{4}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung.} \\
+    \endlastfoot
+    Thematischer Fokus &
+    \ac{SSI} und dezentrale Identitätslösungen;
+    Blockchain-basierte Identitätsmanagementsysteme;
+    \ac{PQC} und quantensichere Algorithmen;
+    Sicherheit und Compliance in \ac{KRITIS};
+    \ac{DSR}-Methodik in IT/Informationssystemen;
+    Kryptoagilität und kryptografische Migration & 
+    Identitätsmanagement ohne Bezug zu \ac{SSI} oder Blockchain;
+    Klassische \ac{PKI} ohne \ac{PQC}-Bezug;
+    Kryptografie ohne Post-Quantum-Relevanz;
+    Arbeiten ohne Bezug zu \ac{KRITIS} oder ohne sicherheitskritischen Kontext;
+    Nicht-\ac{DSR}-basierte Entwicklungsansätze & 
+    Fokussierung auf die Forschungsfragen und relevante technologische, methodische und regulatorische Aspekte. \\
+    \midrule
+    Zeitrahmen & 30. Mai 2025 bis 02. November 2025 & Alles davor oder danach & Berücksichtigung aktueller technologischer Entwicklungen (Blockchain, \ac{PQC}, \ac{SSI}) und regulatorischer Anforderungen. \\
+    \midrule
+    Publikationstypen & 
+    Peer-reviewed Journalartikel;
+    Konferenzbeiträge anerkannter Fachgesellschaften (z. B. IEEE, ACM, IFIP); Preprints;
+    Offizielle Standards und Empfehlungen (z. B. \ac{NIST}, W3C, \ac{BSI});
+    Whitepaper etablierter Organisationen;
+    Dissertationen und anerkannte Fachbücher & 
+    Blogposts, Forenbeiträge, Marketingmaterial;
+    Populärwissenschaftliche Artikel ohne wissenschaftliche Fundierung;
+    Unveröffentlichte Manuskripte ohne Peer-Review;
+    Seminar- und Abschlussarbeiten ohne wissenschaftliche Begutachtung & 
+    Sicherstellung wissenschaftlicher Qualität, Nachvollziehbarkeit und Relevanz der Quellen für die Masterarbeit; Da das Forschungsthema aktuell noch sehr neu ist und die einschlägige Fachliteratur teilweise noch nicht den Peer-Review-Prozess durchlaufen hat, werden auch Preprints in die Analyse einbezogen. Preprints ermöglichen eine zeitnahe Verfügbarkeit aktueller Forschungsergebnisse, was insbesondere bei diesem innovativen von großer Bedeutung ist. \\
+    \midrule
+    Sprache & Deutsch; Englisch & Andere Sprachen als Deutsch und Englisch & Gewährleistung der Verständlichkeit und Zugänglichkeit für den deutsch- und englischsprachigen Forschungskontext. \\
+    \midrule
+    Zugänglichkeit & Verfügbare Volltexte & Nicht verfügbare Volltexte & Ermöglichung einer gründlichen Analyse und Bewertung der Inhalte. \\
+\end{longtable}
+
+Um die Konsistenz und Vergleichbarkeit der Ergebnisse zu gewährleisten wurde die zweite Iteration mit identischer Suchstrategie durchgeführt.
+Dazu zählen alle in \autoref{tab:suchstrategie} dargestellten Schritte, von der Identifikation relevanter Schlüsselkonzepte bis zur Übersetzung der Suchanfrage für die EBSCO Datenbank.
+
+\paragraph*{Übersetzung der Suchanfrage für EBSCO}
+
+Das Ergebnis der EBSCO Suchanfrage ist in \autoref{fig:EBSCO Ergebnis_11} dargestellt. Insgesamt wurden mit dieser Abfrage 34 Quellen identifiziert.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{EBSCO_11.png}
+    \caption{Ergebnis der EBSCO Suchanfrage}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:EBSCO Ergebnis_11}
+\end{figure}
+
+\paragraph*{Selektionsprozess}
+
+Der Selektionsprozess in Iteartion 2 wurde gegenüber dem iteration 1 Expose erweitert um die Relevanzbewertung der neu identifizierten Quellen zu verfeinern und ist in \fixme{Abb. XY} dargestellt.
+Dafür wurde ein zweistufiger Screening-Prozess implementiert, bestehend aus einem Title-Abstract-Screening gefolgt von einem Full-Text-Screening.
+
+Für das Title-Abstract-Screening wurden alle in Iteration 2 identifizierten Quellen anhand ihrer Titel und Abstracts wie auch schon im Expose in Bezug auf den thematischen Fokus der Arbeit. Hohe Relevanz erhalten Quellen mit klaren Beiträgen zu SSI, PQC, KRITIS oder dezentralen Identitätsarchitekturen. Mittlere Relevanz wird Arbeiten zugeordnet, die angrenzende Technologien wie Blockchain-Sicherheit im IoT oder digitale Forensik behandeln. Niedrige Relevanz erhalten Quellen zu allgemeinen Technologietrends ohne direkten Bezug zum Thema.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth-3.75cm]{PRISMA_2020_flow_diagram_updated_SRs_v1_ITERATION_2.png}
+    \caption{PRISMA 2020 Flussdiagramm - zweite Iteration}
+    \begin{flushleft}
+    \textit{Anmerkung.} In Anlehnung an \textcite[S. 5]{page_PRISMA2020Statementupdatedguidelinereportingsystematicreviews_2021}.
+    \end{flushleft}
+    \label{fig:PRISMA_Flussdiagramm_Iteration2}
+\end{figure}
+
+\autoref{fig:PRISMA_Flussdiagramm_Iteration2} visualisiert den gesamten Auswahlprozess der systematischen Literaturrecherche nach anerkannten wissenschaftlichen Standards. Im Diagramm werden alle Schritte der Literatursuche und -auswahl strukturiert und nachvollziehbar dokumentiert, beginnend mit der Identifikation relevanter Quellen aus Datenbanken, über das Screening der Titel und Abstracts sowie die Bewertung der Volltexte bis hin zur finalen Bestimmung der eingeschlossenen Studien.
+
+\autoref{tab:quellenuebersicht_iteration2} stellt eine Übersicht der Bewertung der 34 identifizierten Quellen dar, welche vollständig in in \autoref{tab:quellenbewertung_iteration2} dokumentiert wurde.
+
+\begin{longtable}{L{1.5cm}L{11cm}L{1cm}}
+    \caption[]{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \label{tab:quellenuebersicht_iteration2} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Basierend auf \autoref{tab:quellenbewertung_iteration2} und Titel und Abstracts von \textcite{barrett-danes_QuantumComputingCybersecurityrigoroussystematicreviewemergingthreatspostquantumsolutionsresearchdirections_2025,feng_IdentityManagementSystemsComprehensiveReview_2025}.} \\
+    \endlastfoot
+    1 & Barrett-danes, F., \& Ahmad, F. (2025). Quantum computing and cybersecurity: a rigorous systematic review of emerging threats, post-quantum solutions, and research directions (2019-2024). Discover Applied Sciences, 7(10). \url{https://doi.org/10.1007/s42452-025-07322-5} & Hoch \\
+    \midrule
+    2 & Feng, Z., Li, Z., Cui, H., \& Whitty, M. T. (2025). Identity management systems: A comprehensive review. Information (Basel), 16(9), 778. \url{https://doi.org/10.3390/info16090778} & Hoch \\
+    \midrule
+    3--10 & Diverse & Mittel  \\
+    \midrule
+    11--34 & Diverse & Niedrig \\
+\end{longtable}
+
+
+Die im Title-Abstract-Screening als potenziell relevant eingestuften Publikationen der ersten und zweiten Iteration wurden im nächsten Schritt, dem Full-Text-Screening vollständig gesichtet und einer detaillierten Bewertung unterzogen. Dabei wurden die Ausschlussgründe dokumentiert, um Transparenz im Selektionsprozess zu gewährleisten.
+
+---
+
+
+\subparagraph*{Ergebnisse der zweiten Iteration (02. November 2025)}
+
+Die zweite Iteration, durchgeführt mit identischer Suchstrategie und angepasstem Zeitrahmen (30. Mai 2025 bis 02. November 2025), identifizierte insgesamt 34 neue Quellen aus der EBSCO-Datenbank (\autoref{fig:EBSCO Ergebnis_11}).
+
+\textbf{Title-Abstract-Screening:} Im ersten Screening-Schritt wurden alle 34 identifizierten Quellen anhand ihrer Titel und Abstracts gegen die definierten Einschlusskriterien (\autoref{tab:einausschlusskriterien_iteration2}) bewertet. Dabei wurden [X] Publikationen ausgeschlossen, die offensichtlich nicht den thematischen Anforderungen entsprachen. [Y] Publikationen wurden für das Full-Text-Screening vorgemerkt.
+
+\textbf{Full-Text-Screening:} Die [Y] verbliebenen Publikationen wurden vollständig gesichtet und einer detaillierten Bewertung gegen alle Ein- und Ausschlusskriterien unterzogen. Dabei wurden weitere [Z] Publikationen ausgeschlossen. Die Ausschlussgründe verteilten sich wie folgt:
+\begin{itemize}
+    \item Thematisch nicht relevant (kein direkter Bezug zu mindestens einer Kerndomäne): [A] Publikationen
+    \item Methodisch ungeeignet (z.B. reine Meinungsbeiträge ohne empirische oder konzeptionelle Fundierung): [B] Publikationen
+    \item Volltext nicht verfügbar trotz Document Delivery Anfrage: [C] Publikationen
+\end{itemize}
+
+Nach Abschluss des zweistufigen Screening-Prozesses verblieben [W] Publikationen für die finale Relevanzklassifikation:
+\begin{itemize}
+    \item \textbf{Hohe Relevanz}: [W1] Publikationen mit substanziellen Beiträgen zu mindestens zwei Kerndomänen
+    \item \textbf{Mittlere Relevanz}: [W2] Publikationen mit Bezug zu einer Kerndomäne
+    \item \textbf{Niedrige Relevanz}: [W3] Publikationen mit angrenzenden Themen
+\end{itemize}
+
+\subparagraph*{Konsolidierte Ergebnisse beider Iterationen}
+
+Die erste Iteration (Exposé, 30. Mai 2025) identifizierte 61 Quellen, die anhand von Titel und Abstract nach Relevanz klassifiziert wurden (\autoref{tab:A-1}). Diese Klassifikation wurde für die Masterarbeit beibehalten, da sie dem methodischen Standard eines Exposés entspricht und zur Identifikation der Forschungslücke sowie zur Formulierung der Forschungsfragen ausreichend war.
+
+Die zweite Iteration ergänzte diese Wissensbasis um [W] neue Quellen, die einem vollständigen zweistufigen Screening-Prozess nach PRISMA 2020 unterzogen wurden. Dies gewährleistet, dass alle für die Masterarbeit neu hinzugefügten Quellen den höheren wissenschaftlichen Standards systematischer Reviews genügen.
+
+Über beide Iterationen hinweg stehen somit insgesamt [61 + W] Quellen für die Analyse des Forschungsstands, die Ableitung der theoretischen Grundlagen und die Entwicklung des SSI-Prototyps zur Verfügung. Die detaillierte Bewertung aller Quellen ist in \autoref{tab:A-1} (Iteration 1) und \autoref{tab:bewertung_iteration2} (Iteration 2) dokumentiert.
+
+
+
+
+---
+
+
+
+
+
+
+
+\autoref{tab:quellenuebersicht} stellt eine Übersicht der Bewertung der 61 \fixme{72} identifizierten Quellen dar, welche vollständig in \ref{sec:Anhang_Systematische Literaturrecherche} aufzufinden ist.
+
+Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Fokus der Arbeit. Hohe Relevanz erhalten Quellen mit klaren Beiträgen zu \ac{SSI}, \ac{PQC}, \ac{KRITIS} oder dezentralen Identitätsarchitekturen. Mittlere Relevanz wird Arbeiten zugeordnet, die angrenzende Technologien wie Blockchain-Sicherheit im \ac{IoT} oder digitale Forensik behandeln. Niedrige Relevanz erhalten Quellen zu allgemeinen Technologietrends ohne direkten Bezug zum Thema.
+
+\begin{longtable}{L{1.5cm}L{11cm}L{1cm}}
+    \caption[]{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \label{tab:quellenuebersicht} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Basierend auf \autoref{tab:quellenbewertung} und Titel und Abstracts von \textcite{szymanski_QuantumSafeSoftwareDefinedDeterministicInternetThingsIoTHardwareEnforcedCyberSecurityCriticalInfrastructures_2024,nouma_TrustworthyEfficientDigitalTwinsPostQuantumEraHybridHardwareAssistedSignatures_2024,sharif_EIDASRegulationSurveyTechnologicalTrendsEuropeanElectronicIdentitySchemes_2022,alam_PrivatelyGeneratedKeyPairsPostQuantumCryptographyDistributedNetwork_2024,radanliev_ReviewComparisonUSEUUKRegulationsCyberRiskSecurityCurrentBlockchainTechnologies_2023}.} \\
+    \endlastfoot
+    1 & Szymanski, T. H. (2024). A Quantum-Safe Software-Defined Deterministic Internet of Things (IoT) with Hardware-Enforced Cyber-Security for Critical Infrastructures. Information (2078-2489), 15(4), 173. \url{https://doi.org/10.3390/info15040173} & Hoch \\
+    \midrule
+    2 & Nouma, S. E., \& Yavuz, A. A. (2024). Trustworthy and Efficient Digital Twins in Post-Quantum Era with Hybrid Hardware-Assisted Signatures. ACM Transactions on Multimedia Computing, Communications \& Applications, 20(6), 1–30. \url{https://doi.org/10.1145/3638250} & Hoch \\
+    \midrule
+    3 & Sharif, A., Ranzi, M., Carbone, R., Sciarretta, G., Marino, F. A., \& Ranise, S. (2022). The eIDAS Regulation: A Survey of Technological Trends for European Electronic Identity Schemes. Applied Sciences (2076-3417), 12(24), 12679. \url{https://doi.org/10.3390/app122412679} & Hoch \\
+    \midrule
+    4 & Alam, M., Hoffstein, J., \& Cambou, B. (2024). Privately Generated Key Pairs for Post Quantum Cryptography in a Distributed Network. Applied Sciences (2076-3417), 14(19), 8863. \url{https://doi.org/10.3390/app14198863} & Hoch \\
+    \midrule
+    5 & Radanliev, P. (2023). Review and Comparison of US, EU, and UK Regulations on Cyber Risk/Security of the Current Blockchain Technologies: Viewpoint from 2023. Review of Socionetwork Strategies, 17(2), 105–129. \url{https://doi.org/10.1007/s12626-023-00139-x} & Hoch \\
+    \midrule
+    6--38 & Diverse & Mittel  \\
+    \midrule
+    39--61 & Diverse & Niedrig \\
+\end{longtable}
+
+\subsection{Design Science Research} \label{Design Science Research}
+
+\newpage
 \section{Systemarchitektur und Design} \label{sec:Systemarchitektur und Design}
