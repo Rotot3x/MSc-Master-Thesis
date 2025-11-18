@@ -1,139 +1,23 @@
-\subsection{Framework- und Technologie-Evaluation} \label{sec:Evaluation und Auswahl des SSI-Frameworks}
+% \subsection{Framework- und Technologie-Evaluation} \label{sec:Evaluation und Auswahl des SSI-Frameworks}
 
-\subsubsection{Evaluationsmethodik und -kriterien} \label{Evaluationsmethodik und -kriterien}
-\subsubsection{SSI-Framework-Vergleich} \label{SSI-Framework-Vergleich}
+% % \subsubsection{Evaluationsmethodik und -kriterien} \label{Evaluationsmethodik und -kriterien}
+% % \subsubsection{SSI-Framework-Vergleich} \label{SSI-Framework-Vergleich}
 
-acapy ist das beste ==> \parencite{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}
+% % acapy ist das beste ==> \parencite{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}
 
-\subsubsection{Blockchain-Plattform-Auswahl} \label{Blockchain-Plattform-Auswahl}
-\subsubsection{Technologie-Stack-Integration} \label{Technologie-Stack-Integration}
+% % \subsubsection{Blockchain-Plattform-Auswahl} \label{Blockchain-Plattform-Auswahl}
+% \subsubsection{Technologie-Stack-Integration} \label{Technologie-Stack-Integration}
 
-ENCAPSULATION ==> Paper?
-
-
-Das Herzstück von blockchainbasiertem SSI
-
-Das Herzstück von SSI sind drei fundamentale Komponenten:
-
-    Decentralized Identifiers (DIDs) - eindeutige Identifikatoren
-
-Verifiable Credentials - kryptographisch signierte digitale Nachweise
-
-Verifiable Data Registry (Blockchain) - unveränderliche Registrierung für Verifikation
-
-Die kritischen kryptographischen Schnittstellen in deinem Indy-Besu System sind:
-
-    DID-Erzeugung und -Management (Contract: 0x3333)
-
-    Credential Definition Signing (Contract: 0x4444)
-
-    Schema-Validierung (Contract: 0x5555)
-
-    Node-zu-Node Kommunikation (QBFT Konsens)
+% ENCAPSULATION ==> Paper?
 
 
+% \subsubsection{Auswahlentscheidungen und Begründung} \label{Auswahlentscheidungen und Begründung}
+
+% - Kriterien für die Framework-Auswahl (Open Source, PQC-Kompatibilität) \\
+% - Vergleich und Entscheidung (z.B. Hyperledger Indy/Aries) \\
+% - Anpassungen und Erweiterungen für die ermittelten Anforderungen
 
 
-https://lacnet.com/generation-of-post-quantum-certificates/ ==> 
-
-We decided not to modify this protocol because that would require maintenance of a new blockchain technology. Instead, our goal was to keep using the Hyperledger Besu technology and develop a layer on top to make it quantum-resistant.
-
-
-\subsubsection{Auswahlentscheidungen und Begründung} \label{Auswahlentscheidungen und Begründung}
-
-- Kriterien für die Framework-Auswahl (Open Source, PQC-Kompatibilität) \\
-- Vergleich und Entscheidung (z.B. Hyperledger Indy/Aries) \\
-- Anpassungen und Erweiterungen für die ermittelten Anforderungen
-
-Layer Sicht:
-
-Agent ==> ACA-Py (als Edge Agent aufgesetzt)
-Credential \& Presentations ==> AnonCreds W3C VCs \\
-Identifier + Cryptographic material ==> Indy DID \\
-Infrastructure ==> indy on besu \\
-
-
-- Open Source
-- Modular aufgebaut sein
-
-
-Begründung der Kategorien und wissenschaftliche Quellen
-Architektur/Blockchain
-
-    Die Wahl der Architektur bestimmt Skalierbarkeit, Transaktionsmodell, Dezentralität und die regulatorische Einwirkbarkeit (permissioned vs. permissionless). Frameworks wie Hyperledger Indy, Besu und ION werden in der Literatur gezielt nach Blockchain-Typ, Governance und Infrastruktur verglichen.
-
-Quelle: „Self-sovereign identity on the blockchain: contextual analysis and ...“ (Frontiers in Blockchain, 2024); Härer \& Fill, 2020.
-Offenheit \& Transparenz
-
-    Open-Source-Frameworks ermöglichen Auditierbarkeit, Anpassung und Community-getriebene Innovation – zentral für Trust und Security in KRITIS.
-
-Quelle: Frontiers in Blockchain, 2024; Fill \& Härer, 2020.
-Interoperabilität
-
-    Die Fähigkeit eines Systems, über W3C-DID-, VC- und andere Standards mit verschiedensten Ökosystemen und Registern zu kommunizieren, wird als Schlüsselanforderung klassifiziert.
-
-Quelle: Fraunhofer \& Universität Bayreuth Diskussionspapier zu SSI, 2020; Grüner et al. „Analyzing Interoperability and Portability Concepts...“ (HPI).
-SSI-Prinzipien-Compliance
-
-    Die 10 Grundprinzipien nach Christopher Allen (Existenz, Kontrolle, Interoperabilität, Transparenz, Portabilität, etc.) sind das wissenschaftliche Fundament für die Bewertung von SSI-Systemen und werden in praktisch jedem SSI-Vergleich herangezogen.
-
-Quelle: Christopher Allen (Blog; 2017), überführt in diverse Whitepaper und Publikationen, z.B. Societybyte/SFI.
-PQC-Unterstützung
-
-    Post-Quanten-Kryptografie ist ein verpflichtender Baustein für KRITIS-Sicherheit – das BSI und Fraunhofer empfehlen die Integration quantenresistenter Algorithmen speziell für Identitäts- und Signaturlösungen.
-
-Quelle: BSI, „Post-Quanten-Kryptografie“; Fraunhofer Cybersecurity Blog, „Post-Quanten-Kryptografie in der Praxis“.
-Eignung für KRITIS
-
-    Die Tauglichkeit für kritische Infrastrukturen erfordert geprüfte Governance-, Compliance- und Skalierungsmechanismus, wie vom BSI und in wissenschaftlichen Evaluationsframeworks für Public-Key-Infrastruktur und Identitätssysteme festgelegt.
-
-Quelle: ETH Zürich, „Evaluierungs-Framework und Kriterienkatalog für Public-Key-Infrastrukturen“; Fraunhofer FIT (SSI \& KRITIS Fokus).
-
-
-\begin{longtable}{L{1cm}L{2cm}L{2.5cm}L{2cm}L{1.5cm}L{1.5cm}L{1.5cm}}
-    \caption{Vergleich ausgewählter SSI-Frameworks für blockchain-basierte, KRITIS-taugliche Prototypen mit PQC-Perspektive}
-    \label{tab:ssi-frameworks} \\
-    \toprule
-    \textbf{Framework} & \textbf{Architektur/\newline Blockchain} & \textbf{Offenheit \& Transparenz} & \textbf{Interoperabilität} & \textbf{SSI-Prinzipien-\newline Compliance} & \textbf{PQC-\newline Unterstützung} & \textbf{Eignung für KRITIS} \\
-    \midrule
-    \endfirsthead
-    \multicolumn{7}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
-    \toprule
-    \textbf{Framework} & \textbf{Architektur/\newline Blockchain} & \textbf{Offenheit \& Transparenz} & \textbf{Interoperabilität} & \textbf{SSI-Prinzipien-\newline Compliance} & \textbf{PQC-\newline Unterstützung} & \textbf{Eignung für KRITIS} \\
-    \midrule
-    \endhead
-    \midrule
-    \multicolumn{7}{r}{\textit{Fortsetzung auf nächster Seite}} \\
-    \endfoot
-    \bottomrule
-    \multicolumn{7}{p{\linewidth}}{\textit{Anmerkung.} Quellen: Eigene Darstellung nach \cite{frontiersssi2024,lfbesublog2025,marketanalysis2025}} \\
-    \endlastfoot
-    Hyperledger Indy &
-    Federated Indy Blockchain &
-    Open Source, starker Audit-Trail &
-    W3C VC/DID, hohe Interoperabilität &
-    Sehr hoch (Existenz, Kontrolle, Transparenz) &
-    Experimentell (kein nativer PQC-Support) &
-    Sehr hoch (Governance, Auditierbarkeit) \\
-    \midrule
-    ION (Microsoft/DIF) &
-    Bitcoin, Sidetree DPKI &
-    Open Source, breite Transparenz &
-    Dezentral, weltweit, W3C DIDs &
-    Hoch (Portabilität, Kontrolle, Skalierung) &
-    Erweiterbar, keine native PQC &
-    Mittel (abhängig von Bitcoin, schwer reg. steuerbar) \\
-    \midrule
-    Indy on Besu &
-    Besu Ethereum (Permissioned) &
-    Open Source, modular, Enterprise-tauglich &
-    W3C VC/DID, did:indy:besu, Legacy-Migration &
-    Sehr hoch (volle SSI-Rollen, flexible Governance) &
-    PQC-Addons via Smart Contracts, nativ in Entwicklung &
-    Sehr hoch (10x Durchsatz, Trusted List, flexible Governance) \\
-\end{longtable}
-
-indy besu ==> \parencite{shcherbakov_HyperledgerIndyBesupermissionedledgerSelfsovereignIdentity_2024}
 
 
 

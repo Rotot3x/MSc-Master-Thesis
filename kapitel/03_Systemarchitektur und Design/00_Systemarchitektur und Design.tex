@@ -221,5 +221,976 @@ Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Foku
 
 \subsection{Design Science Research} \label{Design Science Research}
 
+Die systematische Entwicklung und Evaluation eines blockchain-basierten Self-Sovereign-Identity-Prototyps mit Post-Quantum-Kryptografie für kritische Infrastrukturen erfordert einen Forschungsansatz, der sowohl die wissenschaftliche Fundierung als auch die praktische Anwendbarkeit der entwickelten Lösung gewährleistet.
+\ac{DSR} erweist sich als besonders geeigneter methodischer Rahmen für dieses Vorhaben, da dieser Ansatz explizit darauf abzielt, innovative IT-Artefakte zu schaffen, die zur Erweiterung menschlicher und organisationaler Fähigkeiten beitragen \parencite[S. 75]{hevner_DesignScienceInformationsystemsresearch_2004}. 
+
+Im Kern verfolgt \ac{DSR} einen problemlösungsorientierten Ansatz, der in den Ingenieurwissenschaften und den Wissenschaften des \fixme{Künstlichen (SIMON 1996)} verwurzelt ist. Das zentrale Ziel besteht darin, Innovationen zu schaffen, die Ideen, Praktiken, technische Fähigkeiten und Produkte definieren, durch welche die Analyse, das Design, die Implementierung, das Management und die Nutzung von Informationssystemen effektiv und effizient erreicht werden können \parencite[S. 76]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Die besondere Eignung von DSR für das vorliegende Forschungsvorhaben begründet sich durch mehrere zentrale Aspekte:
+
+Erstens adressiert diese Arbeit ein hochrelevantes, praxisorientiertes Problem: die drohende Verwundbarkeit bestehender SSI-Systeme durch leistungsfähige Quantencomputer sowie die spezifischen Sicherheits- und Compliance-Anforderungen kritischer Infrastrukturen. Das primäre Forschungsziel liegt in der Entwicklung technologiebasierter Lösungen für bedeutende und relevante Geschäftsprobleme \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Zweitens erfordert die Integration von Post-Quantum-Kryptografie in blockchain-basierte SSI-Systeme die Schaffung eines neuartigen IT-Artefakts. DSR fordert explizit, dass Forschungsprojekte ein praktikables Artefakt in Form eines Konstrukts, Modells, einer Methode oder einer Instanziierung hervorbringen müssen \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Drittens ermöglicht DSR die systematische Evaluation des entwickelten Artefakts. Der Nutzen, die Qualität und die Wirksamkeit eines Design-Artefakts müssen durch gut durchgeführte Evaluationsmethoden rigoros nachgewiesen werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Viertens unterstützt DSR den wissenschaftlichen Erkenntnisgewinn durch die systematische Dokumentation von Forschungsbeiträgen. Effektive Design-Science-Forschung muss klare und verifizierbare Beiträge in den Bereichen Design-Artefakt, Design-Grundlagen und/oder Design-Methodologien liefern \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Fünftens gewährleistet DSR wissenschaftliche Strenge durch die Anwendung rigoroser Methoden sowohl bei der Konstruktion als auch bei der Evaluation des Design-Artefakts \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Die Methodenwahl DSR ist somit nicht nur durch die Passung zur Forschungsfrage begründet, sondern auch durch die inhärenten Anforderungen des Forschungsvorhabens: die Notwendigkeit, ein funktionsfähiges Artefakt zu entwickeln, dessen Nutzen für die Praxis nachzuweisen und gleichzeitig einen wissenschaftlichen Beitrag zur Wissensbasis zu leisten. DSR schafft hierfür den methodischen Rahmen, der Relevanz und Rigorosität gleichermaßen adressiert und die Brücke zwischen theoretischer Fundierung und praktischer Anwendbarkeit bildet.
+
+\subsubsection{Drei-Zyklen-Modell} \label{Drei-Zyklen-Modell}
+
+Das Drei-Zyklen-Modell von \textcite[S. 87]{hevner_ThreeCycleViewDesignScienceResearch_2007}, dargestellt in \autoref{fig:Design Science Research Cycles}, stellt die enge Verbindung der drei Aktivitätszyklen, dem Relevance Cycle, dem Rigor Cycle und dem Design Cycle, in der Design-Science-Forschung dar.
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{3-cycle.png}
+    \caption{Design Science Research Cycles}
+    \begin{flushleft}
+    \textit{Anmerkung.} Aus \textcite[S. 88]{hevner_ThreeCycleViewDesignScienceResearch_2007}.
+    \end{flushleft}
+    \label{fig:Design Science Research Cycles}
+\end{figure}
+
+Diese drei Zyklen stellen sicher, dass Design-Science-Forschung sowohl relevante Probleme aus der Anwendungsdomäne adressiert als auch auf einer soliden wissenschaftlichen Grundlage aufbaut, während gleichzeitig ein iterativer Entwicklungs- und Evaluationsprozess ermöglicht wird.
+
+\paragraph*{Relevance Cycle: Integration von KRITIS-Anforderungen und Praxisanforderungen} \label{Relevance Cycle: Integration von KRITIS-Anforderungen und Praxisanforderungen}
+
+Der Relevance Cycle initiiert die Design-Science-Forschung mit einem Anwendungskontext, der nicht nur die Anforderungen an die Forschung liefert, sondern auch die Akzeptanzkriterien für die letztendliche Evaluation der Forschungsergebnisse definiert \parencite[S. 89]{hevner_ThreeCycleViewDesignScienceResearch_2007}.
+
+Im Kontext dieser Arbeit manifestiert sich der Relevance Cycle durch die Integration mehrschichtiger Anforderungen aus dem KRITIS-Umfeld:
+
+\textbf{KRITIS-spezifische Sicherheitsanforderungen:} Die Zuverlässigkeit, Leistungsfähigkeit und Sicherheit kritischer Infrastrukturen stellen elementare nationale Prioritäten dar, da sie für die moderne Gesellschaft essenziell sind \parencite[S. 1]{alcaraz_CriticalInfrastructureProtectionRequirementschallenges21stcentury_2015}. Der Relevance Cycle adressiert konkret die besonderen Schutzbedarfe von Sektoren wie Energie, Gesundheit, Wasser oder Telekommunikation, deren Ausfall oder Beeinträchtigung erhebliche Versorgungsengpässe, Gefährdungen der öffentlichen Sicherheit oder andere dramatische Folgen nach sich ziehen würde.
+
+\textbf{Regulatorische Vorgaben:} Die Anforderungen aus dem Relevance Cycle umfassen insbesondere die Einhaltung des IT-Sicherheitsgesetzes 2.0, der NIS2-Richtlinie sowie der Vorgaben des Bundesamts für Sicherheit in der Informationstechnik (BSI). Diese regulatorischen Rahmenbedingungen definieren Mindeststandards für Informationssicherheit, Meldepflichten bei Sicherheitsvorfällen und organisatorische Maßnahmen, die in das Design des Artefakts einfließen müssen.
+
+\textbf{Datenschutz- und Compliance-Anforderungen:} Der Relevance Cycle integriert die Anforderungen der Datenschutz-Grundverordnung (DSGVO), insbesondere die Prinzipien Privacy by Design und Privacy by Default. Diese Anforderungen stellen sicher, dass der entwickelte Prototyp nicht nur technisch funktionsfähig ist, sondern auch die Grundrechte auf informationelle Selbstbestimmung und Datenschutz wahrt \fixme{QUELLE}.
+
+\textbf{Quantenbedrohung und kryptografische Agilität:} Der Relevance Cycle adressiert die praktische Herausforderung, dass bestehende kryptografische Verfahren durch die Entwicklung leistungsfähiger Quantencomputer gefährdet sind. Dies erfordert die Integration von Post-Quantum-Algorithmen sowie die Implementierung kryptoagiler Mechanismen, die zukünftige Algorithmus-Updates ohne Systemunterbrechung ermöglichen.
+
+\textbf{Feldtest und Evaluation:} Der Relevance Cycle schließt sich durch die Evaluation des entwickelten Prototyps anhand definierter Use Cases aus dem KRITIS-Umfeld. Die Bewertung erfolgt anhand von Akzeptanzkriterien, die sich aus den identifizierten Anforderungen ableiten: Funktionalität, Sicherheit, Performance, Compliance-Konformität und Zukunftsfähigkeit durch kryptografische Agilität.
+
+Die kontinuierliche Rückkopplung zwischen Anwendungsumfeld und Forschungsaktivitäten stellt sicher, dass das entwickelte Artefakt nicht nur theoretisch fundiert, sondern auch praktisch relevant und anwendbar ist.
+
+\paragraph*{Rigor Cycle: Einbindung wissenschaftlicher Erkenntnisse und systematischer Literaturrecherche} \label{Rigor Cycle: Einbindung wissenschaftlicher Erkenntnisse und systematischer Literaturrecherche}
+
+Der Rigor Cycle liefert vergangenes Wissen an das Forschungsprojekt, um dessen Innovation sicherzustellen. Es obliegt den Forschenden, die Wissensbasis gründlich zu recherchieren und zu referenzieren, um zu gewährleisten, dass die entwickelten Designs Forschungsbeiträge darstellen und nicht Routinedesigns auf Basis wohlbekannter Prozesse sind \parencite[S. 90]{hevner_ThreeCycleViewDesignScienceResearch_2007}.
+
+Im Rahmen dieser Arbeit manifestiert sich der Rigor Cycle durch mehrere zentrale Komponenten:
+
+\textbf{Systematische Literaturrecherche nach PRISMA 2020:} Die Arbeit folgt einem iterativen Review-Ansatz, der mit einer initialen Recherche beginnt und sich iterativ vertieft. Für Struktur und Dokumentation werden ausgewählte Methoden der PRISMA 2020-Richtlinien zugrunde gelegt \fixme{QUELLE}. Diese systematische Vorgehensweise gewährleistet einen transparenten, reproduzierbaren Prozess und verbessert die Berichtqualität. \fixme{SOLL DAS MIT REIN? INNERHALB DSR NUR UNSYSTEMATISCH}
+
+\textbf{Wissenschaftliche Grundlagen aus Referenzdisziplinen:} Der Rigor Cycle integriert theoretische und methodische Grundlagen aus mehreren Disziplinen:
+
+    Kryptografie: Insbesondere die standardisierten Post-Quantum-Algorithmen des NIST (ML-KEM, ML-DSA, SLH-DSA) sowie Prinzipien der kryptografischen Agilität
+
+    Blockchain-Technologie: Distributed-Ledger-Architekturen, Konsensmechanismen, Smart Contracts und deren Anwendung im Identitätsmanagement
+
+    Self-Sovereign Identity: Konzeptionelle Grundlagen, Standards (DID, Verifiable Credentials) und bestehende Framework-Implementierungen
+
+    Informationssicherheit für KRITIS: BSI-Vorgaben, Sicherheitsstandards, Compliance-Anforderungen und Best Practices
+
+\textbf{Evaluation bestehender Artefakte und Frameworks:} Der Rigor Cycle umfasst die systematische Analyse und Bewertung existierender SSI-Frameworks (z.B. Hyperledger Indy/Aries, Walt.ID, Veramo, Cheqd) hinsichtlich ihrer PQC-Kompatibilität, Erweiterbarkeit und Eignung für KRITIS-Anwendungen.
+
+\textbf{Methodische Strenge in Konstruktion und Evaluation:} Die Anwendung rigoroser Methoden erfolgt sowohl bei der Entwicklung des Prototyps als auch bei dessen Evaluation. Hierzu zählen formale Sicherheitsanalysen der kryptografischen Verfahren, Performance-Messungen, Funktionalitätstests sowie die Anwendung des Framework for Evaluation in Design Science (FEDS).
+
+\textbf{Beitrag zur Wissensbasis:} Der Rigor Cycle schließt sich durch die Rückführung neuer Erkenntnisse in die wissenschaftliche Wissensbasis. Dies umfasst:
+
+    Gestaltungsprinzipien für quantenresistente SSI-Systeme in KRITIS
+
+    Evaluationsergebnisse zur Performance und Skalierbarkeit PQC-basierter Implementierungen
+
+    Methodische Erkenntnisse zur Integration von Post-Quantum-Kryptografie in bestehende SSI-Frameworks
+
+    Praktische Handlungsempfehlungen für die Umsetzung kryptoagiler Architekturen
+
+Die enge Verzahnung des Rigor Cycle mit dem Design Cycle stellt sicher, dass die Entwicklung des Artefakts auf einer soliden wissenschaftlichen Grundlage erfolgt und gleichzeitig neue, über den Stand der Technik hinausgehende Erkenntnisse generiert werden.
+
+\paragraph*{Design Cycle: Iterativer Entwicklungs- und Evaluationsprozess des Prototyps} \label{Design Cycle: Iterativer Entwicklungs- und Evaluationsprozess des Prototyps}
+
+Der interne Design Cycle bildet das Herzstück jedes Design-Science-Forschungsprojekts. Dieser Zyklus iteriert zwischen dem Aufbau eines Artefakts, dessen Evaluation und dem anschließenden Feedback zur weiteren Verfeinerung des Designs \parencite[S. 90-91]{hevner_ThreeCycleViewDesignScienceResearch_2007}.
+
+Im Kontext dieser Arbeit manifestiert sich der Design Cycle durch einen systematischen, mehrstufigen Entwicklungs- und Evaluationsprozess:
+
+\textbf{Phase 1: Architekturdesign und Technologieauswahl}
+
+Der Design Cycle beginnt mit der konzeptionellen Gestaltung der Systemarchitektur. Basierend auf den Anforderungen aus dem Relevance Cycle und den wissenschaftlichen Grundlagen aus dem Rigor Cycle werden fundamentale Designentscheidungen getroffen:
+
+    Auswahl eines geeigneten SSI-Frameworks (z.B. Hyperledger Indy/Aries)
+
+    Festlegung der Blockchain-Plattform (permissioned Ledger)
+
+    Definition der PQC-Algorithmen für verschiedene Anwendungsfälle (Signaturen, Schlüsselaustausch, Hashing)
+
+    Konzeption der kryptoagilen Architektur zur Ermöglichung zukünftiger Algorithmus-Updates
+
+Evaluation: Bewertung der Architekturentscheidungen anhand definierter Kriterien (PQC-Kompatibilität, Erweiterbarkeit, Compliance-Konformität, Performance-Potenzial)
+
+\textbf{Phase 2: Implementierung der Kernkomponenten}
+
+Die Entwicklung des Prototyps erfolgt modular in einer containerisierten Laborumgebung (Docker, Ubuntu 24.04 LTS). Zentrale Komponenten umfassen:
+
+    Kryptografische Schlüsselverwaltung: Integration von PQC-Algorithmen (ML-DSA, ML-KEM) für Schlüsselgenerierung, -speicherung und -verwaltung
+
+    DID-Management: Implementierung dezentraler Identifikatoren mit PQC-basierten Signaturen
+
+    Verifiable Credentials: Erstellung, Signierung und Verifikation von Credentials mit quantenresistenten Verfahren
+
+    Wallet-Funktionalität: Agenten-Software für Holder, Issuer und Verifier
+
+    Blockchain-Integration: Anbindung an permissioned Ledger mit PQC-gesicherten Transaktionen
+
+Evaluation: Funktionalitätstests der einzelnen Komponenten, Unit-Tests, Integrationstests
+
+\textbf{Phase 3: Systemintegration und Interoperabilität}
+
+Nach erfolgreicher Implementierung der Kernkomponenten erfolgt die Integration zum Gesamtsystem. Dabei werden die Schnittstellen zwischen SSI-Komponenten und Blockchain-Backend sowie die End-to-End-Workflows getestet.
+
+Evaluation: Systemtests, Use-Case-Validierung anhand definierter KRITIS-Szenarien
+
+\textbf{Phase 4: Performance- und Sicherheitsanalyse}
+
+Die Evaluation des integrierten Systems umfasst:
+
+    Performance-Messungen: Durchsatz, Latenz, Speicher- und Rechenaufwand der PQC-Operationen
+
+    Skalierbarkeitsanalyse: Bewertung des Systemverhaltens unter Last
+
+    Sicherheitsbewertung: Kryptografische Stärke, Analyse potenzieller Angriffsvektoren, Resilience-Tests
+
+    Compliance-Validierung: Überprüfung der Einhaltung regulatorischer Anforderungen
+
+\textbf{Phase 5: Refinement und Iteration}
+
+Basierend auf den Evaluationsergebnissen erfolgt eine iterative Verfeinerung des Designs. Identifizierte Schwachstellen, Performance-Engpässe oder Funktionsdefizite führen zu Designanpassungen, die wiederum evaluiert werden. Dieser iterative Prozess wird solange durchlaufen, bis ein zufriedenstellendes Design erreicht ist, das die definierten Anforderungen erfüllt.
+
+Die Such- und Optimierungsstrategie des Design Cycle folgt dem Prinzip, verfügbare Mittel zu nutzen, um gewünschte Ziele zu erreichen, während gleichzeitig die Gesetzmäßigkeiten der Problemumgebung berücksichtigt werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Die enge Verzahnung von Konstruktion und Evaluation im Design Cycle stellt sicher, dass das entwickelte Artefakt nicht nur technisch realisierbar ist, sondern auch die definierten Qualitäts- und Nutzenanforderungen erfüllt. Die Erkenntnisse aus jeder Iteration fließen sowohl in die weitere Verfeinerung des Prototyps als auch in die Wissensbasis (Rigor Cycle) und die Bewertung der praktischen Anwendbarkeit (Relevance Cycle) ein.
+
+\subsubsection{DSR-Leitlinien} \label{DSR-Leitlinien}
+
+Die sieben DSR-Leitlinien nach \textcite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}, dargestellt in \autoref{tab:DSR_Guidelines} bilden einen strukturierten Rahmen zur Durchführung und Bewertung von Design-Science-Forschung. Im Folgenden wird dargelegt, wie diese Arbeit die einzelnen Leitlinien erfüllt.
+
+\begin{longtable}{L{4cm}L{7cm}}
+    \caption[]{Design Science Research Guidelines}
+    \label{tab:DSR_Guidelines} \\
+    \toprule
+    \textbf{Guideline} & \textbf{Description} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{2}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Guideline} & \textbf{Description} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{2}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{2}{p{\linewidth}}{\textit{Anmerkung.} In Anlehnung an \textcite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.} \\
+    \endlastfoot
+    Guideline 1: Design as an Artifact & Design-science research must produce a viable artifact in the form of a construct, a model, a method, or an instantiation. \\
+    \midrule
+    Guideline 2: Problem Relevance & The objective of design-science research is to develop technology-based solutions to important and relevant business problems. \\
+    \midrule
+    Guideline 3: Design Evaluation & The utility, quality, and efficacy of a design artifact must be rigorously demonstrated via well-executed evaluation methods. \\
+    \midrule
+    Guideline 4: Research Contributions & Effective design-science research must provide clear and verifiable contributions in the areas of the design artifact, design foundations, and/or design methodologies. \\
+    \midrule
+    Guideline 5: Research Rigor & Design-science research relies upon the application of rigorous methods in both the construction and evaluation of the design artifact. \\
+    \midrule
+    Guideline 6: Design as a Search Process & The search for an effective artifact requires utilizing available means to reach desired ends while satisfying laws in the problem environment. \\
+    \midrule
+    Guideline 7: Communication of Research & Design-science research must be presented effectively both to technology-oriented as well as management-oriented audiences. \\
+\end{longtable}
+
+\paragraph*{Guideline 1: Design als Artefakt} \label{Guideline 1: Design als Artefakt}
+
+Design-Science-Forschung muss ein praktikables Artefakt in Form eines Konstrukts, Modells, einer Methode oder einer Instanziierung hervorbringen \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Diese Arbeit entwickelt mehrere miteinander verknüpfte Artefakte:
+
+    Instanziierung: Ein funktionsfähiger Prototyp eines blockchain-basierten SSI-Systems mit integrierten PQC-Algorithmen, implementiert in einer Laborumgebung
+
+    Konstrukte: Kryptografische Abstraktionsschichten für kryptoagile Systemarchitekturen, PQC-kompatible DID-Methoden
+
+    Modelle: Systemarchitektur für quantenresistente SSI in KRITIS, Integration von PQC in SSI-Workflows
+
+    Methoden: Vorgehensmodell zur Integration von PQC in bestehende SSI-Frameworks, Evaluationsmethodik für quantenresistente Identitätssysteme
+
+\paragraph*{Guideline 2: Problemrelevanz} \label{Guideline 2: Problemrelevanz}
+
+Das Ziel von Design-Science-Forschung besteht darin, technologiebasierte Lösungen für wichtige und relevante Geschäftsprobleme zu entwickeln \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Die Arbeit adressiert ein hochrelevantes Problem von nationaler und internationaler Bedeutung:
+
+    Quantenbedrohung: Bestehende kryptografische Verfahren in SSI-Systemen sind durch leistungsfähige Quantencomputer bedroht
+
+    KRITIS-Sicherheit: Kritische Infrastrukturen stellen besondere Anforderungen an Verfügbarkeit, Integrität und Vertraulichkeit digitaler Identitäten
+
+    Regulatorische Compliance: IT-Sicherheitsgesetz 2.0, NIS2-Richtlinie und BSI-Vorgaben erfordern nachweislich sichere Lösungen
+
+    Zukunftsfähigkeit: Die Notwendigkeit kryptoagiler Systeme zur Anpassung an zukünftige kryptografische Entwicklungen
+
+Die Problemstellung ist sowohl wissenschaftlich als auch praktisch hochrelevant und tangiert unmittelbar die Sicherheit und Funktionsfähigkeit essenzieller gesellschaftlicher Infrastrukturen.
+
+\paragraph*{Guideline 3: Design-Evaluation} \label{Guideline 3: Design-Evaluation}
+
+Nutzen, Qualität und Wirksamkeit eines Design-Artefakts müssen durch gut durchgeführte Evaluationsmethoden rigoros nachgewiesen werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Die Evaluation erfolgt multidimensional und systematisch:
+
+    Funktionalitätstests: Validierung der Kernfunktionen (DID-Erstellung, Credential-Issuance, Verification) anhand definierter Use Cases aus dem KRITIS-Umfeld
+
+    Performance-Analyse: Quantitative Messungen von Durchsatz, Latenz, Speicher- und Rechenaufwand der PQC-Operationen
+
+    Skalierbarkeitsanalyse: Bewertung des Systemverhaltens unter verschiedenen Lastszenarien
+
+    Sicherheitsbewertung: Analyse der kryptografischen Stärke, Identifikation von Angriffsvektoren, Resilience-Tests
+
+    Compliance-Validierung: Überprüfung der Einhaltung regulatorischer Anforderungen (BSI, DSGVO, IT-SiG 2.0)
+
+    FEDS-Framework: Systematische Anwendung formativer und summativer Evaluationsstrategien
+
+Die Evaluationsmethodik orientiert sich am Framework for Evaluation in Design Science (FEDS) und kombiniert künstliche Evaluationsparadigmen (Labor) mit naturalistischen Aspekten (realitätsnahe Use Cases).
+
+\paragraph*{Guideline 4: Forschungsbeiträge} \label{Guideline 4: Forschungsbeiträge}
+
+Effektive Design-Science-Forschung muss klare und verifizierbare Beiträge in den Bereichen Design-Artefakt, Design-Grundlagen und/oder Design-Methodologien liefern \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Die Arbeit leistet Beiträge auf mehreren Ebenen:
+
+Design-Artefakt:
+
+    Erster funktionsfähiger Prototyp eines SSI-Systems mit vollständiger PQC-Integration für KRITIS
+
+    Nachweis der technischen Machbarkeit quantenresistenter SSI-Architekturen
+
+    Kryptoagile Systemarchitektur zur Unterstützung zukünftiger Algorithmus-Updates
+
+Design-Grundlagen:
+
+    Gestaltungsprinzipien für die Integration von PQC in SSI-Systeme
+
+    Systematische Bewertung der Eignung verschiedener PQC-Algorithmen für unterschiedliche SSI-Komponenten
+
+    Erkenntnisse zu Trade-offs zwischen Sicherheit, Performance und Praktikabilität
+
+Design-Methodologien:
+
+    Vorgehensmodell zur PQC-Migration in bestehenden SSI-Frameworks
+
+    Evaluationsmethodik für quantenresistente Identitätssysteme
+
+    Best Practices für die Implementierung kryptoagiler Architekturen in KRITIS
+
+Diese Beiträge erweitern die Wissensbasis sowohl für die wissenschaftliche Community als auch für Praktiker in KRITIS-Organisationen.
+
+
+\paragraph*{Guideline 5: Forschungsstrenge} \label{Guideline 5: Forschungsstrenge}
+
+Design-Science-Forschung beruht auf der Anwendung rigoroser Methoden sowohl bei der Konstruktion als auch bei der Evaluation des Design-Artefakts \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Die Forschungsstrenge wird durch mehrere Aspekte gewährleistet:
+
+Konstruktion:
+
+    Systematische Anforderungsanalyse basierend auf wissenschaftlicher Literatur und regulatorischen Vorgaben
+
+    Fundierte Technologieauswahl durch kriterienbasierte Evaluation bestehender Frameworks
+
+    Implementierung nach etablierten Software-Engineering-Prinzipien (Modularität, Testbarkeit, Dokumentation)
+
+    Einsatz standardisierter PQC-Algorithmen (NIST FIPS 203, 204, 205)
+
+Evaluation:
+
+    Systematische Literaturrecherche nach PRISMA 2020-Richtlinien
+
+    Anwendung etablierter Evaluationsframeworks (FEDS)
+
+    Reproduzierbare Performance-Messungen in kontrollierter Laborumgebung
+
+    Formale Sicherheitsanalysen der kryptografischen Verfahren
+
+    Systematische Dokumentation aller Designentscheidungen und Evaluationsergebnisse
+
+Wissenschaftliche Fundierung:
+
+    Rückgriff auf etablierte Theorien und Methoden aus Kryptografie, Distributed Systems und Informationssicherheit
+
+    Bezugnahme auf aktuelle wissenschaftliche Literatur und Standards
+
+    Kritische Reflexion von Limitationen und Annahmen
+
+\paragraph*{Guideline 6: Design als Suchprozess} \label{Guideline 6: Design als Suchprozess}
+
+Die Suche nach einem effektiven Artefakt erfordert die Nutzung verfügbarer Mittel, um gewünschte Ziele zu erreichen, während gleichzeitig die Gesetzmäßigkeiten der Problemumgebung berücksichtigt werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Der Suchprozess manifestiert sich durch:
+
+Verfügbare Mittel:
+
+    Bestehende SSI-Frameworks (Hyperledger Indy/Aries) als Ausgangsbasis
+
+    Standardisierte PQC-Algorithmen (ML-KEM, ML-DSA, SLH-DSA)
+
+    Open-Source-Bibliotheken (liboqs, OpenSSL 3.x)
+
+    Containerisierte Entwicklungsumgebung (Docker)
+
+    Blockchain-Plattformen (Indy-Besu, Hedera)
+
+Gewünschte Ziele:
+
+    Quantenresistente SSI-Architektur
+
+    KRITIS-konforme Sicherheit und Compliance
+
+    Praktikable Performance und Skalierbarkeit
+
+    Kryptografische Agilität
+
+Gesetzmäßigkeiten der Problemumgebung:
+
+    Physikalische Grenzen der PQC-Performance (größere Schlüssel, langsamere Operationen)
+
+    Blockchain-Charakteristika (Unveränderlichkeit, begrenzte Transaktionsgröße)
+
+    Regulatorische Constraints (Datenschutz, Nachweispflichten)
+
+    Bestehende Standards und Interoperabilitätsanforderungen
+
+Der iterative Design Cycle ermöglicht die systematische Exploration des Lösungsraums und die schrittweise Annäherung an ein optimales Design unter Berücksichtigung konkurrierender Anforderungen und Randbedingungen.
+
+\paragraph*{Guideline 7: Kommunikation der Forschung} \label{Guideline 7: Kommunikation der Forschung}
+
+Design-Science-Forschung muss sowohl für technologieorientierte als auch für managementorientierte Zielgruppen effektiv präsentiert werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}.
+
+Erfüllung: Die Kommunikation der Forschungsergebnisse erfolgt zielgruppenspezifisch:
+
+Für technologieorientierte Zielgruppen (Forscher, Entwickler):
+
+    Detaillierte Beschreibung der Systemarchitektur und Implementierung
+
+    Technische Spezifikation der PQC-Integration
+
+    Performance-Metriken und Benchmark-Ergebnisse
+
+    Quellcode-Dokumentation und Deployment-Anleitungen
+
+    Reproduzierbare Evaluationsergebnisse
+
+Für managementorientierte Zielgruppen (KRITIS-Betreiber, Entscheidungsträger):
+
+    Zusammenfassung der Problemstellung und Lösungsansätze
+
+    Business Case für quantenresistente SSI-Systeme
+
+    Compliance-Konformität und regulatorische Erfüllung
+
+    Implementierungsrichtlinien und Migrationsstrategien
+
+    Risiko-Nutzen-Bewertung und Handlungsempfehlungen
+
+    Gestaltungsprinzipien und Best Practices
+
+Publikationsformen:
+
+    Diese Masterarbeit als umfassende wissenschaftliche Dokumentation
+
+    Potenzielle Publikation in wissenschaftlichen Journals und Konferenzen
+
+    Präsentation der Ergebnisse im Rahmen des Kolloquiums
+
+    Technische Dokumentation und Whitepapers für Praktiker
+
+    Mögliche Beiträge zu Open-Source-Communities
+
+Die strukturierte Darstellung entlang der DSR-Leitlinien gewährleistet, dass sowohl der wissenschaftliche Beitrag als auch die praktische Relevanz der Forschung klar kommuniziert werden.
+
+---
+
+
+
+
+
+% Die besondere Eignung von DSR für das vorliegende Forschungsvorhaben begründet sich durch die systematische Ausrichtung an sieben fundierenden Leitlinien (\autoref{tab:DSR_Guidelines}), die \textcite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004} als konzeptionellen Rahmen für effektive Design-Science-Forschung etabliert haben. Diese Leitlinien stellen sicher, dass das Forschungsprojekt gleichzeitig wissenschaftlich rigoros und praktisch relevant durchgeführt wird.
+
+% Design als Artefakt (Guideline 1). Design-Science-Forschung muss ein praktikables Artefakt in Form eines Konstrukts, Modells, einer Methode oder einer Instanziierung hervorbringen \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Die Integration von Post-Quantum-Kryptografie in blockchain-basierte SSI-Systeme erfordert die Schaffung eines neuartigen, funktionsfähigen IT-Artefakts. Dieser Arbeitsschritt ist elementar für das vorliegende Forschungsvorhaben. Der entwickelte Prototyp verkörpert sowohl die Instanziierung (funktionierendes Laborumfeld mit ACA-Py-Agenten, Hyperledger-Komponenten und PQC-Integration) als auch designierte Konstrukte und Methoden (kryptoagile Architekturmuster, PQC-kompatible DID-Schemata).
+
+% Problemrelevanz (Guideline 2). Das Ziel von Design-Science-Forschung besteht darin, technologiebasierte Lösungen für bedeutende und relevante Geschäftsprobleme zu entwickeln \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Das vorliegende Forschungsvorhaben adressiert das \fixme{in Kapitel XY vorgestellte} hochrelevante, multi-dimensionale Problem: die drohende Verwundbarkeit bestehender SSI-Systeme durch die Entwicklung leistungsfähiger Quantencomputer, die exponentielle Sicherheitsrisiken für kritische Infrastrukturen darstellen. Zudem existiert ein regulatorisches Compliance-Problem, da IT-Sicherheitsgesetz 2.0, NIS2-Richtlinie und BSI-Vorgaben nachweislich sichere, zukunftsfähige Lösungen fordern. Dies ist nicht nur ein technisches, sondern auch ein kritisches Geschäftsproblem für Betreiber kritischer Infrastrukturen. \fixme{QUELLE}
+
+% Design-Evaluation (Guideline 3). Der Nutzen, die Qualität und die Wirksamkeit eines Design-Artefakts müssen durch gut durchgeführte Evaluationsmethoden rigoros nachgewiesen werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Dieses Projekt schreibt eine systematische, mehrstufige Evaluationsstrategie vor: Funktionalitätstests der PQC-Komponenten, Performance-Analysen (Latenz, Durchsatz, Speicheraufwand), Sicherheitsbewertungen der kryptografischen Verfahren, Skalierungsstudien unter Lasten sowie Compliance-Validierung anhand realistischer KRITIS-Use-Cases. Diese rigorose Evaluation stellt sicher, dass die Designentscheidungen nicht nur konzeptionell, sondern auch praktisch-funktional gerechtfertigt sind. \fixme{abspecken}
+
+% Forschungsbeiträge (Guideline 4). Effektive Design-Science-Forschung muss klare und verifizierbare Beiträge in den Bereichen Design-Artefakt, Design-Grundlagen und/oder Design-Methodologien liefern \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Das Projekt generiert Forschungsbeiträge auf drei Ebenen: (a) das innovative Artefakt selbst (erster Prototyp quantenresistenter SSI für KRITIS), (b) Gestaltungsprinzipien und Erkenntnisse zur PQC-Integration in SSI-Systeme (Design-Grundlagen) sowie (c) ein reproduzierbares Vorgehensmodell zur PQC-Migration in bestehenden Frameworks (Design-Methodologie). Damit trägt die Arbeit zur Wissensbasis bei, die Forschenden und Praktikern hilft, zukünftige quantenresistente Identitätssysteme zu entwickeln.
+
+% Forschungsstrenge (Guideline 5). Design-Science-Forschung beruht auf der Anwendung rigoroser Methoden sowohl bei der Konstruktion als auch bei der Evaluation des Design-Artefakts \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Forschungsstrenge wird in diesem Projekt gewährleistet durch: (a) systematische Anforderungsanalyse basierend auf PRISMA-geleiteter Literaturrecherche, (b) Verwendung standardisierter, durch NIST validierter PQC-Algorithmen, (c) Implementierung nach etablierten Software-Engineering-Standards (Modularität, Testbarkeit, Versionskontrolle), (d) Anwendung formaler Sicherheitsanalysemethoden sowie (e) transparente Dokumentation aller Designentscheidungen. Diese methodische Strenge unterscheidet design-orientiertes Forschungsprojekt von bloßer Systemimplementierung.
+
+% Design als Suchprozess (Guideline 6). Die Suche nach einem effektiven Artefakt erfordert die Nutzung verfügbarer Mittel, um gewünschte Ziele zu erreichen, während gleichzeitig die Gesetzmäßigkeiten der Problemumgebung berücksichtigt werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Das Projekt nutzt verfügbare Mittel systematisch: existierende SSI-Frameworks (Hyperledger Indy/Aries), standardisierte PQC-Algorithmen (ML-KEM, ML-DSA, Falcon), Open-Source-Bibliotheken (liboqs, OpenSSL 3.x) sowie Containerisierungstechnologien. Die Suchstrategie berücksichtigt aber auch die Gesetzmäßigkeiten der Problemumgebung: physikalische PQC-Performance-Grenzen, Blockchain-Charakteristiken (begrenzte Transaktionsgröße, Immutabilität), regulatorische Constraints und Interoperabilitätsstandards. Der iterative Design Cycle ermöglicht die systematische Exploration des Lösungsraums und schrittweise Verbesserung des Designs innerhalb dieser Rahmenbedingungen.
+
+% Kommunikation der Forschung (Guideline 7). Design-Science-Forschung muss sowohl für technologieorientierte als auch für managementorientierte Zielgruppen effektiv präsentiert werden \parencite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}. Die Arbeit adressiert mehrere Zielgruppen gezielt: Forschende und Entwickler erhalten detaillierte technische Spezifikationen, Implementierungsrichtlinien und reproduzierbare Evaluationsergebnisse; KRITIS-Betreiber und Entscheidungsträger erhalten Management Summaries, Compliance-Analysen, Geschäftsfallbewertungen und praktische Handlungsempfehlungen. Diese mehrschichtige Kommunikationsstrategie stellt sicher, dass die Forschungsergebnisse sowohl in die akademische Wissensbasis als auch in die Praxis diffundieren.
+
+\subsection{DSRM Prozessmodell} \label{DSRM Prozessmodell}
+
+Für die Umsetzung des \ac{DSR} wird das sechsstufige Prozessmodell nach \textcite[S. 54]{peffers_DesignScienceResearchmethodologyinformationsystemsresearch_2007} (\autoref{fig:DSRM Process Model}) adaptiert und sichert eine systematische Strukturierung des Forschungsvorhabens.
+
+Durch iterative Rückkopplung insbesondere zu Zieldefinition und Design/Entwicklung kann das Artefakt laufend anhand von Evaluationen und neuen Anforderungen optimiert werden. Die Praxisnähe ist durch die Orientierung an realen Use Cases und \ac{KRITIS}-Anforderungen gewährleistet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{DSRM Process Model.png}
+    \caption{DSRM Process Model}
+    \begin{flushleft}
+    \textit{Anmerkung.} Aus \textcite[S. 54]{peffers_DesignScienceResearchmethodologyinformationsystemsresearch_2007}.
+    \end{flushleft}
+    \label{fig:DSRM Process Model}
+\end{figure}
+
+\pagebreak
+
+Die konkrete Umsetzung der sechs \ac{DSR}-Phasen zeigt \autoref{tab:dsr_phasen}.
+
+\begin{longtable}{L{3.5cm}L{11cm}}
+    \caption{Konkrete Anwendung des DSRM Process Modells}
+    \label{tab:dsr_phasen} \\
+    \toprule
+    \textbf{Phase} & \textbf{Beschreibung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{2}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Phase} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{2}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{2}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis von \textcite[S. 54]{peffers_DesignScienceResearchmethodologyinformationsystemsresearch_2007} mit Inhalten des vorliegenden Exposes und \textcite[S. 1]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.} \\
+    \endlastfoot
+    Phase 1: \newline Problemidentifikation und Motivation &
+    Identifikation der drohenden Quantenbedrohung für bestehende \ac{SSI}-Systeme für \ac{KRITIS} als zentrale Herausforderung. \\
+    \midrule
+    Phase 2: \newline Zieldefinition &
+    Konkretisierung der vier Forschungsfragen zu Systemarchitektur, Algorithmenauswahl, Performance und kryptografischer Agilität als Rahmengebung des Lösungsansatzes. \\
+    \midrule
+    Phase 3: \newline Design und Entwicklung &
+    Festlegung des Technologie-Stacks, Architekturentscheidungen, die Auswahl und Integration der \ac{PQC}-Algorithmen sowie die Definition geeigneter Schnittstellen und Datenflüsse. Darüber hinaus werden die spezifischen Compliance-Anforderungen für \ac{KRITIS} in das Systemdesign integriert. Die Implementierung innerhalb der Laborumgebung erfolgt modular, um kryptografische Agilität zu gewährleisten und zukünftige Algorithmus-Updates ohne Systemunterbrechung zu ermöglichen. Sie umfasst die (Weiter-)Entwicklung zentraler Systemkomponenten und Mechanismen für zentrale Aktivitäten des Identity Management Lifecycles. \\
+    \midrule
+    Phase 4: \newline Demonstration &
+    Verifizierung der grundsätzlichen Funktionsfähigkeit des entwickelten Prototyps innerhalb der Laborumgebung anhand voridentifizierter Use Cases, die auf dem Identity Management Lifecycle aufbauen und ausgewählte Szenarien des \ac{KRITIS}-Bereichs darstellen. \\
+    \midrule
+    Phase 5: \newline Evaluation &
+    Multidimensionale Anwendung des von \textcite{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} entwickelten \ac{FEDS}-Frameworks, welches eine systematische Bewertungsstrategie für \ac{DSR}-Artefakte bereitstellt. Die Evaluation gliedert sich nach \textcite[S. 1]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} in formative und summative Komponenten, wobei sowohl künstliche als auch naturalistische Evaluationsparadigmen zum Einsatz kommen. \\
+    \midrule
+    Phase 6: \newline Kommunikation &
+    Weitergabe der Forschungsergebnisse. Im Rahmen dieser Masterarbeit erfolgt dies in einem ausgewählten Rahmen, wobei sowohl wissenschaftliche als auch praxisorientierte Zielgruppen berücksichtigt werden. Die Ergebnisse zur Integration von \ac{PQC} in \ac{SSI}-Systeme werden in Form von Gestaltungsprinzipien zusammengefasst, um Anhaltspunkte für zukünftige Entwicklungen in diesem Bereich zu bieten. \\
+\end{longtable}
+
+==>
+
+DSRM-Phase	Kapitel in der Arbeit
+Phase 1: Problem Identification	1.1
+Phase 2: Objectives	1.4, 4.1.1
+Phase 3: Design \& Development	4.1-4.4 (Iterationen 0-3)
+Phase 4: Demonstration	4.3.3, 4.4.3 (innerhalb Iterationen) + 5.2
+Phase 5: Evaluation	4.2.3, 4.3.3, 4.4.3 (formativ) + 5 (summativ)
+Phase 6: Communication	8, 9
+
+\subsection{FEDS-Framework} \label{FEDS-Framework}
+
+Die Evaluation des entwickelten SSI-Prototyps folgt dem Framework for Evaluation in Design Science (FEDS) nach \textcite[S. 1]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}, welches eine systematische Evaluationsstrategie für Design-Science-Artefakte bereitstellt. Evaluation ist eine zentrale und kritische Komponente von Design-Science-Forschung, da sie Feedback für die weitere Entwicklung liefert und bei korrekter Durchführung die Rigorosität der Forschung sicherstellt \parencite[S. 1]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+Evaluation in DSR ist essenziell, da Forschende rigorös die Nützlichkeit, Qualität und Wirksamkeit eines Design-Artefakts mittels gut durchgeführter Evaluationsmethoden nachweisen müssen \parencite[S. 1]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+Das FEDS-Framework adressiert die Forschungsfrage, wie eine geeignete Strategie für die Durchführung verschiedener Evaluationsaktivitäten in einem DSR-Projekt zu gestalten ist \parencite[S. 2]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Es charakterisiert DSR-Evaluationsepisoden (spezifische Evaluationen) anhand zweier Dimensionen: der funktionalen Zielsetzung der Evaluation (formativ oder summativ) und dem Paradigma der Evaluation (künstlich oder naturalistisch) \parencite[S. 1]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+\subsubsection{Dimension 1: Funktionale Zielsetzung}
+
+Die funktionale Zielsetzung unterscheidet zwischen formativer und summativer Evaluation. Diese Unterscheidung liegt nicht in der inhaltlichen Natur der Evaluation, sondern in deren funktionalem Zweck \parencite[S. 2]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+\textbf{Formative Evaluationen} werden verwendet, um empirisch fundierte Interpretationen zu erzeugen, die als Grundlage für erfolgreiches Handeln zur Verbesserung der Eigenschaften oder Performance des Evaluationsobjekts dienen. Formative Evaluationen fokussieren auf Konsequenzen und unterstützen Entscheidungen zur Verbesserung des Evaluationsobjekts \parencite[S. 2]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+\textbf{Summative Evaluationen} werden verwendet, um empirisch fundierte Interpretationen zu erzeugen, die als Grundlage für die Schaffung geteilter Bedeutungen über das Evaluationsobjekt in verschiedenen Kontexten dienen. Summative Evaluationen fokussieren auf Bedeutungen und unterstützen Entscheidungen zur Auswahl des Evaluationsobjekts für eine Anwendung \parencite[S. 2-3]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+Im Kontext dieser Arbeit werden beide Evaluationsformen eingesetzt: Formative Evaluationen erfolgen iterativ während der drei Entwicklungszyklen (\fixme{Kapitel 4}), um Designschwächen frühzeitig zu identifizieren und zu beheben. Summative Evaluationen werden nach Abschluss der Prototyp-Entwicklung durchgeführt, um die Gesamtperformance, Sicherheit und KRITIS-Tauglichkeit des finalen Artefakts zu bewerten (\fixme{Kapitel 7}).
+
+\subsubsection{Dimension 2: Evaluationsparadigma}
+
+Das FEDS-Framework unterscheidet zwischen künstlicher (artificial) und naturalistischer (naturalistic) Evaluation \parencite[S. 3-4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+\textbf{Künstliche Evaluation} kann empirisch oder nicht-empirisch sein und ist nahezu immer positivistisch und reduktionistisch. Sie wird zur Prüfung von Design-Hypothesen verwendet und umfasst Laborexperimente, Simulationen, kriterienbasierte Analysen, theoretische Argumente und mathematische Beweise. Das dominante wissenschaftlich-rationale Paradigma bringt künstlicher Evaluation den Vorteil stärkerer wissenschaftlicher Reliabilität in Form besserer Wiederholbarkeit und Falsifizierbarkeit \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+\textbf{Naturalistische Evaluation} erforscht die Performance einer Lösungstechnologie in ihrer realen Umgebung, typischerweise innerhalb einer Organisation. Durch Evaluation in einer realen Umgebung (reale Menschen, reale Systeme, reale Settings) umfasst naturalistische Evaluation alle Komplexitäten menschlicher Praxis in realen Organisationen. Sie ist immer empirisch und tendiert zum Interpretivismus, kann aber auch positivistisch oder kritisch sein. Das dominante interpretivistische Paradigma bringt naturalistischer DSR-Evaluation den Vorteil stärkerer interner Validität \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+Einerseits ist künstliche Evaluation oft die einfachste, direkteste und kostengünstigste Form der Evaluation mit präziser Sprache in den Ergebnissen. Andererseits beinhaltet künstliche Evaluation eine reduktionistische Abstraktion von der natürlichen Umgebung und ist notwendigerweise unrealistisch, da sie in einem oder mehreren von drei Realitäten (unreale Nutzer, unreale Systeme oder unreale Probleme) nicht der Realität entspricht \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Im Gegensatz dazu bietet naturalistische Evaluation kritische Gesichtsvalidität und sichert eine rigorosere Bewertung der Effektivität des Artefakts \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Die beiden Dimensionen sind vollständig orthogonal zueinander: Sowohl naturalistische als auch künstliche Evaluationsmethoden können für formative und/oder summative Evaluationen verwendet werden \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+Für diese Arbeit werden beide Paradigmen kombiniert: Künstliche Evaluationen erfolgen in einer kontrollierten Laborumgebung (Docker-Container, definierte Test-Use-Cases) zur Messung von Performance-Metriken und kryptografischer Stärke. Naturalistische Elemente werden durch KRITIS-spezifische Szenarien integriert, die reale Anforderungen und Workflows abbilden.
+
+\subsubsection{FEDS-Evaluationsstrategien}
+
+Das FEDS-Framework identifiziert vier prototypische Evaluationsstrategien, die jeweils unterschiedliche Trajektorien vom Ursprung (keine Evaluation) zur umfassenden und rigorosen Evaluation (formativ-summativ, künstlich-naturalistisch) verfolgen \parencite[S. 4-5]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}:
+
+\begin{enumerate}
+    \item \textbf{Quick \& Simple Strategy:} Wenig formative Evaluation, schneller Übergang zu summativen und naturalistischeren Evaluationen. Geeignet bei kleinen, einfachen Designs mit niedrigem sozialen und technischen Risiko.
+    
+    \item \textbf{Human Risk \& Effectiveness Strategy:} Betont formative Evaluationen früh im Prozess, progrediert schnell zu naturalistischen formativen Evaluationen. Gegen Ende werden summative Evaluationen durchgeführt, die auf rigorose Evaluation der Effektivität des Artefakts fokussieren.
+    
+    \item \textbf{Technical Risk \& Efficacy Strategy:} Betont künstliche formative Evaluationen iterativ früh im Prozess, progrediert zu summativen künstlichen Evaluationen zur rigorosen Bestimmung der Wirksamkeit. Gegen Ende werden naturalistische Evaluationen eingebunden.
+    
+    \item \textbf{Purely Technical Strategy:} Wird verwendet, wenn ein Artefakt rein technisch ist ohne menschliche Nutzer, oder wenn geplante Deployment mit Nutzern so weit in der Zukunft liegt, dass naturalistische Evaluation irrelevant ist.
+\end{enumerate}
+
+Für diese Arbeit wird eine Kombination aus \textbf{Technical Risk \& Efficacy} und \textbf{Human Risk \& Effectiveness} Strategy gewählt. Die Entwicklung beginnt mit künstlichen formativen Evaluationen (Unit-Tests, Performance-Messungen in Laborumgebung), progrediert zu naturalistischeren Evaluationen (KRITIS-Use-Cases) und schließt mit summativen Evaluationen ab (Gesamtbewertung gegen definierte Erfolgskriterien).
+
+\subsubsection{FEDS-Evaluationsdesign-Prozess}
+
+Das FEDS-Framework bietet einen vierstufigen Prozess zur Gestaltung der Evaluationsstrategie \parencite[S. 6]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}:
+
+\textbf{Schritt 1: Explizierung der Evaluationsziele}  
+Es existieren mindestens vier möglicherweise konkurrierende Ziele bei der Gestaltung der Evaluationskomponente von DSR: Rigorosität (Wirksamkeit und Effektivität), Unsicherheits- und Risikoreduktion, Ethik und Effizienz \parencite[S. 6-7]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+Für diese Arbeit sind die Evaluationsziele:
+\begin{itemize}
+    \item \textbf{Rigorosität:} Nachweis, dass der Prototyp funktionsfähig ist (Wirksamkeit) und in realistischen KRITIS-Szenarien einsetzbar ist (Effektivität)
+    \item \textbf{Risikoreduktion:} Frühzeitige Identifikation technischer Risiken (PQC-Integrationsprobleme, Performance-Engpässe) durch formative Evaluationen
+    \item \textbf{Effizienz:} Begrenzung des Evaluationsaufwands auf für eine Masterarbeit realisierbare Laborumgebungen
+\end{itemize}
+
+\textbf{Schritt 2: Auswahl der Evaluationsstrategie(n)}  
+Basierend auf den Zielen wird eine oder mehrere Strategien gewählt. Tabelle \ref{tab:feds_strategy} fasst die Auswahlkriterien zusammen \parencite[S. 6]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+
+\begin{table}[h]
+\centering
+\caption{Auswahlkriterien für FEDS-Evaluationsstrategien}
+\label{tab:feds_strategy}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Strategie} & \textbf{Auswahlkriterien} \\
+\hline
+Quick \& Simple & Kleines und einfaches Design mit niedrigem sozialen und technischen Risiko \\
+\hline
+Human Risk \& Effectiveness & Hauptrisiko sozial oder nutzerorientiert; günstiger Zugang zu echten Nutzern; kritisches Ziel ist rigorose Etablierung langfristiger Nützlichkeit in realen Situationen \\
+\hline
+Technical Risk \& Efficacy & Hauptrisiko technisch orientiert; Evaluation mit echten Nutzern prohibitiv teuer; kritisches Ziel ist rigorose Etablierung, dass Nutzen dem Artefakt zuzuschreiben ist \\
+\hline
+Purely Technical & Artefakt rein technisch ohne soziale Aspekte oder Deployment liegt weit in der Zukunft \\
+\hline
+\end{tabular}
+\end{table}
+
+Für diese Arbeit wird \textbf{Technical Risk \& Efficacy} gewählt, da:
+\begin{itemize}
+    \item Das Hauptrisiko technischer Natur ist (PQC-Integration, Performance)
+    \item Die Evaluation in realen KRITIS-Umgebungen nicht realisierbar ist (Zugang, Sicherheitsrisiken, regulatorische Hürden)
+    \item Nachweis erforderlich ist, dass PQC-Algorithmen die erwartete Sicherheit bieten
+\end{itemize}
+
+\textbf{Schritt 3: Bestimmung der zu evaluierenden Eigenschaften}  
+Die Auswahl der Artefakteigenschaften für die Evaluation ist notwendigerweise einzigartig für das Artefakt, seinen Zweck und seine Situation \parencite[S. 7]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Für diese Arbeit werden folgende Eigenschaftskategorien evaluiert:
+
+\begin{itemize}
+    \item \textbf{Funktionalität:} Vollständigkeit der Implementierung (UC1--UC7), Korrektheit der kryptografischen Operationen
+    \item \textbf{Performance:} Latenz (Credential-Verification < 1s), Durchsatz, Speicheraufwand (Schlüssel-, Signaturgröße)
+    \item \textbf{Sicherheit:} Kryptografische Stärke (NIST Security Level), Resilience gegen Angriffe
+    \item \textbf{Compliance:} Erfüllung von BSI-Anforderungen (IDM, KRY), DSGVO, NIS2
+    \item \textbf{Kryptoagilität:} Fähigkeit zum Algorithmus-Update ohne Systemunterbrechung
+\end{itemize}
+
+\textbf{Schritt 4: Gestaltung der individuellen Evaluationsepisoden}  
+Unter Berücksichtigung von Umgebungsfaktoren (verfügbare Zeit, Budget, Ressourcen) werden die konkreten Evaluationsepisoden geplant \parencite[S. 8]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Für diese Arbeit umfasst dies:
+
+\begin{enumerate}
+    \item \textbf{Formative Evaluationen (Iteration 1--3):} Unit-Tests, Integrationstests, Performance-Benchmarks
+    \item \textbf{Summative Evaluation (nach Iteration 3):}
+    \begin{itemize}
+        \item Funktionalitätstests anhand KRITIS-Use-Cases (Kapitel 7.2)
+        \item Performance-Analyse (Latenz, Durchsatz, Ressourcenverbrauch) (Kapitel 7.3)
+        \item Sicherheitsbewertung (kryptografische Analyse, Threat-Modeling) (Kapitel 7.4)
+        \item Compliance-Validierung (Abgleich mit BSI-Anforderungen) (Kapitel 7.4)
+    \end{itemize}
+\end{enumerate}
+
+Die Evaluation erfolgt in einer kontrollierten Laborumgebung (Ubuntu 24.04 LTS, Docker, Hyper-V), um Wiederholbarkeit und wissenschaftliche Rigorosität zu gewährleisten. KRITIS-Realitätsnähe wird durch realistische Use Cases und Szenarien sichergestellt (Kapitel 6).
+
+Das FEDS-Framework sichert somit eine systematische, rigorose und effiziente Evaluation des entwickelten PQC-basierten SSI-Prototyps, die sowohl wissenschaftlichen Standards als auch praktischen Anforderungen gerecht wird.
+
 \newpage
-\section{Systemarchitektur und Design} \label{sec:Systemarchitektur und Design}
+\section{Iterative Artefaktentwicklung}
+Überblick über den iterativen Entwicklungsprozess: \\
+       - Drei-Zyklen-Ansatz nach Knauss et al. (2020) \\
+       - Zuordnung zu DSRM-Phasen und Hevner-Zyklen \\
+       - Iterationsplanung und Forschungsfragen-Triangulation
+
+\subsection{Iteration 0: Initiales Design und Technologieauswahl}
+\subsubsection{Anforderungsanalyse}
+             - Funktionale Anforderungen (FR1-FR7) \\
+             - Nicht-funktionale Anforderungen (NFR1-NFR22) \\
+             - KRITIS-spezifische Compliance-Anforderungen
+
+
+\paragraph{Funktionale Anforderungen} \label{sec:Funktionale Anforderungen}
+
+Sieben High Level Funktionalitäten nach \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}
+
+\paragraph{Nicht-funktionale Anforderungen} \label{sec:Nicht-Funktionale Anforderungen}
+
+Table 1 (22 NFR) \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}
+
+\paragraph{KRITIS-spezifische Compliance-Anforderungen} \label{sec:KRITIS-spezifische Compliance-Anforderungen}
+
+2.5 Technische Informationssicherheit:
+IDM-07 + IDM-08 bis IDM-13 + KRY-01 bis KRY-04
+
+2.6 Personelle und organisatorische Sicherheit
+IDM-01 bis IDM-06 + IDM-09
+
+
+Tabelle auf Basis von \textcite[S. 12-19]{bundesamtfursicherheitinderinformationstechnikbsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}
+
+
+
+
+\subsubsection{Framework- und Technologie-Evaluation}
+             - Evaluationskriterien \\
+             - SSI-Framework-Vergleich (ACA-Py vs. Walt.ID vs. Veramo) \\
+             - Blockchain-Plattform-Auswahl (Indy-Besu vs. Hedera vs. Cheqd) \\
+             - Auswahlentscheidungen und Begründung
+
+
+
+\paragraph{Evaluationsmethodik}
+Die Technologieauswahl erfolgt kriterienbasiert nach einem mehrstufigen Verfahren:
+
+1. Definition der Auswahlkriterien basierend auf Anforderungen (Kapitel 4.1.1)
+2. Identifikation relevanter Kandidaten durch Literaturrecherche
+3. Bewertung der Kandidaten anhand der Kriterien
+4. Begründete Auswahlentscheidung
+
+\paragraph{Auswahlkriterien}
+Die Kriterien leiten sich aus den funktionalen und nicht-funktionalen 
+Anforderungen sowie den KRITIS-spezifischen Constraints ab:
+
+\textbf{Technische Kriterien:}
+\begin{itemize}
+    \item K1: PQC-Kompatibilität (kann neue Signaturalgorithmen integrieren?)
+    \item K2: W3C-Konformität (DID Core, VC Data Model)
+    \item K3: Modularität/Erweiterbarkeit (Plugin-Architektur?)
+    \item K4: Blockchain-Flexibilität (multiple Ledger unterstützt?)
+\end{itemize}
+
+\textbf{Praktische Kriterien:}
+\begin{itemize}
+    \item K5: Dokumentationsqualität (API-Docs, Developer Guides)
+    \item K6: Community-Aktivität (GitHub Stars, Contributors, Issues)
+    \item K7: Lizenzierung (Open-Source? Apache 2.0, MIT?)
+\end{itemize}
+
+\textbf{KRITIS-spezifische Kriterien:}
+\begin{itemize}
+    \item K8: Permissioned-Ledger-Unterstützung
+    \item K9: Audit-/Logging-Mechanismen
+    \item K10: Produktionsreife (> v1.0, aktive Maintainence)
+\end{itemize}
+
+\paragraph{SSI-Framework-Vergleich}
+Basierend auf der systematischen Literaturrecherche (Kapitel 3.1) wurden 
+drei Kandidaten identifiziert: Hyperledger Aries/ACA-Py, Walt.ID und Veramo.
+
+[HIER TABELLE MIT BEWERTUNG]
+
+\begin{table}[h]
+\centering
+\caption{Vergleichende Bewertung der SSI-Frameworks}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Kriterium} & \textbf{ACA-Py} & \textbf{Walt.ID} & \textbf{Veramo} \\
+\hline
+K1: PQC-Kompatibilität & ++ & + & + \\
+K2: W3C-Konformität & ++ & ++ & ++ \\
+K3: Modularität & ++ & + & + \\
+... & ... & ... & ... \\
+\hline
+\textbf{Gesamtbewertung} & \textbf{22/30} & 18/30 & 16/30 \\
+\hline
+\end{tabular}
+\end{table}
+
+Legende: ++ (erfüllt vollständig, 3 Punkte), + (erfüllt teilweise, 2 Punkte), 
+o (neutral, 1 Punkt), - (nicht erfüllt, 0 Punkte)
+
+\paragraph{DLT-Framework-Vergleich}
+
+Zugeschnitten auf aca-py?
+
+==> INDY!
+
+\paragraph{Auswahlentscheidung: Hyperledger ACA-Py}
+Die Entscheidung für ACA-Py begründet sich durch:
+\begin{itemize}
+    \item Höchste PQC-Kompatibilität durch Python-Basis (einfache liboqs-Integration)
+    \item Vollständige W3C-Konformität und aktive Hyperledger-Community
+    \item Plugin-Architektur ermöglicht Kryptoagilität (FF4)
+    \item Referenzimplementierung für DIDComm v2
+\end{itemize}
+
+Limitationen: Performanz-Overhead durch Python (wird durch Performance-Tests 
+in Iteration 2 validiert).
+
+
+acapy ist das beste ==> \parencite{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Architekturentwurf}
+             - 5-Layer-Architektur \\
+             - Crypto Abstraction Layer für Kryptoagilität \\
+             - Blockchain-Integration-Konzept
+
+
+
+SSI Layers \parencite[S. 7]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}
+
+Infrastructure ==> indy on besu \\
+Identifier + Cryptographic material ==> Indy DID \\
+Credential \& Presentations ==> AnonCreds W3C VCs \\
+Agent ==> ACA-Py
+
+
+
+
+Layer Sicht:
+
+Agent ==> ACA-Py (als Edge Agent aufgesetzt)
+Credential \& Presentations ==> AnonCreds W3C VCs \\
+Identifier + Cryptographic material ==> Indy DID \\
+Infrastructure ==> indy on besu \\
+
+
+- Open Source
+- Modular aufgebaut sein
+
+
+Begründung der Kategorien und wissenschaftliche Quellen
+Architektur/Blockchain
+
+    Die Wahl der Architektur bestimmt Skalierbarkeit, Transaktionsmodell, Dezentralität und die regulatorische Einwirkbarkeit (permissioned vs. permissionless). Frameworks wie Hyperledger Indy, Besu und ION werden in der Literatur gezielt nach Blockchain-Typ, Governance und Infrastruktur verglichen.
+
+Quelle: „Self-sovereign identity on the blockchain: contextual analysis and ...“ (Frontiers in Blockchain, 2024); Härer \& Fill, 2020.
+Offenheit \& Transparenz
+
+    Open-Source-Frameworks ermöglichen Auditierbarkeit, Anpassung und Community-getriebene Innovation – zentral für Trust und Security in KRITIS.
+
+Quelle: Frontiers in Blockchain, 2024; Fill \& Härer, 2020.
+Interoperabilität
+
+    Die Fähigkeit eines Systems, über W3C-DID-, VC- und andere Standards mit verschiedensten Ökosystemen und Registern zu kommunizieren, wird als Schlüsselanforderung klassifiziert.
+
+Quelle: Fraunhofer \& Universität Bayreuth Diskussionspapier zu SSI, 2020; Grüner et al. „Analyzing Interoperability and Portability Concepts...“ (HPI).
+SSI-Prinzipien-Compliance
+
+    Die 10 Grundprinzipien nach Christopher Allen (Existenz, Kontrolle, Interoperabilität, Transparenz, Portabilität, etc.) sind das wissenschaftliche Fundament für die Bewertung von SSI-Systemen und werden in praktisch jedem SSI-Vergleich herangezogen.
+
+Quelle: Christopher Allen (Blog; 2017), überführt in diverse Whitepaper und Publikationen, z.B. Societybyte/SFI.
+PQC-Unterstützung
+
+    Post-Quanten-Kryptografie ist ein verpflichtender Baustein für KRITIS-Sicherheit – das BSI und Fraunhofer empfehlen die Integration quantenresistenter Algorithmen speziell für Identitäts- und Signaturlösungen.
+
+Quelle: BSI, „Post-Quanten-Kryptografie“; Fraunhofer Cybersecurity Blog, „Post-Quanten-Kryptografie in der Praxis“.
+Eignung für KRITIS
+
+    Die Tauglichkeit für kritische Infrastrukturen erfordert geprüfte Governance-, Compliance- und Skalierungsmechanismus, wie vom BSI und in wissenschaftlichen Evaluationsframeworks für Public-Key-Infrastruktur und Identitätssysteme festgelegt.
+
+Quelle: ETH Zürich, „Evaluierungs-Framework und Kriterienkatalog für Public-Key-Infrastrukturen“; Fraunhofer FIT (SSI \& KRITIS Fokus).
+
+
+\begin{longtable}{L{1cm}L{2cm}L{2.5cm}L{2cm}L{1.5cm}L{1.5cm}L{1.5cm}}
+    \caption{Vergleich ausgewählter SSI-Frameworks für blockchain-basierte, KRITIS-taugliche Prototypen mit PQC-Perspektive}
+    \label{tab:ssi-frameworks} \\
+    \toprule
+    \textbf{Framework} & \textbf{Architektur/\newline Blockchain} & \textbf{Offenheit \& Transparenz} & \textbf{Interoperabilität} & \textbf{SSI-Prinzipien-\newline Compliance} & \textbf{PQC-\newline Unterstützung} & \textbf{Eignung für KRITIS} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{7}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Framework} & \textbf{Architektur/\newline Blockchain} & \textbf{Offenheit \& Transparenz} & \textbf{Interoperabilität} & \textbf{SSI-Prinzipien-\newline Compliance} & \textbf{PQC-\newline Unterstützung} & \textbf{Eignung für KRITIS} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{7}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{7}{p{\linewidth}}{\textit{Anmerkung.} Quellen: Eigene Darstellung nach \cite{frontiersssi2024,lfbesublog2025,marketanalysis2025}} \\
+    \endlastfoot
+    Hyperledger Indy &
+    Federated Indy Blockchain &
+    Open Source, starker Audit-Trail &
+    W3C VC/DID, hohe Interoperabilität &
+    Sehr hoch (Existenz, Kontrolle, Transparenz) &
+    Experimentell (kein nativer PQC-Support) &
+    Sehr hoch (Governance, Auditierbarkeit) \\
+    \midrule
+    ION (Microsoft/DIF) &
+    Bitcoin, Sidetree DPKI &
+    Open Source, breite Transparenz &
+    Dezentral, weltweit, W3C DIDs &
+    Hoch (Portabilität, Kontrolle, Skalierung) &
+    Erweiterbar, keine native PQC &
+    Mittel (abhängig von Bitcoin, schwer reg. steuerbar) \\
+    \midrule
+    Indy on Besu &
+    Besu Ethereum (Permissioned) &
+    Open Source, modular, Enterprise-tauglich &
+    W3C VC/DID, did:indy:besu, Legacy-Migration &
+    Sehr hoch (volle SSI-Rollen, flexible Governance) &
+    PQC-Addons via Smart Contracts, nativ in Entwicklung &
+    Sehr hoch (10x Durchsatz, Trusted List, flexible Governance) \\
+\end{longtable}
+
+indy besu ==> \parencite{shcherbakov_HyperledgerIndyBesupermissionedledgerSelfsovereignIdentity_2024}
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Entwicklungsumgebung-Setup}
+             - Docker-Infrastruktur \\
+             - Laborumgebung (Ubuntu 24.04 LTS, Hyper-V)
+
+\subsection{Iteration 1: Implementierung der Kernkomponenten}
+\subsubsection{Designziele dieser Iteration}
+          ALLE FF, mit SCHWERPUNKT auf FF1 (Architektur), FF2 (Algorithmen) \\
+          → FF1 (Architektur): Modulare Layer-Architektur implementieren \\
+          → FF2 (Algorithmen): Erste PQC-Algorithmen auswählen (ML-DSA-65) \\
+          → FF3 (Performance): Baseline-Performance ohne PQC messen \\
+          → FF4 (Kryptoagilität): Crypto Abstraction Layer konzipieren
+\subsubsection{Implementierung}
+             - SSI-Kern-Komponenten (DID-Manager, VC/VP-Engine) \\
+             - Key Management System \\
+             - Wallet-Funktionalität (Holder-Agent)
+\subsubsection{Formative Evaluation}
+             - Unit-Tests (Testabdeckung, Pass-Rate) \\
+             - Integrationstests (DID-Erstellung, VC-Issuance) \\
+             - Erste Performance-Metriken \\
+             \\
+          → FF1: Architekturvalidierung (Layer-Trennung funktioniert?) \\
+          → FF2: Erste ML-DSA-Integration getestet? \\
+          → FF3: Baseline-Performance-Metriken erfasst \\
+          → FF4: Abstraction Layer funktionsfähig?
+\subsubsection{Erkenntnisse und Anpassungsbedarfe}
+             - Identifizierte Probleme (Erkenntnisse zu ALLEN FF dokumentieren) \\
+             - Design-Refinements für Iteration 2
+
+\subsection{Iteration 2: Systemintegration und PQC-Integration}
+\subsubsection{Designziele dieser Iteration}
+          ALLE FF, mit SCHWERPUNKT auf FF2 (PQC), FF3 (Performance) \\
+          → FF1 (Architektur): Blockchain-Integration finalisieren \\
+          → FF2 (Algorithmen): Vollständige PQC-Suite (ML-DSA, ML-KEM, SLH-DSA) \\
+          → FF3 (Performance): Performance mit PQC messen, optimieren \\
+          → FF4 (Kryptoagilität): Plugin-System für Algorithmen implementieren
+\subsubsection{Implementierung}
+             - PQC-Algorithmen-Integration (ML-DSA, ML-KEM, SLH-DSA) \\
+             - Kryptoagiles Design (Plugin-Architektur) \\
+             - Blockchain-Backend (Indy-Besu, DID-Registry, Revocation Registry) \\
+             - Issuer- und Verifier-Agents
+\subsubsection{Formative Evaluation}
+          → FF1: Blockchain-DID-Registry funktioniert? \\
+          → FF2: Alle PQC-Algorithmen korrekt integriert? \\
+          → FF3: Performance-Vergleich klassisch vs. PQC \\
+          → FF4: Algorithmus-Wechsel ohne Code-Änderung möglich? \\
+           \\
+             - Funktionalitätstests (UC1-UC7) \\
+             - Performance-Analyse (Latenz, Durchsatz, Speicheraufwand) \\
+             - Kryptografische Validierung (Signatur-Verifikation)
+
+
+Use Cases? ==> \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}
+
+
+
+\subsubsection{Erkenntnisse und Anpassungsbedarfe}
+            - Erkenntnisse zu ALLEN FF dokumentieren \\
+             - Performance-Bottlenecks identifiziert \\
+             - Optimierungsbedarfe für Iteration 3
+
+\subsection{Iteration 3: Optimierung und Finalisierung}
+\subsubsection{Designziele dieser Iteration}
+            ALLE FF, mit SCHWERPUNKT auf FF3 (Performance), FF4 (Agilität) \\
+           \\
+          → FF1 (Architektur): Compliance-Layer finalisieren (BSI, DSGVO) \\
+          → FF2 (Algorithmen): Hybride Schemata implementieren \\
+          → FF3 (Performance): Performance-Optimierungen, Skalierungstests \\
+          → FF4 (Kryptoagilität): Key-Rotation-Mechanismus validieren
+\subsubsection{Implementierung}
+             - Performance-Optimierungen \\
+             - Compliance-Layer (Audit-Logging, Policy-Engine) \\
+             - KRITIS-spezifische Use-Cases \\
+             - Dokumentation und Deployment-Richtlinien
+\subsubsection{Formative Evaluation}
+             - Erweiterte Performance-Tests \\
+             - KRITIS-Szenario-Validierung \\
+             - Compliance-Checks (BSI-Anforderungen) \\
+             \\
+        → FF1: BSI-Anforderungen erfüllt? (IDM, KRY) \\
+          → FF2: Hybride Schemata funktionieren? \\
+          → FF3: Performance akzeptabel? (< 1s Credential-Verification) \\
+          → FF4: Key-Rotation ohne Downtime möglich?
+\subsubsection{Finales Artefakt}
+            -  [Zusammenfassung: Wie alle FF gelöst wurden] \\
+             - Zusammenfassung der Designentscheidungen \\
+             - Systemarchitektur (finale Version) \\
+             - Implementierungsübersicht
+
+\newpage
+\section{Summative Evaluation}
+        - Evaluationsmethodik (FEDS)
+\subsection{Funktionalitätstests}
+       - Vollständige UC1-UC7-Validierung \\
+       - KRITIS-Szenarien (Energie, Gesundheit, Wasser)
+\subsection{Performance-Analyse}
+       - Latenz-Messungen (Baseline, PQC, Hybrid) \\
+       - Durchsatz-Analyse \\
+       - Speicher- und Rechenaufwand \\
+       - Skalierbarkeitstest
+\subsection{Sicherheitsbewertung}
+       - Kryptografische Stärke (NIST Security Level) \\
+       - Threat-Modeling \\
+       - Resilience-Tests
+\subsection{Compliance-Validierung}
+       - BSI-Anforderungen (IDM, KRY) \\
+       - DSGVO, NIS2 \\
+       - Auditierbarkeit
+
+
+
+
+% \newpage
+% \section{Systemarchitektur und Design} \label{sec:Systemarchitektur und Design}

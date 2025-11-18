@@ -19,6 +19,8 @@
         ODER
         ==> Hinweis hinzu: "Diese Dokumentation wurde im Rahmen des Projektseminars erstellt und wird hier zur Vollständigkeit aufgenommen"
 
+- darf ich eine Tabelle originalsprache Englisch 1:1 aus Quelle übernehmen oder muss ich diese ins deutsche übersetzen?
+
 ## Gespräch mit Noah
 
 - Muss das XY rein? Vorgaben sind "Mehrwert" darstellen (keine unnötigen Infos) und "Forschungsfragen" adressieren.
