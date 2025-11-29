@@ -21,6 +21,13 @@
 
 - darf ich eine Tabelle originalsprache Englisch 1:1 aus Quelle übernehmen oder muss ich diese ins deutsche übersetzen?
 
+- Möchten Sie Code Repository des Artefakts als ZIP haben?
+
+- Anhangsverzeichnis gewünscht?
+
+- Flüchtige Quellen sollen die geliefert werden?
+
+
 ## Gespräch mit Noah
 
 - Muss das XY rein? Vorgaben sind "Mehrwert" darstellen (keine unnötigen Infos) und "Forschungsfragen" adressieren.

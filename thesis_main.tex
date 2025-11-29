@@ -60,6 +60,7 @@
     position=above
 }
 \usepackage{enumitem}
+\usepackage{dirtree}
 \usepackage{amssymb}
 \usepackage{mathptmx}
 %\usepackage{minted} %Kann für schöneres Syntax Highlighting genutzt werden. ACHTUNG: Python muss installiert sein.
@@ -261,6 +262,98 @@ mincrossrefs = 1
 %-----------------------------------
 \usepackage{appendix}
 
+
+%-----------------------------------
+% Eigenes Inhaltsverzeichnis für den Anhang (BABEL-SAFE)
+%-----------------------------------
+\makeatletter
+
+% Inhaltsverzeichnis des Anhangs drucken
+\newcommand{\listofappendices}{%
+  \section*{Inhaltsverzeichnis des Anhangs}%
+  \addcontentsline{toc}{subsection}{Inhaltsverzeichnis des Anhangs}%
+  \@starttoc{apx}%
+  \vspace{1em}%
+}
+
+% TOC-Formatierung: SECTION FETT
+\newcommand{\l@appsection}[2]{%
+  \addpenalty\@secpenalty
+  \addvspace{0.3em \@plus\p@}%
+  \setlength\@tempdima{5.5em}%
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \parfillskip -\@pnumwidth
+    \leavevmode \bfseries
+    \advance\leftskip\@tempdima
+    \hskip -\leftskip
+    #1\nobreak\dotfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+  \endgroup
+}
+
+% TOC-Formatierung: SUBSECTION normal (OHNE tocdepth-Check)
+\newcommand{\l@appsubsection}[2]{%
+  \addvspace{0.3em \@plus\p@}%
+  \setlength\@tempdima{6.5em}%
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \parfillskip -\@pnumwidth
+    \leavevmode
+    \advance\leftskip 1.0em
+    \advance\leftskip\@tempdima
+    \hskip -\leftskip
+    #1\nobreak\dotfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+  \endgroup
+}
+
+% TOC-Formatierung: SUBSUBSECTION normal (OHNE tocdepth-Check)
+\newcommand{\l@appsubsubsection}[2]{%
+  \addvspace{0.3em \@plus\p@}%
+  \setlength\@tempdima{7.5em}%
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \parfillskip -\@pnumwidth
+    \leavevmode
+    \advance\leftskip 2.0em
+    \advance\leftskip\@tempdima
+    \hskip -\leftskip
+    #1\nobreak\dotfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+  \endgroup
+}
+
+% Original-Befehle speichern
+\let\origsection\section
+\let\origsubsection\subsection
+\let\origsubsubsection\subsubsection
+
+% Neue Appendix-Befehle
+\newcommand{\appsection}[1]{%
+  \origsection{#1}%
+  \addcontentsline{apx}{appsection}{\protect\numberline{\thesection}#1}%
+}
+
+\newcommand{\appsubsection}[1]{%
+  \origsubsection{#1}%
+  \addcontentsline{apx}{appsubsection}{\protect\numberline{\thesubsection}#1}%
+}
+
+\newcommand{\appsubsubsection}[1]{%
+  \origsubsubsection{#1}%
+  \addcontentsline{apx}{appsubsubsection}{\protect\numberline{\thesubsubsection}#1}%
+}
+
+\makeatother
+
+
+
+
+
+
+
+
+
+
+
 %-----------------------------------
 % Zeilenabstand 1,5-zeilig
 %-----------------------------------
@@ -394,14 +487,30 @@ mincrossrefs = 1
 %-----------------------------------
 % Vorwort (optional; bei Verwendung beide Zeilen entkommentieren und unter Inhaltsverzeichnis setcounter entsprechend anpassen)
 %-----------------------------------
-%\input{kapitel/vorwort/vorwort}
-%\newpage
+\input{kapitel/vorwort/vorwort}
+\newpage
+
+%-----------------------------------
+% Genderhinweis
+%-----------------------------------
+\newpage
+\section*{Inklusionshinweis}
+Zur besseren Lesbarkeit wird in dieser Arbeit das generische Maskulinum verwendet. Die in dieser Arbeit verwendeten Personenbezeichnungen beziehen sich - sofern nicht anders kenntlich gemacht - auf alle Geschlechter.
+\newpage
+
+%-----------------------------------
+% KI-Disclaimer
+%-----------------------------------
+
+\section*{KI-Disclaimer}
+In dieser Arbeit wurde Künstliche Intelligenz (KI), insbesondere GitHub Copilot und Perplexity.ai, zur Unterstützung bei der Erstellung und Überarbeitung von Texten sowie zur Generierung von Quellcode eingesetzt. Die KI diente als Hilfsmittel zur Verbesserung der Effizienz und Qualität, wobei alle Inhalte einer sorgfältigen fachlichen Prüfung unterzogen wurden. Entscheidungen über die inhaltliche Ausgestaltung und wissenschaftliche Argumentation wurden ausschließlich von den Autoren getroffen. Die Verantwortung für die Richtigkeit und Integrität der Arbeit liegt vollständig bei den Verfassern. Der Einsatz von KI erfolgte unter Berücksichtigung ethischer und wissenschaftlicher Standards.
+\newpage
 
 %-----------------------------------
 % Inhaltsverzeichnis
 %-----------------------------------
 % Um das Tabellen- und Abbbildungsverzeichnis zu de/aktivieren ganz oben in Documentclass schauen
-\setcounter{page}{2}
+% \setcounter{page}{2}
 \addtocontents{toc}{\protect\enlargethispage{-20mm}}% Die Zeile sorgt dafür, dass das Inhaltsverzeichnisseite auf die zweite Seite gestreckt wird und somit schick aussieht. Das sollte eigentlich automatisch funktionieren. Wer rausfindet wie, kann das gern ändern.
 \setcounter{tocdepth}{4}
 \tableofcontents
@@ -412,6 +521,16 @@ mincrossrefs = 1
 %-----------------------------------
 \listoffigures
 \newpage
+
+%-----------------------------------
+% Listingverzeichnis 
+%-----------------------------------
+\renewcommand{\lstlistlistingname}{Listingverzeichnis}
+\newcounter{manualListingCounter} % Neuer Zähler für Referenzen
+\renewcommand{\thelstlisting}{} % Nummerierung und Format im Listingsverzeichnis anpassen
+\lstlistoflistings
+\newpage
+
 %-----------------------------------
 % Tabellenverzeichnis
 %-----------------------------------
@@ -444,6 +563,12 @@ mincrossrefs = 1
 \newpage
 
 %-----------------------------------
+% Abstract
+%-----------------------------------
+\input{abstract/abstract.tex}
+\newpage
+
+%-----------------------------------
 % Sperrvermerk
 %-----------------------------------
 %\input{kapitel/anhang/sperrvermerk}
@@ -464,26 +589,40 @@ mincrossrefs = 1
 % Apendix / Anhang
 %-----------------------------------
 \newpage
-\section*{\AppendixName} %Überschrift "Anhang", ohne Nummerierung
-\addcontentsline{toc}{section}{\AppendixName} %Den Anhang ohne Nummer zum Inhaltsverzeichnis hinzufügen
+\section*{\AppendixName}
+\addcontentsline{toc}{section}{\AppendixName}
 
 \begin{appendices}
 
-% Tabellen für Anhang angepasst.
 \renewcommand{\thetable}{A-\arabic{table}}
 \renewcommand{\theHtable}{A-\arabic{table}}
 \setcounter{table}{0}
 
-% Nachfolgende Änderungen erfolgten aufgrund von Issue 163
 \makeatletter
 \renewcommand\@seccntformat[1]{\csname the#1\endcsname:\quad}
 \makeatother
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} %
-	\renewcommand{\thesection}{\AppendixName\ \arabic{section}}
-	\renewcommand\thesubsection{\AppendixName\ \arabic{section}.\arabic{subsection}}
-	\input{kapitel/anhang/anhang}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}%
+\renewcommand{\thesection}{\AppendixName\ \arabic{section}}
+\renewcommand\thesubsection{\AppendixName\ \arabic{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{\AppendixName\ \arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+% >>> ANHANGS-TOC 
+\listofappendices
+\newpage
+
+% WICHTIG: NUR IM APPENDIX die Befehle umleiten
+\let\section\appsection
+\let\subsection\appsubsection
+\let\subsubsection\appsubsubsection
+
+% Anhang einbinden
+\input{kapitel/anhang/anhang}
+
 \end{appendices}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+
 
 %-----------------------------------
 % Literaturverzeichnis

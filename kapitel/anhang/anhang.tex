@@ -1,4 +1,7 @@
-\section{Dokumentation der ersten Iteration der systematischen Literaturrecherche (Exposé)}\label{sec:Anhang_Dokumentation der ersten Iteration der systematischen Literaturrecherche (Exposé)}
+\section{Systematische Literaturrecherche}
+\label{sec:Anhang_Dokumentation der ersten Iteration der systematischen Literaturrecherche (Exposé)}
+
+\subsection{Erste Iteration (Exposé)}
 
 \fixme{Texte anpassen? + Kapitelüberschriften ergänzen? Anhang 1.1 etc.?}
 
@@ -211,9 +214,10 @@ Basierend auf den zuvor definierten Schlüsselkonzepten wurden die wichtigsten S
 Listing~\ref{lst:boolesche_suchanfrage} stellt eine strukturierte Suchstrategie mit Booleschen Operatoren auf Basis der identifizierten Keywords dar. Die Suchanfrage verbindet zentrale Schlüsselkonzepte und nutzt gezielt Synonyme und Akronyme zur Abdeckung verschiedener Terminologien und Schreibweisen.
 \newline
 
+\refstepcounter{manualListingCounter}
+\label{lst:boolesche_suchanfrage}
 \begin{lstlisting}[
-caption={Strukturierte Suchanfrage mit Booleschen Operatoren},
-label={lst:boolesche_suchanfrage},
+caption={Listing \arabic{lstlisting}: Strukturierte Suchanfrage mit Booleschen Operatoren},
 basicstyle=\small\ttfamily,
 breaklines=true,
 frame=single,
@@ -301,8 +305,10 @@ Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Foku
     39--61 & Diverse & Niedrig \\
 \end{longtable}
 
-\subsection{Iteration 1 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz} \label{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+\subsubsection{Ergebnis Iteration 1}
+\label{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
 
+Iteration 1 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz
 
 \begin{longtable}{L{0.5cm}L{4cm}L{1.5cm}L{7cm}}
     \caption[]{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
@@ -445,8 +451,12 @@ Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Foku
 61 & Kumar, Y., Marchena, J., Awlla, A. H., Li, J. J., \& Abdalla, H. B. (2024). The AI-Powered Evolution of Big Data. Applied Sciences (2076-3417), 14(22), 10176. \url{https://doi.org/10.3390/app142210176} & Niedrig & Fokus auf die Weiterentwicklung von Big-Data-Analyse und Management durch künstliche Intelligenz, mit Betonung neuer Rahmenwerke für die Charakterisierung und Handhabung großer, komplexer Datensätze. Der Beitrag stellt innovative AI-gestützte Tools (wie RAG-basierte Analyse-Bots/ChatGPT) zur Verbesserung der Datenanalyse vor und hebt methodologische Fortschritte im Bereich datengetriebene Entscheidungsunterstützung hervor. Keine explizite Behandlung oder Integration von \ac{SSI}, Blockchain-Technologien, \ac{PQC} oder besonderen Anforderungen kritischer Infrastrukturen; methodische und technologische Beiträge beschränken sich auf Big-Data-Management und AI-basierte Analytics, ohne Verknüpfung zu den vier zentralen Domänen der Masterarbeit. \\
 \end{longtable}
 
-\subsection{Iteration 2 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz} \label{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+\subsection{Zweite Iteration}
 
+\subsubsection{Ergebnis Iteration 2}
+\label{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz 2}
+
+Iteration 2 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz
 
 \begin{longtable}{L{0.5cm}L{4cm}L{1.5cm}L{7cm}}
     \caption[]{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
@@ -534,3 +544,1146 @@ Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Foku
 \midrule
 34 & Zreikat, A. I., AlArnaout, Z., Abadleh, A., Elbasi, E., \& Mostafa, N. (2025). The integration of the Internet of Things (IoT) applications into 5G networks: A review and analysis. Computers, 14(7), 250. \url{https://doi.org/10.3390/computers14070250} & Niedrig & Die Arbeit bietet einen fundierten Review und eine Analyse zur Integration von IoT-Anwendungen in 5G-Netzwerke mit Schwerpunkt auf Konnektivität, Datenrate, Latenz, Interoperabilität und Anwendungsvielfalt (Smart Cities, Industrie 4.0, Healthcare etc.). Methodisch werden technische Potenziale (wie Network Slicing, Edge Computing, massive Machine-Type-Kommunikation) und Herausforderungen (Sicherheit, Energie, Netzmanagement) systematisch aufgearbeitet. Zwar werden Security und Privacy angesprochen, jedoch gibt es keinerlei dezidierte Analyse zu PQC, Self-Sovereign Identity, Blockchain, dezentrale Identitätsarchitekturen oder KRITIS-spezifische Schutzmaßnahmen. \\
 \end{longtable}
+
+
+\newpage
+\section{Artefaktentwicklung Iteration 1} \label{sec:Anhang_Artefaktentwicklung Iteration 1}
+
+\subsection{Zertifikatserstellungsworkflow}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Zertifikatserstellungsworkflow}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Zertifikatserstellungsworkflow}, numbers=left, frame=single]
+# Openssl 3.5.4 LTS (version mit PQC support)
+OpenSSL 3.5.4 30 Sep 2025 (Library: OpenSSL 3.5.4 30 Sep 2025)
+
+# ML-DSA-87 Private Key (höchste Sicherheit für Root)
+openssl genpkey -algorithm mldsa87 -out rootCA.key
+
+# Self-signed Root Certificate (10 Jahre)
+openssl req -x509 -new -key rootCA.key -out rootCA.crt \
+  -days 3650 -subj "/CN=My PQC Root CA/O=MyOrg/C=DE" \
+  -addext "basicConstraints=critical,CA:TRUE" \
+  -addext "keyUsage=critical,keyCertSign,cRLSign"
+
+# ML-DSA-65 Private Keys für Sidecar Proxy
+openssl genpkey -algorithm mldsa65 -out server.key
+
+# Certificate Signing Requests (CSRs) für Sidecar Proxy mit SAN
+openssl req -new -key server.key -out server.csr \
+    -subj "/CN=server proxy/O=FM/C=DE" \
+    -addext "subjectAltName=DNS:issuer,DNS:pqc-sidecarproxy-issuer,DNS:host.docker.internal,DNS:localhost,IP:127.0.0.1"
+
+# Signierung mit ML-DSA-65 (Balance zwischen Sicherheit und Performance)
+openssl x509 -req -in von-webserver-pqc-proxy.csr \
+  -CA rootCA.crt -CAkey rootCA.key -CAcreateserial \
+  -out von-webserver-pqc-proxy.crt -days 365 -sha3-256 \
+  -copy_extensions copy
+\end{lstlisting}
+
+\subsection{Dockerfile: Sidecar Proxy nginx}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Dockerfile-Sidecar-Proxy-nginx}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Dockerfile - Sidecar Proxy nginx}, numbers=left, frame=single]
+# Nginx with OpenSSL 3.5.4 (LTS) + OQS Provider for Post-Quantum Cryptography
+# Based on: https://github.com/open-quantum-safe/oqs-demos/blob/main/nginx/Dockerfile
+#
+# Customizations:
+# - OpenSSL 3.5.4 (LTS with Security Fixes)
+# - Uses custom certificates (mounted via volume)
+# - ML-KEM-768 Key Exchange enabled
+
+# Define build arguments for version tags, installation paths, and configurations
+ARG ALPINE_VERSION=3.21
+ARG OPENSSL_TAG=openssl-3.5.4
+ARG LIBOQS_TAG=0.13.0
+ARG OQSPROVIDER_TAG=0.9.0
+ARG NGINX_VERSION=1.28.0
+ARG BASEDIR="/opt"
+ARG INSTALLDIR=${BASEDIR}/nginx
+
+# Specify supported signature and key encapsulation mechanisms (KEM) algorithms
+ARG SIG_ALG="mldsa65"
+ARG DEFAULT_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024
+
+# Stage 1: Build - Compile and assemble all necessary components and dependencies
+FROM alpine:${ALPINE_VERSION} AS intermediate
+ARG OPENSSL_TAG
+ARG LIBOQS_TAG
+ARG OQSPROVIDER_TAG
+ARG NGINX_VERSION
+ARG BASEDIR
+ARG INSTALLDIR
+ARG SIG_ALG
+ARG DEFAULT_GROUPS
+ARG OSSLDIR=${BASEDIR}/openssl/.openssl
+
+# Install required build tools and system dependencies
+RUN apk update && apk --no-cache add \
+    build-base linux-headers libtool \
+    automake autoconf make cmake ninja \
+    openssl openssl-dev git wget pcre-dev
+
+# Download and prepare source files needed for the build process
+WORKDIR /opt
+RUN git clone --depth 1 --branch ${LIBOQS_TAG} https://github.com/open-quantum-safe/liboqs \
+    && git clone --depth 1 --branch ${OQSPROVIDER_TAG} https://github.com/open-quantum-safe/oqs-provider.git \
+    && git clone --depth 1 --branch ${OPENSSL_TAG} https://github.com/openssl/openssl.git \
+    && wget -q nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+    && tar -zxf nginx-${NGINX_VERSION}.tar.gz \
+    && rm nginx-${NGINX_VERSION}.tar.gz
+
+# Build and install OpenSSL with shared libraries (for curl and nginx)
+WORKDIR /opt/openssl
+RUN ./Configure --prefix=${OSSLDIR} \
+                --openssldir=${OSSLDIR}/ssl \
+                shared \
+                enable-fips \
+    && make -j"$(nproc)" \
+    && make install_sw install_ssldirs
+
+# Configure OpenSSL to support the oqs-provider
+RUN cp /opt/openssl/apps/openssl.cnf ${OSSLDIR}/ssl/ && \
+    sed -i "s/default = default_sect/default = default_sect\noqsprovider = oqsprovider_sect/g" ${OSSLDIR}/ssl/openssl.cnf && \
+    sed -i "s/\[default_sect\]/\[default_sect\]\nactivate = 1\n\[oqsprovider_sect\]\nactivate = 1\n/g" ${OSSLDIR}/ssl/openssl.cnf && \
+    sed -i "s/providers = provider_sect/providers = provider_sect\nssl_conf = ssl_sect\n\n\[ssl_sect\]\nsystem_default = system_default_sect\n\n\[system_default_sect\]\nGroups = \$ENV\:\:DEFAULT_GROUPS\n/g" ${OSSLDIR}/ssl/openssl.cnf && \
+    sed -i "s/HOME\t\t\t= ./HOME\t\t= .\nDEFAULT_GROUPS\t= ${DEFAULT_GROUPS}/g" ${OSSLDIR}/ssl/openssl.cnf
+
+# Build and install liboqs
+WORKDIR /opt/liboqs/build
+RUN cmake -G"Ninja"  \
+    -DOQS_DIST_BUILD=ON  \
+    -DBUILD_SHARED_LIBS=OFF  \
+    -DCMAKE_INSTALL_PREFIX="${INSTALLDIR}" ..  \
+    && ninja -j"$(nproc)" && ninja install
+
+# Build and install Nginx with shared OpenSSL
+WORKDIR /opt/nginx-${NGINX_VERSION}
+RUN ./configure --prefix=${INSTALLDIR} \
+    --with-debug --with-http_ssl_module  \
+    --with-cc-opt="-I${OSSLDIR}/include" \
+    --with-ld-opt="-L${OSSLDIR}/lib64 -Wl,-rpath,${OSSLDIR}/lib64" \
+    --without-http_gzip_module && \
+    make -j"$(nproc)" && make install
+
+# Build and install OQS provider
+WORKDIR /opt/oqs-provider
+RUN ln -s "/opt/nginx/include/oqs" "${OSSLDIR}/include" && \
+    rm -rf build && \
+    cmake -DCMAKE_BUILD_TYPE=Debug \
+          -DOPENSSL_ROOT_DIR="${OSSLDIR}" \
+          -DCMAKE_PREFIX_PATH="${INSTALLDIR}" \
+          -S . -B build && \
+    cmake --build build && \
+    MODULESDIR=$(find "${OSSLDIR}" -name ossl-modules -type d | head -1) && \
+    export MODULESDIR && \
+    cp build/lib/oqsprovider.so "${MODULESDIR}" && \
+    rm -rf "${INSTALLDIR:?}/lib64"
+
+# Build curl with shared OpenSSL 3.5.4
+ARG CURL_VERSION=8.11.1
+WORKDIR /opt
+RUN wget -q https://curl.se/download/curl-${CURL_VERSION}.tar.gz && \
+    tar -zxf curl-${CURL_VERSION}.tar.gz && \
+    rm curl-${CURL_VERSION}.tar.gz
+
+WORKDIR /opt/curl-${CURL_VERSION}
+RUN LDFLAGS="-Wl,-rpath,${OSSLDIR}/lib64 -L${OSSLDIR}/lib64" \
+    PKG_CONFIG_PATH="${OSSLDIR}/lib64/pkgconfig" \
+    ./configure \
+    --prefix=${INSTALLDIR} \
+    --with-openssl=${OSSLDIR} \
+    --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
+    --disable-manual \
+    --disable-ldap \
+    --disable-ldaps \
+    --without-libpsl \
+    --without-zlib \
+    --without-brotli \
+    --without-zstd && \
+    make -j"$(nproc)" && \
+    make install
+
+# Minimize image size by stripping binaries
+WORKDIR ${INSTALLDIR}
+ENV PATH="${INSTALLDIR}/sbin:${INSTALLDIR}/bin:${OSSLDIR}/bin:${PATH}"
+
+RUN set -ex && \
+    strip "${OSSLDIR}/lib64/"*.a \
+          "${OSSLDIR}/lib64/ossl-modules/oqsprovider.so" \
+          "${INSTALLDIR}/sbin/"* \
+          "${INSTALLDIR}/bin/curl" \
+          "${OSSLDIR}/bin/openssl" && \
+    mkdir -p certs
+
+# Stage 2: Runtime - Create a lightweight image with essential binaries and configurations
+FROM alpine:${ALPINE_VERSION}
+ARG INSTALLDIR
+ARG BASEDIR
+ARG OSSLDIR=${BASEDIR}/openssl/.openssl
+
+# Install runtime dependencies
+RUN apk update && apk --no-cache add pcre-dev ca-certificates
+
+# Copy compiled artifacts and configuration from the intermediate stage
+COPY --from=intermediate ${INSTALLDIR} ${INSTALLDIR}
+COPY --from=intermediate ${OSSLDIR} ${OSSLDIR}
+
+# Link logs to Docker collector
+RUN set -ex && \
+    mkdir -p "${INSTALLDIR}/logs" && \
+    ln -sf /dev/stdout "${INSTALLDIR}/logs/access.log" && \
+    ln -sf /dev/stderr "${INSTALLDIR}/logs/error.log"
+
+# Expose HTTPS port
+# EXPOSE 443
+
+# Set OpenSSL configuration environment
+# From Nginx 1.25.2: "nginx does not try to load OpenSSL configuration if the
+# --with-openssl option was used to build OpenSSL and the OPENSSL_CONF
+# environment variable is not set." Hence we must explicitly set OPENSSL_CONF.
+ENV PATH="${INSTALLDIR}/sbin:${INSTALLDIR}/bin:${OSSLDIR}/bin:${PATH}" \
+    OPENSSL_CONF="${OSSLDIR}/ssl/openssl.cnf" \
+    DEFAULT_GROUPS="X25519MLKEM768:mlkem768:x25519:mlkem1024"
+
+# Create non-root user and update permissions
+RUN addgroup -g 1000 -S oqs \
+ && adduser --uid 1000 -S oqs -G oqs \
+ && chown -R oqs:oqs "${INSTALLDIR}"
+
+# Run as non-root user
+USER oqs
+WORKDIR ${INSTALLDIR}
+
+STOPSIGNAL SIGTERM
+CMD ["nginx", "-c", "nginx-conf/nginx.conf", "-g", "daemon off;"]
+\end{lstlisting}
+
+
+
+\refstepcounter{manualListingCounter}
+\label{lst:nginx_holder.conf}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: nginx\_holder.conf}, numbers=left, frame=single]
+
+# OQS Nginx Configuration for VON Network Webserver Reverse Proxy
+# Post-Quantum Cryptography enabled with ML-KEM
+
+worker_processes auto;
+error_log /opt/nginx/logs/error.log info;
+pid /opt/nginx/logs/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /opt/nginx/conf/mime.types;
+    default_type application/octet-stream;
+
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                    '$status $body_bytes_sent "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log /opt/nginx/logs/access.log main;
+
+    sendfile on;
+    keepalive_timeout 65;
+
+    # Upstream: Holder Agent Inbound Transport (Port 8030)
+    upstream holder_inbound {
+        server holder:8030;
+    }
+
+    # Upstream: Holder Agent Admin API (Port 8031)
+    upstream holder_admin {
+        server holder:8031;
+    }
+
+    # HTTPS Server for Holder Inbound Transport (Port 8030)
+    server {
+        listen 8030 ssl;
+        server_name pqc-sidecarproxy-holder;
+
+        # SSL Certificates (custom ML-DSA-65 certificates)
+        ssl_certificate /opt/nginx/certs/holder.crt;
+        ssl_certificate_key /opt/nginx/certs/holder.key;
+
+        # TLS 1.3 with Post-Quantum Cryptography
+        ssl_protocols TLSv1.3;
+        ssl_ecdh_curve X25519MLKEM768;
+        # Quantum-Safe Key Exchange Groups (ML-KEM from NIST FIPS-203)
+        # Groups are set via DEFAULT_GROUPS environment variable
+        # Default: mlkem768:x25519:mlkem1024
+        # TLS 1.3 cipher suites are automatically selected
+
+        ssl_prefer_server_ciphers off;
+
+        # Reverse Proxy to Holder Inbound Transport
+        location / {
+            proxy_pass http://holder_inbound;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto https;
+
+            # Timeouts
+            proxy_connect_timeout 60s;
+            proxy_send_timeout 60s;
+            proxy_read_timeout 60s;
+        }
+    }
+
+    # HTTPS Server for Holder Admin API (Port 8031)
+    server {
+        listen 8031 ssl;
+        server_name pqc-sidecarproxy-holder-admin;
+
+        # SSL Certificates (ML-DSA-65)
+        ssl_certificate /opt/nginx/certs/holder.crt;
+        ssl_certificate_key /opt/nginx/certs/holder.key;
+
+        # TLS 1.3 with Post-Quantum Cryptography
+        ssl_protocols TLSv1.3;
+        ssl_ecdh_curve X25519MLKEM768;
+        # Quantum-Safe Key Exchange Groups (ML-KEM from NIST FIPS-203)
+        # Groups are set via DEFAULT_GROUPS environment variable
+        # Default: X25519MLKEM768:mlkem768:x25519:mlkem1024
+
+        ssl_prefer_server_ciphers off;
+
+        # Reverse Proxy to Holder Admin API
+        location / {
+            proxy_pass http://holder_admin;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto https;
+
+            # Timeouts
+            proxy_connect_timeout 60s;
+            proxy_send_timeout 60s;
+            proxy_read_timeout 60s;
+        }
+
+        # Health Check
+        location /health {
+            access_log off;
+            return 200 "Holder Admin PQC Proxy OK\n";
+            add_header Content-Type text/plain;
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{docker-compose.yml: DLT-Infrastruktur}
+
+\refstepcounter{manualListingCounter}
+\label{lst:docker-compose.yml-DLT-Infrastruktur}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: docker-compose.yml: DLT-Infrastruktur}, numbers=left, frame=single]
+version: '3'
+services:
+  #
+  # Client
+  #
+  client:
+    image: von-network-base
+    command: ./scripts/start_client.sh
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - RUST_LOG=${RUST_LOG}
+    networks:
+      - von
+    volumes:
+      - client-data:/home/indy/.indy_client
+      - ./tmp:/tmp
+
+  #
+  # Webserver
+  #
+  webserver:
+    image: von-network-base
+    command: bash -c 'sleep 10 && ./scripts/start_webserver.sh'
+    container_name: von-webserver
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+      - GENESIS_URL=${GENESIS_URL}
+      - LEDGER_SEED=${LEDGER_SEED}
+      - LEDGER_CACHE_PATH=${LEDGER_CACHE_PATH}
+      - MAX_FETCH=${MAX_FETCH:-50000}
+      - RESYNC_TIME=${RESYNC_TIME:-120}
+      - POOL_CONNECTION_ATTEMPTS=${POOL_CONNECTION_ATTEMPTS:-5}
+      - POOL_CONNECTION_DELAY=${POOL_CONNECTION_DELAY:-10}
+      - REGISTER_NEW_DIDS=${REGISTER_NEW_DIDS:-True}
+      - ENABLE_LEDGER_CACHE=${ENABLE_LEDGER_CACHE:-True}
+      - ENABLE_BROWSER_ROUTES=${ENABLE_BROWSER_ROUTES:-True}
+      - DISPLAY_LEDGER_STATE=${DISPLAY_LEDGER_STATE:-True}
+      - LEDGER_INSTANCE_NAME=${LEDGER_INSTANCE_NAME:-localhost}
+      - LEDGER_DESCRIPTION=${LEDGER_DESCRIPTION}
+      - WEB_ANALYTICS_SCRIPT=${WEB_ANALYTICS_SCRIPT}
+      - INFO_SITE_TEXT=${INFO_SITE_TEXT}
+      - INFO_SITE_URL=${INFO_SITE_URL}
+      - INDY_SCAN_URL=${INDY_SCAN_URL}
+      - INDY_SCAN_TEXT=${INDY_SCAN_TEXT}
+    networks:
+      - von
+    # ports:
+    #   - ${WEB_SERVER_HOST_PORT:-9000}:8000
+    volumes:
+      - ./config:/home/indy/config
+      - ./server:/home/indy/server
+      - webserver-cli:/home/indy/.indy-cli
+      - webserver-ledger:/home/indy/ledger
+
+  #
+  # Synchronization test
+  #
+  synctest:
+    image: von-network-base
+    command: ./scripts/start_synctest.sh
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    networks:
+      - von
+    ports:
+      - ${WEB_SERVER_HOST_PORT:-9000}:8000
+    volumes:
+      - ./config:/home/indy/config
+      - ./server:/home/indy/server
+      - webserver-cli:/home/indy/.indy-cli
+      - webserver-ledger:/home/indy/ledger
+
+  #
+  # Nodes
+  #
+  nodes:
+    image: von-network-base
+    command: ./scripts/start_nodes.sh
+    networks:
+      - von
+    ports:
+      - 9701:9701
+      - 9702:9702
+      - 9703:9703
+      - 9704:9704
+      - 9705:9705
+      - 9706:9706
+      - 9707:9707
+      - 9708:9708
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - nodes-data:/home/indy/ledger
+
+  node1:
+    image: von-network-base
+    command: ./scripts/start_node.sh 1
+    networks:
+      - von
+    ports:
+      - 9701:9701
+      - 9702:9702
+    container_name: von-node1
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node1-data:/home/indy/ledger
+
+  node2:
+    image: von-network-base
+    command: ./scripts/start_node.sh 2
+    networks:
+      - von
+    ports:
+      - 9703:9703
+      - 9704:9704
+    container_name: von-node2
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node2-data:/home/indy/ledger
+
+  node3:
+    image: von-network-base
+    command: ./scripts/start_node.sh 3
+    networks:
+      - von
+    ports:
+      - 9705:9705
+      - 9706:9706
+    container_name: von-node3
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node3-data:/home/indy/ledger
+
+  node4:
+    image: von-network-base
+    command: ./scripts/start_node.sh 4
+    networks:
+      - von
+    ports:
+      - 9707:9707
+      - 9708:9708
+    container_name: von-node4
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node4-data:/home/indy/ledger
+
+  # Post-Quantum Nginx Reverse Proxy für VON Network Webserver
+  pqc-sidecarproxy-webserver:
+    build:
+      context: ./pqc_sidecarproxy_nginx
+      dockerfile: Dockerfile
+      args:
+        OPENSSL_TAG: openssl-3.5.4
+        LIBOQS_TAG: 0.13.0
+        OQSPROVIDER_TAG: 0.9.0
+        NGINX_VERSION: 1.28.0
+        SIG_ALG: mldsa65
+        DEFAULT_GROUPS: X25519MLKEM768:mlkem768:x25519:mlkem1024
+    container_name: von-pqc-sidecarproxy-webserver
+    environment:
+      # OpenSSL Configuration
+      - OPENSSL_CONF=/opt/openssl/.openssl/ssl/openssl.cnf
+      # Post-Quantum Key Exchange Groups
+      - DEFAULT_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024
+    networks:
+      - von
+      - sidecarproxy
+    ports:
+      - 8000:8000  # HTTPS with Post-Quantum Cryptography (ML-KEM-768)
+    volumes:
+      # Custom nginx configuration for reverse proxy
+      - ./pqc_sidecarproxy_nginx/nginx-conf/nginx_webserver.conf:/opt/nginx/nginx-conf/nginx.conf:ro
+      # Custom ML-DSA-65 certificates
+      - ./pqc_sidecarproxy_nginx/certs:/opt/nginx/certs:ro
+      # Logs
+      - nginx-logs:/opt/nginx/logs
+    depends_on:
+      - webserver
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+networks:
+  von:
+  sidecarproxy:
+
+volumes:
+  client-data:
+  webserver-cli:
+  webserver-ledger:
+  node1-data:
+  node2-data:
+  node3-data:
+  node4-data:
+  nodes-data:
+  nginx-logs:
+\end{lstlisting}
+
+\subsection{Dockerfile: acapy-base}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Dockerfile-acapy-base}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Dockerfile - acapy-base: Revocation Registry}, numbers=left, frame=single]
+ARG python_version=3.12
+FROM python:${python_version}-slim-bookworm AS build
+
+RUN pip install --no-cache-dir poetry==2.1.1
+
+WORKDIR /src
+
+COPY ./pyproject.toml ./poetry.lock ./
+RUN poetry install --no-root
+
+COPY ./acapy_agent ./acapy_agent
+COPY ./README.md /src
+RUN poetry build
+
+FROM python:${python_version}-slim-bookworm AS main
+
+ARG uid=1001
+ARG user=aries
+ARG acapy_name="acapy-agent"
+ARG acapy_version
+ARG acapy_reqs=[didcommv2]
+
+ENV HOME="/home/$user" \
+    APP_ROOT="/home/$user" \
+    LC_ALL=C.UTF-8 \
+    LANG=C.UTF-8 \
+    PIP_NO_CACHE_DIR=off \
+    PYTHONUNBUFFERED=1 \
+    PYTHONIOENCODING=UTF-8 \
+    RUST_LOG=warn \
+    SHELL=/bin/bash \
+    SUMMARY="$acapy_name image" \
+    DESCRIPTION="$acapy_name provides a base image for running acapy agents in Docker. \
+    This image layers the python implementation of $acapy_name $acapy_version. Based on Debian Buster."
+
+LABEL summary="$SUMMARY" \
+    description="$DESCRIPTION" \
+    io.k8s.description="$DESCRIPTION" \
+    io.k8s.display-name="$acapy_name $acapy_version" \
+    name=$acapy_name \
+    acapy.version="$acapy_version" \
+    maintainer=""
+
+# Add aries user
+RUN useradd -U -ms /bin/bash -u $uid $user
+
+# Install environment
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    git \
+    libffi-dev \
+    libgmp10 \
+    libncurses5 \
+    libncursesw5 \
+    openssl \
+    sqlite3 \
+    zlib1g && \
+    apt-get autopurge -y && \
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/* /usr/share/doc/*
+
+WORKDIR $HOME
+
+# Add local binaries and aliases to path
+ENV PATH="$HOME/.local/bin:$PATH"
+
+# - In order to drop the root user, we have to make some directories writable
+#   to the root group as OpenShift default security model is to run the container
+#   under random UID.
+RUN usermod -a -G 0 $user
+
+# Create standard directories to allow volume mounting and set permissions
+# Note: PIP_NO_CACHE_DIR environment variable should be cleared to allow caching
+RUN mkdir -p \
+    $HOME/.acapy_agent \
+    $HOME/.cache/pip/http \
+    $HOME/.indy_client \
+    $HOME/ledger/sandbox/data \
+    $HOME/log
+
+# The root group needs access the directories under $HOME/.indy_client and $HOME/.acapy_agent for the container to function in OpenShift.
+RUN chown -R $user:root $HOME/.indy_client $HOME/.acapy_agent && \
+    chmod -R ug+rw $HOME/log $HOME/ledger $HOME/.acapy_agent $HOME/.cache $HOME/.indy_client
+
+# Create /home/indy and symlink .indy_client folder for backwards compatibility with artifacts created on older indy-based images.
+RUN mkdir -p /home/indy
+RUN ln -s /home/aries/.indy_client /home/indy/.indy_client
+
+# Install ACA-py from the wheel as $user,
+# and ensure the permissions on the python 'site-packages' and $HOME/.local folders are set correctly.
+USER $user
+COPY --from=build /src/dist/acapy_agent*.whl .
+RUN acapy_agent_package=$(find ./ -name "acapy_agent*.whl" | head -n 1) && \
+    echo "Installing ${acapy_agent_package} ..." && \
+    pip install --no-cache-dir --find-links=. ${acapy_agent_package}${acapy_reqs} && \
+    rm acapy_agent*.whl && \
+    chmod +rx $(python -m site --user-site) $HOME/.local
+
+ENTRYPOINT ["aca-py"]
+\end{lstlisting}
+
+\subsection{docker-compose.yml: Revocation Registry}
+
+\refstepcounter{manualListingCounter}
+\label{lst:docker-compose.yml-Revocation-Registry}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: docker-compose.yml: Revocation Registry}, numbers=left, frame=single]
+services:
+  ngrok-tails-server:
+    image: ngrok/ngrok
+    networks:
+      - tails-server
+    ports:
+      - 4044:4040
+    command: start --all
+    environment:
+      - NGROK_CONFIG=/etc/ngrok.yml
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+  tails-server:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.tails-server
+    networks:
+      - tails-server
+    command: >
+      tails-server
+        --host 0.0.0.0
+        --port 6543
+        --storage-path $STORAGE_PATH
+        --log-level $LOG_LEVEL
+        --log-config $LOGGING_CONFIG
+  tester:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.test
+
+  # Post-Quantum Nginx Reverse Proxy für Tails Server
+  pqc-sidecarproxy-tails-server:
+    build:
+      context: ./pqc_sidecarproxy_nginx
+      dockerfile: Dockerfile
+      args:
+        OPENSSL_TAG: openssl-3.5.4
+        LIBOQS_TAG: 0.13.0
+        OQSPROVIDER_TAG: 0.9.0
+        NGINX_VERSION: 1.28.0
+        SIG_ALG: mldsa65
+        DEFAULT_GROUPS: X25519MLKEM768:mlkem768:x25519:mlkem1024
+    container_name: pqc-sidecarproxy-tails-server
+    environment:
+      # OpenSSL Configuration
+      - OPENSSL_CONF=/opt/openssl/.openssl/ssl/openssl.cnf
+      # Post-Quantum Key Exchange Groups
+      - DEFAULT_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024
+    networks:
+      - tails-server
+      - von_sidecarproxy
+    ports:
+      - 6543:6543  # HTTPS with Post-Quantum Cryptography (ML-KEM-768)
+    volumes:
+      # Custom nginx configuration for reverse proxy
+      - ./pqc_sidecarproxy_nginx/nginx-conf/nginx_tails-server.conf:/opt/nginx/nginx-conf/nginx.conf:ro
+      # Custom ML-DSA-65 certificates
+      - ./pqc_sidecarproxy_nginx/certs:/opt/nginx/certs:ro
+      # Logs
+      - nginx-logs:/opt/nginx/logs
+    depends_on:
+      - tails-server
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:6543/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+networks:
+  tails-server:
+  von_sidecarproxy:
+    external: true
+
+volumes:
+  nginx-logs:
+\end{lstlisting}
+
+\subsection{docker-compose.yml: SSI-Agenten}
+
+\refstepcounter{manualListingCounter}
+\label{lst:docker-compose.yml-SSI-Agenten}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: docker-compose.yml: SSI-Agenten}, numbers=left, frame=single]
+
+version: '3.8'
+
+services:
+  issuer:
+    build:
+      context: ..
+      dockerfile: hopE/Dockerfile.acapy-base
+    image: acapy-base
+    container_name: issuer-agent
+    environment:
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - GENESIS_URL=${GENESIS_URL:-https://host.docker.internal:8000/genesis}
+      - LEDGER_URL=${LEDGER_URL:-https://host.docker.internal:8000}
+      - PUBLIC_TAILS_URL=https://host.docker.internal:6543
+      - TAILS_FILE_COUNT=100
+    networks:
+      - hope-issuer
+    volumes:
+      - issuer-data:/home/aries/.acapy_agent
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      start
+      --label "Issuer Agent"
+      --inbound-transport http 0.0.0.0 8020
+      --outbound-transport http
+      --endpoint https://host.docker.internal:8020
+      --admin 0.0.0.0 8021
+      --admin-insecure-mode
+      --auto-provision
+      --wallet-type askar
+      --wallet-name issuer_wallet
+      --wallet-key issuer_wallet_key_000000000000
+      --genesis-url https://host.docker.internal:8000/genesis
+      --log-level info
+      --auto-accept-invites
+      --auto-accept-requests
+      --auto-ping-connection
+      --auto-respond-credential-proposal
+      --auto-respond-credential-offer
+      --auto-respond-credential-request
+      --auto-verify-presentation
+      --public-invites
+      --preserve-exchange-records
+      --tails-server-base-url https://host.docker.internal:6543
+      --notify-revocation
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8021/status/ready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  holder:
+    build:
+      context: ..
+      dockerfile: hopE/Dockerfile.acapy-base
+    image: acapy-base
+    container_name: holder-agent
+    environment:
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - GENESIS_URL=${GENESIS_URL:-https://host.docker.internal:8000/genesis}
+      - LEDGER_URL=${LEDGER_URL:-https://host.docker.internal:8000}
+      - PUBLIC_TAILS_URL=https://host.docker.internal:6543
+    networks:
+      - hope-holder
+    volumes:
+      - holder-data:/home/aries/.acapy_agent
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      start
+      --label "Holder Agent"
+      --inbound-transport http 0.0.0.0 8030
+      --outbound-transport http
+      --endpoint https://host.docker.internal:8030
+      --admin 0.0.0.0 8031
+      --admin-insecure-mode
+      --auto-provision
+      --wallet-type askar
+      --wallet-name holder_wallet
+      --wallet-key holder_wallet_key_000000000000
+      --genesis-url https://host.docker.internal:8000/genesis
+      --log-level info
+      --auto-accept-invites
+      --auto-accept-requests
+      --auto-ping-connection
+      --auto-respond-credential-offer
+      --auto-store-credential
+      --public-invites
+      --tails-server-base-url https://host.docker.internal:6543
+      --preserve-exchange-records
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8031/status/ready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  verifier:
+    build:
+      context: ..
+      dockerfile: hopE/Dockerfile.acapy-base
+    image: acapy-base
+    container_name: verifier-agent
+    environment:
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - GENESIS_URL=${GENESIS_URL:-https://host.docker.internal:8000/genesis}
+      - LEDGER_URL=${LEDGER_URL:-https://host.docker.internal:8000}
+      - PUBLIC_TAILS_URL=https://host.docker.internal:6543
+    networks:
+      - hope-verifier
+    volumes:
+      - verifier-data:/home/aries/.acapy_agent
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      start
+      --label "Verifier Agent"
+      --inbound-transport http 0.0.0.0 8040
+      --outbound-transport http
+      --endpoint https://host.docker.internal:8040
+      --admin 0.0.0.0 8041
+      --admin-insecure-mode
+      --auto-provision
+      --wallet-type askar
+      --wallet-name verifier_wallet
+      --wallet-key verifier_wallet_key_00000000000
+      --genesis-url https://host.docker.internal:8000/genesis
+      --log-level info
+      --auto-accept-invites
+      --auto-accept-requests
+      --auto-ping-connection
+      --auto-verify-presentation
+      --public-invites
+      --tails-server-base-url https://host.docker.internal:6543
+      --preserve-exchange-records
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8041/status/ready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  pqc-sidecarproxy-issuer:
+    build:
+      context: ./pqc_sidecarproxy_nginx
+      dockerfile: Dockerfile
+      args:
+        OPENSSL_TAG: openssl-3.5.4
+        LIBOQS_TAG: 0.13.0
+        OQSPROVIDER_TAG: 0.9.0
+        NGINX_VERSION: 1.28.0
+        SIG_ALG: mldsa65
+        DEFAULT_GROUPS: X25519MLKEM768:mlkem768:x25519:mlkem1024
+    container_name: pqc-sidecarproxy-issuer
+    environment:
+      # OpenSSL Configuration
+      - OPENSSL_CONF=/opt/openssl/.openssl/ssl/openssl.cnf
+      # Post-Quantum Key Exchange Groups
+      - DEFAULT_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024
+    networks:
+      - von_sidecarproxy
+      - hope-issuer
+    ports:
+      - "8020:8020"  # Issuer Inbound Transport HTTPS (ML-KEM-768)
+      - "8021:8021"  # Issuer Admin API HTTPS (ML-KEM-768)
+    volumes:
+      # Custom nginx configuration for reverse proxy
+      - ./pqc_sidecarproxy_nginx/nginx-conf/nginx_issuer.conf:/opt/nginx/nginx-conf/nginx.conf:ro
+      # Custom ML-DSA-65 certificates
+      - ./pqc_sidecarproxy_nginx/certs:/opt/nginx/certs:ro
+      # Logs
+      - nginx-logs:/opt/nginx/logs
+    depends_on:
+      - issuer
+      - holder
+      - verifier
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8021/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+  pqc-sidecarproxy-holder:
+    build:
+      context: ./pqc_sidecarproxy_nginx
+      dockerfile: Dockerfile
+      args:
+        OPENSSL_TAG: openssl-3.5.4
+        LIBOQS_TAG: 0.13.0
+        OQSPROVIDER_TAG: 0.9.0
+        NGINX_VERSION: 1.28.0
+        SIG_ALG: mldsa65
+        DEFAULT_GROUPS: X25519MLKEM768:mlkem768:x25519:mlkem1024
+    container_name: pqc-sidecarproxy-holder
+    environment:
+      # OpenSSL Configuration
+      - OPENSSL_CONF=/opt/openssl/.openssl/ssl/openssl.cnf
+      # Post-Quantum Key Exchange Groups
+      - DEFAULT_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024
+    networks:
+      - von_sidecarproxy
+      - hope-holder
+    ports:
+      - "8030:8030"  # Holder Inbound Transport HTTPS (ML-KEM-768)
+      - "8031:8031"  # Holder Admin API HTTPS (ML-KEM-768)
+    volumes:
+      # Custom nginx configuration for reverse proxy
+      - ./pqc_sidecarproxy_nginx/nginx-conf/nginx_holder.conf:/opt/nginx/nginx-conf/nginx.conf:ro
+      # Custom ML-DSA-65 certificates
+      - ./pqc_sidecarproxy_nginx/certs:/opt/nginx/certs:ro
+      # Logs
+      - nginx-logs:/opt/nginx/logs
+    depends_on:
+      - issuer
+      - holder
+      - verifier
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8031/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+  pqc-sidecarproxy-verifier:
+    build:
+      context: ./pqc_sidecarproxy_nginx
+      dockerfile: Dockerfile
+      args:
+        OPENSSL_TAG: openssl-3.5.4
+        LIBOQS_TAG: 0.13.0
+        OQSPROVIDER_TAG: 0.9.0
+        NGINX_VERSION: 1.28.0
+        SIG_ALG: mldsa65
+        DEFAULT_GROUPS: X25519MLKEM768:mlkem768:x25519:mlkem1024
+    container_name: pqc-sidecarproxy-verifier
+    environment:
+      # OpenSSL Configuration
+      - OPENSSL_CONF=/opt/openssl/.openssl/ssl/openssl.cnf
+      # Post-Quantum Key Exchange Groups
+      - DEFAULT_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024
+    networks:
+      - von_sidecarproxy
+      - hope-verifier
+    ports:
+      - "8040:8040"  # Verifier Inbound Transport HTTPS (ML-KEM-768)
+      - "8041:8041"  # Verifier Admin API HTTPS (ML-KEM-768)
+    volumes:
+      # Custom nginx configuration for reverse proxy
+      - ./pqc_sidecarproxy_nginx/nginx-conf/nginx_verifier.conf:/opt/nginx/nginx-conf/nginx.conf:ro
+      # Custom ML-DSA-65 certificates
+      - ./pqc_sidecarproxy_nginx/certs:/opt/nginx/certs:ro
+      # Logs
+      - nginx-logs:/opt/nginx/logs
+    depends_on:
+      - issuer
+      - holder
+      - verifier
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8041/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+networks:
+  hope-issuer:
+  hope-holder:
+  hope-verifier:
+  von_sidecarproxy:
+    external: true
+
+volumes:
+  issuer-data:
+  holder-data:
+  verifier-data:
+  nginx-logs:
+\end{lstlisting}
+
+\subsection{Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
+\label{Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
+
+Zur experimentellen Evaluation von Verfahren der Post-Quanten-Kryptographie (PQC) im Kontext realer Webbrowser wurde ein Chromium-basierter Browser mit erweiterten TLS-Fähigkeiten selbst kompiliert. Grundlage bildete das von Open Quantum Safe (OQS) bereitgestellte Chromium-Demoprojekt, das eine Integration der \emph{liboqs}-Bibliothek in die TLS-Implementierung von Chromium (BoringSSL) demonstriert und hybride sowie rein PQ-basierte Schlüsselaustausch- und Signaturverfahren bereitstellt \parencite{open-quantum-safe_OqsdemosChromium643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_,open-quantum-safe_OqsdemosChromiumREADMELinuxmd643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_}. Ziel war es, eine lauffähige Build-Umgebung unter Linux aufzusetzen, den OQS-angepassten Quellcode zu beziehen, die notwendigen Abhängigkeiten zu installieren und anschließend ein reproduzierbares Build-Artefakt des Browsers mit PQC-Unterstützung zu erzeugen.
+
+Die Einrichtung der Build-Umgebung erfolgte weitgehend entsprechend der offiziellen Linux-Build-Dokumentation des Chromium-Projekts \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Hierzu wurden zunächst die von Chromium bereitgestellten \texttt{depot\_tools} geklont und in den \texttt{PATH} eingebunden, um Werkzeuge wie \texttt{fetch}, \texttt{gclient} und \texttt{gn} verwenden zu können. Anschließend wurde ein separates Arbeitsverzeichnis angelegt und über \texttt{fetch} ein Chromium-Checkout inklusive aller benötigten Abhängigkeiten durchgeführt. Unter einer aktuellen Ubuntu-Linux-Distribution wurden im nächsten Schritt die von Chromium empfohlenen Systemabhängigkeiten installiert, etwa über das Skript \texttt{build/install-build-deps.sh}, welches Compiler, Entwicklungsbibliotheken und Laufzeitbibliotheken für das spätere Linken der Browser-Binärdateien bereitstellt \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Nach Abschluss dieser Vorbereitungen wurden mittels \texttt{gclient runhooks} die Chromium-spezifischen Hooks ausgeführt, um zusätzliche Werkzeuge und vorkompilierte Komponenten nachzuladen.
+
+Aufbauend auf dieser Standard-Umgebung wurde der von OQS bereitgestellte Chromium-Zweig eingebunden, der Anpassungen an BoringSSL sowie die Einbindung von \texttt{liboqs} enthält \parencite{open-quantum-safe_OqsdemosChromium643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_,open-quantum-safe_OqsdemosChromiumREADMELinuxmd643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_}. Dazu wurde das entsprechende Repository aus dem OQS-Demoprojekt geklont und gemäß der dort beschriebenen Struktur so in die bestehende Chromium-Arbeitsumgebung integriert, dass die PQC-Erweiterungen anstelle der unveränderten Upstream-Kryptographiebibliothek verwendet werden. Zentral war dabei die Übernahme der in der OQS-Dokumentation beschriebenen Build-Konfigurationen, insbesondere GN-Argumente, die das Linken gegen \texttt{liboqs} aktivieren und die experimentellen PQ- bzw. Hybrid-Ciphersuites in der TLS-Konfiguration von Chromium einschalten \parencite{open-quantum-safe_OqsdemosChromiumREADMELinuxmd643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_}. Diese Konfiguration wurde in einer eigenen Build-Directory, etwa \texttt{out/oqs-Default}, über den Aufruf \texttt{gn gen} mit den projektspezifischen Argumenten erzeugt.
+
+Im Anschluss daran erfolgte der eigentliche Kompiliervorgang des Browsers mit dem von Chromium vorgesehenen Build-Werkzeug \texttt{autoninja}, das die GN-Konfiguration nutzt, um alle notwendigen Targets effizient zu bauen \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Durch den Aufruf von \texttt{autoninja -C out/oqs-Default chrome} wurde eine Browser-Binärdatei erzeugt, die die OQS-Erweiterungen in der TLS-Schicht enthält. Der resultierende Browser konnte direkt aus dem Build-Verzeichnis gestartet und gegen PQC-fähige Testserver genutzt werden, um TLS-Verbindungen mit hybriden oder rein PQ-basierten Schlüsselaustauschmechanismen zu etablieren. Die so aufgebaute Umgebung ermöglicht eine kontrollierte experimentelle Analyse der praktischen Auswirkungen von PQC im Browserkontext, etwa hinsichtlich Kompatibilität, Performance und Protokollhandshake, auf Basis eines realen Chromium-Builds mit explizit aktivierter Post-Quanten-Kryptographie.
+
+
+\subsection{Issuer Agent Boot Logs}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Issuer-Agent-Boot-Logs}
+\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Issuer Agent Boot Logs}, numbers=left, frame=single]
+Executing task in folder ferris: docker logs --tail 1000 -f 179e43b336fa16b399efa7326cdc0b8bfa6ab24c8f86a2b4b630fe57fc382064 
+
+2025-11-28 23:49:38,921 acapy_agent.config.default_context INFO Registering default plugins
+2025-11-28 23:49:39,083 acapy_agent.config.default_context INFO Registering askar plugins
+2025-11-28 23:49:39,308 acapy_agent.config.ledger INFO Fetching genesis transactions from: https://host.docker.internal:8000/genesis
+2025-11-28 23:49:46,340 acapy_agent.core.profile INFO Create profile manager: askar
+2025-11-28 23:49:46,827 acapy_agent.config.wallet INFO Created new profile - Profile name: issuer_wallet, backend: askar
+2025-11-28 23:49:46,829 acapy_agent.config.wallet INFO No public DID created
+2025-11-28 23:49:46,885 acapy_agent.config.ledger INFO Ledger configuration complete
+2025-11-28 23:49:46,885 acapy_agent.core.conductor INFO Ledger configured successfully.
+2025-11-28 23:49:46,893 acapy_agent.core.conductor INFO Wallet type record not found.
+2025-11-28 23:49:46,894 acapy_agent.core.conductor INFO New agent. Setting wallet type to askar.
+2025-11-28 23:49:47,028 acapy_agent.config.banner INFO 
+::::::::::::::::::::::::::::::::::::::::::::::
+::               Issuer Agent               ::
+::                                          ::
+::                                          ::
+:: Inbound Transports:                      ::
+::                                          ::
+::   - http://0.0.0.0:8020                  ::
+::                                          ::
+:: Outbound Transports:                     ::
+::                                          ::
+::   - http                                 ::
+::   - https                                ::
+::                                          ::
+:: Administration API:                      ::
+::                                          ::
+::   - http://0.0.0.0:8021                  ::
+::                                          ::
+::                               ver: 1.3.2 ::
+::::::::::::::::::::::::::::::::::::::::::::::
+
+2025-11-28 23:49:47,028 acapy_agent.config.banner INFO 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::                             DEPRECATION NOTICE:                                  ::
+:: -------------------------------------------------------------------------------- ::
+:: Receiving a core DIDComm protocol with the `did:sov:BzCbsNYhMrjHiqZDTUASHg;spec` ::
+:: prefix is deprecated. All parties sending this prefix should be notified that    ::
+:: support for receiving such messages will be removed in a future release. Use     ::
+:: https://didcomm.org/ instead.                                                    ::
+:: -------------------------------------------------------------------------------- ::
+:: Aries RFC 0160: Connection Protocol is deprecated and support will be removed in ::
+:: a future release; use RFC 0023: DID Exchange instead.                            ::
+:: -------------------------------------------------------------------------------- ::
+:: Aries RFC 0036: Issue Credential 1.0 is deprecated and support will be removed   ::
+:: in a future release; use RFC 0453: Issue Credential 2.0 instead.                 ::
+:: -------------------------------------------------------------------------------- ::
+:: Aries RFC 0037: Present Proof 1.0 is deprecated and support will be removed in a ::
+:: future release; use RFC 0454: Present Proof 2.0 instead.                         ::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+2025-11-28 23:49:47,029 acapy_agent.core.conductor INFO Wallet version storage record not found.
+2025-11-28 23:49:47,030 acapy_agent.core.conductor INFO No upgrade from version was found from wallet or via --from-version startup argument. Defaulting to v0.7.5.
+2025-11-28 23:49:47,031 acapy_agent.core.conductor INFO Upgrade configurations available. Initiating upgrade.
+2025-11-28 23:49:47,033 acapy_agent.commands.upgrade INFO No ACA-Py version found in wallet storage.
+2025-11-28 23:49:47,033 acapy_agent.commands.upgrade INFO Selecting v0.7.5 as --from-version from the config.
+2025-11-28 23:49:47,033 acapy_agent.commands.upgrade INFO Running upgrade process for v0.8.1
+2025-11-28 23:49:47,034 acapy_agent.commands.upgrade INFO No records of <class 'acapy_agent.connections.models.conn_record.ConnRecord'> found
+2025-11-28 23:49:47,040 acapy_agent.commands.upgrade INFO acapy_version storage record set to v1.3.2
+2025-11-28 23:49:47,042 acapy_agent.core.conductor INFO Listening...
+2025-11-28 23:49:52,008 aiohttp.access INFO 127.0.0.1 [28/Nov/2025:23:49:52 +0000] "GET /status/ready HTTP/1.1" 200 138 "-" "curl/7.88.1"
+2025-11-28 23:50:22,041 aiohttp.access INFO 127.0.0.1 [28/Nov/2025:23:50:22 +0000] "GET /status/ready HTTP/1.1" 200 138 "-" "curl/7.88.1"
+\end{lstlisting}
+
+
+\newpage
+\section{Artefaktentwicklung Iteration 2}
+\label{sec:Anhang_Artefaktentwicklung Iteration 2}
