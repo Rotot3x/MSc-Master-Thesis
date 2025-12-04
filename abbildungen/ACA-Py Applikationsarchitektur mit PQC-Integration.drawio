@@ -1,0 +1,113 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0" version="29.2.1">
+  <diagram name="Seite-1" id="gQ7QqN2TabXkXWnqXKvQ">
+    <mxGraphModel dx="129" dy="949" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1030" width="800" x="2000" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=14;" value="&lt;b&gt;ACA-PY AGENT&lt;/b&gt;" vertex="1">
+          <mxGeometry height="746.43" width="760" x="2020" y="253.56999999999994" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-54" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2190" y="210" />
+              <mxPoint x="2190" y="210" />
+            </Array>
+            <mxPoint x="2190.0000000000005" y="130" as="sourcePoint" />
+            <mxPoint x="2190.0000000000005" y="284" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-55" connectable="0" parent="eFxKJP-XcKKmRSsHzGwC-54" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;HTTP REST API&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.08" y="1" as="geometry">
+            <mxPoint x="-1" y="29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;CONTROLLER APPLICATION&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ External Business Logic&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;NO CHANGE&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="720" x="2040" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-57" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eFxKJP-XcKKmRSsHzGwC-61">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2400" y="449.57000000000005" />
+              <mxPoint x="2195" y="449.57000000000005" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-58" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eFxKJP-XcKKmRSsHzGwC-63">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2400" y="449.57000000000005" />
+              <mxPoint x="2605" y="449.57000000000005" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;ACA-PY ADMIN API&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ Swagger UI&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ API Endpoints&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;NO CHANGE&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="720" x="2040" y="293.56999999999994" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-60" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eFxKJP-XcKKmRSsHzGwC-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;PROTOCOL HANDLERS&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ DIDComm Protocol Suite&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴 PQC-&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Interception&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Delegation to PQC-Plugin&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="310" x="2040" y="659.57" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-62" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="eFxKJP-XcKKmRSsHzGwC-64" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;WALLET INTERFACE&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ Key + DID + Credential Management API&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237)); font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;PQC Key &lt;/span&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Operations&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237)); font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;PQC Sign/Verifiy&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237)); font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;P&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;font style=&quot;color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237)); font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;QC Pack/Unpack&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="310" x="2450" y="659.57" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;WALLET IMPLEMENTATION&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ Aries Askar (SQLite)&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔ ChaCha20-Poly1305 Encryption&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴 Expanded Key-Type-Registry&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴 PQC-Key-Storage&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="310" x="2450" y="849.5700000000002" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-65" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=classic;startFill=1;entryX=0.403;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#FF0000;" target="eFxKJP-XcKKmRSsHzGwC-71">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2370" y="915" />
+            </Array>
+            <mxPoint x="2180" y="850.9700000000003" as="sourcePoint" />
+            <mxPoint x="2366.4" y="625.5660000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-66" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;TRANSPORT LAYER&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;(Inbound: HTTP / Outbound: HTTP)&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;Iteration 2: PQC within DIDComm&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="310" x="2040" y="849.5700000000002" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-67" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;EXTERNAL ACA-PY AGENT&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="36" width="720" x="2040" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-68" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.215;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="eFxKJP-XcKKmRSsHzGwC-67">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2195.0769230769233" y="814" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-69" connectable="0" parent="eFxKJP-XcKKmRSsHzGwC-68" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;DIDComm Messages&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.2059" y="-2" as="geometry">
+            <mxPoint x="2" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-70" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FF0000;" target="eFxKJP-XcKKmRSsHzGwC-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2430" y="915" />
+              <mxPoint x="2450" y="915" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FF0000;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;PQC PLUGIN&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px; color: rgba(0, 0, 0, 0);&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;liboqs Integration Layer&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;PQC did:peer:4 Generator&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Protocol Interceptors&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Wallet Operation Wrappers&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="310" x="2245" y="469.57000000000005" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-72" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.912;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FF0000;" target="eFxKJP-XcKKmRSsHzGwC-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eFxKJP-XcKKmRSsHzGwC-73" edge="1" parent="1" source="eFxKJP-XcKKmRSsHzGwC-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.725;exitY=0.997;exitDx=0;exitDy=0;entryX=0.912;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FF0000;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2470" y="625.57" as="sourcePoint" />
+            <mxPoint x="2470" y="659.57" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0" version="29.2.3">
+  <diagram name="Seite-1" id="IhtBuokkPgbCfyWda4EW">
+    <mxGraphModel dx="1188" dy="633" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="R8VO-VX8wVGayWePvjUJ-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="890" width="720" x="50" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-15" edge="1" parent="1" source="YWWYN6kX9z6ZY4AWsPmX-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;" target="Q8zeZ6J3F5_wwnYAQtkZ-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YWWYN6kX9z6ZY4AWsPmX-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#ff0000, #ededed);" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;STAGE 1:&lt;br&gt;OPENSSL-BUILDER (Build Stage)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="330" x="80" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-16" edge="1" parent="1" source="Q8zeZ6J3F5_wwnYAQtkZ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;" target="Q8zeZ6J3F5_wwnYAQtkZ-8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#ff0000, #ededed);" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;STAGE 2:&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;LIBOQS-BUILDER (Build Stage)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="330" x="80" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-17" edge="1" parent="1" source="Q8zeZ6J3F5_wwnYAQtkZ-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Q8zeZ6J3F5_wwnYAQtkZ-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;STAGE 3:&lt;br&gt;ACAPY-BUILDER (Build Stage)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="330" x="80" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FF0000;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;STAGE 4:&lt;br&gt;MAIN (Final Image)&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="330" x="80" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;🔴 Prepare Debian build environment&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;🔴 Download &amp;amp; unpack OpenSSL source code&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px; color: light-dark(rgb(255, 0, 0), rgb(237, 237, 237));&quot;&gt;🔴 Install build dependencies&lt;br&gt;🔴 Compile &amp;amp; verify OpenSSL with PQC support&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="330" x="430" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-12" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;verticalAlign=middle;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;🔴 &lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Prepare Debian build environment&lt;br&gt;🔴 Download &amp;amp; unpack liboqs source code&lt;/span&gt;&lt;br&gt;🔴 &lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Build liboqs with CMake/Ninja&lt;/span&gt;&lt;br&gt;🔴 &lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Install &amp;amp; verify liboqs library&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="280" x="430" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-13" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;verticalAlign=middle;" value="✔&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;Provide Python build image&lt;br&gt;✔ Install Poetry and fetch dependencies&lt;br&gt;✔ Copy project code and metadata&lt;br&gt;✔ Build package with Poetry&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="260" x="430" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8zeZ6J3F5_wwnYAQtkZ-14" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔&amp;nbsp; &amp;nbsp;Prepare run environment&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;🔴 Provision OpenSSL &amp;amp; liboqs&lt;br&gt;🔴 Copy PQC root CA to the trust store&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;🔴 Verify PQC support&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;✔&amp;nbsp; &amp;nbsp;Install acapy from Poetry-Wheel&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;🔴 &lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Install pqc_didpeer4_fm plugin for acapy&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="280" x="430" y="810" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
