@@ -733,7 +733,7 @@ Die funktionale Zielsetzung unterscheidet zwischen formativer und summativer Eva
 
 \textbf{Summative Evaluationen} werden verwendet, um empirisch fundierte Interpretationen zu erzeugen, die als Grundlage für die Schaffung geteilter Bedeutungen über das Evaluationsobjekt in verschiedenen Kontexten dienen. Summative Evaluationen fokussieren auf Bedeutungen und unterstützen Entscheidungen zur Auswahl des Evaluationsobjekts für eine Anwendung \parencite[S. 2-3]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
 
-Im Kontext dieser Arbeit werden beide Evaluationsformen eingesetzt: Formative Evaluationen erfolgen iterativ während der drei Entwicklungszyklen (\fixme{Kapitel 4}), um Designschwächen frühzeitig zu identifizieren und zu beheben. Summative Evaluationen werden nach Abschluss der Prototyp-Entwicklung durchgeführt, um die Gesamtperformance, Sicherheit und KRITIS-Tauglichkeit des finalen Artefakts zu bewerten (\fixme{Kapitel 7}).
+Im Kontext dieser Arbeit werden beide Evaluationsformen eingesetzt. Formative Evaluationen erfolgen während der iterativen Artefaktentwicklung (Kapitel~\ref{sec:Iterative Artefaktentwicklung}) in Form von Itegrationstests um Designschwächen frühzeitig zu identifizieren und zu beheben. Summative Evaluationen werden nach Abschluss der iterativen Artefaktentwicklung durchgeführt, um die Erfüllung der funktionalen und nicht-funktionalen Anforderungen sowie die konforme Umsetzung KRITIS-spezifischer Compliance-Vorgaben am Gesamtsystem zu bewerten (Kapitel~\ref{sec:Summative Evaluation}).
 
 \subsubsection{Dimension 2: Evaluationsparadigma}
 
@@ -743,9 +743,11 @@ Das FEDS-Framework unterscheidet zwischen künstlicher (artificial) und naturali
 
 \textbf{Naturalistische Evaluation} erforscht die Performance einer Lösungstechnologie in ihrer realen Umgebung, typischerweise innerhalb einer Organisation. Durch Evaluation in einer realen Umgebung (reale Menschen, reale Systeme, reale Settings) umfasst naturalistische Evaluation alle Komplexitäten menschlicher Praxis in realen Organisationen. Sie ist immer empirisch und tendiert zum Interpretivismus, kann aber auch positivistisch oder kritisch sein. Das dominante interpretivistische Paradigma bringt naturalistischer DSR-Evaluation den Vorteil stärkerer interner Validität \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
 
-Einerseits ist künstliche Evaluation oft die einfachste, direkteste und kostengünstigste Form der Evaluation mit präziser Sprache in den Ergebnissen. Andererseits beinhaltet künstliche Evaluation eine reduktionistische Abstraktion von der natürlichen Umgebung und ist notwendigerweise unrealistisch, da sie in einem oder mehreren von drei Realitäten (unreale Nutzer, unreale Systeme oder unreale Probleme) nicht der Realität entspricht \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Im Gegensatz dazu bietet naturalistische Evaluation kritische Gesichtsvalidität und sichert eine rigorosere Bewertung der Effektivität des Artefakts \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Die beiden Dimensionen sind vollständig orthogonal zueinander: Sowohl naturalistische als auch künstliche Evaluationsmethoden können für formative und/oder summative Evaluationen verwendet werden \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
+Die beiden Dimensionen sind vollständig orthogonal zueinander: Sowohl naturalistische als auch künstliche Evaluationsmethoden können für formative und/oder summative Evaluationen verwendet werden \parencite[S. 4]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}.
 
-Für diese Arbeit werden beide Paradigmen kombiniert: Künstliche Evaluationen erfolgen in einer kontrollierten Laborumgebung (Docker-Container, definierte Test-Use-Cases) zur Messung von Performance-Metriken und kryptografischer Stärke. Naturalistische Elemente werden durch KRITIS-spezifische Szenarien integriert, die reale Anforderungen und Workflows abbilden.
+\fixme{Für diese Arbeit werden beide Paradigmen kombiniert: Künstliche Evaluationen erfolgen in einer kontrollierten Laborumgebung (Docker-Container, definierte Test-Use-Cases) zur Messung von Performance-Metriken und kryptografischer Stärke. Naturalistische Elemente werden durch KRITIS-spezifische Szenarien integriert, die reale Anforderungen und Workflows abbilden.
+
+Für diese Arbeit wird ausschließlich ein künstliches Evaluationsparadigma angewendet. Die Evaluation erfolgt in einer kontrollierten Laborumgebung (Docker-Containerisierung, definierte Test-Szenarien) zur systematischen Messung von Performance-Metriken und Validierung kryptografischer Sicherheitseigenschaften. KRITIS-spezifische Compliance-Anforderungen werden ausschließlich in der Anforderungsanalyse (Kapitel 4.1.2.3) berücksichtigt und als Grundlage für die Definition der Testkriterien und -szenarien verwendet, nicht jedoch im Rahmen einer naturalistischen Feldstudie evaluiert.}
 
 \subsubsection{FEDS-Evaluationsstrategien}
 
@@ -761,7 +763,9 @@ Das FEDS-Framework identifiziert vier prototypische Evaluationsstrategien, die j
     \item \textbf{Purely Technical Strategy:} Wird verwendet, wenn ein Artefakt rein technisch ist ohne menschliche Nutzer, oder wenn geplante Deployment mit Nutzern so weit in der Zukunft liegt, dass naturalistische Evaluation irrelevant ist.
 \end{enumerate}
 
-Für diese Arbeit wird eine Kombination aus \textbf{Technical Risk \& Efficacy} und \textbf{Human Risk \& Effectiveness} Strategy gewählt. Die Entwicklung beginnt mit künstlichen formativen Evaluationen (Unit-Tests, Performance-Messungen in Laborumgebung), progrediert zu naturalistischeren Evaluationen (KRITIS-Use-Cases) und schließt mit summativen Evaluationen ab (Gesamtbewertung gegen definierte Erfolgskriterien).
+\fixme{Für diese Arbeit wird eine Kombination aus \textbf{Technical Risk \& Efficacy} und \textbf{Human Risk \& Effectiveness} Strategy gewählt. Die Entwicklung beginnt mit künstlichen formativen Evaluationen (Unit-Tests, Performance-Messungen in Laborumgebung), progrediert zu naturalistischeren Evaluationen (KRITIS-Use-Cases) und schließt mit summativen Evaluationen ab (Gesamtbewertung gegen definierte Erfolgskriterien).
+
+Für diese Arbeit wird die \textbf{Purely Technical Strategy} gewählt. Das entwickelte Artefakt ist ein technischer Prototyp, dessen Evaluation ausschließlich in einer kontrollierten Laborumgebung (Docker-Containerisierung, definierte Test-Szenarien) durch künstliche formative und summative Evaluationen erfolgt. Naturalistische Evaluationen werden nicht durchgeführt, da das Deployment in realen KRITIS-Umgebungen über den Scope einer Masterarbeit hinausgeht und kein Zugang zu entsprechenden Produktivsystemen besteht. Die KRITIS-spezifischen Compliance-Anforderungen dienen ausschließlich als Grundlage für die Definition der technischen Testkriterien und -szenarien.}
 
 \subsubsection{FEDS-Evaluationsdesign-Prozess}
 
@@ -821,11 +825,10 @@ Die Auswahl der Artefakteigenschaften für die Evaluation ist notwendigerweise e
 Unter Berücksichtigung von Umgebungsfaktoren (verfügbare Zeit, Budget, Ressourcen) werden die konkreten Evaluationsepisoden geplant \parencite[S. 8]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Für diese Arbeit umfasst dies:
 
 \begin{enumerate}
-    \item \textbf{Formative Evaluationen (Iteration 1--3):} Unit-Tests, Integrationstests, Performance-Benchmarks
+    \item \textbf{Formative Evaluationen (Iteration 1--3):} Integrationstests
     \item \textbf{Summative Evaluation (nach Iteration 3):}
     \begin{itemize}
         \item Funktionalitätstests anhand KRITIS-Use-Cases (Kapitel 7.2)
-        \item Performance-Analyse (Latenz, Durchsatz, Ressourcenverbrauch) (Kapitel 7.3)
         \item Sicherheitsbewertung (kryptografische Analyse, Threat-Modeling) (Kapitel 7.4)
         \item Compliance-Validierung (Abgleich mit BSI-Anforderungen) (Kapitel 7.4)
     \end{itemize}
@@ -836,7 +839,7 @@ Die Evaluation erfolgt in einer kontrollierten Laborumgebung (Ubuntu 24.04 LTS, 
 Das FEDS-Framework sichert somit eine systematische, rigorose und effiziente Evaluation des entwickelten PQC-basierten SSI-Prototyps, die sowohl wissenschaftlichen Standards als auch praktischen Anforderungen gerecht wird.
 
 \newpage
-\section{Iterative Artefaktentwicklung}
+\section{Iterative Artefaktentwicklung} \label{sec:Iterative Artefaktentwicklung}
 Überblick über den iterativen Entwicklungsprozess: \\
        - Zuordnung zu DSRM-Phasen und Hevner-Zyklen \\
        - Iterationsplanung und Forschungsfragen-Triangulation
@@ -875,42 +878,54 @@ Bezüglich FF2 (Algorithmenauswahl und Sicherheitsbewertung) liegt das Designzie
 
 Für FF3 (Kryptografische Agilität) zielt die Iteration auf die architektonische Vorbereitung für Austauschbarkeit kryptografischer Algorithmen ab. Das Design soll dabei Mechanismen vorsehen, die zukunftige Algorithmenupdates ermöglichen, ohne das System grundlegend umgestalten zu müssen.
 
-\subsubsection{Anforderungsanalyse}
+\subsubsection{Anforderungsanalyse} \label{sec:Anforderungsanalyse}
             %  - Funktionale Anforderungen (FR1-FR7) \\
             %  - Nicht-funktionale Anforderungen (NFR1-NFR22) \\
             %  - KRITIS-spezifische Compliance-Anforderungen
 
 \paragraph{Funktionale Anforderungen} \label{sec:Funktionale Anforderungen}
 
-Die funktionalen Anforderungen für das zu entwickelnde SSI-System orientieren sich am Operational Reference Model (ORM) und umfassen sieben Kernfunktionalitäten, die von \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} als essenziell für blockchain-basierte Self-Sovereign-Identity-Systeme identifiziert wurden. Diese Funktionalitäten bilden die Grundlage für die iterative Artefaktentwicklung und definieren die zu implementierenden Use Cases.
+Die funktionalen Anforderungen nach \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} für das zu entwickelnde SSI-System umfassen sieben Kernfunktionalitäten.
 
-\textbf{FR1: Issuer Discovery}
-
-Das System muss die Identifikation und Auffindbarkeit von vertrauenswürdigen Ausstellern (Issuers) digitaler Identitätsnachweise ermöglichen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Identity Holder müssen in der Lage sein, geeignete Aussteller für gewünschte Credentials zu entdecken und deren Vertrauenswürdigkeit zu validieren. Im KRITIS-Kontext ist dies besonders relevant für die Identifikation autorisierter Zertifizierungsstellen und regulierter Identitätsanbieter.
-
-\textbf{FR2: Connection Creation}
-
-Das System muss sichere, authentifizierte Verbindungen zwischen den drei Hauptakteuren des SSI-Ökosystems -- Identity Holder, Issuer und Verifier -- etablieren können \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Diese Verbindungen bilden die Grundlage für alle nachfolgenden Interaktionen und müssen kryptografisch gesichert sowie persistent verwaltbar sein. Die Implementierung erfolgt typischerweise über DIDComm-Protokolle mit gegenseitiger Authentifizierung.
-
-\textbf{FR3: Credential Creation}
-
-Das System muss die vollständige Funktionalität zur Erstellung, Ausstellung und Verwaltung digitaler Credentials (Verifiable Credentials) bereitstellen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies umfasst sowohl issuer-initiierte als auch verifier-vorgeschlagene Credential-Ausstellungen sowie die Unterstützung hierarchischer Identitätsstrukturen (z.B. nationale, regionale und lokale Identitätsnachweise). Die Credentials müssen den W3C-Standards entsprechen und kryptografisch signiert sein.
-
-\textbf{FR4: Verification with Credentials}
-
-Das System muss die Verifikation digitaler Identitätsnachweise durch Verifier ermöglichen und dabei das Prinzip der minimalen Offenlegung (Minimal Disclosure) unterstützen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Identity Holder müssen in der Lage sein, Identitätsattribute selektiv offenzulegen -- entweder vollständig (value revealed), durch Zero-Knowledge-Proofs (value not revealed) oder gar nicht (value not required). Die Verifikation muss ohne direkte Einbindung des Issuers erfolgen können, um Skalierbarkeit und Privacy zu gewährleisten.
-
-\textbf{FR5: Backup/Recovery}
-
-Das System muss Mechanismen zur Sicherung und Wiederherstellung von Credentials und kryptografischem Material bereitstellen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies umfasst sowohl die Wiederherstellung nach permanentem Verlust des Wallets (z.B. bei Gerätewechsel) als auch nach temporärem Verlust. Im KRITIS-Kontext ist eine sichere, auditierbare Recovery-Strategie unter Einhaltung von Compliance-Anforderungen essenziell, um Verfügbarkeit und Kontinuität zu gewährleisten.
-
-\textbf{FR6: Derive/Share Credentials}
-
-Das System muss die Ableitung neuer Credentials aus bestehenden Nachweisen sowie das plattformübergreifende, nutzerkontrollierte Teilen persönlicher Daten unterstützen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies schließt die Authentifizierung durch Drittanbieter-Applikationen über das SSI-Wallet ein. Die Funktionalität ermöglicht granulare Zugriffskontrolle und unterstützt das Prinzip der Datenminimierung.
-
-\textbf{FR7: Sunset/Delete/Revoke Credentials}
-
-Das System muss vollständige Lebenszyklusverwaltung für Credentials bieten, einschließlich Ablaufdaten (Sunset), nutzerseitiger Löschung, temporärer Deaktivierung und issuer-seitiger Widerrufung (Revocation) \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Revocation-Mechanismen müssen auf der Blockchain nachvollziehbar, jedoch unter Wahrung der Privacy implementiert werden. Im KRITIS-Kontext ist die Echtzeit-Prüfung des Revocation-Status für sicherheitskritische Zugriffsentscheidungen unerlässlich.
+\begin{longtable}{L{4cm}L{10cm}}
+    \caption{Funktionale Anforderungen für blockchain-basierte Self-Sovereign-Identity-Systeme}
+    \label{tab:functional_requirements} \\
+    \toprule
+    \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{2}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{2}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{2}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis der Auflistungen und des Sequenzdiagramms in Anlehnung an \textcite[S. 130-132]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.} \\
+    \endlastfoot
+    FR1: \newline Issuer Discovery &
+    Das System muss die Auffindbarkeit von publizierten Credential Schemata des Issuers digitaler Identitätsnachweise ermöglichen. \\
+    \midrule
+    FR2: \newline Connection Creation &
+    Das System muss Verbindungen zwischen den Akteuren des SSI-Ökosystems etablieren können. \\
+    \midrule
+    FR3: \newline Credential Creation &
+    Das System muss Funktionalität zur Erstellung und Ausstellung digitaler Credentials bereitstellen. \\
+    \midrule
+    FR4: \newline Verification with Credentials &
+    Das System muss einen Verifikationsprozess zwischen Identity Holder, Verifier und Blockchain-basierter \ac{VDR} durch Validierung eines Identitätsnachweises ermöglichen. \\
+    \midrule
+    FR5: \newline Backup/Recovery &
+    Das System muss die Wiederherstellung von Credentials bei dauerhaftem Wallet-Verlust, sowie bei temporärem Wallet-Verlust durch Backup- und Recovery-Mechanismen ermöglichen. \\
+    \midrule
+    FR6: \newline Derive/Share Credentials &
+    Das System muss die Ableitung neuer Credentials aus bestehenden Nachweisen sowie das plattformübergreifende, nutzerkontrollierte Teilen persönlicher Daten unterstützen. \\
+    \midrule
+    FR7: \newline Sunset/Delete/Revoke Credentials &
+    Das System muss die Funktionalität zur Sperrung, Löschung und zum Widerruf von Credentials unterstützen. \\
+\end{longtable}
 
 \paragraph{Nicht-funktionale Anforderungen} \label{sec:Nicht-Funktionale Anforderungen}
 
@@ -2148,27 +2163,191 @@ Das Multi-Stage-Build-Dockerfile integriert alle Abhängigkeiten in ein kohären
 
 
 \newpage
-\section{Summative Evaluation}
+\section{Summative Evaluation} \label{sec:Summative Evaluation}
         - Evaluationsmethodik (FEDS)
-\subsection{Funktionalitätstests}
+
+
+Im Rahmen der summativen Evaluation wurde das finale Artefakt aus \fixme{KAPITEL} mithilfe des in \ref{sec:Anhang_Summative Evaluation} dargestellten Jupyter Notebooks evaluiert.
+
+KRITIS Szenario ...  Ziel der Evaluation ist die Validierung der funktionalen Anforderungen gemäß Kapitel~\ref{sec:Funktionale Anforderungen}.
+
+- Initialisierung des Artefakts 
+
+\subsection{Validierung der funktionalen Anforderungen}
        - Vollständige UC1-UC7-Validierung \\
        Use Cases? ==> \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}
+
+
+\subsubsection{FR1: Issuer Discovery}
+Nach Initialisierung des SSI-Systems erfolgt die Validierung der funktionalen Anforderung FR1: Issuer Discovery. Ziel ist die erfolgreiche Identifikation und Validierung von KRITIS-konformen Issuern im dezentralen Ledger.
+
+Listing~\ref{lst:Jupyter-Notebook-Evaluations-Workflow} \enquote{\# Cell 13} zeigt die Logik.
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{summative_evaluation_FR1_01.png}
+    \caption{FR1: Issuer Discovery 1}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung basierend auf dem Output von Listing~\ref{lst:Jupyter-Notebook-Evaluations-Workflow} \enquote{\# Cell 13}.
+    \end{flushleft}
+    \label{fig:FR1_Issuer_Discovery_1}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{summative_evaluation_FR1_02.png}
+    \caption{FR1: Issuer Discovery 2}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung basierend auf dem Output von Listing~\ref{lst:Jupyter-Notebook-Evaluations-Workflow} \enquote{\# Cell 13}.
+    \end{flushleft}
+    \label{fig:FR1_Issuer_Discovery_2}
+\end{figure}
+
+
+
+
+%  Wie funktioniert die Identifikation?
+
+%   1. Schema-Identifier enthält Issuer-DID:
+
+%   V4SGRU86Z58d6TV7PBUe6f:2:university_degree:1.0
+%   └─────────────────────┘
+%           Issuer DID
+
+%   2. Ledger-Lookup:
+
+%   Der DID wird gegen das Ledger validiert:
+%   - ✅ Ist der DID als TRUST_ANCHOR registriert?
+%   - ✅ Welcher Public Key (Verkey) gehört zu diesem DID?
+%   - ✅ Wer hat den DID registriert (Endorser)?
+
+%   3. Kryptografische Verifikation:
+
+%   Der Verkey (Public Key) ist die kryptografische Identität des Issuers. Jede Credential-Signatur kann damit verifiziert werden.
+
+%   ---
+%   KRITIS-Konformität:
+
+%   Die Implementierung erfüllt die Anforderung "Issuer Discovery" aus (Nokhbeh Zaeem et al., 2021):
+
+%   1. ✅ Identifikation: Issuer wird über DID eindeutig identifiziert
+%   2. ✅ Auffindbarkeit: Ledger-basierte Discovery über Schema-Identifier
+%   3. ✅ Vertrauenswürdigkeit: TRUST_ANCHOR Role + Byzantine Fault Tolerant Ledger
+%   4. ✅ Validierung: Public Key Verifikation + On-Ledger Aktivitäten
+
+---
+
+ \paragraph{Issuer Discovery - Identifikation via Ledger Identifier}
+
+  Die Identifikation vertrauenswürdiger Credential-Issuers erfolgt in dieser Implementierung über einen dreistufigen, identifikatorbasierten
+  Verifikationsprozess auf Basis der Hyperledger Indy Blockchain:
+
+  \textbf{Phase 1: Ledger-basierte Issuer Discovery.}
+  Die Discovery-Phase filtert alle NYM-Transaktionen (Transaction Type \texttt{1}) aus dem Ledger und identifiziert Entitäten mit der
+  \texttt{TRUST\_ANCHOR} Role (Role Code \texttt{101}). Diese Rolle autorisiert die Entität zur Registrierung von Schemas und Credential
+  Definitions auf dem Ledger. Jede identifizierte TRUST\_ANCHOR-Entität wird mit folgenden Ledger-Attributen erfasst:
+  \begin{itemize}
+      \item \textbf{DID} (Decentralized Identifier): Eindeutiger Ledger-Identifier der Entität
+      \item \textbf{Verkey} (Verification Key): Public Key zur Signaturverifikation (in der PQC-Implementierung: ML-DSA-65 mit Multicodec
+  \texttt{0xd065})
+      \item \textbf{Alias}: Menschenlesbarer Name der Entität
+      \item \textbf{Registered By}: DID des Endorsers, der die NYM-Transaktion signiert hat
+      \item \textbf{Transaction Metadata}: Sequence Number und Timestamp der Registrierung
+  \end{itemize}
+
+  Listing~\ref{fig:FR1_Issuer_Discovery_1} zeigt die Ausgabe dieser Discovery-Phase mit allen TRUST\_ANCHOR-Entitäten im Ledger.
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{summative_evaluation_FR1_01.png}
+  \caption{Ledger-basierte Issuer Discovery: Extraktion aller TRUST\_ANCHOR-Entitäten aus NYM-Transaktionen mit vollständigen Ledger-Attributen
+   (DID, Verkey, Alias, Endorser, Transaction Metadata).}
+  \label{fig:FR1_Issuer_Discovery_1}
+  \end{figure}
+
+  \textbf{Phase 2: Issuer Identifier Verification.}
+  Für jeden identifizierten TRUST\_ANCHOR wird eine kryptographische Identitätsverifikation durchgeführt. Die Verifikation basiert auf
+  folgenden unveränderlichen Ledger-Eigenschaften:
+  \begin{enumerate}
+      \item \textbf{DID-Konsistenz}: Der DID erscheint in NYM-Transaktion (Type \texttt{1}) mit Role \texttt{101}
+      \item \textbf{Public Key Binding}: Der Verkey ist kryptographisch an den DID gebunden (bei PQC: ML-DSA-65 Public Key)
+      \item \textbf{On-Ledger Aktivitäten}: Nachweis von Schema-Registrierungen (Type \texttt{101}), Credential Definitions (Type \texttt{102})
+   und optionalen Revocation Registries (Type \texttt{113}/\texttt{114})
+      \item \textbf{Endorser-Validierung}: Verifizierung des Registrierungs-Endorsers über dessen Signatur der NYM-Transaktion
+  \end{enumerate}
+
+  Diese Eigenschaften sind auf einem Byzantine Fault Tolerant (BFT) Ledger unveränderlich und können nicht nachträglich manipuliert werden.
+
+  \textbf{Phase 3: Schema-basierte Issuer-Identifikation.}
+  Der konkrete Issuer eines Credential-Schemas wird über den \textit{Schema Identifier} identifiziert. Hyperledger Indy verwendet das Format:
+  \begin{center}
+  \texttt{<issuer\_did>:2:<schema\_name>:<version>}
+  \end{center}
+
+  Der Issuer-DID ist somit direkt im Schema-Identifier eingebettet. Bei der Suche nach einem spezifischen Schema (z.\,B.
+  \texttt{university\_degree}) werden folgende Schritte ausgeführt:
+  \begin{enumerate}
+      \item Filterung aller SCHEMA-Transaktionen (Type \texttt{101}) nach \texttt{schema\_name}
+      \item Extraktion des \texttt{issuer\_did} aus dem Schema-Identifier
+      \item Ledger-Lookup der NYM-Transaktion für \texttt{issuer\_did}
+      \item Kryptographische Verifikation über den im Ledger hinterlegten \texttt{verkey}
+      \item Validierung der TRUST\_ANCHOR Role und On-Ledger Aktivitäten
+  \end{enumerate}
+
+  Listing~\ref{fig:FR1_Issuer_Discovery_2} demonstriert diese Schema-basierte Issuer-Identifikation am Beispiel des \texttt{university\_degree}
+   Schemas mit vollständiger Darstellung der Issuer-Identität inklusive DID, Public Key (Verkey), TRUST\_ANCHOR Status und Ledger-Metadaten.
+
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{summative_evaluation_FR1_02.png}
+  \caption{Schema-basierte Issuer-Identifikation: Extraktion des Issuer-DID aus dem Schema-Identifier (\texttt{university\_degree}) und
+  vollständige Identitätsverifikation über Ledger-Lookup mit kryptographischer Binding-Validierung (DID $\leftrightarrow$ Verkey).}
+  \label{fig:FR1_Issuer_Discovery_2}
+  \end{figure}
+
+  \textbf{KRITIS-Konformität: Identifikation ohne zentrale Autorität.}
+  Dieser identifikatorbasierte Ansatz erfüllt die Anforderungen der EU-Verordnung 2019/881 (Cybersecurity Act) sowie der deutschen
+  KRITIS-Verordnung durch folgende Eigenschaften:
+  \begin{itemize}
+      \item \textbf{Dezentralisierung}: Keine zentrale Trust Authority erforderlich (Byzantine Fault Tolerant Consensus)
+      \item \textbf{Kryptographische Verifikation}: Public Key Binding über Post-Quantum sichere ML-DSA-65 Signaturen
+      \item \textbf{Transparenz}: Alle Issuer-Identitäten und Aktivitäten sind auf dem Ledger öffentlich einsehbar
+      \item \textbf{Unveränderlichkeit}: Ledger-Einträge können nachträglich nicht manipuliert werden (BFT-Konsens)
+      \item \textbf{Auditierbarkeit}: Vollständige Nachvollziehbarkeit über Transaction Sequence Numbers und Timestamps
+  \end{itemize}
+
+Die Kombination aus Ledger-basierter Discovery (Phase 1), kryptographischer Identitätsverifikation (Phase 2) und Schema-basierter Identifikation (Phase 3) ermöglicht eine vertrauenswürdige Issuer-Identifikation ohne zentrale Vertrauensinstanz. Die Integration von Post-Quantum Kryptographie (ML-DSA-65 für Signaturen, ML-KEM-768 für Key Agreement) gewährleistet dabei die langfristige Sicherheit gegen Angriffe durch Quantencomputer gemäß NIST FIPS-204 und FIPS-203.
+
+\subsubsection{FR2: Connection Creation}
+\subsubsection{FR3: Credential Creation}
+\subsubsection{FR4: Verification with Credentials}
+\subsubsection{FR5: Backup/Recovery}
+\subsubsection{FR6: Derive/Share Credentials}
+\subsubsection{FR7: Sunset/Delete/Revoke Credentials}
+
+Anforderungskapitel ==> Kapitel~\ref{sec:Anforderungsanalyse}
+
 %       - KRITIS-Szenarien (Energie, Gesundheit, Wasser)
 % \subsection{Performance-Analyse}
 %        - Latenz-Messungen (Baseline, PQC, Hybrid) \\
 %        - Durchsatz-Analyse \\
 %        - Speicher- und Rechenaufwand \\
 %        - Skalierbarkeitstest
-\subsection{Sicherheitsbewertung}
-       - Kryptografische Stärke (NIST Security Level) \\
-       - Threat-Modeling \\
-       - Resilience-Tests
-\subsection{Compliance-Validierung}
+
+\subsection{Validierung der nicht-funktionalen Anforderungen}
+
+
+
+\subsection{Validierung der KRITIS-Compliance-Anforderungen}
        - BSI-Anforderungen (IDM, KRY) \\
        - DSGVO, NIS2 \\
        - Auditierbarkeit
 
-
+Mapping, Tabelle wie wird das konkret vom Protoypen umgesetzt.
 
 
 % \newpage
