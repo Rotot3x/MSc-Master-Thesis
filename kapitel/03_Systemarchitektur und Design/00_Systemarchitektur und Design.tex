@@ -9,165 +9,17 @@ Abgrenzung Herleitung des Themas und Relevanz systematisch vs. DSR unsystematisc
 
 Die systematische Literaturrecherche für diese Seminararbeit folgt einer Anzahl ausgewählter Methoden der PRISMA 2020 Richtlinien, dessen aktualisierte Leitlinien Transparenz und Vollständigkeit bei der Darstellung von Vorgehen und Ergebnissen systematischer Reviews fördern. Ziel ist es, den Erkenntnisstand zu einem spezifischen Forschungsproblem durch eine strukturierte Identifikation, Selektion, Bewertung und Synthese einschlägiger Studien methodisch nachvollziehbar zu dokumentieren, wodurch eine belastbare Grundlage für die Analyse der Forschungslücke und die Ableitung von Forschungsfragen geschaffen wird \parencite[S. 1--3]{page_PRISMA2020Statementupdatedguidelinereportingsystematicreviews_2021}. Die PRISMA 2020 Richtlinien fordern u.a. die offene Darlegung der Suchstrategien, der Auswahlkriterien sowie der Bewertungs- und Syntheseverfahren, um die Nachvollziehbarkeit und Replizierbarkeit des Forschungsprozesses sicherzustellen \parencite[S. 1--6]{page_PRISMA2020Explanationelaborationupdatedguidanceexemplarsreportingsystematicreviews_2021}.
 
-Die systematische Literaturrecherche wurde in zwei zeitlich getrennten Iterationen durchgeführt, um den evolving Charakter des Forschungsfeldes zu adressieren und die Aktualität der Wissensbasis sicherzustellen. Beide Iterationen dienen ausschließlich der initialen Problemidentifikation, der Ergründung des Forschungsstands sowie der Ableitung der Forschungslücke und initialen Forschungsfragen.
+Die systematische Literaturrecherche wurde in zwei zeitlich getrennten Iterationen durchgeführt, um den evolving Charakter des Forschungsfeldes zu adressieren und die Aktualität der Wissensbasis sicherzustellen. Beide Iterationen sind ausführlich dokumentiert in \ref{sec:Anhang_Dokumentation_der_systematischen_Literaturrecherche} und dienen ausschließlich der initialen Problemidentifikation, der Ergründung des Forschungsstands sowie der Ableitung der Forschungslücke und initialen Forschungsfragen.
 
-\subsubsection{Erste Iteration (30. Mai 2025)}
-
-Die erste Iteration fand im Rahmen des Exposés statt und etablierte die methodische Grundlage für das gesamte Forschungsprojekt. Diese initiale Recherche identifizierte 61 relevante Quellen mit differenzierter Relevanzklassifizierung (hoch/mittel/niedrig) und ermöglichte die Formulierung der Forschungsfragen sowie die Identifikation der Forschungslücke im Bereich Post-Quantum-Kryptografie für Self-Sovereign-Identity-Systeme in kritischen Infrastrukturen. Die detaillierte Dokumentation dieser ersten Iteration \fixme{aus dem Exposé} wurde in \ref{sec:Anhang_Dokumentation der ersten Iteration der systematischen Literaturrecherche (Exposé)} dieser Masterarbeit integriert, um Transparenz und Reproduzierbarkeit zu gewährleisten.
-
-\subsubsection{Zweite Iteration (02. November 2025)}
-
-Die zweite Iteration erfolgt im Rahmen der Masterarbeit unter Berücksichtigung der in der ersten Iteration definierten ausgewählten Methoden der PRISMA 2020 Richtlinien (\autoref{tab:Ausgewählte Methoden der PRISMA 2020 Richtlinien}).
-
-Angepasst wurde der Suchzeitraum (Zeitrahmen: 30. Mai 2025 bis 02. November 2025) innerhalb der Ein- und Ausschlusskriterien, um die Wissensbasis zu aktualisieren und neu erschienene Publikationen im dynamischen Forschungsfeld der Post-Quantum-Kryptografie und blockchain-basierten SSI-Systeme zu erfassen (\autoref{tab:einausschlusskriterien_iteration2}).
-
-\begin{longtable}{L{3cm}L{4cm}L{4cm}L{3cm}}
-    \caption{Ein- und Ausschlusskriterien für die systematische Literaturrecherche}
-    \label{tab:einausschlusskriterien_iteration2} \\
-    \toprule
-    \textbf{Kategorie} & \textbf{Einschluss} & \textbf{Ausschluss} & \textbf{Begründung} \\
-    \midrule
-    \endfirsthead
-    \multicolumn{4}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
-    \toprule
-    \textbf{Kategorie} & \textbf{Einschluss} & \textbf{Ausschluss} & \textbf{Begründung} \\
-    \midrule
-    \endhead
-    \midrule
-    \multicolumn{4}{r}{\textit{Fortsetzung auf nächster Seite}} \\
-    \endfoot
-    \bottomrule
-    \multicolumn{4}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung.} \\
-    \endlastfoot
-    Thematischer Fokus &
-    \ac{SSI} und dezentrale Identitätslösungen;
-    Blockchain-basierte Identitätsmanagementsysteme;
-    \ac{PQC} und quantensichere Algorithmen;
-    Sicherheit und Compliance in \ac{KRITIS};
-    \ac{DSR}-Methodik in IT/Informationssystemen;
-    Kryptoagilität und kryptografische Migration & 
-    Identitätsmanagement ohne Bezug zu \ac{SSI} oder Blockchain;
-    Klassische \ac{PKI} ohne \ac{PQC}-Bezug;
-    Kryptografie ohne Post-Quantum-Relevanz;
-    Arbeiten ohne Bezug zu \ac{KRITIS} oder ohne sicherheitskritischen Kontext;
-    Nicht-\ac{DSR}-basierte Entwicklungsansätze & 
-    Fokussierung auf die Forschungsfragen und relevante technologische, methodische und regulatorische Aspekte. \\
-    \midrule
-    Zeitrahmen & 30. Mai 2025 bis 02. November 2025 & Alles davor oder danach & Berücksichtigung aktueller technologischer Entwicklungen (Blockchain, \ac{PQC}, \ac{SSI}) und regulatorischer Anforderungen. \\
-    \midrule
-    Publikationstypen & 
-    Peer-reviewed Journalartikel;
-    Konferenzbeiträge anerkannter Fachgesellschaften (z. B. IEEE, ACM, IFIP); Preprints;
-    Offizielle Standards und Empfehlungen (z. B. \ac{NIST}, W3C, \ac{BSI});
-    Whitepaper etablierter Organisationen;
-    Dissertationen und anerkannte Fachbücher & 
-    Blogposts, Forenbeiträge, Marketingmaterial;
-    Populärwissenschaftliche Artikel ohne wissenschaftliche Fundierung;
-    Unveröffentlichte Manuskripte ohne Peer-Review;
-    Seminar- und Abschlussarbeiten ohne wissenschaftliche Begutachtung & 
-    Sicherstellung wissenschaftlicher Qualität, Nachvollziehbarkeit und Relevanz der Quellen für die Masterarbeit; Da das Forschungsthema aktuell noch sehr neu ist und die einschlägige Fachliteratur teilweise noch nicht den Peer-Review-Prozess durchlaufen hat, werden auch Preprints in die Analyse einbezogen. Preprints ermöglichen eine zeitnahe Verfügbarkeit aktueller Forschungsergebnisse, was insbesondere bei diesem innovativen von großer Bedeutung ist. \\
-    \midrule
-    Sprache & Deutsch; Englisch & Andere Sprachen als Deutsch und Englisch & Gewährleistung der Verständlichkeit und Zugänglichkeit für den deutsch- und englischsprachigen Forschungskontext. \\
-    \midrule
-    Zugänglichkeit & Verfügbare Volltexte & Nicht verfügbare Volltexte & Ermöglichung einer gründlichen Analyse und Bewertung der Inhalte. \\
-\end{longtable}
-
-Um die Konsistenz und Vergleichbarkeit der Ergebnisse zu gewährleisten wurde die zweite Iteration mit identischer Suchstrategie durchgeführt.
-Dazu zählen alle in \autoref{tab:suchstrategie} dargestellten Schritte, von der Identifikation relevanter Schlüsselkonzepte bis zur Übersetzung der Suchanfrage für die EBSCO Datenbank.
-
-\paragraph*{Übersetzung der Suchanfrage für EBSCO}
-
-Das Ergebnis der EBSCO Suchanfrage ist in \autoref{fig:EBSCO Ergebnis_11} dargestellt. Insgesamt wurden mit dieser Abfrage 34 Quellen identifiziert.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{EBSCO_11.png}
-    \caption{Ergebnis der EBSCO Suchanfrage}
-    \begin{flushleft}
-    \textit{Anmerkung.} Eigene Darstellung.
-    \end{flushleft}
-    \label{fig:EBSCO Ergebnis_11}
-\end{figure}
-
-\paragraph*{Selektionsprozess}
-
-Der Selektionsprozess in Iteartion 2 wurde gegenüber dem iteration 1 Expose erweitert um die Relevanzbewertung der neu identifizierten Quellen zu verfeinern und ist in \fixme{Abb. XY} dargestellt.
-Dafür wurde ein zweistufiger Screening-Prozess implementiert, bestehend aus einem Title-Abstract-Screening gefolgt von einem Full-Text-Screening.
-
-Für das Title-Abstract-Screening wurden alle in Iteration 2 identifizierten Quellen anhand ihrer Titel und Abstracts wie auch schon im Expose in Bezug auf den thematischen Fokus der Arbeit. Hohe Relevanz erhalten Quellen mit klaren Beiträgen zu SSI, PQC, KRITIS oder dezentralen Identitätsarchitekturen. Mittlere Relevanz wird Arbeiten zugeordnet, die angrenzende Technologien wie Blockchain-Sicherheit im IoT oder digitale Forensik behandeln. Niedrige Relevanz erhalten Quellen zu allgemeinen Technologietrends ohne direkten Bezug zum Thema.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\paperwidth-3.75cm]{PRISMA_2020_flow_diagram_updated_SRs_v1_ITERATION_2.png}
-    \caption{PRISMA 2020 Flussdiagramm - zweite Iteration}
-    \begin{flushleft}
-    \textit{Anmerkung.} In Anlehnung an \textcite[S. 5]{page_PRISMA2020Statementupdatedguidelinereportingsystematicreviews_2021}.
-    \end{flushleft}
-    \label{fig:PRISMA_Flussdiagramm_Iteration2}
-\end{figure}
-
-\autoref{fig:PRISMA_Flussdiagramm_Iteration2} visualisiert den gesamten Auswahlprozess der systematischen Literaturrecherche nach anerkannten wissenschaftlichen Standards. Im Diagramm werden alle Schritte der Literatursuche und -auswahl strukturiert und nachvollziehbar dokumentiert, beginnend mit der Identifikation relevanter Quellen aus Datenbanken, über das Screening der Titel und Abstracts sowie die Bewertung der Volltexte bis hin zur finalen Bestimmung der eingeschlossenen Studien.
-
-\autoref{tab:quellenuebersicht_iteration2} stellt eine Übersicht der Bewertung der 34 identifizierten Quellen dar, welche vollständig in in \autoref{tab:quellenbewertung_iteration2} dokumentiert wurde.
-
-\begin{longtable}{L{1.5cm}L{11cm}L{1cm}}
-    \caption[]{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
-    \label{tab:quellenuebersicht_iteration2} \\
-    \toprule
-    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
-    \midrule
-    \endfirsthead
-    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
-    \toprule
-    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
-    \midrule
-    \endhead
-    \midrule
-    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
-    \endfoot
-    \bottomrule
-    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Basierend auf \autoref{tab:quellenbewertung_iteration2} und Titel und Abstracts von \textcite{barrett-danes_QuantumComputingCybersecurityrigoroussystematicreviewemergingthreatspostquantumsolutionsresearchdirections_2025,feng_IdentityManagementSystemsComprehensiveReview_2025}.} \\
-    \endlastfoot
-    1 & Barrett-danes, F., \& Ahmad, F. (2025). Quantum computing and cybersecurity: a rigorous systematic review of emerging threats, post-quantum solutions, and research directions (2019-2024). Discover Applied Sciences, 7(10). \url{https://doi.org/10.1007/s42452-025-07322-5} & Hoch \\
-    \midrule
-    2 & Feng, Z., Li, Z., Cui, H., \& Whitty, M. T. (2025). Identity management systems: A comprehensive review. Information (Basel), 16(9), 778. \url{https://doi.org/10.3390/info16090778} & Hoch \\
-    \midrule
-    3--10 & Diverse & Mittel  \\
-    \midrule
-    11--34 & Diverse & Niedrig \\
-\end{longtable}
+\fixme{während DSR ==> unsystematische Literaturrecherche nach Bedarf...}
 
 
-Die im Title-Abstract-Screening als potenziell relevant eingestuften Publikationen der ersten und zweiten Iteration wurden im nächsten Schritt, dem Full-Text-Screening vollständig gesichtet und einer detaillierten Bewertung unterzogen. Dabei wurden die Ausschlussgründe dokumentiert, um Transparenz im Selektionsprozess zu gewährleisten.
 
----
+\textbf{Konsolidierte Ergebnisse beider Iterationen}
 
+Die erste Iteration erfolgte im Rahmen des Exposés am 30. Mai 2025 (\ref{sec:Anhang_Dokumentation_der_ersten_Iteration_Expose}). Sie identifizierte 61 Quellen, die anhand von Titel und Abstract nach Relevanz klassifiziert wurden (\autoref{tab:A-1}). Diese Klassifikation wurde für die Masterarbeit beibehalten, da sie dem methodischen Standard eines Exposés entspricht und zur Identifikation der Forschungslücke sowie zur Formulierung der Forschungsfragen ausreichend war.
 
-\subparagraph*{Ergebnisse der zweiten Iteration (02. November 2025)}
-
-Die zweite Iteration, durchgeführt mit identischer Suchstrategie und angepasstem Zeitrahmen (30. Mai 2025 bis 02. November 2025), identifizierte insgesamt 34 neue Quellen aus der EBSCO-Datenbank (\autoref{fig:EBSCO Ergebnis_11}).
-
-\textbf{Title-Abstract-Screening:} Im ersten Screening-Schritt wurden alle 34 identifizierten Quellen anhand ihrer Titel und Abstracts gegen die definierten Einschlusskriterien (\autoref{tab:einausschlusskriterien_iteration2}) bewertet. Dabei wurden [X] Publikationen ausgeschlossen, die offensichtlich nicht den thematischen Anforderungen entsprachen. [Y] Publikationen wurden für das Full-Text-Screening vorgemerkt.
-
-\textbf{Full-Text-Screening:} Die [Y] verbliebenen Publikationen wurden vollständig gesichtet und einer detaillierten Bewertung gegen alle Ein- und Ausschlusskriterien unterzogen. Dabei wurden weitere [Z] Publikationen ausgeschlossen. Die Ausschlussgründe verteilten sich wie folgt:
-\begin{itemize}
-    \item Thematisch nicht relevant (kein direkter Bezug zu mindestens einer Kerndomäne): [A] Publikationen
-    \item Methodisch ungeeignet (z.B. reine Meinungsbeiträge ohne empirische oder konzeptionelle Fundierung): [B] Publikationen
-    \item Volltext nicht verfügbar trotz Document Delivery Anfrage: [C] Publikationen
-\end{itemize}
-
-Nach Abschluss des zweistufigen Screening-Prozesses verblieben [W] Publikationen für die finale Relevanzklassifikation:
-\begin{itemize}
-    \item \textbf{Hohe Relevanz}: [W1] Publikationen mit substanziellen Beiträgen zu mindestens zwei Kerndomänen
-    \item \textbf{Mittlere Relevanz}: [W2] Publikationen mit Bezug zu einer Kerndomäne
-    \item \textbf{Niedrige Relevanz}: [W3] Publikationen mit angrenzenden Themen
-\end{itemize}
-
-\subparagraph*{Konsolidierte Ergebnisse beider Iterationen}
-
-Die erste Iteration (Exposé, 30. Mai 2025) identifizierte 61 Quellen, die anhand von Titel und Abstract nach Relevanz klassifiziert wurden (\autoref{tab:A-1}). Diese Klassifikation wurde für die Masterarbeit beibehalten, da sie dem methodischen Standard eines Exposés entspricht und zur Identifikation der Forschungslücke sowie zur Formulierung der Forschungsfragen ausreichend war.
-
-Die zweite Iteration ergänzte diese Wissensbasis um [W] neue Quellen, die einem vollständigen zweistufigen Screening-Prozess nach PRISMA 2020 unterzogen wurden. Dies gewährleistet, dass alle für die Masterarbeit neu hinzugefügten Quellen den höheren wissenschaftlichen Standards systematischer Reviews genügen.
+Die zweite Iteration im Rahmen der Masterarbeit (\ref{sec:Anhang_Dokumentation_der_ersten_Iteration}) ergänzt diese Wissensbasis um [W] neue Quellen, die einem vollständigen zweistufigen Screening-Prozess nach PRISMA 2020 unterzogen wurden. Dies gewährleistet, dass alle für die Masterarbeit neu hinzugefügten Quellen den höheren wissenschaftlichen Standards systematischer Reviews genügen.
 
 Über beide Iterationen hinweg stehen somit insgesamt [61 + W] Quellen für die Analyse des Forschungsstands, die Ableitung der theoretischen Grundlagen und die Entwicklung des SSI-Prototyps zur Verfügung. Die detaillierte Bewertung aller Quellen ist in \autoref{tab:A-1} (Iteration 1) und \autoref{tab:bewertung_iteration2} (Iteration 2) dokumentiert.
 
@@ -187,7 +39,7 @@ Die zweite Iteration ergänzte diese Wissensbasis um [W] neue Quellen, die einem
 Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Fokus der Arbeit. Hohe Relevanz erhalten Quellen mit klaren Beiträgen zu \ac{SSI}, \ac{PQC}, \ac{KRITIS} oder dezentralen Identitätsarchitekturen. Mittlere Relevanz wird Arbeiten zugeordnet, die angrenzende Technologien wie Blockchain-Sicherheit im \ac{IoT} oder digitale Forensik behandeln. Niedrige Relevanz erhalten Quellen zu allgemeinen Technologietrends ohne direkten Bezug zum Thema.
 
 \begin{longtable}{L{1.5cm}L{11cm}L{1cm}}
-    \caption[]{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \caption{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
     \label{tab:quellenuebersicht} \\
     \toprule
     \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
@@ -391,7 +243,7 @@ Die enge Verzahnung von Konstruktion und Evaluation im Design Cycle stellt siche
 Die sieben DSR-Leitlinien nach \textcite[S. 83]{hevner_DesignScienceInformationsystemsresearch_2004}, dargestellt in \autoref{tab:DSR_Guidelines} bilden einen strukturierten Rahmen zur Durchführung und Bewertung von Design-Science-Forschung. Im Folgenden wird dargelegt, wie diese Arbeit die einzelnen Leitlinien erfüllt.
 
 \begin{longtable}{L{4cm}L{7cm}}
-    \caption[]{Design Science Research Guidelines}
+    \caption{Design Science Research Guidelines}
     \label{tab:DSR_Guidelines} \\
     \toprule
     \textbf{Guideline} & \textbf{Description} \\
@@ -879,91 +731,91 @@ Bezüglich FF2 (Algorithmenauswahl und Sicherheitsbewertung) liegt das Designzie
 Für FF3 (Kryptografische Agilität) zielt die Iteration auf die architektonische Vorbereitung für Austauschbarkeit kryptografischer Algorithmen ab. Das Design soll dabei Mechanismen vorsehen, die zukunftige Algorithmenupdates ermöglichen, ohne das System grundlegend umgestalten zu müssen.
 
 \subsubsection{Anforderungsanalyse} \label{sec:Anforderungsanalyse}
-            %  - Funktionale Anforderungen (FR1-FR7) \\
-            %  - Nicht-funktionale Anforderungen (NFR1-NFR22) \\
-            %  - KRITIS-spezifische Compliance-Anforderungen
 
 \paragraph{Funktionale Anforderungen} \label{sec:Funktionale Anforderungen}
 
-Die funktionalen Anforderungen nach \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} für das zu entwickelnde SSI-System umfassen sieben Kernfunktionalitäten.
+Basierend auf der Analyse von \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} lassen sich für das SSI-System sechs zentrale funktionale Anforderungen identifizieren, die den den vollständigen Lebenszyklus digitaler Identitätsnachweise ab decken (\autoref{tab:functional_requirements}).
 
-\begin{longtable}{L{4cm}L{10cm}}
-    \caption{Funktionale Anforderungen für blockchain-basierte Self-Sovereign-Identity-Systeme}
+\begin{longtable}{L{1cm}L{4cm}L{9cm}}
+    \caption{Funktionale Anforderungen an SSI-Systeme}
     \label{tab:functional_requirements} \\
     \toprule
-    \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
+    \textbf{Nr.} & \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
     \midrule
     \endfirsthead
-    \multicolumn{2}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
     \toprule
-    \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
+    \textbf{Nr.} & \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
     \midrule
     \endhead
     \midrule
-    \multicolumn{2}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
     \endfoot
     \bottomrule
-    \multicolumn{2}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis der Auflistungen und des Sequenzdiagramms in Anlehnung an \textcite[S. 130-132]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.} \\
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis der Auflistungen und des Sequenzdiagramms in Anlehnung an \textcite[S. 130-132]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.} \\
     \endlastfoot
-    FR1: \newline Issuer Discovery &
+    1 & Issuer Discovery &
     Das System muss die Auffindbarkeit von publizierten Credential Schemata des Issuers digitaler Identitätsnachweise ermöglichen. \\
     \midrule
-    FR2: \newline Connection Creation &
+    2 & Connection Creation &
     Das System muss Verbindungen zwischen den Akteuren des SSI-Ökosystems etablieren können. \\
     \midrule
-    FR3: \newline Credential Creation &
+    3 & Credential Creation &
     Das System muss Funktionalität zur Erstellung und Ausstellung digitaler Credentials bereitstellen. \\
     \midrule
-    FR4: \newline Verification with Credentials &
+    4 & Verification with Credentials &
     Das System muss einen Verifikationsprozess zwischen Identity Holder, Verifier und Blockchain-basierter \ac{VDR} durch Validierung eines Identitätsnachweises ermöglichen. \\
     \midrule
-    FR5: \newline Backup/Recovery &
-    Das System muss die Wiederherstellung von Credentials bei dauerhaftem Wallet-Verlust, sowie bei temporärem Wallet-Verlust durch Backup- und Recovery-Mechanismen ermöglichen. \\
+    5 & Credential Revocation &
+    Das System muss die Funktionalität zum Widerruf von Credentials unterstützen. \\
     \midrule
-    FR6: \newline Derive/Share Credentials &
-    Das System muss die Ableitung neuer Credentials aus bestehenden Nachweisen sowie das plattformübergreifende, nutzerkontrollierte Teilen persönlicher Daten unterstützen. \\
-    \midrule
-    FR7: \newline Sunset/Delete/Revoke Credentials &
-    Das System muss die Funktionalität zur Sperrung, Löschung und zum Widerruf von Credentials unterstützen. \\
+    6 & Credential Deletion &
+    Das System muss die Funktionalität zur Löschung von Credentials unterstützen. \\
 \end{longtable}
 
-\paragraph{Nicht-funktionale Anforderungen} \label{sec:Nicht-Funktionale Anforderungen}
+% \paragraph{Nicht-funktionale Anforderungen} \label{sec:Nicht-Funktionale Anforderungen}
 
-Die nicht-funktionalen Anforderungen (Non-Functional Requirements, NFR) definieren die Qualitätsattribute und systemübergreifenden Eigenschaften des zu entwickelnden SSI-Prototyps. \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} identifizieren in ihrer umfassenden Vergleichsstudie 22 NFR für blockchain-basierte Self-Sovereign-Identity-Systeme, die in zwei Kategorien unterteilt werden können: acht prominente Kern-NFR (NFR 1--8), die in der akademischen Literatur sowie in kommerziellen und Open-Source-Lösungen weitverbreitet sind, sowie 14 erweiterte NFR (NFR 9--22), die spezifischere Qualitätsaspekte adressieren.
+% Auf Grundlage des begrenzten Rahmens der Masterarbeit wurden folgende  
 
-Die folgenden acht Kern-NFR bilden das qualitative Fundament für blockchain-basierte SSI-Systeme und sind in der Fachliteratur sowie in Standardisierungsinitiativen (W3C, DIF, RWoT) prominent vertreten \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}:
+% Die nicht-funktionalen Anforderungen (Non-Functional Requirements, NFR) definieren die Qualitätsattribute und systemübergreifenden Eigenschaften des zu entwickelnden SSI-Prototyps. \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} identifizieren in ihrer umfassenden Vergleichsstudie 22 NFR für blockchain-basierte Self-Sovereign-Identity-Systeme, die in zwei Kategorien unterteilt werden können: acht prominente Kern-NFR (NFR 1--8), die in der akademischen Literatur sowie in kommerziellen und Open-Source-Lösungen weitverbreitet sind, sowie 14 erweiterte NFR (NFR 9--22), die spezifischere Qualitätsaspekte adressieren.
 
-\textbf{NFR1: Provability (Nachweisbarkeit)}
+% Die folgenden acht Kern-NFR bilden das qualitative Fundament für blockchain-basierte SSI-Systeme und sind in der Fachliteratur sowie in Standardisierungsinitiativen (W3C, DIF, RWoT) prominent vertreten \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}:
 
-Das System muss Identity Holder die Fähigkeit bieten, ihre Identität kryptografisch nachzuweisen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Im KRITIS-Kontext ist dies besonders relevant für Zugriffsentscheidungen auf kritische Infrastruktursysteme, bei denen Non-Repudiation (Nicht-Abstreitbarkeit) und forensische Nachvollziehbarkeit essenziell sind.
+% \textbf{NFR1: Provability (Nachweisbarkeit)}
 
-\textbf{NFR2: Interoperability (Interoperabilität)}
+% Das System muss Identity Holder die Fähigkeit bieten, ihre Identität kryptografisch nachzuweisen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Im KRITIS-Kontext ist dies besonders relevant für Zugriffsentscheidungen auf kritische Infrastruktursysteme, bei denen Non-Repudiation (Nicht-Abstreitbarkeit) und forensische Nachvollziehbarkeit essenziell sind.
 
-Das System muss plattform-, blockchain- und jurisdiktionsübergreifende Kompatibilität gewährleisten und über Programmiersprachen, Anbieter, Netzwerke, rechtliche Rahmen, Kryptografie-Algorithmen sowie Hardware hinweg funktionieren \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies schließt zeitliche Interoperabilität ein (langfristige Lesbarkeit von Credentials trotz technologischer Evolution). Für KRITIS ist die Interoperabilität mit bestehenden IAM-Systemen (z.B. Active Directory, LDAP) und Compliance-Frameworks (BSI-Grundschutz, ISO 27001) unabdingbar.
+% \textbf{NFR2: Interoperability (Interoperabilität)}
 
-\textbf{NFR3: Portability (Portabilität)}
+% Das System muss plattform-, blockchain- und jurisdiktionsübergreifende Kompatibilität gewährleisten und über Programmiersprachen, Anbieter, Netzwerke, rechtliche Rahmen, Kryptografie-Algorithmen sowie Hardware hinweg funktionieren \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies schließt zeitliche Interoperabilität ein (langfristige Lesbarkeit von Credentials trotz technologischer Evolution). Für KRITIS ist die Interoperabilität mit bestehenden IAM-Systemen (z.B. Active Directory, LDAP) und Compliance-Frameworks (BSI-Grundschutz, ISO 27001) unabdingbar.
 
-Identity Holder müssen ihre digitalen Identitätsnachweise und Credentials geräte-, plattform- und anbieterübergreifend mitnehmen können \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies impliziert standardisierte Export-/Import-Mechanismen (z.B. W3C Verifiable Credentials) sowie Vendor-Lock-In-Vermeidung. Im KRITIS-Kontext unterstützt dies die Anforderung der Unabhängigkeit von einzelnen Dienstleistern gemäß NIS-2-Richtlinie.
+% \textbf{NFR3: Portability (Portabilität)}
 
-\textbf{NFR4: Pseudonymity (Pseudonymität)}
+% Identity Holder müssen ihre digitalen Identitätsnachweise und Credentials geräte-, plattform- und anbieterübergreifend mitnehmen können \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies impliziert standardisierte Export-/Import-Mechanismen (z.B. W3C Verifiable Credentials) sowie Vendor-Lock-In-Vermeidung. Im KRITIS-Kontext unterstützt dies die Anforderung der Unabhängigkeit von einzelnen Dienstleistern gemäß NIS-2-Richtlinie.
 
-Das System muss Identity Holder die Möglichkeit bieten, zu interagieren, ohne ihre reale Identität offenlegen zu müssen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies wird typischerweise durch paarweise pseudonyme DIDs (Decentralized Identifiers) erreicht, bei denen für jede Beziehung ein eindeutiger Identifier generiert wird. Pseudonymität ist komplementär zu selektiver Offenlegung und Zero-Knowledge-Proofs.
+% \textbf{NFR4: Pseudonymity (Pseudonymität)}
 
-\textbf{NFR5: Recovery (Wiederherstellbarkeit)}
+% Das System muss Identity Holder die Möglichkeit bieten, zu interagieren, ohne ihre reale Identität offenlegen zu müssen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies wird typischerweise durch paarweise pseudonyme DIDs (Decentralized Identifiers) erreicht, bei denen für jede Beziehung ein eindeutiger Identifier generiert wird. Pseudonymität ist komplementär zu selektiver Offenlegung und Zero-Knowledge-Proofs.
 
-Das System muss sichere und benutzerfreundliche Mechanismen zur Wiederherstellung von kryptografischen Schlüsseln und Credentials bereitstellen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. \textcite[S. 133]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} identifizieren Recovery als eine der am wenigsten unterstützten NFR in existierenden SSI-Lösungen, obwohl die Absicherung und Wiederherstellung in Wallet-basierten Systemen vital ist. Im KRITIS-Kontext ist eine auditierbare, compliant Recovery-Strategie (z.B. mittels Social Recovery, Hardware-Security-Modules oder Threshold-Kryptografie) unerlässlich.
+% \textbf{NFR5: Recovery (Wiederherstellbarkeit)}
 
-\textbf{NFR6: Scalability (Skalierbarkeit)}
+% Das System muss sichere und benutzerfreundliche Mechanismen zur Wiederherstellung von kryptografischen Schlüsseln und Credentials bereitstellen \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. \textcite[S. 133]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} identifizieren Recovery als eine der am wenigsten unterstützten NFR in existierenden SSI-Lösungen, obwohl die Absicherung und Wiederherstellung in Wallet-basierten Systemen vital ist. Im KRITIS-Kontext ist eine auditierbare, compliant Recovery-Strategie (z.B. mittels Social Recovery, Hardware-Security-Modules oder Threshold-Kryptografie) unerlässlich.
 
-Das System muss für breite Adoption und Replikation geeignet sein \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies umfasst sowohl technische Skalierbarkeit (Transaktionsdurchsatz, Latenz bei Credential-Verifikation) als auch organisatorische Skalierbarkeit (Onboarding von Issuern und Verifiern). Für KRITIS-Anwendungen müssen hohe Transaktionsvolumina (z.B. Authentifizierung von Millionen IoT-Geräten) bewältigt werden.
+% \textbf{NFR6: Scalability (Skalierbarkeit)}
 
-\textbf{NFR7: Security (Sicherheit)}
+% Das System muss für breite Adoption und Replikation geeignet sein \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies umfasst sowohl technische Skalierbarkeit (Transaktionsdurchsatz, Latenz bei Credential-Verifikation) als auch organisatorische Skalierbarkeit (Onboarding von Issuern und Verifiern). Für KRITIS-Anwendungen müssen hohe Transaktionsvolumina (z.B. Authentifizierung von Millionen IoT-Geräten) bewältigt werden.
 
-Das System muss umfassenden Schutz von Daten, kryptografischen Schlüsseln und Credentials gewährleisten \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Im Kontext der Post-Quantum-Kryptografie bedeutet dies konkret die Resistenz gegen Angriffe durch Quantencomputer. Die Implementierung muss NIST-FIPS-203/204/205-konforme PQC-Algorithmen (ML-DSA, ML-KEM, SLH-DSA) integrieren und dabei gängige Bedrohungsmodelle (Impersonation, Replay-Attacken, Man-in-the-Middle) adressieren.
+% \textbf{NFR7: Security (Sicherheit)}
 
-\textbf{NFR8: Usability (Benutzerfreundlichkeit)}
+% Das System muss umfassenden Schutz von Daten, kryptografischen Schlüsseln und Credentials gewährleisten \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Im Kontext der Post-Quantum-Kryptografie bedeutet dies konkret die Resistenz gegen Angriffe durch Quantencomputer. Die Implementierung muss NIST-FIPS-203/204/205-konforme PQC-Algorithmen (ML-DSA, ML-KEM, SLH-DSA) integrieren und dabei gängige Bedrohungsmodelle (Impersonation, Replay-Attacken, Man-in-the-Middle) adressieren.
 
-Das System muss eine menschenzentrierte, verständliche User Experience bieten \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies schließt intuitive Wallet-Interfaces, verständliche Consent-Dialoge und niedrige Eintrittsbarrieren ein. Für KRITIS-Umgebungen ist die Balance zwischen Sicherheit (z.B. Multi-Faktor-Authentifizierung) und Usability (z.B. Single-Sign-On-Erlebnis) kritisch, um sowohl IT-Security-Experten als auch End-User zu unterstützen.
+% \textbf{NFR8: Usability (Benutzerfreundlichkeit)}
+
+% Das System muss eine menschenzentrierte, verständliche User Experience bieten \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Dies schließt intuitive Wallet-Interfaces, verständliche Consent-Dialoge und niedrige Eintrittsbarrieren ein. Für KRITIS-Umgebungen ist die Balance zwischen Sicherheit (z.B. Multi-Faktor-Authentifizierung) und Usability (z.B. Single-Sign-On-Erlebnis) kritisch, um sowohl IT-Security-Experten als auch End-User zu unterstützen.
+
+
+
+% ---------------------------------------------------------------
 
 % \paragraph*{Erweiterte NFR für KRITIS-spezifische Compliance}
 
@@ -985,98 +837,225 @@ Das System muss eine menschenzentrierte, verständliche User Experience bieten \
 
 \paragraph{KRITIS-spezifische Compliance-Anforderungen} \label{sec:KRITIS-spezifische Compliance-Anforderungen}
 
-% 2.5 Technische Informationssicherheit:
-% IDM-07 + IDM-08 bis IDM-13 + KRY-01 bis KRY-04
+Die in Tabelle \ref{tab:compliance_requirements} konsolidierten Anforderungen definieren den normativen Rahmen für die Gestaltung und Evaluierung post-quanten-sicherer SSI-Systeme im Kontext kritischer Infrastrukturen.
 
-% 2.6 Personelle und organisatorische Sicherheit
-% IDM-01 bis IDM-06 + IDM-09
+Im Bereich der \textbf{kryptografischen Verfahren} (Nr. 1-4) basieren die Vorgaben primär auf den Technischen Richtlinien des BSI. Für die Migration auf Post-Quantum-Kryptografie ist insbesondere die Wahl spezifischer Parameter-Sets für ML-DSA (NIST Level 3/5) und ML-KEM (Level 3/5) sowie die zwingende Implementierung hybrider Schlüsseleinigung vorgeschrieben, um sowohl Integrität als auch langfristige Vertraulichkeit gegen Quantencomputer-Angriffe zu gewährleisten \parencite[Kap. 2.2, 2.4, 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. Ergänzend fordert die TR-02102-2 den Einsatz moderner Transportverschlüsselung via TLS 1.3, um durch Perfect Forward Secrecy (PFS) die Kommunikationskanäle abzusichern \parencite[Kap. 3.2]{bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025}.
+
+Hinsichtlich der \textbf{Betriebssicherheit} (Nr. 5-6) leiten sich die Anforderungen direkt aus dem IT-Sicherheitsgesetz 2.0 (BSIG) und internationalen Standards ab. Essenziell für KRITIS-Betreiber ist hierbei die Implementierung effektiver \gls{SzA} durch umfassende Protokollierung sicherheitsrelevanter Ereignisse gemäß § 8a BSIG \parencite[Nr. 101, 103]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}. Flankierend schreibt die ISO/IEC 27001 eine strikte logische Netzsegmentierung vor, um die Ausbreitung potenzieller Sicherheitsvorfälle innerhalb der Infrastruktur zu begrenzen \parencite[Control A.8.22]{iso/iec_ISOIEC270012022InformationsecuritycybersecurityprivacyprotectionInformationsecuritymanagement_2022}.
+
+Die dritte Säule bildet der \textbf{Datenschutz} (Nr. 7-9) auf Basis der DSGVO. Hierbei stehen Prinzipien wie \textit{Privacy by Design} gemäß Art. 25 und Datenminimierung nach Art. 5 im Fokus. Zudem muss das Recht auf Löschung nach Art. 17 durch geeignete Architekturmuster, etwa die Trennung von Identifikatoren und Inhaltsdaten, technisch gewährleistet werden \parencite[Art. 5, 17, 25]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}.
+
+\begin{longtable}{L{1cm}L{4cm}L{9cm}}
+    \caption{Compliance Anforderungen an SSI-Systeme im KRITIS-Kontext}
+    \label{tab:compliance_requirements} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Compliance Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Compliance Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis von \textcite{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025,bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025,bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024,iso/iec_ISOIEC270012022InformationsecuritycybersecurityprivacyprotectionInformationsecuritymanagement_2022,daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}.} \\
+    \endlastfoot
+
+    % KATEGORIE 1: KRYPTOGRAFISCHE VERFAHREN
+    \multicolumn{3}{l}{\textbf{Kryptografische Verfahren und Schlüssellängen}} \\
+    \midrule
+    1 & Einhaltung spezifischer Parameter-Sets für ML-DSA &
+    Zur Gewährleistung der vom BSI geforderten Sicherheitsniveaus dürfen für das Verfahren ML-DSA ausschließlich die Parameter-Sets verwendet werden, die den NIST Security Strength Categories 3 oder 5 entsprechen. Konkret sind dies ML-DSA-65 oder ML-DSA-87 \parencite[Kap. 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} \\
+    \midrule
+    2 & Einhaltung spezifischer Parameter-Sets für ML-KEM &
+    Für den langfristigen Schutz vertraulicher Informationen mittels des gitterbasierten Schlüsselkapselungsverfahrens ML-KEM dürfen gemäß BSI-Einschätzung ausschließlich Parametersätze verwendet werden, die den NIST Security Strength Categories 3 oder 5 entsprechen. Zulässig sind demnach ML-KEM-768 sowie ML-KEM-1024 \parencite[Kap. 2.4.3]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. \\
+    \midrule
+    3 & Implementierung hybrider Schlüsseleinigung &
+    Um langfristige Vertraulichkeit (Schutz vor \textit{Store Now, Decrypt Later}) zu gewährleisten, muss für die Schlüsseleinigung zwingend ein hybrides Verfahren implementiert werden, das ein anerkanntes klassisches Verfahren mit einem empfohlenen PQC-KEM kombiniert \parencite[Kap. 2.2, 2.4]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. \\
+    \midrule
+    4 & Bevorzugte Verwendung von TLS 1.3 &
+    Für die Absicherung der Transportebene wird gemäß \textcite[Kap. 3.2]{bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025} vorrangig das Protokoll TLS 1.3 empfohlen, da es PFS erzwingt und auf unsichere Cipher-Suites verzichtet. \\
+
+    % KATEGORIE 2: BETRIEBSSICHERHEIT UND KRITIS-ORGANISATION
+    \midrule
+    \multicolumn{3}{l}{\textbf{Betriebssicherheit und KRITIS-Organisation}} \\
+    \midrule
+    5 & Protokollierung sicherheitsrelevanter Ereignisse &
+    Sicherheitsrelevante Ereignisse müssen auf System- und Netzebene zentral protokolliert werden, um eine zeitnahe Erkennung von Angriffen zu ermöglichen \parencite[Nr. 101, 103]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}. \\
+    \midrule
+    6 & Logische Netzsegmentierung &
+    Gruppen von Informationsdiensten, Benutzern und Informationssystemen sollten in den Netzwerken der Organisation getrennt werden \parencite[Control A.8.22]{iso/iec_ISOIEC270012022InformationsecuritycybersecurityprivacyprotectionInformationsecuritymanagement_2022}. \\
+
+    % KATEGORIE 3: DATENSCHUTZ UND PRIVACY
+    \midrule
+    \multicolumn{3}{l}{\textbf{Datenschutz und Privacy by Design}} \\
+    \midrule
+    7 & Datenschutz durch Technikgestaltung (Privacy by Design) &
+    Gemäß \textcite[Art. 25]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016} sind bereits bei der Entwicklung des Systems geeignete technische Maßnahmen zu treffen, die die Datenschutzgrundsätze addressieren. \\
+    \midrule
+    8 & Grundsatz der Datenminimierung &
+    Personenbezogene Daten müssen dem Zweck angemessen und auf das notwendige Maß beschränkt sein. \parencite[Art. 5]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}. \\
+    \midrule
+    9 & Recht auf Löschung &
+    Die betroffene Person hat das Recht, von dem Verantwortlichen die unverzügliche Löschung sie betreffender personenbezogener Daten zu verlangen. Der Verantwortliche ist verpflichtet, personenbezogene Daten unverzüglich zu löschen \parencite[Art. 17]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}. \\
+\end{longtable}
+
+% 1. \textbf{Technische Sicherheit} (BSI TR-02102-1): Kryptographische Algorithmen, Schlüssellängen, Verschlüsselungsprotokolle.
+
+% \begin{longtable}{L{1cm}L{4cm}L{9cm}}
+%     \caption{Ausgewählte Compliance Anforderungen für KRITIS}
+%     \label{tab:technical_compliance} \\
+%     \toprule
+%     \textbf{Nr.} & \textbf{Compliance Anforderung} & \textbf{Beschreibung} \\
+%     \midrule
+%     \endfirsthead
+%     \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+%     \toprule
+%     \textbf{Nr.} & \textbf{Compliance Anforderung} & \textbf{Beschreibung} \\
+%     \midrule
+%     \endhead
+%     \midrule
+%     \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+%     \endfoot
+%     \bottomrule
+%     \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} \fixme{Eigene Darstellung auf Basis der Auflistungen und des Sequenzdiagramms in Anlehnung an \textcite[S. 130-132]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.}} \\
+%     \endlastfoot
+%     1 & Einhaltung spezifischer Parameter-Sets für ML-DSA &
+%     Zur Gewährleistung der vom BSI geforderten Sicherheitsniveaus dürfen für das Verfahren ML-DSA ausschließlich die Parameter-Sets verwendet werden, die den NIST Security Strength Categories 3 oder 5 entsprechen. Konkret sind dies ML-DSA-65 oder ML-DSA-87 \parencite[Kap. 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} \\
+%     \midrule
+%     2 & Einhaltung spezifischer Parameter-Sets für ML-KEM &
+%     Für den langfristigen Schutz vertraulicher Informationen mittels des gitterbasierten Schlüsselkapselungsverfahrens ML-KEM dürfen gemäß BSI-Einschätzung ausschließlich Parametersätze verwendet werden, die den NIST Security Strength Categories 3 oder 5 entsprechen. Zulässig sind demnach ML-KEM-768 sowie ML-KEM-1024 \parencite[Kap. 2.4.3]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. \\
+%     \midrule
+%     3 & Implementierung hybrider Schlüsseleinigung &
+%     Um langfristige Vertraulichkeit (Schutz vor \textit{Store Now, Decrypt Later}) zu gewährleisten, muss für die Schlüsseleinigung zwingend ein hybrides Verfahren implementiert werden, das ein anerkanntes klassisches Verfahren mit einem empfohlenen PQC-KEM kombiniert \parencite[Kap. 2.2, 2.4]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. \\
+%     \midrule
+%     4 & Bevorzugte Verwendung von TLS 1.3 &
+%     Für die Absicherung der Transportebene wird gemäß \textcite[Kap. 3.2]{bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025} vorrangig das Protokoll TLS 1.3 empfohlen. \\
+%     \midrule
+%     5 & Protokollierung sicherheitsrelevanter Ereignisse (SzA) &
+%     Zur Erfüllung der Pflicht zum Einsatz von Systemen zur Angriffserkennung (SzA) müssen sicherheitsrelevante Ereignisse auf System- und Netzebene zentral protokolliert werden \parencite[Nr. 101, 103]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}. \\
+%     \midrule
+%     6 & Datenschutz durch Technikgestaltung (Privacy by Design) &
+%     Gemäß \textcite[Art. 25 Abs. 1]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016} sind bereits bei der Entwicklung geeignete technische Maßnahmen zu treffen, um Datenschutzgrundsätze wirksam umzusetzen. Die Architektur erfüllt dies durch den konsequenten Verzicht auf die Speicherung personenbezogener Daten (PII) auf dem unveränderlichen Ledger (Off-Chain-Architektur) und die Nutzung von Zero-Knowledge Proofs. \\
+%     \midrule
+%     7 & Grundsatz der Datenminimierung &
+%     Personenbezogene Daten müssen dem Zweck angemessen und auf das notwendige Maß beschränkt sein (Art. 5 Abs. 1 lit. c DSGVO). Durch den Einsatz von \textit{Pairwise DIDs} (did:peer) für jede Interaktion statt einer globalen ID wird die Korrelierbarkeit von Daten minimiert und Profilbildung technisch unterbunden \parencite[Art. 5]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}. \\
+%     \midrule
+%     8 & Technische Umsetzung des Rechts auf Löschung &
+%     Das Recht auf Vergessenwerden (Art. 17 DSGVO) ist in Blockchain-Systemen oft problematisch. Durch die strikte Trennung von öffentlichen Identifikatoren (Ledger) und privaten Daten (lokale Wallet) ist eine Löschung technisch vollständig realisierbar, indem die lokale Wallet und die zugehörigen kryptografischen Schlüssel vernichtet werden \parencite[Art. 17]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}. \\
+% \end{longtable}
 
 
-% Tabelle auf Basis von \textcite[S. 12-19]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}
+% % Definierter Scope: "Technical Compliance Readiness"
+
+% % Fokus rein auf auf die Security by Design und Privacy by Design Aspekte des Software-Artefakts selbst ==>  "Beschaffenheit des Prototypen"
 
 
-Die KRITIS-spezifische Compliance für SSI-Systeme erfordert eine Verschneidung von vier Compliance-Ebenen:
 
-1. \textbf{Technische Sicherheit} (BSI TR-02102-1): Kryptographische Algorithmen, Schlüssellängen, Verschlüsselungsprotokolle.
-
-2. \textbf{Organisatorische Sicherheit} (ORP.4, KRITIS-Anforderungskatalog): IAM, Funktionstrennung, Audit-Trails.
-
-3. \textbf{Datenschutz} (DSGVO): Pseudonymität, Datensparsamkeit, Betroffenenrechte.
-
-4. \textbf{Kontinuitätsmanagement} (BSIG § 8a): Recovery, Backup, Incident Response.
-
-Die Implementierung dieser Anforderungen in der SSI-Prototyp-Entwicklung wird in Kapitel 4.2 adressiert, wobei Compliance-Checks in den Design Science Research-Zyklus integriert werden.
+% % Kategorie 1: Krypto-Compliance \& Schlüsselmanagement (Code-Level)
 
 
-Die Umsetzung der KRITIS-Anforderungen in SSI-Systemen erfordert eine ganzheitliche Integration von Compliance-Anforderungen, die aus der deutschen und europäischen Regulierung abgeleitet sind. \textcite[S. 4]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} präzisieren die Anforderungen des § 8a Absatz 1 und Absatz 1a BSIG für Betreiber Kritischer Infrastrukturen und definieren damit den verbindlichen Rahmen für die Informationssicherheit bei KRITIS-Systemen.
+% % Kategorie 2: Datenschutz-Architektur (Data-Level)
 
-\paragraph*{Identitäts- und Berechtigungsmanagement (IAM)}
 
-Das Identitäts- und Berechtigungsmanagement bildet das Fundament für sichere SSI-Systeme im KRITIS-Kontext. \textcite[S. 1--2]{bsi_ITGrundschutzKompendiumORP4IdentitaetsundBerechtigungsmanagementEdition2023_2023} definieren, dass der Zugang zu schtzenswerten Ressourcen auf berechtigte Benutzende und IT-Komponenten einzuschränken ist und dass Benutzende sowie IT-Komponenten zweifelsfrei identifiziert und authentisiert werden müssen. Im Kontext von SSI bedeutet dies konkret, dass DIDs (Decentralized Identifiers) eindeutig einer Person oder IoT-Komponente zugeordnet werden müssen und dass eine nicht-abstreitbare Authentifizierung durch kryptografische Verfahren erfolgen muss.
+% % Kategorie 3: Interoperabilität \& Standards (Format-Level)
 
-\textcite[S. 12]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} fordern die Implementierung von Multi-Faktor-Authentifizierung für Administratoren: „Automatischer Ablauf Multi-Faktor-Authentifizierung für Administratoren des KRITIS-Betreibers z.B. durch Smart Card oder biometrische Merkmale ist zwingend erforderlich, sofern ein Zugriff über öffentliche Netze erfolgt." Für SSI-Systeme bedeutet dies, dass die Ausweisung von administrativen Credentials und deren Delegation zur Verifizierung neuer Credentials durch hybride Authentifizierungsmechanismen (z.B. Kombination aus DID-basierten Signaturen und Hardware-Token) erfolgen muss.
 
-Die Prinzipien \textit{Least Privilege} und \textit{Need-to-Know} müssen in SSI-Umgebungen durch eine strikte Implementierung granularer Zugriffsrechte auf Basis von Verifiable Credentials und selektiven Offenlegungsmechanismen realisiert werden. \textcite[S. 2]{bsi_ITGrundschutzKompendiumORP4IdentitaetsundBerechtigungsmanagementEdition2023_2023} weisen auf die Gefahr des „Wildwuchses" bei der Rechtevergabe hin: „Sind Prozesse beim Identitäts- und Berechtigungsmanagement unzureichend definiert oder implementiert, ist nicht gewährleistet, dass Zugriffe auf das erforderliche Maß eingeschränkt sind." Im SSI-Kontext ist dies besonders kritisch, da fehlerhaft ausgestellte Credentials mit unbegrenzter Gültigkeitsdauer zu permanenten Sicherheitslücken führen können.
+% ----
 
-\paragraph*{Authentifizierung und Verschlüsselung}
+% % 2.5 Technische Informationssicherheit:
+% % IDM-07 + IDM-08 bis IDM-13 + KRY-01 bis KRY-04
 
-Das \textcite[S. 12--14]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} verlangt für KRITIS-Systeme umfassende Anforderungen zur Transportverschlüsselung und zur Schlüsselverwaltung: „Das Nutzen von starken Verschlüsselungsverfahren z.B. AES und die Verwendung von sicheren Netzwerkprotokollen, die dem Stand der Technik entsprechen z.B. TLS, IPsec, SSH" sind anzuwenden. Im Kontext von SSI-Ledgern (z.B. Hyperledger Indy) bedeutet dies, dass sämtliche Transaktionen, Credentials und DIDs durch starke Verschlüsselung geschützt werden müssen. Die Schlüsselverwaltung muss dabei kritischen Anforderungen genügen: „Anforderungen für das sichere Erzeugen, Speichern, Archivieren, Abrufen, Verteilen, Entziehen und Löschen der Schlüssel" müssen dokumentiert und implementiert sein.
+% % 2.6 Personelle und organisatorische Sicherheit
+% % IDM-01 bis IDM-06 + IDM-09
 
-Die Post-Quantum-Kryptographie-Standards (FIPS 203/204/205) sind gemäß \textcite[S. 30--41]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} zu integrieren. Die Technische Richtlinie BSI TR-02102-1 empfiehlt konkrete PQC-Algorithmen: ML-KEM für Schlüsselvereinbarung, ML-DSA für Signaturen und SLH-DSA für zustandslose Signaturverfahren. Im SSI-Kontext ist die Hybridisierung dieser Verfahren mit klassischen Algorithmen (z.B. ECDSA) notwendig, um eine „Crop and Paste"-Resistenz zu erreichen: Eine Signatur ist nur gültig, wenn \textit{beide} klassische und quantensichere Signaturen valide sind.
 
-\paragraph*{Datenschutz und DSGVO-Compliance}
+% % Tabelle auf Basis von \textcite[S. 12-19]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}
 
-Die Europäische Datenschutz-Grundverordnung (DSGVO) bildet eine zusätzliche Compliance-Schicht. \textcite[Art. 5, Art. 6]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016} definieren die Grundprinzipien der Datenverarbeitung: Rechtmäßigkeit, Transparenz, Zweckbindung, Datensparsamkeit, Richtigkeit, Speicherbegrenzung, Integrität und Vertraulichkeit. Für SSI-Systeme bedeutet dies, dass:
 
-\begin{enumerate}
-\item \textbf{DIDs müssen pseudonym sein:} Die Verknüpfung einer Person zu ihrer DID darf nicht ohne explizite Einwilligung erfolgen.
+% Die KRITIS-spezifische Compliance für SSI-Systeme erfordert eine Verschneidung von vier Compliance-Ebenen:
 
-\item \textbf{Selektive Offenlegung (Selective Disclosure):} Nur minimale Informationen aus Verifiable Credentials dürfen preisgegeben werden (z.B. Bestätigung eines Altersanspruchs ohne Geburtsdatum).
 
-\item \textbf{Datenlöschung:} Es müssen technische und organisatorische Mechanismen existieren, um Credentials (z.B. durch Revocation auf dem Ledger) zu annullieren und damit das Löschen von Attributen zu ermöglichen.
 
-\item \textbf{Betroffenenrechte:} Wallets und SSI-Agents müssen Funktionen zur Einsichtnahme (Art. 15 DSGVO), Berichtigung (Art. 16) und Vergessenwerden (Art. 17) unterstützen.
-\end{enumerate}
+% 2. \textbf{Organisatorische Sicherheit} (ORP.4, KRITIS-Anforderungskatalog): IAM, Funktionstrennung, Audit-Trails.
 
-\paragraph*{Kryptografische Anforderungen und Schlüssellängen}
+% 3. \textbf{Datenschutz} (DSGVO): Pseudonymität, Datensparsamkeit, Betroffenenrechte.
 
-\textcite[S. 20]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} legen fest, dass ein Sicherheitsniveau von mindestens 120 Bits zu erreichen ist. Konkrete Empfehlungen für SSI-Systeme:
+% Die Implementierung dieser Anforderungen in der SSI-Prototyp-Entwicklung wird in Kapitel 4.2 adressiert, wobei Compliance-Checks in den Design Science Research-Zyklus integriert werden.
 
-\begin{itemize}
-\item \textbf{Symmetrische Verschlüsselung:} AES-256 ist verpflichtend für Daten mit KRITIS-Relevanz.
 
-\item \textbf{Asymmetrische Schlüssellängen:} RSA-Schlüssel müssen mindestens 3000 Bits betragen; %EC-Systeme müssen eine Ordnung q ≥ 2\textsuperscript{250} verwenden.
+% Die Umsetzung der KRITIS-Anforderungen in SSI-Systemen erfordert eine ganzheitliche Integration von Compliance-Anforderungen, die aus der deutschen und europäischen Regulierung abgeleitet sind. \textcite[S. 4]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} präzisieren die Anforderungen des § 8a Absatz 1 und Absatz 1a BSIG für Betreiber Kritischer Infrastrukturen und definieren damit den verbindlichen Rahmen für die Informationssicherheit bei KRITIS-Systemen.
 
-\item \textbf{Digitale Signaturen:} ML-DSA-65 oder ML-DSA-87 (quantensicher) sowie klassische %ECDSA (mit Ordnung q ≥ 2\textsuperscript{250}) müssen hybrid kombiniert werden.
+% % \paragraph*{Identitäts- und Berechtigungsmanagement (IAM)}
 
-\item \textbf{Hashfunktionen:} SHA-256, SHA-384 und SHA-512 sind akzeptabel; SHA-1 ist obsolet und unzulässig.
-\end{itemize}
+% % Das Identitäts- und Berechtigungsmanagement bildet das Fundament für sichere SSI-Systeme im KRITIS-Kontext. \textcite[S. 1--2]{bsi_ITGrundschutzKompendiumORP4IdentitaetsundBerechtigungsmanagementEdition2023_2023} definieren, dass der Zugang zu schtzenswerten Ressourcen auf berechtigte Benutzende und IT-Komponenten einzuschränken ist und dass Benutzende sowie IT-Komponenten zweifelsfrei identifiziert und authentisiert werden müssen. Im Kontext von SSI bedeutet dies konkret, dass DIDs (Decentralized Identifiers) eindeutig einer Person oder IoT-Komponente zugeordnet werden müssen und dass eine nicht-abstreitbare Authentifizierung durch kryptografische Verfahren erfolgen muss.
 
-\paragraph*{Versionierung und Deprecation von Verfahren}
+% % \textcite[S. 12]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} fordern die Implementierung von Multi-Faktor-Authentifizierung für Administratoren: „Automatischer Ablauf Multi-Faktor-Authentifizierung für Administratoren des KRITIS-Betreibers z.B. durch Smart Card oder biometrische Merkmale ist zwingend erforderlich, sofern ein Zugriff über öffentliche Netze erfolgt." Für SSI-Systeme bedeutet dies, dass die Ausweisung von administrativen Credentials und deren Delegation zur Verifizierung neuer Credentials durch hybride Authentifizierungsmechanismen (z.B. Kombination aus DID-basierten Signaturen und Hardware-Token) erfolgen muss.
 
-Eine Besonderheit der KRITIS-Compliance ist die Notwendigkeit von Deprecation-Roadmaps. \textcite[S. 56]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} empfehlen beispielsweise, die Verwendung von DSA (Digital Signature Algorithm) bis 2029 auslaufen zu lassen. Im SSI-Kontext bedeutet dies, dass:
+% % Die Prinzipien \textit{Least Privilege} und \textit{Need-to-Know} müssen in SSI-Umgebungen durch eine strikte Implementierung granularer Zugriffsrechte auf Basis von Verifiable Credentials und selektiven Offenlegungsmechanismen realisiert werden. \textcite[S. 2]{bsi_ITGrundschutzKompendiumORP4IdentitaetsundBerechtigungsmanagementEdition2023_2023} weisen auf die Gefahr des „Wildwuchses" bei der Rechtevergabe hin: „Sind Prozesse beim Identitäts- und Berechtigungsmanagement unzureichend definiert oder implementiert, ist nicht gewährleistet, dass Zugriffe auf das erforderliche Maß eingeschränkt sind." Im SSI-Kontext ist dies besonders kritisch, da fehlerhaft ausgestellte Credentials mit unbegrenzter Gültigkeitsdauer zu permanenten Sicherheitslücken führen können.
 
-\begin{enumerate}
-\item Protokolle zur \textit{Credential Migration} implementiert werden müssen, um alte Credentials mit veralteten Algorithmen durch neue mit aktuellen Algorithmen zu ersetzen.
+% \paragraph*{Authentifizierung und Verschlüsselung}
 
-\item Die Vertrauenskette (Trust Chain) von Vertrauenswurzeln (Root DIDs, Ledger Validators) muss regelmäßig überprüft und aktualisiert werden.
+% Das \textcite[S. 12--14]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} verlangt für KRITIS-Systeme umfassende Anforderungen zur Transportverschlüsselung und zur Schlüsselverwaltung: „Das Nutzen von starken Verschlüsselungsverfahren z.B. AES und die Verwendung von sicheren Netzwerkprotokollen, die dem Stand der Technik entsprechen z.B. TLS, IPsec, SSH" sind anzuwenden. Im Kontext von SSI-Ledgern (z.B. Hyperledger Indy) bedeutet dies, dass sämtliche Transaktionen, Credentials und DIDs durch starke Verschlüsselung geschützt werden müssen. Die Schlüsselverwaltung muss dabei kritischen Anforderungen genügen: „Anforderungen für das sichere Erzeugen, Speichern, Archivieren, Abrufen, Verteilen, Entziehen und Löschen der Schlüssel" müssen dokumentiert und implementiert sein.
 
-\item Audit-Logs müssen dokumentieren, wann und wie kryptographische Verfahren aktualisiert wurden.
-\end{enumerate}
+% Die Post-Quantum-Kryptographie-Standards (FIPS 203/204/205) sind gemäß \textcite[S. 30--41]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} zu integrieren. Die Technische Richtlinie BSI TR-02102-1 empfiehlt konkrete PQC-Algorithmen: ML-KEM für Schlüsselvereinbarung, ML-DSA für Signaturen und SLH-DSA für zustandslose Signaturverfahren. Im SSI-Kontext ist die Hybridisierung dieser Verfahren mit klassischen Algorithmen (z.B. ECDSA) notwendig, um eine „Crop and Paste"-Resistenz zu erreichen: Eine Signatur ist nur gültig, wenn \textit{beide} klassische und quantensichere Signaturen valide sind.
 
-\paragraph*{Governance und Audit-Trail}
+% \paragraph*{Datenschutz und DSGVO-Compliance}
 
-\textcite[S. 7--27]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} fordert ein umfassendes Information Security Management System (ISMS) mit definierten Rollen, Verantwortlichkeiten und regelmäßigen Audits. Im SSI-Kontext bedeutet dies: Die Betreiber der Vertrauensinfrastruktur (Ledger Betreiber, Issuer, Verifier) müssen:
+% Die Europäische Datenschutz-Grundverordnung (DSGVO) bildet eine zusätzliche Compliance-Schicht. \textcite[Art. 5, Art. 6]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016} definieren die Grundprinzipien der Datenverarbeitung: Rechtmäßigkeit, Transparenz, Zweckbindung, Datensparsamkeit, Richtigkeit, Speicherbegrenzung, Integrität und Vertraulichkeit. Für SSI-Systeme bedeutet dies, dass:
 
-\begin{enumerate}
-\item Rollen und Verantwortlichkeiten dokumentieren (z.B. DID Registry Steward, Credential Issuer Manager).
+% \begin{enumerate}
+% \item \textbf{DIDs müssen pseudonym sein:} Die Verknüpfung einer Person zu ihrer DID darf nicht ohne explizite Einwilligung erfolgen.
 
-\item Eine Revocation- und Recovery-Strategie für Credentials implementieren, die dokumentiert und regelmäßig getestet wird.
+% \item \textbf{Selektive Offenlegung (Selective Disclosure):} Nur minimale Informationen aus Verifiable Credentials dürfen preisgegeben werden (z.B. Bestätigung eines Altersanspruchs ohne Geburtsdatum).
 
-\item Mindestens jährlich Penetrationstests durchführen, insbesondere auf SSI-spezifische Angriffsmuster (z.B. illegitime Credential-Ausstellung, DID-Hijacking).
+% \item \textbf{Datenlöschung:} Es müssen technische und organisatorische Mechanismen existieren, um Credentials (z.B. durch Revocation auf dem Ledger) zu annullieren und damit das Löschen von Attributen zu ermöglichen.
 
-\item Meldepflichten erfüllen: \textcite[S. 22--23]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} verlangen, dass Strungen der Verfügbarkeit, Integrität, Authentizität und Vertraulichkeit, die zu einem Ausfall oder erheblicher Beeinträchtigung der kritischen Dienstleistung führen, unverzüglich an das BSI gemeldet werden müssen.
-\end{enumerate}
+% \item \textbf{Betroffenenrechte:} Wallets und SSI-Agents müssen Funktionen zur Einsichtnahme (Art. 15 DSGVO), Berichtigung (Art. 16) und Vergessenwerden (Art. 17) unterstützen.
+% \end{enumerate}
+
+% \paragraph*{Kryptografische Anforderungen und Schlüssellängen}
+
+% \textcite[S. 20]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} legen fest, dass ein Sicherheitsniveau von mindestens 120 Bits zu erreichen ist. Konkrete Empfehlungen für SSI-Systeme:
+
+% \begin{itemize}
+% \item \textbf{Symmetrische Verschlüsselung:} AES-256 ist verpflichtend für Daten mit KRITIS-Relevanz.
+
+% \item \textbf{Asymmetrische Schlüssellängen:} RSA-Schlüssel müssen mindestens 3000 Bits betragen; %EC-Systeme müssen eine Ordnung q ≥ 2\textsuperscript{250} verwenden.
+
+% \item \textbf{Digitale Signaturen:} ML-DSA-65 oder ML-DSA-87 (quantensicher) sowie klassische %ECDSA (mit Ordnung q ≥ 2\textsuperscript{250}) müssen hybrid kombiniert werden.
+
+% \item \textbf{Hashfunktionen:} SHA-256, SHA-384 und SHA-512 sind akzeptabel; SHA-1 ist obsolet und unzulässig.
+% \end{itemize}
+
+% \paragraph*{Versionierung und Deprecation von Verfahren}
+
+% Eine Besonderheit der KRITIS-Compliance ist die Notwendigkeit von Deprecation-Roadmaps. \textcite[S. 56]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} empfehlen beispielsweise, die Verwendung von DSA (Digital Signature Algorithm) bis 2029 auslaufen zu lassen. Im SSI-Kontext bedeutet dies, dass:
+
+% \begin{enumerate}
+% \item Protokolle zur \textit{Credential Migration} implementiert werden müssen, um alte Credentials mit veralteten Algorithmen durch neue mit aktuellen Algorithmen zu ersetzen.
+
+% \item Die Vertrauenskette (Trust Chain) von Vertrauenswurzeln (Root DIDs, Ledger Validators) muss regelmäßig überprüft und aktualisiert werden.
+
+% \item Audit-Logs müssen dokumentieren, wann und wie kryptographische Verfahren aktualisiert wurden.
+% \end{enumerate}
+
+% \paragraph*{Governance und Audit-Trail}
+
+% \textcite[S. 7--27]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} fordert ein umfassendes Information Security Management System (ISMS) mit definierten Rollen, Verantwortlichkeiten und regelmäßigen Audits. Im SSI-Kontext bedeutet dies: Die Betreiber der Vertrauensinfrastruktur (Ledger Betreiber, Issuer, Verifier) müssen:
+
+% \begin{enumerate}
+% \item Rollen und Verantwortlichkeiten dokumentieren (z.B. DID Registry Steward, Credential Issuer Manager).
+
+% \item Eine Revocation- und Recovery-Strategie für Credentials implementieren, die dokumentiert und regelmäßig getestet wird.
+
+% \item Mindestens jährlich Penetrationstests durchführen, insbesondere auf SSI-spezifische Angriffsmuster (z.B. illegitime Credential-Ausstellung, DID-Hijacking).
+
+% \item Meldepflichten erfüllen: \textcite[S. 22--23]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024} verlangen, dass Strungen der Verfügbarkeit, Integrität, Authentizität und Vertraulichkeit, die zu einem Ausfall oder erheblicher Beeinträchtigung der kritischen Dienstleistung führen, unverzüglich an das BSI gemeldet werden müssen.
+% \end{enumerate}
 
 
 
@@ -1086,7 +1065,7 @@ Eine Besonderheit der KRITIS-Compliance ist die Notwendigkeit von Deprecation-Ro
 
 \subsubsection{Framework- und Technologie-Auswahl}
 
-Die in Abschnitt 4.1.1 spezifizierten funktionalen, nicht-funktionalen und KRITIS-Compliance-Anforderungen bilden die Grundlage für eine systematische Auswahl der technologischen Komponenten. Die akademische Literatur bietet umfassende Vergleichsstudien zur Bewertung von SSI-Frameworks. Nokhbeh Zaeem et al. führten eine der detailliertesten Analysen durch, in der 31 blockchain-basierte SSI-Lösungen anhand von 22 nicht-funktionalen und sieben funktionalen Anforderungsgruppen untersucht wurden \parencite[S. 128--129]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Die Autoren kommen zu dem Ergebnis, dass Sovrin, das auf Hyperledger Indy basiert, zu den besten derzeit verfügbaren SSI-Lösungen zählt und dass blockchain-basierte SSI-Ansätze ihren nicht-blockchain-basierten Pendants überlegen sind \parencite[S. 133]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.
+Die in Abschnitt 4.1.1 spezifizierten funktionalen und KRITIS-Compliance-Anforderungen bilden die Grundlage für eine systematische Auswahl der technologischen Komponenten. Die akademische Literatur bietet umfassende Vergleichsstudien zur Bewertung von SSI-Frameworks. Nokhbeh Zaeem et al. führten eine der detailliertesten Analysen durch, in der 31 blockchain-basierte SSI-Lösungen anhand von 22 nicht-funktionalen und sieben funktionalen Anforderungsgruppen untersucht wurden \parencite[S. 128--129]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}. Die Autoren kommen zu dem Ergebnis, dass Sovrin, das auf Hyperledger Indy basiert, zu den besten derzeit verfügbaren SSI-Lösungen zählt und dass blockchain-basierte SSI-Ansätze ihren nicht-blockchain-basierten Pendants überlegen sind \parencite[S. 133]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.
 
 \paragraph{DLT-Plattform}
 
@@ -1120,7 +1099,7 @@ Der oqs-provider für OpenSSL 3.x ermöglicht die nahtlose Integration quantensi
 
 OQS unterstützt Hybrid-Schemes, bei denen klassische und quantensichere Algorithmen kombiniert werden: Beispielsweise können ML-KEM (NIST FIPS 203, Schlüsselvereinbarung) mit ECDH und ML-DSA (NIST FIPS 204, digitale Signaturen) mit ECDSA hybridisiert werden. Dies erfüllt die Crop-and-Paste-Resistenz-Anforderung aus 4.1.1.3: Eine Signatur ist nur dann gültig, wenn sowohl die klassische als auch die quantum-sichere Variante verifizieren.
 
-Die Wahl von OQS erfüllt die kryptografische Agilitätsanforderung (Forschungsfrage FF4, Tabelle 1): Die modulare Architektur erlaubt den Austausch von Algorithmen über Konfigurationsänderungen ohne Code-Anpassungen. Su und Hsu beschreiben, dass Hyperledger Ursa eine sichere, gemeinsame kryptographische Bibliothek darstellt, die modular und erweiterbar konzipiert ist \parencite[S. 548]{su_HyperledgerIndybasedRoamingIdentityManagementSystem_2023}.
+Die Wahl von OQS erfüllt die kryptografische Agilitätsanforderung (Forschungsfrage FF3, \autoref{tab:forschungsfragen}): Die modulare Architektur erlaubt den Austausch von Algorithmen über Konfigurationsänderungen ohne Code-Anpassungen. Su und Hsu beschreiben, dass Hyperledger Ursa eine sichere, gemeinsame kryptographische Bibliothek darstellt, die modular und erweiterbar konzipiert ist \parencite[S. 548]{su_HyperledgerIndybasedRoamingIdentityManagementSystem_2023}.
 
 \paragraph{Revocation-Infrastruktur}
 
@@ -1383,7 +1362,7 @@ Die Orchestrierung gliedert sich in drei sequenzielle Phasen, die jeweils durch 
 
 \refstepcounter{manualListingCounter}
 \label{lst:Docker-Compose-Start-der-Gesamtarchitektur}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Docker Compose Start der Gesamtarchitektur}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Docker Compose Start der Gesamtarchitektur}, numbers=left, frame=single]
 (.venv) ferris@blockchain-ssi-pqc:~/github/MSc-blockchain-ssi-pqc$ ./von-network/manage start && ./indy-tails-server/docker/manage start && docker compose -f ./hopE/docker-compose.yml up -d
 [+] Running 15/15
 Network von_von                                 Created     0.0s 
@@ -1610,6 +1589,8 @@ Für \textbf{FF3 (Kryptografische Agilität)} zielt diese Iteration auf die Impl
 \subsubsection{Architekturentwurf}
 %   - Application-Layer-PQC-Integration (liboqs in ACA-Py) \\
 %   - Kryptoagiles Design (Plugin-Architektur) \\
+
+\fixme{\url{https://github.com/decentralized-identity/aries-rfcs} ==> Aries RFCs referenzieren}
 
 \paragraph{Gesamtarchitektur}
 
@@ -2042,7 +2023,7 @@ Listing~\ref{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abf
 
 \refstepcounter{manualListingCounter}
 \label{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-vor-OOB-Invitation}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Iteration 2 - Validierung der Pluginfunktionalität - Wallet DID Abfrage vor Out-of-Band Invitation}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Iteration 2 - Validierung der Pluginfunktionalität - Wallet DID Abfrage vor Out-of-Band Invitation}, numbers=left, frame=single]
 ferris@blockchain-ssi-pqc:~$ curl -X GET https://host.docker.internal:8021/wallet/did | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -2056,7 +2037,7 @@ Anschließend wurde mittels \texttt{POST /out-of-band/create-invitation} mit dem
 
 \refstepcounter{manualListingCounter}
 \label{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Iteration 2 - Validierung der Pluginfunktionalität - Out-of-Band Invitation}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Iteration 2 - Validierung der Pluginfunktionalität - Out-of-Band Invitation}, numbers=left, frame=single]
 ferris@blockchain-ssi-pqc:~$ curl -X POST https://host.docker.internal:8021/out-of-band/create-invitation     -H "Content-Type: application/json"     -d '{
       "handshake_protocols": ["https://didcomm.org/didexchange/1.1"],
       "use_did_method": "did:peer:4",
@@ -2095,7 +2076,7 @@ Die entscheidende Validierung erfolgt in Listing~\ref{lst:Iteration2_Validierung
 
 \refstepcounter{manualListingCounter}
 \label{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-nach-OOB-Invitation}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Iteration 2 - Validierung der Pluginfunktionalität - Wallet DID Abfrage nach Out-of-Band Invitation}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Iteration 2 - Validierung der Pluginfunktionalität - Wallet DID Abfrage nach Out-of-Band Invitation}, numbers=left, frame=single]
 ferris@blockchain-ssi-pqc:~$ curl -X GET https://host.docker.internal:8021/wallet/did | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -2171,165 +2152,86 @@ Im Rahmen der summativen Evaluation wurde das finale Artefakt aus \fixme{KAPITEL
 
 KRITIS Szenario ...  Ziel der Evaluation ist die Validierung der funktionalen Anforderungen gemäß Kapitel~\ref{sec:Funktionale Anforderungen}.
 
-- Initialisierung des Artefakts 
+- Erst Initialisierung des Artefakts durch:
+
+==> \ref{sec:Anhang_Teil1-Setup-Verbindungstests}
+    Variablendeklaration und Helper Funktionen ==> Listing~\ref{lst:Jupyter-Notebook-Cell-1}
+
+    Infrastrukturcheck und Zeigen der Ledgerinitialisierung durch Abruf der Ledgertransaktionen (Validator-Node-Registrierung) ==> Listing~\ref{lst:Jupyter-Notebook-Cell-2-output}
+
+==> \ref{sec:Anhang_Teil2-DID-Setup-Ledger-Registration-KRITIS-Identitäten}
+    - ANlegen von Issuer DID lokal im acapy agent ==> Listing~\ref{lst:Jupyter-Notebook-Cell-3-output}
+    - Registrieren als ENDORSER auf Ledger ==> Listing~\ref{lst:Jupyter-Notebook-Cell-4-output}
+    - Walletansicht indy ed25519 posted mit true
 
 \subsection{Validierung der funktionalen Anforderungen}
-       - Vollständige UC1-UC7-Validierung \\
-       Use Cases? ==> \parencite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}
+
+\subsubsection{Issuer Discovery}
+
+Die funktionale Anforderung FR1 fordert, dass das System die Auffindbarkeit von publizierten Credential-Schemata des Issuers digitaler Identitätsnachweise ermöglichen muss. Die Erfüllung dieser Anforderung an das finale Artefakt wird anhand eines dreiphasigen, Ledger-basierten Discovery-Mechanismus demonstriert (Listing~\ref{lst:Jupyter-Notebook-Cell-8} und Listing~\ref{lst:Jupyter-Notebook-Cell-8-output}). 
+
+Phase 1 extrahiert alle TRUST\_ANCHOR-Identitäten (Role \texttt{'101'}) aus NYM-Transaktionen des Domain Ledgers, wobei im KRITIS-Szenario der Issuer \enquote{Energienetzbetreiber} mit DID \texttt{9pbXiFBZZGwXKp61HQBz3J} identifiziert wird (Listing~\ref{lst:Jupyter-Notebook-Cell-8-output}, Zeilen 7--17). 
+
+Phase 2 verifiziert sechs kryptographische Eigenschaften (DID-Identifier, Ed25519-Verkey, TRUST\_ANCHOR-Role, Endorser, On-Ledger-Aktivitäten, Registrierungszeitpunkt) mittels der Funktion \texttt{verify\_issuer\_identity()}, wobei für den identifizierten Issuer alle Eigenschaften erfolgreich validiert werden (Listing~\ref{lst:Jupyter-Notebook-Cell-8-output}, Zeilen 24--29). 
+
+Phase 3 filtert SCHEMA-Transaktionen nach dem Schema-Namen \texttt{kritis\_emergency\_maintenance\_cert}, extrahiert den Issuer-DID aus dem Schema-Identifier-Format \texttt{<issuer\_did>:2:<schema\_name>:<version>} und führt eine Cross-Referenzierung mit den TRUST\_ANCHOR-Identitäten durch (Listing~\ref{lst:Jupyter-Notebook-Cell-8-output}, Zeilen 39--60).
 
 
-\subsubsection{FR1: Issuer Discovery}
-Nach Initialisierung des SSI-Systems erfolgt die Validierung der funktionalen Anforderung FR1: Issuer Discovery. Ziel ist die erfolgreiche Identifikation und Validierung von KRITIS-konformen Issuern im dezentralen Ledger.
+\subsubsection{Connection Creation}
 
-Listing~\ref{lst:Jupyter-Notebook-Evaluations-Workflow} \enquote{\# Cell 13} zeigt die Logik.
+Die funktionale Anforderung FR2 fordert, dass das System Verbindungen zwischen den Akteuren des SSI-Ökosystems etablieren muss. Die Erfüllung dieser Anforderung an das finale Artefakt wird anhand eines dreiphasigen Out-of-Band-Invitation-Protokolls mit did:peer:4-basierter Post-Quantum-Kryptographie demonstriert (Listing~\ref{lst:Jupyter-Notebook-Cell-9}, Listing~\ref{lst:Jupyter-Notebook-Cell-9-output}, Listing~\ref{lst:Jupyter-Notebook-Cell-10} und Listing~\ref{lst:Jupyter-Notebook-Cell-10-output}).
 
+Phase~1 implementiert einen Pre-Check existierender Connections via \texttt{GET /connections} auf beiden Agenten, um redundante Connection-Erstellungen zu vermeiden, wobei im KRITIS-Szenario keine existierenden Connections gefunden werden und eine neue Etablierung ausgelöst wird (Listing~\ref{lst:Jupyter-Notebook-Cell-9-output}, Zeilen~5--10).
 
+Phase~2 realisiert die Connection-Etablierung mittels Aries RFC~0434 Out-of-Band Protocol: Der Inviter erstellt eine Invitation mit \texttt{POST /out-of-band/create-invitation} unter Verwendung von \texttt{use\_did\_method: "did:peer:4"}, wobei die Response eine \texttt{invitation\_msg\_id} als eindeutigen Identifier enthält (Listing~\ref{lst:Jupyter-Notebook-Cell-9-output}, Zeile~14). Der Invitee akzeptiert die Invitation via \texttt{POST /out-of-band/receive-invitation}, wodurch das DIDComm DIDExchange-Protokoll initiiert und did:peer:4-DIDs mit ML-DSA-65-Schlüsselmaterial generiert werden (Listing~\ref{lst:Jupyter-Notebook-Cell-12-output} zeigt die resultierenden DIDs mit Metadata \texttt{pqc\_enabled: true}, \texttt{signature\_algorithm: ml-dsa-65}, \texttt{key\_agreement\_algorithm: ml-kem-768}). Der Inviter identifiziert seine Connection anhand der \texttt{invitation\_msg\_id} durch Iteration über alle Connections, wobei die erfolgreiche Zuordnung mit übereinstimmender \texttt{invitation\_msg\_id} und State \texttt{active} validiert wird (Listing~\ref{lst:Jupyter-Notebook-Cell-9-output}, Zeilen~23--27).
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{summative_evaluation_FR1_01.png}
-    \caption{FR1: Issuer Discovery 1}
-    \begin{flushleft}
-    \textit{Anmerkung.} Eigene Darstellung basierend auf dem Output von Listing~\ref{lst:Jupyter-Notebook-Evaluations-Workflow} \enquote{\# Cell 13}.
-    \end{flushleft}
-    \label{fig:FR1_Issuer_Discovery_1}
-\end{figure}
+Phase~3 validiert den Connection-Status durch Abruf detaillierter Connection-Informationen via \texttt{GET /connections/\{conn\_id\}} auf beiden Seiten, wobei die Konsistenz durch Vergleich der \texttt{invitation\_msg\_id}, komplementäre \texttt{their\_role}-Werte (\texttt{inviter}/\texttt{invitee}) und beidseitigen State \texttt{active} verifiziert wird (Listing~\ref{lst:Jupyter-Notebook-Cell-9-output}, Zeilen~31--45). Die Connection-Übersicht (Listing~\ref{lst:Jupyter-Notebook-Cell-11-output}) gruppiert Connections anhand der \texttt{invitation\_msg\_id} und zeigt zwei aktive Connection-Paare: Issuer<-->Holder (Connection~Group~1) und Holder<-->Verifier (Connection~Group~2), wodurch die vollständige Konnektivität des SSI-Dreiecks validiert wird.
 
+\subsubsection{Credential Creation}
 
+Die funktionale Anforderung FR3 fordert, dass das System Funktionalität zur Erstellung und Ausstellung digitaler Credentials bereitstellen muss. Die Erfüllung dieser Anforderung an das finale Artefakt wird anhand eines mehrstufigen Credential-Issuance-Workflows mit Revocation-Registry-Integration demonstriert (Listing~\ref{lst:Jupyter-Notebook-Cell-13}, Listing~\ref{lst:Jupyter-Notebook-Cell-13-output} und Listing~\ref{lst:Jupyter-Notebook-Cell-14-output}).
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{summative_evaluation_FR1_02.png}
-    \caption{FR1: Issuer Discovery 2}
-    \begin{flushleft}
-    \textit{Anmerkung.} Eigene Darstellung basierend auf dem Output von Listing~\ref{lst:Jupyter-Notebook-Evaluations-Workflow} \enquote{\# Cell 13}.
-    \end{flushleft}
-    \label{fig:FR1_Issuer_Discovery_2}
-\end{figure}
+Der Issuer initiiert die Credential-Ausstellung durch Versenden eines Credential Offers via \texttt{POST /issue-credential-2.0/send-offer} mit einer Credential Preview, die neun KRITIS-spezifische Attribute enthält (Identität: \texttt{first\_name}, \texttt{name}, \texttt{organisation}; Berechtigung: \texttt{cert\_type}, \texttt{facility\_type}, \texttt{security\_clearance\_level}; Zeitgültigkeit: \texttt{epoch\_valid\_from}, \texttt{epoch\_valid\_until}; Rolle: \texttt{role}), wobei die Ausstellung über die in FR2 etablierte Connection (\texttt{connection\_id}) und die in FR1 identifizierte Credential Definition (\texttt{cred\_def\_id}) erfolgt (Listing~\ref{lst:Jupyter-Notebook-Cell-13}, Zeilen~8--31). Die Response enthält eine Exchange ID zur Nachverfolgung des Issuance-Prozesses, wobei der initiale State \texttt{offer-sent} den erfolgreichen Versand bestätigt (Listing~\ref{lst:Jupyter-Notebook-Cell-13-output}, Zeilen~3--5).
 
+Der Holder akzeptiert das Credential Offer automatisch (\texttt{auto-store=true} Konfiguration), wodurch das Aries RFC~0453 Issue Credential v2.0 Protocol den vollständigen State-Machine-Durchlauf (\texttt{offer-sent} → \texttt{request-sent} → \texttt{credential-issued} → \texttt{done}) ausführt und das Credential im Holder Wallet persistiert. Nach einer Wartezeit von 5 Sekunden (Listing~\ref{lst:Jupyter-Notebook-Cell-13}, Zeile~55) zeigt der Status-Check auf Issuer-Seite den finalen State \texttt{done} (Listing~\ref{lst:Jupyter-Notebook-Cell-13-output}, Zeile~11), während der Holder-Wallet-Abruf via \texttt{GET /credentials} das gespeicherte Credential mit Referent \texttt{39ac5fc4-efc2-45eb-9a21-01c589757b65} und allen neun Attributen bestätigt (Listing~\ref{lst:Jupyter-Notebook-Cell-13-output}, Zeilen~14--22).
 
+Die Revocation-Registry-Integration extrahiert zwei kritische Identifier aus der Issuer-Exchange-Response: Die Revocation Registry ID (\texttt{9pbXiFBZZGwXKp61HQBz3J:4:...:CL\_ACCUM:...}) identifiziert die auf dem Indy Ledger publizierte Revocation Registry (Type~113 REVOC\_REG\_DEF Transaction), während die Credential Revocation ID (\texttt{1}) die Position des Credentials im Revocation-Accumulator spezifiziert (Listing~\ref{lst:Jupyter-Notebook-Cell-13-output}, Zeilen~26--28). Diese IDs werden für den Revocation-Workflow (FR5) benötigt und demonstrieren die Integration von Credential Issuance und Revocation Management im Gesamtsystem.
 
+Die Holder-Credentials-Übersicht (Listing~\ref{lst:Jupyter-Notebook-Cell-14-output}) zeigt das vollständig ausgestellte KRITIS-Notfall-Wartungszertifikat mit allen Attributen, dem Schema-Identifier \texttt{...kritis\_emergency\_maintenance\_cert:1.1} aus FR1, der Credential-Definition-ID aus dem Schema-basierten Discovery-Prozess und dem initialen Revoked-Status \texttt{False}, der die Gültigkeit des Credentials bestätigt (Zeilen~6--19). Der Issuer Credential Registry Check via \texttt{GET /issue-credential-2.0/records} validiert die serverseitige Persistierung des Exchange Records (Listing~\ref{lst:Jupyter-Notebook-Cell-13-output}, Zeilen~35--38), wobei die Verfügbarkeit des Records die Aktivierung des \texttt{--preserve-exchange-records}-Flags bestätigt, das für Audit-Zwecke und Revocation-Management in KRITIS-Kontexten erforderlich ist.
 
-%  Wie funktioniert die Identifikation?
+\subsubsection{Verification with Credentials}
 
-%   1. Schema-Identifier enthält Issuer-DID:
+Die funktionale Anforderung FR4 fordert, dass das System einen Verifikationsprozess zwischen Identity Holder, Verifier und Blockchain-basierter Verifiable Data Registry (VDR) durch Validierung eines Identitätsnachweises ermöglichen muss. Die Erfüllung dieser Anforderung an das finale Artefakt wird anhand eines vierstufigen Privacy-Preserving-Verification-Workflows mit Zero-Knowledge-Proofs, Revocation-Detection und Zeitgültigkeitsprüfung demonstriert (Listing~\ref{lst:Jupyter-Notebook-Cell-15} bis Listing~\ref{lst:Jupyter-Notebook-Cell-18-Output}).
 
-%   V4SGRU86Z58d6TV7PBUe6f:2:university_degree:1.0
-%   └─────────────────────┘
-%           Issuer DID
+Der Verifier initiiert den Verifikationsprozess durch Versenden eines Proof Requests via \texttt{POST /present-proof-2.0/send-request} mit einer Indy-Proof-Request-Struktur, die fünf offengelegte Attribute (\texttt{requested\_attributes}: \texttt{cert\_type}, \texttt{facility\_type}, \texttt{epoch\_valid\_from}, \texttt{epoch\_valid\_until}, \texttt{role}) und ein Zero-Knowledge-Predicate (\texttt{requested\_predicates}: \texttt{security\_clearance\_level >= 2}) fordert, während drei Identitätsattribute (\texttt{first\_name}, \texttt{name}, \texttt{organisation}) durch Selective Disclosure geschützt bleiben (Listing~\ref{lst:Jupyter-Notebook-Cell-15}, Zeilen~21--56). Alle Attribute und Predicates enthalten eine \texttt{non\_revoked}-Constraint mit Zeitintervall \texttt{\{from: 0, to: current\_timestamp\}}, die eine Ledger-basierte Echtzeit-Revocation-Prüfung gegen die Revocation Registry erzwingt (Zeilen~24, 30, 36, 42, 48, 54). Der initiale State \texttt{request-sent} bestätigt die erfolgreiche Übermittlung des Proof Requests über die in FR2 etablierte Connection (Listing~\ref{lst:Jupyter-Notebook-Cell-15-Output}, Zeilen~11--12).
 
-%   2. Ledger-Lookup:
+Der Holder empfängt den Proof Request (State \texttt{request-received}) und ruft via \texttt{GET /present-proof-2.0/records/\{pres\_ex\_id\}/credentials} alle Credentials ab, die die Proof-Request-Anforderungen erfüllen, wobei die Schema-ID und Credential-Definition-ID aus FR1 und FR3 zur Filterung verwendet werden (Listing~\ref{lst:Jupyter-Notebook-Cell-16-Output}, Zeilen~4--19). Der Holder konstruiert ein \texttt{requested\_credentials}-Objekt durch Mapping der fünf Attribute-Referents (\texttt{attr1\_referent} bis \texttt{attr5\_referent}) und des Predicate-Referents (\texttt{pred1\_clearance}) auf die Credential-ID \texttt{39ac5fc4...}, wobei Attribute mit \texttt{revealed: true} gekennzeichnet werden, während das Predicate ohne Offenlegung des Attributwerts evaluiert wird (Listing~\ref{lst:Jupyter-Notebook-Cell-17-Output}, Zeilen~6--11). Der Versand der Presentation via \texttt{POST .../send-presentation} erzeugt einen Zero-Knowledge-Proof, der kryptographisch beweist, dass der Holder ein Credential mit den geforderten Attributen und erfülltem Predicate besitzt, ohne die unrevealed Attribute offenzulegen (Zeilen~18--26).
 
-%   Der DID wird gegen das Ledger validiert:
-%   - ✅ Ist der DID als TRUST_ANCHOR registriert?
-%   - ✅ Welcher Public Key (Verkey) gehört zu diesem DID?
-%   - ✅ Wer hat den DID registriert (Endorser)?
+Der Verifier empfängt die Presentation (State \texttt{done}, \texttt{verified: true}) und extrahiert die revealed Attributes durch dreistufiges Mapping: (1) Abruf der Attribute-Namen aus \texttt{by\_format.pres\_request.indy.requested\_attributes}, (2) Abruf der Attribut-Werte aus \texttt{by\_format.pres.indy.requested\_proof.revealed\_attrs}, (3) Konstruktion eines Name-Value-Mappings (Listing~\ref{lst:Jupyter-Notebook-Cell-18}, Zeilen~30--44), wodurch fünf offengelegte Attribute (\texttt{cert\_type: Notfall-Wartungsberechtigung}, \texttt{facility\_type: Umspannwerk Nord-Ost}, \texttt{epoch\_valid\_from: 1765026000}, \texttt{epoch\_valid\_until: 1765033200}, \texttt{role: Notfalltechniker}) extrahiert werden (Listing~\ref{lst:Jupyter-Notebook-Cell-18-Output}, Zeilen~5--9). Die drei Identitätsattribute bleiben durch Selective Disclosure geschützt und werden als \enquote{NICHT offengelegt (Zero-Knowledge-Proof)} ausgewiesen, wodurch Privacy by Design gemäß DSGVO Art.~25 realisiert wird (Listing~\ref{lst:Jupyter-Notebook-Cell-18-Output}, Zeilen~11--14).
 
-%   3. Kryptografische Verifikation:
+Die Blockchain-basierte Revocation-Prüfung validiert den Credential-Status durch Vergleich des Indy-Proof-Timestamps mit dem Revocation-Registry-Delta auf dem Ledger, wobei State \texttt{done} und \texttt{verified: true} bestätigen, dass das Credential zum Verifikationszeitpunkt nicht revoked war (Listing~\ref{lst:Jupyter-Notebook-Cell-18-Output}, Zeile~18). Die Zeitgültigkeitsprüfung vergleicht einen aktuellen Epoch-Timestamp (Beispielwert \texttt{1765029600}) mit den extrahierten Zeitgrenzen (\texttt{epoch\_valid\_from: 1765026000}, \texttt{epoch\_valid\_until: 1765033200}), wobei die Bedingung \texttt{epoch\_valid\_from <= current\_epoch <= epoch\_valid\_until} die zeitliche Gültigkeit bestätigt (Zeilen~20--27). Die Zero-Knowledge-Predicate-Auswertung extrahiert das erfüllte Predicate \texttt{security\_clearance\_level >= 2} aus \texttt{requested\_proof.predicates}, wobei die exakte Clearance-Stufe (ob Ü2 oder Ü3) durch die ZKP-Eigenschaft verborgen bleibt (Zeilen~29--33).
 
-%   Der Verkey (Public Key) ist die kryptografische Identität des Issuers. Jede Credential-Signatur kann damit verifiziert werden.
+Die finale Zugriffsentscheidung kombiniert drei Validierungsergebnisse in einer logischen UND-Verknüpfung (\texttt{not is\_revoked AND is\_time\_valid AND has\_required\_clearance}), die im demonstrierten KRITIS-Szenario zum Ergebnis \enquote{ZUGANG GEWÄHRT} führt, da alle Bedingungen erfüllt sind (Listing~\ref{lst:Jupyter-Notebook-Cell-18-Output}, Zeilen~36--42). Die Verifiable Data Registry (VDR)-Integration manifestiert sich durch drei Ledger-basierte Validierungsschritte: (1) Schema-Validation via Schema-ID aus FR1, (2) Credential-Definition-Validation via Cred-Def-ID, (3) Revocation-Registry-Validation via \texttt{non\_revoked}-Constraint, wodurch alle kryptographischen Artefakte (Schema, Cred-Def, RevReg-Def, RevReg-Delta) vom Hyperledger Indy Ledger abgerufen und validiert werden.
 
-%   ---
-%   KRITIS-Konformität:
+\subsubsection{Credential Revocation}
 
-%   Die Implementierung erfüllt die Anforderung "Issuer Discovery" aus (Nokhbeh Zaeem et al., 2021):
+Die funktionale Anforderung zur Credential Revocation fordert, dass das System die Ungültigkeitserklärung ausgestellter Credentials ermöglichen muss, wobei Verifier die Gültigkeit kryptographisch überprüfen können. Die Erfüllung dieser Anforderung an das finale Artefakt wird anhand eines dreiphasigen Revocation-Workflows demonstriert: Registry-Management, Two-Phase-Revocation (Staging + Publishing) sowie Non-Revocation-Proof Verification.
 
-%   1. ✅ Identifikation: Issuer wird über DID eindeutig identifiziert
-%   2. ✅ Auffindbarkeit: Ledger-basierte Discovery über Schema-Identifier
-%   3. ✅ Vertrauenswürdigkeit: TRUST_ANCHOR Role + Byzantine Fault Tolerant Ledger
-%   4. ✅ Validierung: Public Key Verifikation + On-Ledger Aktivitäten
+Phase~1 implementiert die Verwaltung von Revocation Registries durch den Issuer. Listing~\ref{lst:Jupyter-Notebook-Cell-19} demonstriert den Abruf aktiver Revocation Registries via \texttt{GET /revocation/registries/created?state=active}. Das Output (Listing~\ref{lst:Jupyter-Notebook-Cell-19-output}) zeigt zwei aktive Registries mit jeweils 100 Credential-Kapazität. Jede Registry enthält kritische Metadaten: \texttt{rev\_reg\_id} (eindeutige Registry-Identifier), \texttt{tails\_hash} (kryptographischer Hash der Tails-File für Zero-Knowledge Non-Revocation-Proofs), \texttt{tails\_local\_path} (lokaler Speicherort der Tails-File) sowie \texttt{issuer\_did} (did:indy des Issuers). Die Tails-File ist essentiell für die kryptographische Accumulator-basierte Revocation-Prüfung nach dem CL-Signature-Schema und wird vom Holder benötigt, um Non-Revocation-Proofs zu generieren.
 
----
+Phase~2 realisiert die Two-Phase-Revocation durch Staging und Ledger-Publishing. Listing~\ref{lst:Jupyter-Notebook-Cell-20} demonstriert die Staging-Phase via \texttt{POST /revocation/revoke} mit \texttt{publish: false}. Die Revocation-Request referenziert das Credential durch \texttt{rev\_reg\_id} (Registry-Identifier) und \texttt{cred\_rev\_id} (Credential-spezifische Revocation-ID, hier: \texttt{"1"}). Das Output (Listing~\ref{lst:Jupyter-Notebook-Cell-20-output}) bestätigt den Status \texttt{"Pending"} -- die Revocation ist lokal staged, jedoch noch nicht auf dem Ledger publiziert. Listing~\ref{lst:Jupyter-Notebook-Cell-21} führt die Publishing-Phase aus via \texttt{POST /revocation/publish-revocations}. Das Output (Listing~\ref{lst:Jupyter-Notebook-Cell-21-output}) zeigt die erfolgreiche Ledger-Transaktion: Typ \texttt{114 (REVOC\_REG\_ENTRY)}, Sequence Number \texttt{14}, mit kryptographischen Accumulator-Updates (\texttt{prevAccum}, \texttt{accum}) und der Liste revokierter Credential-IDs (\texttt{revoked: [1]}). Die Ledger-Transaktion ist durch ED25519-Signatur des Issuers authentifiziert und via Byzantine Fault Tolerance konsistent repliziert.
 
- \paragraph{Issuer Discovery - Identifikation via Ledger Identifier}
+Phase~3 validiert die Revocation-Enforcement durch Proof-Verification. Listing~\ref{lst:Jupyter-Notebook-Cell-14-output-revocation} zeigt das Holder-Wallet nach Revocation mit \texttt{Revoked Status: True}. Listings~\ref{lst:Jupyter-Notebook-Cell-15-output-revocation} bis \ref{lst:Jupyter-Notebook-Cell-17-output-revocation} demonstrieren den Proof-Request- und Presentation-Workflow: Der Holder wählt das revokierte Credential aus (Auto-Select via \texttt{auto\_present: true}), versucht einen Non-Revocation-Proof zu generieren, jedoch schlägt die Proof-Generierung fehl, da der kryptographische Accumulator das Credential als revoked markiert. Listing~\ref{lst:Jupyter-Notebook-Cell-18-output-revocation} zeigt die finale Verifier-Entscheidung: \texttt{Verified: false}, \texttt{Credential ist REVOKED}, \texttt{ZUGANG VERWEIGERT}. Trotz zeitlicher Gültigkeit (Epoch-Check erfüllt: \texttt{1765026000 <= 1765029600 <= 1765033200}) und erfülltem ZKP-Predicate (\texttt{security\_clearance\_level >= 2}) wird der Zugang verweigert, da die Revocation-Prüfung fehlschlägt. Dies demonstriert die Enforcement-Priorität: Revocation-Status dominiert alle anderen Validierungskriterien und stellt sicher, dass kompromittierte Credentials sofort unwirksam werden -- eine kritische Sicherheitsanforderung für KRITIS-Infrastrukturen.
 
-  Die Identifikation vertrauenswürdiger Credential-Issuers erfolgt in dieser Implementierung über einen dreistufigen, identifikatorbasierten
-  Verifikationsprozess auf Basis der Hyperledger Indy Blockchain:
+\subsubsection{Credential Deletion}
 
-  \textbf{Phase 1: Ledger-basierte Issuer Discovery.}
-  Die Discovery-Phase filtert alle NYM-Transaktionen (Transaction Type \texttt{1}) aus dem Ledger und identifiziert Entitäten mit der
-  \texttt{TRUST\_ANCHOR} Role (Role Code \texttt{101}). Diese Rolle autorisiert die Entität zur Registrierung von Schemas und Credential
-  Definitions auf dem Ledger. Jede identifizierte TRUST\_ANCHOR-Entität wird mit folgenden Ledger-Attributen erfasst:
-  \begin{itemize}
-      \item \textbf{DID} (Decentralized Identifier): Eindeutiger Ledger-Identifier der Entität
-      \item \textbf{Verkey} (Verification Key): Public Key zur Signaturverifikation (in der PQC-Implementierung: ML-DSA-65 mit Multicodec
-  \texttt{0xd065})
-      \item \textbf{Alias}: Menschenlesbarer Name der Entität
-      \item \textbf{Registered By}: DID des Endorsers, der die NYM-Transaktion signiert hat
-      \item \textbf{Transaction Metadata}: Sequence Number und Timestamp der Registrierung
-  \end{itemize}
+Die funktionale Anforderung zur Credential Deletion fordert, dass Holder die Möglichkeit besitzen müssen, Credentials lokal aus ihrem Wallet zu entfernen, wobei diese Operation ausschließlich die lokale Datenhaltung betrifft und vom Ledger-basierten Revocation-Mechanismus zu unterscheiden ist. Die Erfüllung dieser Anforderung an das finale Artefakt wird anhand eines dreiphasigen Deletion-Workflows demonstriert: Pre-Deletion Inventory, Credential Deletion sowie Post-Deletion Verification.
 
-  Listing~\ref{fig:FR1_Issuer_Discovery_1} zeigt die Ausgabe dieser Discovery-Phase mit allen TRUST\_ANCHOR-Entitäten im Ledger.
+Phase~1 implementiert das Pre-Deletion Inventory durch Abruf aller im Holder-Wallet gespeicherten Credentials (Listing~\ref{lst:Jupyter-Notebook-Cell-22}, Zeilen~7--43). Via \texttt{GET /credentials} werden alle Credential-Metadaten abgerufen, wobei für jedes Credential der \texttt{referent} (eindeutige Wallet-Identifier), \texttt{schema\_id}, \texttt{cred\_def\_id} sowie der Revocation-Status via \texttt{GET /credential/revoked/\{referent\}} ermittelt wird. Das Output (Listing~\ref{lst:Jupyter-Notebook-Cell-22-output}, Zeilen~1--19) zeigt ein Credential mit \texttt{Revoked: True} -- dieses Credential wurde zuvor via Ledger-Revocation ungültig erklärt (Cell~20--21), befindet sich jedoch weiterhin im lokalen Wallet. Die Auflistung aller Attribute (\texttt{security\_clearance\_level: 2}, \texttt{role: Notfalltechniker}, \texttt{facility\_type: Umspannwerk Nord-Ost}) demonstriert, dass revokierte Credentials im Wallet persistieren, bis der Holder sie explizit löscht. Die \texttt{referent}-Identifier werden in der Liste \texttt{credentials\_to\_delete} gespeichert (Zeile~34) für die nachfolgende Deletion-Phase.
 
-  \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{summative_evaluation_FR1_01.png}
-  \caption{Ledger-basierte Issuer Discovery: Extraktion aller TRUST\_ANCHOR-Entitäten aus NYM-Transaktionen mit vollständigen Ledger-Attributen
-   (DID, Verkey, Alias, Endorser, Transaction Metadata).}
-  \label{fig:FR1_Issuer_Discovery_1}
-  \end{figure}
+Phase~2 realisiert die Credential Deletion durch iterative Deletion aller erfassten Credentials (Listing~\ref{lst:Jupyter-Notebook-Cell-22}, Zeilen~45--75). Für jeden \texttt{credential\_id} wird via \texttt{DELETE /credential/\{credential\_id\}} die lokale Wallet-Entfernung ausgeführt. Die \texttt{api\_delete()}-Hilfsfunktion behandelt HTTP~204~No~Content Responses korrekt (erfolgreiches Löschen ohne Response-Body). Das Output (Listing~\ref{lst:Jupyter-Notebook-Cell-22-output}, Zeilen~21--30) zeigt die erfolgreiche Deletion: \texttt{Gelöscht: 1/1}, wobei die Deletion Summary die Erfolgsrate dokumentiert. Diese Phase demonstriert die Holder-Autonomie über lokale Wallet-Daten -- der Holder kann Credentials unilateral entfernen, ohne Issuer-Interaktion oder Ledger-Transaktion.
 
-  \textbf{Phase 2: Issuer Identifier Verification.}
-  Für jeden identifizierten TRUST\_ANCHOR wird eine kryptographische Identitätsverifikation durchgeführt. Die Verifikation basiert auf
-  folgenden unveränderlichen Ledger-Eigenschaften:
-  \begin{enumerate}
-      \item \textbf{DID-Konsistenz}: Der DID erscheint in NYM-Transaktion (Type \texttt{1}) mit Role \texttt{101}
-      \item \textbf{Public Key Binding}: Der Verkey ist kryptographisch an den DID gebunden (bei PQC: ML-DSA-65 Public Key)
-      \item \textbf{On-Ledger Aktivitäten}: Nachweis von Schema-Registrierungen (Type \texttt{101}), Credential Definitions (Type \texttt{102})
-   und optionalen Revocation Registries (Type \texttt{113}/\texttt{114})
-      \item \textbf{Endorser-Validierung}: Verifizierung des Registrierungs-Endorsers über dessen Signatur der NYM-Transaktion
-  \end{enumerate}
-
-  Diese Eigenschaften sind auf einem Byzantine Fault Tolerant (BFT) Ledger unveränderlich und können nicht nachträglich manipuliert werden.
-
-  \textbf{Phase 3: Schema-basierte Issuer-Identifikation.}
-  Der konkrete Issuer eines Credential-Schemas wird über den \textit{Schema Identifier} identifiziert. Hyperledger Indy verwendet das Format:
-  \begin{center}
-  \texttt{<issuer\_did>:2:<schema\_name>:<version>}
-  \end{center}
-
-  Der Issuer-DID ist somit direkt im Schema-Identifier eingebettet. Bei der Suche nach einem spezifischen Schema (z.\,B.
-  \texttt{university\_degree}) werden folgende Schritte ausgeführt:
-  \begin{enumerate}
-      \item Filterung aller SCHEMA-Transaktionen (Type \texttt{101}) nach \texttt{schema\_name}
-      \item Extraktion des \texttt{issuer\_did} aus dem Schema-Identifier
-      \item Ledger-Lookup der NYM-Transaktion für \texttt{issuer\_did}
-      \item Kryptographische Verifikation über den im Ledger hinterlegten \texttt{verkey}
-      \item Validierung der TRUST\_ANCHOR Role und On-Ledger Aktivitäten
-  \end{enumerate}
-
-  Listing~\ref{fig:FR1_Issuer_Discovery_2} demonstriert diese Schema-basierte Issuer-Identifikation am Beispiel des \texttt{university\_degree}
-   Schemas mit vollständiger Darstellung der Issuer-Identität inklusive DID, Public Key (Verkey), TRUST\_ANCHOR Status und Ledger-Metadaten.
-
-  \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{summative_evaluation_FR1_02.png}
-  \caption{Schema-basierte Issuer-Identifikation: Extraktion des Issuer-DID aus dem Schema-Identifier (\texttt{university\_degree}) und
-  vollständige Identitätsverifikation über Ledger-Lookup mit kryptographischer Binding-Validierung (DID $\leftrightarrow$ Verkey).}
-  \label{fig:FR1_Issuer_Discovery_2}
-  \end{figure}
-
-  \textbf{KRITIS-Konformität: Identifikation ohne zentrale Autorität.}
-  Dieser identifikatorbasierte Ansatz erfüllt die Anforderungen der EU-Verordnung 2019/881 (Cybersecurity Act) sowie der deutschen
-  KRITIS-Verordnung durch folgende Eigenschaften:
-  \begin{itemize}
-      \item \textbf{Dezentralisierung}: Keine zentrale Trust Authority erforderlich (Byzantine Fault Tolerant Consensus)
-      \item \textbf{Kryptographische Verifikation}: Public Key Binding über Post-Quantum sichere ML-DSA-65 Signaturen
-      \item \textbf{Transparenz}: Alle Issuer-Identitäten und Aktivitäten sind auf dem Ledger öffentlich einsehbar
-      \item \textbf{Unveränderlichkeit}: Ledger-Einträge können nachträglich nicht manipuliert werden (BFT-Konsens)
-      \item \textbf{Auditierbarkeit}: Vollständige Nachvollziehbarkeit über Transaction Sequence Numbers und Timestamps
-  \end{itemize}
-
-Die Kombination aus Ledger-basierter Discovery (Phase 1), kryptographischer Identitätsverifikation (Phase 2) und Schema-basierter Identifikation (Phase 3) ermöglicht eine vertrauenswürdige Issuer-Identifikation ohne zentrale Vertrauensinstanz. Die Integration von Post-Quantum Kryptographie (ML-DSA-65 für Signaturen, ML-KEM-768 für Key Agreement) gewährleistet dabei die langfristige Sicherheit gegen Angriffe durch Quantencomputer gemäß NIST FIPS-204 und FIPS-203.
-
-\subsubsection{FR2: Connection Creation}
-\subsubsection{FR3: Credential Creation}
-\subsubsection{FR4: Verification with Credentials}
-\subsubsection{FR5: Backup/Recovery}
-\subsubsection{FR6: Derive/Share Credentials}
-\subsubsection{FR7: Sunset/Delete/Revoke Credentials}
-
-Anforderungskapitel ==> Kapitel~\ref{sec:Anforderungsanalyse}
+Phase~3 validiert die Deletion-Enforcement durch Post-Deletion Verification (Listing~\ref{lst:Jupyter-Notebook-Cell-22}, Zeilen~77--115). Ein erneuter Abruf via \texttt{GET /credentials} bestätigt das leere Wallet: \texttt{Holder Wallet ist jetzt LEER (alle Credentials gelöscht)} (Listing~\ref{lst:Jupyter-Notebook-Cell-22-output}, Zeilen~32--36). Die explizite Unterscheidung zwischen lokaler Deletion und Ledger-Revocation wird durch Hinweise dokumentiert (Listing~\ref{lst:Jupyter-Notebook-Cell-22-output}, Zeilen~38--43): \texttt{Credential ist LOKAL im Wallet gelöscht}, \texttt{Credential ist NICHT auf dem Ledger revoked}, \texttt{Issuer kann das Credential weiterhin sehen}. Diese Differenzierung ist kritisch für das Verständnis des SSI-Sicherheitsmodells: Lokale Deletion entfernt das Credential aus der Holder-Verfügungsgewalt (kein Proof mehr generierbar), jedoch bleibt die Ledger-basierte Revocation-Historie intakt (\texttt{--preserve-exchange-records} beim Issuer aktiv). Für KRITIS-konforme Audit-Trails bedeutet dies: Die Credential-Issuance-History ist unveränderlich auf dem Ledger gespeichert, während der Holder die Privacy-wahrende Möglichkeit besitzt, lokale Credential-Kopien zu entfernen.
 
 %       - KRITIS-Szenarien (Energie, Gesundheit, Wasser)
 % \subsection{Performance-Analyse}
@@ -2338,17 +2240,127 @@ Anforderungskapitel ==> Kapitel~\ref{sec:Anforderungsanalyse}
 %        - Speicher- und Rechenaufwand \\
 %        - Skalierbarkeitstest
 
-\subsection{Validierung der nicht-funktionalen Anforderungen}
-
 
 
 \subsection{Validierung der KRITIS-Compliance-Anforderungen}
-       - BSI-Anforderungen (IDM, KRY) \\
-       - DSGVO, NIS2 \\
-       - Auditierbarkeit
 
-Mapping, Tabelle wie wird das konkret vom Protoypen umgesetzt.
+\subsubsection{Einhaltung spezifischer Parameter-Sets für ML-DSA}
 
+Die Compliance-Anforderung zur Einhaltung BSI-konformer ML-DSA Parameter-Sets (NIST Security Strength Category 3 oder 5) wird durch strategische Verwendung zweier Sicherheitsstufen erfüllt: ML-DSA-65 (Category 3) für operationale Signaturen sowie ML-DSA-87 (Category 5) für die Root Certificate Authority. Das finale Artefakt implementiert ML-DSA in drei Schichten: (1)~TLS~1.3 Server-Zertifikate für alle fünf Nginx Sidecar Proxies (hopE-Agenten: Issuer/Holder/Verifier, VON-Network Webserver, Tails Server) werden mittels ML-DSA-65 signiert, konfiguriert via Build-Argument (SIG\_ALG: mldsa65) in den Docker-Infrastruktur-Definitionen (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~\ref{lst:docker-compose.yml-Revocation-Registry}, Listing~\ref{lst:docker-compose.yml-SSI-Agenten}), wobei die Root CA als langfristiger Trust-Anchor mit der höheren Sicherheitsstufe ML-DSA-87 geschützt ist (Listing~\ref{lst:Zertifikatserstellungsworkflow}). (2)~did:peer:4 Signing Keys für dezentrale Agent-to-Agent Authentifizierung werden mit ML-DSA-65 generiert (Listing~\ref{lst:key_types.py}). (3)~DIDComm~v1 Authcrypt Message-Signierung nutzt ML-DSA-65 via LibOQS-Integration (Listing~\ref{lst:liboqs_wrapper.py}) für kryptographisch verifizierbare Sender-Authentifizierung in verschlüsselten Nachrichten.
+
+Die erfolgreiche operationale Integration von ML-DSA-65 wird zum einen durch \autoref{fig:Successful-Validation-Issuer-TLS1.3} demonstriert, welches die TLS~1.3 Verbindung zum Issuer-Agenten mit ML-DSA-65 signiertem Server-Zertifikat validiert, und zum anderen durch die Wallet-Übersicht in Listing~\ref{lst:Jupyter-Notebook-Cell-12-output} demonstriert, in welcher alle drei SSI-Agenten key\_type: "ml-dsa-65" für did:peer:4 DIDs nutzen.
+
+\subsubsection{Einhaltung spezifischer Parameter-Sets für ML-KEM}
+
+Diese Anforderung wird durch systemweite Implementierung von ML-KEM-768 (Category 3) erfüllt. Das finale Artefakt implementiert ML-KEM-768 in zwei Schichten: (1)~TLS~1.3 Key Exchange für alle fünf Nginx Sidecar Proxies nutzt ML-KEM-768 konfiguriert via \texttt{DEFAULT\_GROUPS=X25519MLKEM768} in den Docker-Infrastruktur-Definitionen (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~\ref{lst:docker-compose.yml-Revocation-Registry}, Listing~\ref{lst:docker-compose.yml-SSI-Agenten}) sowie via \texttt{ssl\_ecdh\_curve X25519MLKEM768} in den Nginx-Konfigurationen (Listing~\ref{lst:nginx-pqc-konfiguration}). (2)~did:peer:4 Key Agreement für dezentrale Agent-to-Agent Verschlüsselung wird mit ML-KEM-768 realisiert (Listing~\ref{lst:key_types.py}), womit DIDComm-Nachrichten mittels Post-Quantum-resistenter Schlüsselkapselung verschlüsselt werden.
+
+Die erfolgreiche operationale Integration von ML-KEM-768 wird zum einen durch \autoref{fig:Successful-Validation-Issuer-TLS1.3} demonstriert, welches die TLS~1.3 Verbindung zum Issuer-Agenten mit ML-DSA-65 signiertem Server-Zertifikat validiert, und zum anderen durch die Wallet-Übersicht in Listing~\ref{lst:Jupyter-Notebook-Cell-12-output} demonstriert, in welcher alle drei SSI-Agenten key\_type: "ml-dsa-65" für did:peer:4 DIDs nutzen.
+
+\subsubsection{Implementierung hybrider Schlüsseleinigung}
+
+Die BSI-Anforderung zur hybriden Schlüsseleinigung (Kombination klassisches Verfahren mit PQC-KEM) wird durch X25519+ML-KEM-768 Hybrid-Modus erfüllt. Das finale Artefakt implementiert hybride Schlüsseleinigung systemweit via \texttt{DEFAULT\_GROUPS=X25519MLKEM768:mlkem768:x25519} in allen Docker-Infrastruktur-Definitionen (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~\ref{lst:docker-compose.yml-Revocation-Registry}, Listing~\ref{lst:docker-compose.yml-SSI-Agenten}), wobei die Priorisierung X25519MLKEM768 als primären Hybrid-Modus sicherstellt. Die TLS~1.3 Verbindungen aller fünf Nginx Sidecar Proxies kombinieren elliptische Kurven-Kryptographie (X25519, klassisch) mit gitterbasiertem ML-KEM-768 (Post-Quantum) für Perfect Forward Secrecy, wobei OpenSSL~3.5.4 mit nativer PQC-Unterstützung die kryptographische Verknüpfung beider Shared Secrets via Key Derivation Function durchführt (Listing~\ref{lst:nginx-pqc-konfiguration}). Zusätzlich implementiert did:peer:4 hybride Key Agreement zwischen X25519- und ML-KEM-768-Keys aus DID Documents für DIDComm Message Encryption (Listing~\ref{lst:key_types.py}). Die Fallback-Strategie \texttt{mlkem768:x25519} gewährleistet Interoperabilität mit Peers ohne Hybrid-Unterstützung, wobei reine PQC-Verschlüsselung via ML-KEM-768 Vorrang vor klassischem X25519 hat. Diese Architektur entspricht BSI-TR-02102-1 Kapitel~2.2 und 2.4 zur Absicherung gegen kryptanalytische Durchbrüche sowohl im klassischen als auch im Quantum-Computing-Bereich.
+
+\subsubsection{Bevorzugte Verwendung von TLS 1.3}
+  
+Die BSI-Empfehlung zur vorrangigen Verwendung von TLS~1.3 wird durch systemweite TLS~1.3-Enforcement erfüllt. Das finale Artefakt erzwingt TLS~1.3 in allen fünf Nginx Sidecar Proxies via \texttt{ssl\_protocols TLSv1.3;} in den Konfigurationsdateien (Listing~\ref{lst:nginx_holder.conf}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{summative_evaluation_TLS1.2_error.png}
+    \caption{TLS 1.2 Verbindungsversuch zum Issuer-Agenten schlägt fehl (TLS 1.3 Enforcement)}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Summative_Evaluation_TLS1.2_Error}
+\end{figure}
+
+\autoref{fig:Summative_Evaluation_TLS1.2_Error} demonstriert das Fehlschlagen des TLS~1.2 Verbindungsversuchs zum Issuer-Agenten.
+
+Für \gls{SzA}
+
+\subsubsection{Protokollierung Sicherheitsrelevanter Ereignisse}
+
+Das finale Artefakt implementiert Protokollierung auf drei Ebenen:
+
+(1)~ACA-Py Agent-Level Logging protokolliert alle Authentifizierungsversuche (Connection Requests, Credential Issuance, Proof Presentations), Zustandsübergänge (State Machines für Issue-Credential/Present-Proof Protokolle) sowie Fehlerzustände via \texttt{--log-level info} in den Docker-Infrastruktur-Definitionen (Listing~\ref{lst:docker-compose.yml-SSI-Agenten}). Listing~\ref{lst:issuer-acapy-agent-logs} demonstriert das Logging sicherheitsrelevanter kryptographischer Events wie ML-DSA-65 Signature Verification, Schlüsselabruf via DID-Resolution und erfolgreiche/fehlgeschlagene DIDcomm-Decryption während des Credential-Issuance-Workflows.
+
+(2)~Nginx Access \& Error Logs auf allen fünf Sidecar Proxies protokollieren TLS-Handshakes, HTTP-Requests sowie fehlgeschlagene Verbindungsversuche, persistiert in Docker Volumes \texttt{nginx-logs} (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~\ref{lst:docker-compose.yml-Revocation-Registry}). Listing~\ref{lst:issuer-nginx-logs} demonstriert das Logging der HTTP-Security-Events auf Proxy-Ebene, Connection-Authentifizierung, Request-Authentifizierung via User-Agent, sowie Request-Body-Buffering für PQC-Schlüsselmaterialien.
+
+(3)~VON-Network Ledger Transaction Logs erfassen alle Blockchain-Operationen (NYM-Transaktionen für DID-Registrierung, SCHEMA/CRED\_DEF-Publikationen, REVOC\_REG\_ENTRY für Revocations) mit Zeitstempeln und Sequence Numbers für unveränderlichen Audit-Trail (demonstriert in Listing~\ref{lst:Jupyter-Notebook-Cell-4-output}, Listing~\ref{lst:Jupyter-Notebook-Cell-21-output}).
+
+\subsubsection{Logische Netzsegmentierung}
+
+Das finale Artefakt implementiert strikte Netzwerk-Segmentierung mittels dedizierter Docker Networks: 
+
+(1)~hopE-Agenten nutzen isolierte Networks \texttt{hope-issuer}, \texttt{hope-holder}, \texttt{hope-verifier} pro Agent, wobei nur die zugehörigen Sidecar Proxies Zugriff haben (Listing~\ref{lst:docker-compose.yml-SSI-Agenten}). 
+
+(2)~Shared Network \texttt{von\_sidecarproxy} verbindet ausschließlich die PQC Sidecar Proxies untereinander für Agent-to-Agent Kommunikation, während interne Agent-Container isoliert bleiben. 
+
+(3)~VON-Network Blockchain-Nodes operieren im dedizierten \texttt{von} Network mit separatem \texttt{sidecarproxy} Network für Webserver-Zugriff (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}). 
+
+(4)~Tails Server nutzt isoliertes \texttt{tails-server} Network mit kontrolliertem Zugang via \texttt{von\_sidecarproxy} (Listing~\ref{lst:docker-compose.yml-Revocation-Registry}). 
+
+\autoref{fig:Docker-Compose-Übersicht-Iteration-1} und \autoref{fig:Darstellung-Network-Isolation} demonstrieren die logische Netzwerksegmentierung.
+
+\subsubsection{Datenschutz durch Technikgestaltung (Privacy by Design)}
+% Die Architektur realisiert dies durch den konsequenten Verzicht auf die Speicherung personenbezogener Daten (PII) auf dem unveränderlichen Ledger (Off-Chain-Architektur) und die Nutzung von Zero-Knowledge Proofs
+
+Die DSGVO-Anforderung zu Privacy by Design (Art.~25) wird durch architektonische Trennung von öffentlichen Identifikatoren und personenbezogenen Daten erfüllt. Das finale Artefakt realisiert konsequente Off-Chain-Architektur: (1)~Personenbezogene Daten (PII) wie Name, Organisation, Sicherheitsfreigabe werden ausschließlich in verschlüsselten Verifiable Credentials gespeichert, die lokal im Holder-Wallet persistiert sind (demonstriert in Listing~\ref{lst:Jupyter-Notebook-Cell-14-output}), niemals auf dem unveränderlichen Blockchain-Ledger. (2)~Ledger-Transaktionen enthalten ausschließlich kryptographische Identifikatoren (Schema-IDs, Credential-Definition-IDs, Revocation-Registry-IDs) sowie Public Keys, jedoch keine personenbezogenen Attribute (Listing~\ref{lst:Jupyter-Notebook-Cell-4-output}, Listing~\ref{lst:Jupyter-Notebook-Cell-21-output}). (3)~Zero-Knowledge Proofs ermöglichen selektive Offenlegung: Der Verifier erhält nur explizit angeforderte Attribute (\texttt{revealed\_attrs}), während sensible Daten wie Vorname, Nachname, Organisation durch \texttt{unrevealed}-Status geschützt bleiben, sowie Predicate-basierte Proofs (\texttt{security\_clearance\_level >= 2}) ohne Offenlegung exakter Werte (Listing~\ref{lst:Jupyter-Notebook-Cell-18-output-revocation}). Diese Architektur stellt Privacy by Default sicher, da personenbezogene Daten per Design dezentral beim Holder verbleiben und nur kryptographisch verifizierbare Proofs ausgetauscht werden, womit DSGVO Art.~25 Konformität erreicht wird.
+
+\subsubsection{Grundsatz der Datenminimierung}
+% Durch den Einsatz von \textit{Pairwise DIDs} (did:peer) für jede Interaktion statt einer globalen ID wird die Korrelierbarkeit von Daten minimiert und Profilbildung technisch unterbunden
+
+Das finale Artefakt addressiert Datenminimierung in drei Dimensionen:
+
+(1)~Pairwise did:peer:4 DIDs eliminieren globale Identifikatoren: Für jede Agent-to-Agent Connection wird eine dedizierte DID generiert (Listing~\ref{lst:Jupyter-Notebook-Cell-12-output} zeigt pro Agent 3--4 verschiedene did:peer:4 DIDs), wodurch Transaktionskorrelation über verschiedene Verifier hinweg technisch unterbunden wird -- ein kompromittierter Verifier kann keine Aktivitäten des Holders bei anderen Verifiern nachverfolgen. 
+
+(2)~Selective Disclosure in Proof Presentations: Der Holder offenbart ausschließlich die vom Verifier angeforderten Attribute (\texttt{revealed\_attrs}: \texttt{cert\_type, facility\_type, epoch\_valid\_from/until, role}), während Identitätsdaten (\texttt{first\_name, name, organisation}) unrevealed bleiben (Listing~\ref{lst:Jupyter-Notebook-Cell-18-output-revocation}, Zeilen~12--19), wodurch nur zweckgebundene Minimaldaten übermittelt werden. 
+
+(3)~Predicate-basierte Zero-Knowledge Proofs reduzieren Datenoffenlegung weiter: Statt exakte Sicherheitsfreigabe-Stufe zu übermitteln, beweist der Holder kryptographisch \texttt{security\_clearance\_level >= 2} ohne Preisgabe, ob Stufe 2 oder 3 vorliegt (Listing~\ref{lst:Jupyter-Notebook-Cell-18-output-revocation}, Zeilen~21--26). 
+
+Diese mehrstufige Datenminimierung verhindert Profilbildung und unnötige Datensammlung, womit DSGVO-konforme Zweckbindung technisch durchgesetzt wird.
+
+\subsubsection{Recht auf Löschung}
+% Durch die strikte Trennung von öffentlichen Identifikatoren (Ledger) und privaten Daten (lokale Wallet) ist eine Löschung technisch vollständig realisierbar, indem die lokale Wallet und die zugehörigen kryptografischen Schlüssel vernichtet werden (Crypto-Shredding)
+
+Die DSGVO-Anforderung zum Recht auf Löschung (Art.~17) wird durch strikte Trennung von Ledger-Identifikatoren und Wallet-Daten erfüllt. Das finale Artefakt realisiert vollständige Löschbarkeit personenbezogener Daten mittels Crypto-Shredding: (1)~Lokale Credential-Deletion entfernt Credentials aus dem Holder-Wallet via \texttt{DELETE /credential/\{credential\_id\}}, demonstriert in Listing~\ref{lst:Jupyter-Notebook-Cell-22}: Nach Deletion ist das Wallet leer (\texttt{Holder Wallet ist jetzt LEER}), womit alle personenbezogenen Attribute (Name, Organisation, Sicherheitsfreigabe) irreversibel gelöscht sind. (2)~Crypto-Shredding durch Wallet-Destruction: Da Credentials im Holder-Wallet mit dem Wallet-Key verschlüsselt persistiert sind (\texttt{holder\_wallet\_key}), führt die Vernichtung des Wallet-Keys zur kryptographischen Unlesbarkeit aller Credential-Daten, selbst wenn Backups existieren -- ohne Key ist Decryption unmöglich. (3)~Ledger-Immutabilität ohne Privacy-Verletzung: Während Blockchain-Transaktionen (Schema-IDs, Cred-Def-IDs, Revocation-Entries) unveränderlich auf dem Ledger verbleiben, enthalten diese per Design keine personenbezogenen Daten, sondern ausschließlich kryptographische Identifier, wodurch Art.~17 DSGVO erfüllt wird (Listing~\ref{lst:Jupyter-Notebook-Cell-22-output}, Zeilen~38--43: \texttt{Credential ist LOKAL im Wallet gelöscht, NICHT auf dem Ledger revoked}). Diese Architektur gewährleistet vollständige Löschung von PII bei gleichzeitiger Beibehaltung der Audit-Trail-Integrität für KRITIS-Compliance, womit die Balance zwischen DSGVO-Rechten und regulatorischen Anforderungen erreicht wird.
+
+\subsection{Validierung der Kryptoagilität}
+
+\subsubsection{Transportlayer}
+
+Die Implementierung realisiert Kryptoagilität mithilfe der eingebauten Mechanismen in TLS 1.3, welche explizit entwickelt wurden, um eine modulare Austauschbarkeit kryptografischer Primitive zu gewährleisten. Im Gegensatz zu früheren Protokollversionen entkoppelt TLS 1.3 die Aushandlung von Cipher Suite, Schlüsselaustauschverfahren und Signaturalgorithmen vollständig voneinander. Diese Parameter werden orthogonal ausgehandelt, wodurch jeder Mechanismus unabhängig modifiziert werden kann \cite[S. 26]{rescorla_TransportLayerSecurityTLSProtocolVersion13_2018}.
+Diese Trennung wird technisch durch die \texttt{supported\_groups}-Erweiterung realisiert, die es Endpunkten erlaubt, präferierte Schlüsselaustauschverfahren unabhängig vom symmetrischen Verschlüsselungsverfahren (AEAD) auszuhandeln \cite[S. 47]{rescorla_TransportLayerSecurityTLSProtocolVersion13_2018}.
+
+Dieser Ansatz korrespondiert direkt mit den von \textcite[S. 102]{mehrez_CryptoAgilityProperties_2018} identifizierten Kryptoagilitätseigenschaften. Spezifisch adressiert die hier gewählte Architektur die Eigenschaft der \enquote{Extensibility}, die Fähigkeit, neue Algorithmen effizient hinzuzufügen, sowie die \enquote{Removability}, das elegante Außerbetriebnehmen veralteter Verfahren, ohne Gefährdung der Systemintegrität.
+
+Die konkrete Umsetzung dieser Agilität in der vorliegenden Arbeit nutzt diese Protokollstruktur, um eine nahtlose Migration zu ermöglichen. Konkret wurde eine konfigurationsbasierte Algorithm-Fallback-Chain via \texttt{DEFAULT\_GROUPS=X25519MLKEM768:mlkem768:x25519:mlkem1024} (Listing~\ref{lst:Dockerfile-Sidecar-Proxy-nginx}) implementiert. Diese Konfiguration instruiert den TLS-Handshake, primär hybride Verfahren zu nutzen, bietet jedoch eine automatische Rückfalloption (Fallback) auf rein klassische Verfahren (\texttt{x25519}) im Falle einer Inkompatibilität. Damit erfüllt die Lösung die Anforderung der \enquote{Fungibility} nach \textcite[S. 102]{mehrez_CryptoAgilityProperties_2018}, die es Systemen erlaubt, Algorithmen auszutauschen. Ebenfalls wird die erste Eigenschaft nach \textcite[S. 19]{cyberresilienceworkshopseriescommittee_CryptographicAgilityInteroperabilityProceedingsWorkshop_2017} adressiert Algorithmen in Echtzeit basierend auf ihrer kombinierten Sicherheitsfunktion auszuwählen.
+
+\autoref{fig:Summative_Evaluation_TLS1.3_Kryptoagilität} demonstriert den kryptoagilen Fallback-Prozess von X25519+ML-KEM-768 zu X25519 im TLS 1.3 Protokoll.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{summative_evaluation_TLS1.3_kryptoagilität.png}
+    \caption{TLS 1.3 Kryptoagiler Fallback von X25519+ML-KEM-768 zu X25519}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Summative_Evaluation_TLS1.3_Kryptoagilität}
+\end{figure}
+
+\subsubsection{Applikationslayer}
+
+Die Kryptoagilität des SSI-Systems auf Applikationsebene manifestiert sich in der Erfüllung der ersten und zweiten Anforderung von \textcite[S. 19--20]{cyberresilienceworkshopseriescommittee_CryptographicAgilityInteroperabilityProceedingsWorkshop_2017} Sicherheitsalgorithmen in Echtzeit auf Basis ihrer kombinierten Sicherheitsfunktionen auszuwählen, und die Möglichkeit zu eröffnen, neue kryptographische Funktionen bzw. Algorithmen in bestehende Hard- und Software zu integrieren.
+
+Dafür nutzt das SSI-System die Plugin-Architektur von Aries Cloud Agent Python (ACA-Py), die es ermöglicht, bestehende kryptographische Workflows durch gezielte Eingriffe zu modifizieren, ohne den Kerncode der Agenten zu verändern. Dieses Designprinzip entspricht dem \enquote{Open/Closed Principle} der Softwareentwicklung, welches besagt, dass Softwaremodule offen für Erweiterungen, jedoch geschlossen für Modifikationen sein sollten \cite[S. 99]{martin_AgileSoftwareDevelopmentprinciplespatternspractices_2003}.
+
+Dafür implementiert das Plugin einen metadatengesteuerten Ansatz zur Algorithmenauswahl. Wie in Listing~\ref{lst:Jupyter-Notebook-Cell-9-Demonstration-Kryptoagilität-ed25519} demonstriert, kann der gewünschte Schlüsseltyp durch Übergabe des Parameters \enquote{metadata: \{key\_type : ed25519\}} explizit spezifiziert werden.
+
+Bei der Verarbeitung einer Out-of-Band (OOB) Invitation durchläuft das System folgenden Entscheidungsbaum: Der \enquote{OutOfBandManager} empfängt die Metadata-Parameter aus der API-Anfrage und propagiert diese an die DID-Erstellungslogik. In der Funktion \enquote{create\_did\_peer\_4\_conditional\_pqc} (Listing~\ref{lst:base_manager_patch.py}) erfolgt eine Auswertung des \enquote{key\_type}-Parameters. Wird der Wert \enquote{ed25519} erkannt, delegiert das Plugin die gesamte DID-Erstellung an die ursprüngliche ACA-Py-Implementierung (\enquote{\_original\_create\_did\_peer\_4}), wodurch ein vollständiger Fallback auf klassische Kryptographie ohne Plugin-Interferenz gewährleistet wird. Fehlt die Metadata-Spezifikation aktiviert das System standardmäßig die Post-Quantum-Kryptographie mit den Algorithmen ML-DSA-65 für digitale Signaturen und ML-KEM-768 für Schlüsselkapselung.
+
+Die erfolgreiche Validierung dieser Kryptoagilität zeigt Listing~\ref{lst:Jupyter-Notebook-Cell-9-Demonstration-Kryptoagilität-ed25519-output}. Trotz aktiviertem Plugin etabliert sich eine vollständig ED25519-basierte Verbindung zwischen Issuer- und Holder-Agent. Die Verbindung erreicht den Status \enquote{active} auf beiden Seiten, was die korrekte Durchführung des DID Exchange-Protokolls mit klassischen Algorithmen bestätigt.
+
+Listing~\ref{lst:Jupyter-Notebook-Cell-11-Demonstration-Kryptoagilität-ed25519-output} verifiziert die persistierte Kryptographie-Konfiguration auf Wallet-Ebene. Die Inspektion der gespeicherten DIDs zeigt konsistent den Wert \enquote{{key\_type}:{ed25519}}. Insbesondere die Abwesenheit von PQC-spezifischen Metadata-Markern wie \enquote{pqc\_enabled}, \enquote{signature\_algorithm} oder \enquote{kem\_verkey} in den DID-Metadaten bestätigt, dass das Plugin keinerlei modifizierende Eingriffe in den ED25519-Workflow vorgenommen hat.
 
 % \newpage
 % \section{Systemarchitektur und Design} \label{sec:Systemarchitektur und Design}

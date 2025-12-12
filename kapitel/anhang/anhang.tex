@@ -1,7 +1,10 @@
 \section{Systematische Literaturrecherche}
-\label{sec:Anhang_Dokumentation der ersten Iteration der systematischen Literaturrecherche (Exposé)}
+\label{sec:Anhang_Dokumentation_der_systematischen_Literaturrecherche}
 
-\subsection{Erste Iteration (Exposé)}
+Die erste Iteration fand im Rahmen des Exposés statt und etablierte die methodische Grundlage für das gesamte Forschungsprojekt. Diese initiale Recherche identifizierte 61 relevante Quellen mit differenzierter Relevanzklassifizierung (hoch/mittel/niedrig) und ermöglichte die Formulierung der Forschungsfragen sowie die Identifikation der Forschungslücke im Bereich Post-Quantum-Kryptografie für Self-Sovereign-Identity-Systeme in kritischen Infrastrukturen. Die detaillierte Dokumentation dieser ersten Iteration aus dem Exposé wurde in \ref{sec:Anhang_Dokumentation_der_ersten_Iteration_Expose} dieser Masterarbeit integriert, um Transparenz und Reproduzierbarkeit zu gewährleisten.
+
+\subsection{Erste Iteration vom 30. Mai 2025 (Exposé)}
+\label{sec:Anhang_Dokumentation_der_ersten_Iteration_Expose}
 
 \fixme{Texte anpassen? + Kapitelüberschriften ergänzen? Anhang 1.1 etc.?}
 
@@ -217,7 +220,7 @@ Listing~\ref{lst:boolesche_suchanfrage} stellt eine strukturierte Suchstrategie 
 \refstepcounter{manualListingCounter}
 \label{lst:boolesche_suchanfrage}
 \begin{lstlisting}[
-caption={Listing \arabic{lstlisting}: Strukturierte Suchanfrage mit Booleschen Operatoren},
+caption={Strukturierte Suchanfrage mit Booleschen Operatoren},
 basicstyle=\small\ttfamily,
 breaklines=true,
 frame=single,
@@ -268,12 +271,12 @@ ist in \autoref{fig:EBSCO Ergebnis} dargestellt. Insgesamt wurden mit dieser Abf
 
 \paragraph*{Bewertung der Ergebnisse}
 
-\autoref{tab:quellenuebersicht} stellt eine Übersicht der Bewertung der 61 identifizierten Quellen dar, welche vollständig in \ref{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz} aufzufinden ist.
+\autoref{tab:quellenuebersicht} stellt eine Übersicht der Bewertung der 61 identifizierten Quellen dar, welche vollständig in \autoref{tab:quellenbewertung} aufzufinden ist.
 
 Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Fokus der Arbeit. Hohe Relevanz erhalten Quellen mit klaren Beiträgen zu \ac{SSI}, \ac{PQC}, \ac{KRITIS} oder dezentralen Identitätsarchitekturen. Mittlere Relevanz wird Arbeiten zugeordnet, die angrenzende Technologien wie Blockchain-Sicherheit im \ac{IoT} oder digitale Forensik behandeln. Niedrige Relevanz erhalten Quellen zu allgemeinen Technologietrends ohne direkten Bezug zum Thema.
 
 \begin{longtable}{L{1.5cm}L{11cm}L{1cm}}
-    \caption[]{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \caption{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
     \label{tab:quellenuebersicht} \\
     \toprule
     \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
@@ -305,13 +308,8 @@ Die Einstufung basiert auf Titel und Abstract in Bezug auf den thematischen Foku
     39--61 & Diverse & Niedrig \\
 \end{longtable}
 
-\subsubsection{Ergebnis Iteration 1}
-\label{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
-
-Iteration 1 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz
-
 \begin{longtable}{L{0.5cm}L{4cm}L{1.5cm}L{7cm}}
-    \caption[]{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \caption{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
     \label{tab:quellenbewertung} \\
     \toprule
     \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} & \textbf{Kommentar} \\
@@ -451,15 +449,159 @@ Iteration 1 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz
 61 & Kumar, Y., Marchena, J., Awlla, A. H., Li, J. J., \& Abdalla, H. B. (2024). The AI-Powered Evolution of Big Data. Applied Sciences (2076-3417), 14(22), 10176. \url{https://doi.org/10.3390/app142210176} & Niedrig & Fokus auf die Weiterentwicklung von Big-Data-Analyse und Management durch künstliche Intelligenz, mit Betonung neuer Rahmenwerke für die Charakterisierung und Handhabung großer, komplexer Datensätze. Der Beitrag stellt innovative AI-gestützte Tools (wie RAG-basierte Analyse-Bots/ChatGPT) zur Verbesserung der Datenanalyse vor und hebt methodologische Fortschritte im Bereich datengetriebene Entscheidungsunterstützung hervor. Keine explizite Behandlung oder Integration von \ac{SSI}, Blockchain-Technologien, \ac{PQC} oder besonderen Anforderungen kritischer Infrastrukturen; methodische und technologische Beiträge beschränken sich auf Big-Data-Management und AI-basierte Analytics, ohne Verknüpfung zu den vier zentralen Domänen der Masterarbeit. \\
 \end{longtable}
 
-\subsection{Zweite Iteration}
+\subsection{Zweite Iteration vom 02. November 2025}
+\label{sec:Anhang_Dokumentation_der_zweiten_Iteration}
 
-\subsubsection{Ergebnis Iteration 2}
-\label{sec:Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz 2}
+Die zweite Iteration erfolgt im Rahmen der Masterarbeit unter Berücksichtigung der in der ersten Iteration definierten ausgewählten Methoden der PRISMA 2020 Richtlinien (\autoref{tab:Ausgewählte Methoden der PRISMA 2020 Richtlinien}).
 
-Iteration 2 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz
+Angepasst wurde der Suchzeitraum (Zeitrahmen: 30. Mai 2025 bis 02. November 2025) innerhalb der Ein- und Ausschlusskriterien, um die Wissensbasis zu aktualisieren und neu erschienene Publikationen im dynamischen Forschungsfeld der Post-Quantum-Kryptografie und blockchain-basierten SSI-Systeme zu erfassen (\autoref{tab:einausschlusskriterien_iteration2}).
+
+\begin{longtable}{L{3cm}L{4cm}L{4cm}L{3cm}}
+    \caption{Ein- und Ausschlusskriterien für die systematische Literaturrecherche}
+    \label{tab:einausschlusskriterien_iteration2} \\
+    \toprule
+    \textbf{Kategorie} & \textbf{Einschluss} & \textbf{Ausschluss} & \textbf{Begründung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{4}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Kategorie} & \textbf{Einschluss} & \textbf{Ausschluss} & \textbf{Begründung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{4}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{4}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung.} \\
+    \endlastfoot
+    Thematischer Fokus &
+    \ac{SSI} und dezentrale Identitätslösungen;
+    Blockchain-basierte Identitätsmanagementsysteme;
+    \ac{PQC} und quantensichere Algorithmen;
+    Sicherheit und Compliance in \ac{KRITIS};
+    \ac{DSR}-Methodik in IT/Informationssystemen;
+    Kryptoagilität und kryptografische Migration & 
+    Identitätsmanagement ohne Bezug zu \ac{SSI} oder Blockchain;
+    Klassische \ac{PKI} ohne \ac{PQC}-Bezug;
+    Kryptografie ohne Post-Quantum-Relevanz;
+    Arbeiten ohne Bezug zu \ac{KRITIS} oder ohne sicherheitskritischen Kontext;
+    Nicht-\ac{DSR}-basierte Entwicklungsansätze & 
+    Fokussierung auf die Forschungsfragen und relevante technologische, methodische und regulatorische Aspekte. \\
+    \midrule
+    Zeitrahmen & 30. Mai 2025 bis 02. November 2025 & Alles davor oder danach & Berücksichtigung aktueller technologischer Entwicklungen (Blockchain, \ac{PQC}, \ac{SSI}) und regulatorischer Anforderungen. \\
+    \midrule
+    Publikationstypen & 
+    Peer-reviewed Journalartikel;
+    Konferenzbeiträge anerkannter Fachgesellschaften (z. B. IEEE, ACM, IFIP); Preprints;
+    Offizielle Standards und Empfehlungen (z. B. \ac{NIST}, W3C, \ac{BSI});
+    Whitepaper etablierter Organisationen;
+    Dissertationen und anerkannte Fachbücher & 
+    Blogposts, Forenbeiträge, Marketingmaterial;
+    Populärwissenschaftliche Artikel ohne wissenschaftliche Fundierung;
+    Unveröffentlichte Manuskripte ohne Peer-Review;
+    Seminar- und Abschlussarbeiten ohne wissenschaftliche Begutachtung & 
+    Sicherstellung wissenschaftlicher Qualität, Nachvollziehbarkeit und Relevanz der Quellen für die Masterarbeit; Da das Forschungsthema aktuell noch sehr neu ist und die einschlägige Fachliteratur teilweise noch nicht den Peer-Review-Prozess durchlaufen hat, werden auch Preprints in die Analyse einbezogen. Preprints ermöglichen eine zeitnahe Verfügbarkeit aktueller Forschungsergebnisse, was insbesondere bei diesem innovativen von großer Bedeutung ist. \\
+    \midrule
+    Sprache & Deutsch; Englisch & Andere Sprachen als Deutsch und Englisch & Gewährleistung der Verständlichkeit und Zugänglichkeit für den deutsch- und englischsprachigen Forschungskontext. \\
+    \midrule
+    Zugänglichkeit & Verfügbare Volltexte & Nicht verfügbare Volltexte & Ermöglichung einer gründlichen Analyse und Bewertung der Inhalte. \\
+\end{longtable}
+
+Um die Konsistenz und Vergleichbarkeit der Ergebnisse zu gewährleisten wurde die zweite Iteration mit identischer Suchstrategie durchgeführt.
+Dazu zählen alle in \autoref{tab:suchstrategie} dargestellten Schritte, von der Identifikation relevanter Schlüsselkonzepte bis zur Übersetzung der Suchanfrage für die EBSCO Datenbank.
+
+\paragraph*{Übersetzung der Suchanfrage für EBSCO}
+
+Das Ergebnis der EBSCO Suchanfrage ist in \autoref{fig:EBSCO Ergebnis_11} dargestellt. Insgesamt wurden mit dieser Abfrage 34 Quellen identifiziert.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{EBSCO_11.png}
+    \caption{Ergebnis der EBSCO Suchanfrage}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:EBSCO Ergebnis_11}
+\end{figure}
+
+\paragraph*{Selektionsprozess}
+
+Der Selektionsprozess in Iteartion 2 wurde gegenüber dem iteration 1 Expose erweitert um die Relevanzbewertung der neu identifizierten Quellen zu verfeinern und ist in \fixme{Abb. XY} dargestellt.
+Dafür wurde ein zweistufiger Screening-Prozess implementiert, bestehend aus einem Title-Abstract-Screening gefolgt von einem Full-Text-Screening.
+
+Für das Title-Abstract-Screening wurden alle in Iteration 2 identifizierten Quellen anhand ihrer Titel und Abstracts wie auch schon im Expose in Bezug auf den thematischen Fokus der Arbeit. Hohe Relevanz erhalten Quellen mit klaren Beiträgen zu SSI, PQC, KRITIS oder dezentralen Identitätsarchitekturen. Mittlere Relevanz wird Arbeiten zugeordnet, die angrenzende Technologien wie Blockchain-Sicherheit im IoT oder digitale Forensik behandeln. Niedrige Relevanz erhalten Quellen zu allgemeinen Technologietrends ohne direkten Bezug zum Thema.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth-3.75cm]{PRISMA_2020_flow_diagram_updated_SRs_v1_ITERATION_2.png}
+    \caption{PRISMA 2020 Flussdiagramm - zweite Iteration}
+    \begin{flushleft}
+    \textit{Anmerkung.} In Anlehnung an \textcite[S. 5]{page_PRISMA2020Statementupdatedguidelinereportingsystematicreviews_2021}.
+    \end{flushleft}
+    \label{fig:PRISMA_Flussdiagramm_Iteration2}
+\end{figure}
+
+\autoref{fig:PRISMA_Flussdiagramm_Iteration2} visualisiert den gesamten Auswahlprozess der systematischen Literaturrecherche nach anerkannten wissenschaftlichen Standards. Im Diagramm werden alle Schritte der Literatursuche und -auswahl strukturiert und nachvollziehbar dokumentiert, beginnend mit der Identifikation relevanter Quellen aus Datenbanken, über das Screening der Titel und Abstracts sowie die Bewertung der Volltexte bis hin zur finalen Bestimmung der eingeschlossenen Studien.
+
+\autoref{tab:quellenuebersicht_iteration2} stellt eine Übersicht der Bewertung der 34 identifizierten Quellen dar, welche vollständig in in \autoref{tab:quellenbewertung_iteration2} dokumentiert wurde.
+
+\begin{longtable}{L{1.5cm}L{11cm}L{1cm}}
+    \caption{Übersicht der Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \label{tab:quellenuebersicht_iteration2} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Basierend auf \autoref{tab:quellenbewertung_iteration2} und Titel und Abstracts von \textcite{barrett-danes_QuantumComputingCybersecurityrigoroussystematicreviewemergingthreatspostquantumsolutionsresearchdirections_2025,feng_IdentityManagementSystemsComprehensiveReview_2025}.} \\
+    \endlastfoot
+    1 & Barrett-danes, F., \& Ahmad, F. (2025). Quantum computing and cybersecurity: a rigorous systematic review of emerging threats, post-quantum solutions, and research directions (2019-2024). Discover Applied Sciences, 7(10). \url{https://doi.org/10.1007/s42452-025-07322-5} & Hoch \\
+    \midrule
+    2 & Feng, Z., Li, Z., Cui, H., \& Whitty, M. T. (2025). Identity management systems: A comprehensive review. Information (Basel), 16(9), 778. \url{https://doi.org/10.3390/info16090778} & Hoch \\
+    \midrule
+    3--10 & Diverse & Mittel  \\
+    \midrule
+    11--34 & Diverse & Niedrig \\
+\end{longtable}
+
+
+Die im Title-Abstract-Screening als potenziell relevant eingestuften Publikationen der ersten und zweiten Iteration wurden im nächsten Schritt, dem Full-Text-Screening vollständig gesichtet und einer detaillierten Bewertung unterzogen. Dabei wurden die Ausschlussgründe dokumentiert, um Transparenz im Selektionsprozess zu gewährleisten.
+
+\subparagraph*{Ergebnisse der zweiten Iteration (02. November 2025)}
+
+Die zweite Iteration, durchgeführt mit identischer Suchstrategie und angepasstem Zeitrahmen (30. Mai 2025 bis 02. November 2025), identifizierte insgesamt 34 neue Quellen aus der EBSCO-Datenbank (\autoref{fig:EBSCO Ergebnis_11}).
+
+\textbf{Title-Abstract-Screening:} Im ersten Screening-Schritt wurden alle 34 identifizierten Quellen anhand ihrer Titel und Abstracts gegen die definierten Einschlusskriterien (\autoref{tab:einausschlusskriterien_iteration2}) bewertet. Dabei wurden [X] Publikationen ausgeschlossen, die offensichtlich nicht den thematischen Anforderungen entsprachen. [Y] Publikationen wurden für das Full-Text-Screening vorgemerkt.
+
+\textbf{Full-Text-Screening:} Die [Y] verbliebenen Publikationen wurden vollständig gesichtet und einer detaillierten Bewertung gegen alle Ein- und Ausschlusskriterien unterzogen. Dabei wurden weitere [Z] Publikationen ausgeschlossen. Die Ausschlussgründe verteilten sich wie folgt:
+\begin{itemize}
+    \item Thematisch nicht relevant (kein direkter Bezug zu mindestens einer Kerndomäne): [A] Publikationen
+    \item Methodisch ungeeignet (z.B. reine Meinungsbeiträge ohne empirische oder konzeptionelle Fundierung): [B] Publikationen
+    \item Volltext nicht verfügbar trotz Document Delivery Anfrage: [C] Publikationen
+\end{itemize}
+
+Nach Abschluss des zweistufigen Screening-Prozesses verblieben [W] Publikationen für die finale Relevanzklassifikation:
+\begin{itemize}
+    \item \textbf{Hohe Relevanz}: [W1] Publikationen mit substanziellen Beiträgen zu mindestens zwei Kerndomänen
+    \item \textbf{Mittlere Relevanz}: [W2] Publikationen mit Bezug zu einer Kerndomäne
+    \item \textbf{Niedrige Relevanz}: [W3] Publikationen mit angrenzenden Themen
+\end{itemize}
+
+
+
+
+
 
 \begin{longtable}{L{0.5cm}L{4cm}L{1.5cm}L{7cm}}
-    \caption[]{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \caption{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
     \label{tab:quellenbewertung_iteration2} \\
     \toprule
     \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} & \textbf{Kommentar} \\
@@ -553,7 +695,7 @@ Iteration 2 - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz
 
 \refstepcounter{manualListingCounter}
 \label{lst:Zertifikatserstellungsworkflow}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Zertifikatserstellungsworkflow}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Zertifikatserstellungsworkflow}, numbers=left, frame=single]
 # Openssl 3.5.4 LTS (version mit PQC support)
 OpenSSL 3.5.4 30 Sep 2025 (Library: OpenSSL 3.5.4 30 Sep 2025)
 
@@ -585,7 +727,7 @@ openssl x509 -req -in von-webserver-pqc-proxy.csr \
 
 \refstepcounter{manualListingCounter}
 \label{lst:Dockerfile-Sidecar-Proxy-nginx}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Dockerfile - Sidecar Proxy nginx}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Dockerfile - Sidecar Proxy nginx}, numbers=left, frame=single]
 # Nginx with OpenSSL 3.5.4 (LTS) + OQS Provider for Post-Quantum Cryptography
 # Based on: https://github.com/open-quantum-safe/oqs-demos/blob/main/nginx/Dockerfile
 #
@@ -764,7 +906,7 @@ CMD ["nginx", "-c", "nginx-conf/nginx.conf", "-g", "daemon off;"]
 
 \refstepcounter{manualListingCounter}
 \label{lst:nginx_holder.conf}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: nginx\_holder.conf}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={nginx\_holder.conf}, numbers=left, frame=single]
 # OQS Nginx Configuration for VON Network Webserver Reverse Proxy
 # Post-Quantum Cryptography enabled with ML-KEM
 
@@ -810,7 +952,7 @@ http {
 
         # TLS 1.3 with Post-Quantum Cryptography
         ssl_protocols TLSv1.3;
-        ssl_ecdh_curve X25519MLKEM768;
+        ssl_ecdh_curve X25519MLKEM768:x25519;
         # Quantum-Safe Key Exchange Groups (ML-KEM from NIST FIPS-203)
         # Groups are set via DEFAULT_GROUPS environment variable
         # Default: mlkem768:x25519:mlkem1024
@@ -844,7 +986,7 @@ http {
 
         # TLS 1.3 with Post-Quantum Cryptography
         ssl_protocols TLSv1.3;
-        ssl_ecdh_curve X25519MLKEM768;
+        ssl_ecdh_curve X25519MLKEM768:x25519;
         # Quantum-Safe Key Exchange Groups (ML-KEM from NIST FIPS-203)
         # Groups are set via DEFAULT_GROUPS environment variable
         # Default: X25519MLKEM768:mlkem768:x25519:mlkem1024
@@ -879,7 +1021,7 @@ http {
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-DLT-Infrastruktur}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: docker-compose.yml: DLT-Infrastruktur}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={docker-compose.yml: DLT-Infrastruktur}, numbers=left, frame=single]
 version: '3'
 services:
   #
@@ -1122,7 +1264,7 @@ volumes:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Dockerfile-acapy-base}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Dockerfile - acapy-base: Revocation Registry}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Dockerfile - acapy-base: Revocation Registry}, numbers=left, frame=single]
 ARG python_version=3.12
 FROM python:${python_version}-slim-bookworm AS build
 
@@ -1231,7 +1373,7 @@ ENTRYPOINT ["aca-py"]
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-Revocation-Registry}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: docker-compose.yml: Revocation Registry}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={docker-compose.yml: Revocation Registry}, numbers=left, frame=single]
 services:
   ngrok-tails-server:
     image: ngrok/ngrok
@@ -1316,7 +1458,7 @@ volumes:
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-SSI-Agenten}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: docker-compose.yml: SSI-Agenten}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={docker-compose.yml: SSI-Agenten}, numbers=left, frame=single]
 
 version: '3.8'
 
@@ -1618,7 +1760,7 @@ Im Anschluss daran erfolgte der eigentliche Kompiliervorgang des Browsers mit de
 
 \refstepcounter{manualListingCounter}
 \label{lst:Issuer-Agent-Boot-Logs}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Issuer Agent Boot Logs}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Issuer Agent Boot Logs}, numbers=left, frame=single]
 Executing task in folder ferris: docker logs --tail 1000 -f 179e43b336fa16b399efa7326cdc0b8bfa6ab24c8f86a2b4b630fe57fc382064 
 
 2025-11-28 23:49:38,921 acapy_agent.config.default_context INFO Registering default plugins
@@ -1782,7 +1924,7 @@ Die klassische ACA-Py-Architektur verwendet drei distinkte kryptografische Syste
 
 \refstepcounter{manualListingCounter}
 \label{lst:liboqs_wrapper.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: liboqs\_wrapper.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={liboqs\_wrapper.py}, numbers=left, frame=single]
 """Direct liboqs-python integration for PQC key generation and operations.
 
 This module provides a wrapper around liboqs-python for generating and using
@@ -2001,7 +2143,7 @@ def get_liboqs() -> LibOQSWrapper:
 
 \refstepcounter{manualListingCounter}
 \label{lst:pqc_peer4_creator.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: pqc\_peer4\_creator.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={pqc\_peer4\_creator.py}, numbers=left, frame=single]
 """Create did:peer:4 with ML-DSA-65 + ML-KEM-768."""
 
 from typing import List, Optional, Sequence, Dict
@@ -2122,7 +2264,7 @@ async def create_pqc_peer4_did(
 
 \refstepcounter{manualListingCounter}
 \label{lst:pqc_peer4_resolver.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: pqc\_peer4\_resolver.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={pqc\_peer4\_resolver.py}, numbers=left, frame=single]
 """PQC-aware did:peer:4 resolver."""
 
 from re import compile
@@ -2213,7 +2355,7 @@ class PQCPeer4Resolver(BaseDIDResolver):
 
 \refstepcounter{manualListingCounter}
 \label{lst:pqc_multicodec.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: pqc\_multicodec.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={pqc\_multicodec.py}, numbers=left, frame=single]
 """PQC Multicodec registry for ML-DSA and ML-KEM algorithms.
 
 This module provides a standalone multicodec registry for PQC algorithms,
@@ -2291,7 +2433,7 @@ def unwrap_pqc(data: bytes) -> tuple[str, bytes]:
 
 \refstepcounter{manualListingCounter}
 \label{lst:pqc_multikey.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: pqc\_multikey.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={pqc\_multikey.py}, numbers=left, frame=single]
 """Convert PQC KeyInfo to Multikey format for did:peer:4."""
 
 from base58 import b58decode
@@ -2376,7 +2518,7 @@ def multikey_to_raw(multikey: str) -> tuple:
 
 \refstepcounter{manualListingCounter}
 \label{lst:pqc_didcomm_v1.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: pqc\_didcomm\_v1.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={pqc\_didcomm\_v1.py}, numbers=left, frame=single]
 """PQC-aware DIDComm v1 envelope handling.
 
 This module provides Post-Quantum Cryptography (PQC) support for DIDComm v1
@@ -2861,7 +3003,7 @@ async def _unpack_pqc(
 
 \refstepcounter{manualListingCounter}
 \label{lst:monkey_patches.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: monkey\_patches.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={monkey\_patches.py}, numbers=left, frame=single]
 """Monkey patches for transparent PQC integration.
 
 This module patches BaseConnectionManager and DIDExchangeManager to transparently
@@ -2886,6 +3028,7 @@ from acapy_agent.protocols.coordinate_mediation.v1_0.models.mediation_record imp
 from .key_types import ML_DSA_65, ML_KEM_768
 from .base_manager_patch import (
     create_did_peer_4_pqc_complete,
+    create_did_peer_4_conditional_pqc,
     _extract_key_material_in_base58_format_pqc,
     long_did_peer_4_to_short_pqc,
     long_did_peer_to_short_pqc,
@@ -2990,10 +3133,12 @@ def apply_all_patches():
     Called during plugin setup.
     """
 
-    # 1. Patch BaseConnectionManager.create_did_peer_4
-    # This completely replaces the original method to use ML-DSA-65 + ML-KEM-768
-    # instead of ED25519, eliminating ED25519 "ghost DIDs"!
-    BaseConnectionManager.create_did_peer_4 = create_did_peer_4_pqc_complete
+    # 1. Patch BaseConnectionManager.create_did_peer_4 with CRYPTO-AGILE wrapper
+    # KRYPTO-AGILITÄT: Conditional wrapper that checks metadata["key_type"]
+    # - If "ed25519" --> Delegates to _original_create_did_peer_4 (pre-plugin behavior)
+    # - Otherwise --> Uses ML-DSA-65 + ML-KEM-768 (PQC)
+    # This enables mixed environments where ED25519 and PQC can coexist!
+    BaseConnectionManager.create_did_peer_4 = create_did_peer_4_conditional_pqc
 
     # 2. Patch BaseConnectionManager._extract_key_material_in_base58_format
     # CRITICAL: This allows out-of-band invitation creation to work with PQC keys
@@ -3045,7 +3190,7 @@ def apply_all_patches():
 
 \refstepcounter{manualListingCounter}
 \label{lst:base_manager_patch.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: base\_manager\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={base\_manager\_patch.py}, numbers=left, frame=single]
 """Patch for acapy_agent/connections/base_manager.py to use PQC keys.
 
 This patch completely replaces BaseConnectionManager.create_did_peer_4 to use
@@ -3209,6 +3354,38 @@ async def create_did_peer_4_pqc_complete(
 
     return did_info
 
+async def create_did_peer_4_conditional_pqc(
+    self,
+    svc_endpoints: Optional[Sequence[str]] = None,
+    mediation_records: Optional[List[MediationRecord]] = None,
+    metadata: Optional[Dict] = None,
+) -> DIDInfo:
+    """Conditional wrapper: Use PQC or original ED25519 based on metadata.
+    """
+    from acapy_agent.connections.base_manager import BaseConnectionManager
+
+    # Check: Wurde ED25519 explizit gewünscht?
+    if metadata and metadata.get("key_type") == "ed25519":
+        LOGGER.info("Kryptoagilität: ED25519 gewünscht --> Nutze Original-ACA-Py (KEIN Plugin-Patch)")
+        # Delegation an ursprüngliche ACA-Py-Implementierung ohne Plugin-Eingriff
+        # Die Original-Funktion wurde gesichert bevor das Plugin sie überschrieben hat
+        from . import monkey_patches
+        if hasattr(monkey_patches, '_original_create_did_peer_4'):
+            return await monkey_patches._original_create_did_peer_4(
+                self, svc_endpoints, mediation_records, metadata
+            )
+        else:
+            # Fallback: Rufe die aktuelle Implementierung auf (sollte nicht passieren)
+            LOGGER.warning("Original create_did_peer_4 nicht gefunden, nutze aktuelle Implementierung")
+            return await BaseConnectionManager.create_did_peer_4(
+                self, svc_endpoints, mediation_records, metadata
+            )
+
+    # Default: Nutze PQC
+    LOGGER.info("Kryptoagilität: PQC-Algorithmen (ML-DSA-65 + ML-KEM-768)")
+    return await create_did_peer_4_pqc_complete(
+        self, svc_endpoints, mediation_records, metadata
+    )
 
 def _extract_key_material_in_base58_format_pqc(method) -> str:
     """Patched version of BaseConnectionManager._extract_key_material_in_base58_format.
@@ -3727,7 +3904,7 @@ async def find_connection_pqc(
 
 \refstepcounter{manualListingCounter}
 \label{lst:askar_pqc_patch.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: askar\_pqc\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={askar\_pqc\_patch.py}, numbers=left, frame=single]
 """Monkey-patch aries-askar to support PQC key generation.
 
 This module patches acapy_agent.wallet.askar._create_keypair() to handle
@@ -4732,7 +4909,7 @@ def unpatch_askar_create_keypair():
 
 \refstepcounter{manualListingCounter}
 \label{lst:wallet_patch.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: wallet\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={wallet\_patch.py}, numbers=left, frame=single]
 """Patch for acapy_agent/wallet/askar.py to support PQC key lookup.
 
 This patch extends AskarWallet.get_local_did_for_verkey to handle did:peer:4 DIDs
@@ -4854,7 +5031,7 @@ async def get_local_did_for_verkey_pqc(self: "AskarWallet", verkey: str) -> DIDI
 
 \refstepcounter{manualListingCounter}
 \label{lst:connection_target_patch.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: connection\_target\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={connection\_target\_patch.py}, numbers=left, frame=single]
 """Patch for ConnectionTarget schema validation to accept PQC keys.
 
 This patch extends the ConnectionTargetSchema to accept both classical ED25519 keys
@@ -4987,7 +5164,7 @@ def patch_connection_target_schema():
 
 \refstepcounter{manualListingCounter}
 \label{lst:validator_patch.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: validator\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={validator\_patch.py}, numbers=left, frame=single]
 """Patch JWSHeaderKid validator to accept did:peer:4 format.
 
 This patch extends the JWSHeaderKid validator in ACA-Py to accept did:peer:4
@@ -5104,7 +5281,7 @@ def patch_jws_header_kid_for_peer4():
 
 \refstepcounter{manualListingCounter}
 \label{lst:key_types.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: key\_types.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={key\_types.py}, numbers=left, frame=single]
 """PQC Key Types for pqc_didpeer4_fm plugin.
 
 This module defines KeyType objects for ML-DSA-65 and ML-KEM-768 without
@@ -5135,7 +5312,7 @@ ML_KEM_768 = KeyType(
 
 \refstepcounter{manualListingCounter}
 \label{lst:key_type_patches.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: key\_type\_patches.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={key\_type\_patches.py}, numbers=left, frame=single]
 """Patches for KeyTypes Registry and API Schema Validation.
 
 This module extends ACA-Py's KeyTypes registry and API schemas to support
@@ -5328,7 +5505,7 @@ def patch_alg_mappings_for_pqc():
 
 \refstepcounter{manualListingCounter}
 \label{lst:multicodec_patch.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: multicodec\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={multicodec\_patch.py}, numbers=left, frame=single]
 """Patch ACA-Py's SupportedCodecs to recognize PQC multicodecs.
 
 This module monkey-patches acapy_agent.utils.multiformats.multicodec.SupportedCodecs
@@ -5454,7 +5631,7 @@ def unpatch_supported_codecs():
 
 \refstepcounter{manualListingCounter}
 \label{lst:setup.py}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: setup.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={setup.py}, numbers=left, frame=single]
 """Setup for pqc_didpeer4_fm plugin."""
 
 from setuptools import setup, find_packages
@@ -5509,7 +5686,7 @@ setup(
 
 \refstepcounter{manualListingCounter}
 \label{lst:README.md}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: README.md}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={README.md}, numbers=left, frame=single]
 # pqc_didpeer4_fm
 
 **Post-Quantum did:peer:4 Plugin for ACA-Py**
@@ -5696,7 +5873,7 @@ Ferris Menzel
 
 \refstepcounter{manualListingCounter}
 \label{lst:Dockerfile-acapy-base-pqc}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Dockerfile - acapy-base-pqc}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Dockerfile - acapy-base-pqc}, numbers=left, frame=single]
 # =============================================================================
 # Stage 1: Build OpenSSL 3.5.4 with native PQC support (ML-KEM, ML-DSA)
 # =============================================================================
@@ -5939,7 +6116,7 @@ ENTRYPOINT ["aca-py"]
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-SSI-Agenten-mit-acapy-base-pqc-und-plugin}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: multicodec\_patch.py}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={multicodec\_patch.py}, numbers=left, frame=single]
 version: '3.8'
 
 services:
@@ -6237,7 +6414,7 @@ volumes:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin}
-\begin{lstlisting}[language=bash, caption={Listing \arabic{lstlisting}: Issuer Agent mit PQC-Plugin Boot Log}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Issuer Agent mit PQC-Plugin Boot Log}, numbers=left, frame=single]
 Executing task in folder ferris: docker logs --tail 1000 -f 767d8558623044fb63e556e0bd1fdce0912ed8be74c26003b449f425d349fa3e 
 
 2025-12-03 23:40:34,654 acapy_agent.config.default_context INFO Registering default plugins
@@ -6388,11 +6565,12 @@ Das zugrunde liegende Szenario basiert auf folgendem Anwendungsfall: Ein Energie
 %    - Techniker versucht sich erneut zu authentifizieren
 %    - Zugang wird nicht mehr gewährt
 
-\subsection{Teil 1: Setup \& Verbindungstests}
+\subsubsection{Teil 1: Setup \& Verbindungstests}
+\label{sec:Anhang_Teil1-Setup-Verbindungstests}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-1}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 1}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 1}, numbers=left, frame=single]
 # Cell 1: Imports und Konfiguration
 import requests
 import json
@@ -6527,7 +6705,7 @@ print("\nSetup komplett!")
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-1-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 1 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 1 Output}, numbers=left, frame=single]
 Imports erfolgreich
 Issuer:   https://localhost:8021
 Holder:   https://localhost:8031
@@ -6541,7 +6719,7 @@ Setup komplett!
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-2}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 2}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 2}, numbers=left, frame=single]
 # Cell 2: Infrastruktur-Status prüfen (Health Check)
 
 def check_agent_status(name, url):
@@ -6705,7 +6883,7 @@ print("="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-2-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 2 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 2 Output}, numbers=left, frame=single]
 Agenten-Status Check...
 
 Issuer: Bereit
@@ -6943,12 +7121,12 @@ Transaction Type: NYM (DID Registration)
 ============================================================
 \end{lstlisting}
 
-\subsection{Teil 2: DID Setup \& Ledger Registration - KRITIS-Identitäten}
-\label{sec:Teil2-DID-Setup-Ledger-Registration-KRITIS-Identitäten}
+\subsubsection{Teil 2: DID Setup \& Ledger Registration - KRITIS-Identitäten}
+\label{sec:Anhang_Teil2-DID-Setup-Ledger-Registration-KRITIS-Identitäten}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-3}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 3}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 3}, numbers=left, frame=single]
 # Cell 3: Issuer - DID erstellen
 
 print("Issuer: DID erstellen...\n")
@@ -7001,7 +7179,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-3-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 3 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 3 Output}, numbers=left, frame=single]
 Issuer: DID erstellen...
 
 DID-Parameter:
@@ -7020,7 +7198,7 @@ Format: did:indy:9pbXiFBZZGwXKp61HQBz3J (vollständige qualified DID)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-4}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 4}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 4}, numbers=left, frame=single]
 # Cell 4: Issuer DID auf Ledger registrieren
 
 print("Issuer DID auf Ledger registrieren (via VON-Network)...\n")
@@ -7186,7 +7364,7 @@ except requests.exceptions.RequestException as e:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-4-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 4 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 4 Output}, numbers=left, frame=single]
 Issuer DID auf Ledger registrieren (via VON-Network)...
 
 Registrierungs-Parameter:
@@ -7328,7 +7506,7 @@ Transaction Type: ATTRIB
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-5}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 5}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 5}, numbers=left, frame=single]
 # Cell 5: Wallet DID Übersicht anzeigen
 
 print("Wallet-Übersicht - Alle DIDs:\n")
@@ -7350,7 +7528,7 @@ if verifier_dids:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-5-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 5 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 5 Output}, numbers=left, frame=single]
 Wallet-Übersicht - Alle DIDs:
 
 Originale /wallet/did Responses:
@@ -7390,12 +7568,12 @@ Originale /wallet/did Responses:
 }
 \end{lstlisting}
 
-\subsection{Teil 3: Schema \& Credential Definition - KRITIS-Notfall-Wartungszertifikat}
-\label{sec:Teil3-Schema-Credential-Definition-KRITIS-Notfall-Wartungszertifikat}
+\subsubsection{Teil 3: Schema \& Credential Definition - Notfall-Wartungszertifikat}
+\label{sec:Teil3-Schema-Credential-Definition-Notfall-Wartungszertifikat}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-6}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 6}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 6}, numbers=left, frame=single]
 # Cell 6: Schema erstellen (Indy)
 
 print("Schema erstellen...\n")
@@ -7526,7 +7704,7 @@ print("="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-6-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 6 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 6 Output}, numbers=left, frame=single]
 Schema erstellen...
 
 Schema 'kritis_emergency_maintenance_cert' erstellt (Indy)
@@ -7610,7 +7788,7 @@ Transaction Type: SCHEMA
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-7}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 7}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 7}, numbers=left, frame=single]
 # Cell 7: Credential Definition erstellen (Indy)
 
 print("Credential Definition erstellen...\n")
@@ -7733,7 +7911,7 @@ print("="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-7-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 7 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 7 Output}, numbers=left, frame=single]
 Credential Definition erstellen...
 
 Credential Definition Parameter (Indy):
@@ -7858,15 +8036,98 @@ Transaction Type: CRED_DEF
             148412130810688041122837038411449830832849097436729705
             718116029828253757455923845600999489690503882501644058
             78648451041284133390680301004111208528",
-            "master_secret": "71915095413324475218397159494890347952438639604479284193760228512517538192194392595015930413264257568128088397181593436168674766305668082971033512266498932424130485885094741777012126089865383159148450209338629634740042386652612786385596348769123656285000597333904965735420365541395344722449704047571435379036120370394824230725341368302097809616836903890310947923297356308411527820902076850321250326178134033489548378022012818674113675423207812397775495874879601437663396524114857784267688251397803173118780087278154891983524534014021776812702574599661740515080611238582912780679067808174083253800413580518678417409503",
-            "name": "50713947520933035941204195667364667038229050251099741632739881799041029163409587877973972791062039198381334848974378298397420591060845520140288302236303065720423030021700600347203423277759582770069927534937647272642103068845830164280531926886257269961638028169803256081728693200927356403936426218176265848905410984202359954725733740008196723028277233810192015544836121047193045296355083381000578545382868139019063583112851186897568099246519081975522598044717547549074292272163887083379299330578111672058293486059983324980465574243493906026769843286681436193914925621042543797784453196542307401378987309264206986090753",
-            "organisation": "95101672640218856146874055357430075249448930168898192602290947167298978616499698895022120367502293215386507342003063301272327736894699398658996890704925166157284652387292789887180669752269710425186657553773992126415805992605015922050336428088161330219765726582276148698288191661755936619660137738926944928449735259416895226443298143677671303345603798529215422388236373420594816743032901418172436209378520642764110514615476977385545305901734049653375048584758637407769190998769820030050847666405522044216757763385495282419985517251463228753295633007132793442594810535446837028403340688276237893961510821932537077108757",
-            "role": "39556353009970116394065262740505404888279876667110871540872632444121548163035782707619677875027756882569663899548487617241068885885568596788429987757892631344358394089623844335049157881237433397866535305969955959606642634307745126185314153796199452302862936116662760315088677887165281077011990301974156200048000597241710847230088734024133518781732391809304579163819105982276773346388078263484164982428076780396915614462483431140431906634213288961653647637632531795392195007669104672559846001043941749077491515633969878573434289370048338703332753278871019133399599106912212098448140586068776725335189772775700329133081",
-            "security_clearance_level": "62423435445500712900949289076634481179773025931967846518252263736789391994401630585040735541545515044182128785126474638645305776790287481677130270652370977456715546215089632640185263227395811255965000649977819888240694047878070286168609545721001916116699621088305537845989805774715444676837540874393237580909866026787573926525077656676971365278697283572127760261277046284798658756301450653562727845078017445503395075291785894889992945077498791804681184665915994078357627274030943044434818816228906468070372438746787664144541272056190560106345867412382805967633884541757073335422180206932822214748818701389818522631849"
+            "master_secret": "719150954133244752183971594948903479
+            524386396044792841937602285125175381921943925950159304
+            132642575681280883971815934361686747663056680829710335
+            122664989324241304858850947417770121260898653831591484
+            502093386296347400423866526127863855963487691236562850
+            005973339049657354203655413953447224497040475714353790
+            361203703948242307253413683020978096168369038903109479
+            232973563084115278209020768503212503261781340334895483
+            780220128186741136754232078123977754958748796014376633
+            965241148577842676882513978031731187800872781548919835
+            245340140217768127025745996617405150806112385829127806
+            79067808174083253800413580518678417409503",
+            "name": "507139475209330359412041956673646670382290502
+            510997416327398817990410291634095878779739727910620391
+            983813348489743782983974205910608455201402883022363030
+            657204230300217006003472034232777595827700699275349376
+            472726421030688458301642805319268862572699616380281698
+            149256210425437977844531965423074013789873092642069860
+            90753",
+            "organisation": "9510167264021885614687405535743007524
+            944893016889819260229094716729897861649969889502212036
+            750229321538650734200306330127232773689469939865899689
+            070492516615728465238729278988718066975226971042518665
+            755377399212641580599260501592205033642808816133021976
+            572658227614869828819166175593661966013773892694492844
+            973525941689522644329814367767130334560379852921542238
+            823637342059481674303290141817243620937852064276411051
+            461547697738554530590173404965337504858475863740776919
+            099876982003005084766640552204421675776338549528241998
+            551725146322875329563300713279344259481053544683702840
+            3340688276237893961510821932537077108757",
+            "role": "395563530099701163940652627405054048882798766
+            671108715408726324441215481630357827076196778750277568
+            825696638995484876172410688858855685967884299877578926
+            313443583940896238443350491578812374333978665353059699
+            559596066426343077451261853141537961994523028629361166
+            627603150886778871652810770119903019741562000480005972
+            417108472300887340241335187817323918093045791638191059
+            822767733463880782634841649824280767803969156144624834
+            311404319066342132889616536476376325317953921950076691
+            046725598460010439417490774915156339698785734342893700
+            483387033327532788710191333995991069122120984481405860
+            68776725335189772775700329133081",
+            "security_clearance_level": "6242343544550071290094928
+            907663448117977302593196784651825226373678939199440163
+            058504073554154551504418212878512647463864530577679028
+            748167713027065237097745671554621508963264018526322739
+            581125596500064997781988824069404787807028616860954572
+            100191611669962108830553784598980577471544467683754087
+            439323758090986602678757392652507765667697136527869728
+            357212776026127704628479865875630145065356272784507801
+            744550339507529178589488999294507749879180468118466591
+            599407835762727403094304443481881622890646807037243874
+            678766414454127205619056010634586741238280596763388454
+            1757073335422180206932822214748818701389818522631849"
           },
-          "rctxt": "59473105276610843847486473124631923251412463834761679804067252158372293910630956844950390089328525561650453598319402301909030992815747417296976389802026846055280400772177935138569355196672805075808734123424788485326387286111184134756030252819299567494176113327617710575874232802793221771136257567273261623626309115862132166003296013362267104848912629295594726573485511528754995904128348040698798637112656427217387979736762691356245329459738118109227774538122205390834311723056800063504883375713400202970949300554808528853492344005298771135679367092889565145952203968072158320834525260013732698798634786570780935520753",
-          "s": "12873617048395836551114021666870494025940732272258071423119757457550374490948540682427641837996103512569409618075760511509299614853883371388991476156350426701000978655460346790310693584903494368553315154894854372130025033674928704031068723798540243615080378696720016450066240548048061688707868243765017347970649042657751411968211707507287185289426693375309283840686182584386054276692070300496541225259759775031515008931970041785421235239194276532444169365519999800257659205934267336807035558178483289960384295665116980339920365968094349605442941192654967930151587866017770490121463665756892291518429939125370906478823",
-          "z": "73384336442087516782473287267893145097355060302719333741714480841395609026222715157915402266648689144064928336346852107150460552885074843386811369491784758334748781341004570547273626870861071958357386604074519867023492435142567334272739563008756843570248140176757213082158930422881727150971438098522384337449199321960902670656901451244195541137304851988055172958032294840018986849268976526394436262963230704088560000401444534414201253969118590630784713929656010855213024629664742415654738483168640499611136839595140962073025382619435298737836124060714924404890434930960961624906289697173402239670686199254972058685399"
+          "rctxt": "5947310527661084384748647312463192325141246383
+          47616798040672521583722939106309568449503900893285255616
+          50453598319402301909030992815747417296976389802026846055
+          28040077217793513856935519667280507580873412342478848532
+          63872861111841347560302528192995674941761133276177105758
+          74232802793221771136257567273261623626309115862132166003
+          29601336226710484891262929559472657348551152875499590412
+          83480406987986371126564272173879797367626913562453294597
+          38118109227774538122205390834311723056800063504883375713
+          40020297094930055480852885349234400529877113567936709288
+          95651459522039680721583208345252600137326987986347865707
+          80935520753",
+          "s": "12873617048395836551114021666870494025940732272258
+          07142311975745755037449094854068242764183799610351256940
+          96180757605115092996148538833713889914761563504267010009
+          78655460346790310693584903494368553315154894854372130025
+          03367492870403106872379854024361508037869672001645006624
+          05480480616887078682437650173479706490426577514119682117
+          07507287185289426693375309283840686182584386054276692070
+          30049654122525975977503151500893197004178542123523919427
+          65324441693655199998002576592059342673368070355581784832
+          89960384295665116980339920365968094349605442941192654967
+          93015158786601777049012146366575689229151842993912537090
+          6478823",
+          "z": "73384336442087516782473287267893145097355060302719
+          33374171448084139560902622271515791540226664868914406492
+          83363468521071504605528850748433868113694917847583347487
+          81341004570547273626870861071958357386604074519867023492
+          43514256733427273956300875684357024814017675721308215893
+          04228817271509714380985223843374491993219609026706569014
+          51244195541137304851988055172958032294840018986849268976
+          52639443626296323070408856000040144453441420125396911859
+          06307847139296560108552130246296647424156547384831686404
+          99611136839595140962073025382619435298737836124060714924
+          40489043493096096162490628969717340223967068619925497205
+          8685399"
         },
         "revocation": {
           "g": "1 21FEEC46E1C43CCA3541F7C85036C038BB1D15F2346A70E7B6A99E97ACA2ABF3 1 0BF2338DA407B403FEEAA66A815BAB2CA947BC16FAAC0A27B0F75A24B40AF6AE 2 095E45DDF417D05FB10933FFC63D474548B7FFFF7888802F07FFFFFF7D07A8A8",
@@ -7925,7 +8186,8 @@ Transaction Type: REVOC_REG_DEF
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "522wXmkJ56tLc9zLBLpvjmQrrxXacwcUEmZpozB1NNveECVAxiYxNV8GcYUJ1yXTKnVEBgUpQmQr5AgfD7S8oH9q"
+        "value": "522wXmkJ56tLc9zLBLpvjmQrrxXacwcUEmZpo
+        zB1NNveECVAxiYxNV8GcYUJ1yXTKnVEBgUpQmQr5AgfD7S8oH9q"
       }
     ]
   },
@@ -7987,7 +8249,8 @@ Transaction Type: REVOC_REG_ENTRY
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "4aq5Nuq1o2GTScBfkxybeUvRCrELJmPu579AnmBQmY2enkPW6h3F7KD8qD7YL2mupz8jnLa6WBjgicG4m14kWz5C"
+        "value": "4aq5Nuq1o2GTScBfkxybeUvRCrELJmPu579An
+        mBQmY2enkPW6h3F7KD8qD7YL2mupz8jnLa6WBjgicG4m14kWz5C"
       }
     ]
   },
@@ -8039,7 +8302,8 @@ Transaction Type: REVOC_REG_DEF
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "2eZbXbYtMHW9k58hVgY2xqzsHbYaiGKMTUssNet6QjXjk6fYJhmAa2g6sW8aKxSpttmd3PZbjELJxsKZ9J5zqv4N"
+        "value": "2eZbXbYtMHW9k58hVgY2xqzsHbYaiGKMTUssNet6Qj
+        Xjk6fYJhmAa2g6sW8aKxSpttmd3PZbjELJxsKZ9J5zqv4N"
       }
     ]
   },
@@ -8099,7 +8363,8 @@ Transaction Type: REVOC_REG_ENTRY
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "2Sx3jijAxTEjgquGZScqZVqJGmmqe8mZnSm4oXsEsMppqj8G7wJoZ2X4zjXMn6qjYKkmxF5SysxhRRCPei6GvXjm"
+        "value": "2Sx3jijAxTEjgquGZScqZVqJGmmqe8mZnSm4oXsEsMp
+        pqj8G7wJoZ2X4zjXMn6qjYKkmxF5SysxhRRCPei6GvXjm"
       }
     ]
   },
@@ -8132,12 +8397,12 @@ Transaction Type: REVOC_REG_ENTRY
 ============================================================
 \end{lstlisting}
 
-\subsection{Teil 4: Agent Connections - KRITIS-Akteure}
+\subsubsection{Teil 4: Agent Connections - KRITIS-Akteure}
 \label{sec:Teil4-Agent-Connections-KRITIS-Akteure}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-8}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 8}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 8}, numbers=left, frame=single]
 # Cell 8: Issuer Discovery - Identifikation via Ledger Identifier
 
 print("Issuer Discovery - Identifikation vertrauenswürdiger Aussteller")
@@ -8427,7 +8692,7 @@ print(f"{'='*80}")
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-8-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 8 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 8 Output}, numbers=left, frame=single]
 Issuer Discovery - Identifikation vertrauenswürdiger Aussteller
 ================================================================================
 KRITIS-Anforderung: Identity Holder müssen vertrauenswürdige Issuers
@@ -8518,7 +8783,7 @@ Identifikations-Methode:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-9}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 9}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 9}, numbers=left, frame=single]
 # Cell 9: Connection Issuer --> Holder erstellen
 
 print("Connection: Issuer --> Holder erstellen...\n")
@@ -8778,7 +9043,7 @@ print(f"{'='*60}")
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-9-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 9 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 9 Output}, numbers=left, frame=single]
 Connection: Issuer --> Holder erstellen...
 
 Pre-Check: Prüfe existierende Connections...
@@ -8838,7 +9103,7 @@ CONNECTION ESTABLISHED (did:peer:4): Issuer <--> Holder
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-10}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 10}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 10}, numbers=left, frame=single]
 # Cell 10: Connection Holder --> Verifier erstellen
 
 print("Connection: Holder --> Verifier erstellen...\n")
@@ -9100,7 +9365,7 @@ print(f"{'='*60}")
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-10-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 10 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 10 Output}, numbers=left, frame=single]
 Connection: Holder --> Verifier erstellen...
 
 Pre-Check: Prüfe existierende Connections...
@@ -9160,7 +9425,7 @@ CONNECTION ESTABLISHED (did:peer:4): Holder <--> Verifier
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-11}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 11}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 11}, numbers=left, frame=single]
 # Cell 11: Connection-Übersicht anzeigen
 
 print("Connection-Übersicht:\n")
@@ -9238,7 +9503,7 @@ for idx, (inv_msg_id, group) in enumerate(connection_groups.items(), 1):
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-11-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 11 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 11 Output}, numbers=left, frame=single]
 Connection-Übersicht:
 
 Connection Group 1:
@@ -9254,7 +9519,7 @@ Connection Group 2:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-12}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 12}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 12}, numbers=left, frame=single]
 # Cell 12 Wallet DID Übersicht anzeigen
 
 print("Wallet-Übersicht - Alle DIDs:\n")
@@ -9276,7 +9541,7 @@ if verifier_dids:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-12-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 12 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 12 Output}, numbers=left, frame=single]
 Wallet-Übersicht - Alle DIDs:
 
 Originale /wallet/did Responses:
@@ -9480,12 +9745,12 @@ Originale /wallet/did Responses:
 }
 \end{lstlisting}
 
-\subsection{Teil 5: Credential Issuance - KRITIS-Notfall-Wartungszertifikat}
-\label{sec:Teil5-Credential-Issuance-KRITIS-Notfall-Wartungszertifikat}
+\subsubsection{Teil 5: Credential Issuance - Notfall-Wartungszertifikat}
+\label{sec:Teil5-Credential-Issuance-Notfall-Wartungszertifikat}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-13}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 13}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 13}, numbers=left, frame=single]
 # Cell 13: Credential Offer senden (Issuer --> Holder)
 
 print("Credential Offer senden (Issuer --> Holder)...\n")
@@ -9690,7 +9955,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-13-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 13 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 13 Output}, numbers=left, frame=single]
 Credential Offer senden (Issuer --> Holder)...
 
 Credential Offer gesendet
@@ -9749,7 +10014,7 @@ KRITIS-NOTFALL-WARTUNGSZERTIFIKAT ERFOLGREICH AUSGESTELLT
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-14}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 14}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 14}, numbers=left, frame=single]
 # Cell 14: Holder Credentials im Detail anzeigen
 
 print("Holder Wallet - Gespeicherte Credentials:\n")
@@ -9778,7 +10043,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-14-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 14 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 14 Output}, numbers=left, frame=single]
 Holder Wallet - Gespeicherte Credentials:
 
 
@@ -9802,12 +10067,12 @@ Attribute:
   - name: Mustermann
 \end{lstlisting}
 
-\subsection{Teil 6: Proof Presentation - Zutrittskontrolle am Umspannwerk}
+\subsubsection{Teil 6: Proof Presentation - Zutrittskontrolle am Umspannwerk}
 \label{sec:Teil6-Proof-Presentation-Zutrittskontrolle-am-Umspannwerk}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-15}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 15}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 15}, numbers=left, frame=single]
 # Cell 15: Proof Request senden (Verifier --> Holder) - mit REVOCATION ALWAYS-ON
 
 print("Proof Request senden (Verifier --> Holder)...\n")
@@ -9901,7 +10166,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-15-Output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 15 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 15 Output}, numbers=left, frame=single]
 Proof Request senden (Verifier --> Holder)...
 
 Proof Request für KRITIS-Zutrittsberechtigung:
@@ -9919,7 +10184,7 @@ Proof Request gesendet
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-16}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 16}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 16}, numbers=left, frame=single]
 # Cell 16: Holder - Proof Request empfangen und Credentials auswählen
 
 print("Holder: Proof Request verarbeiten...\n")
@@ -10024,7 +10289,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-16-Output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 16 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 16 Output}, numbers=left, frame=single]
 Holder: Proof Request verarbeiten...
 
 Holder hat Proof Request empfangen
@@ -10053,7 +10318,7 @@ Total: 1 passende Credential(s) gefunden
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-17}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 17}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 17}, numbers=left, frame=single]
 # Cell 17: Holder - Presentation senden
 
 print("Holder: Presentation senden...\n")
@@ -10251,7 +10516,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-17-Output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 17 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 17 Output}, numbers=left, frame=single]
 Holder: Presentation senden...
 
 Credentials für Presentation gefunden
@@ -10285,7 +10550,7 @@ Holder hat Presentation gesendet
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-18}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 18}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 18}, numbers=left, frame=single]
 # Cell 18: Verifier - Presentation verifizieren (mit Revocation Detection + Zeitgültigkeit)
 
 print(" Presentation verifizieren (Verifier)...\n")
@@ -10461,7 +10726,7 @@ else:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-18-Output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 18 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 18 Output}, numbers=left, frame=single]
 Presentation verifizieren (Verifier)...
 
 Proof erfolgreich verifiziert!
@@ -10516,12 +10781,12 @@ ZUGANG GEWÄHRT
 Privacy-Preserving Verification erfolgreich (DSGVO-konform)
 \end{lstlisting}
 
-\subsection{Teil 7: Revocation \& Deletion- Beendigung der Wartungsberechtigung}
+\subsubsection{Teil 7: Revocation \& Deletion- Beendigung der Wartungsberechtigung}
 \label{sec:Teil7-Revocation-Deletion}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-19}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 19}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 19}, numbers=left, frame=single]
 # Cell 19: Revocation Registries anzeigen
 
 print("="*60)
@@ -10559,7 +10824,7 @@ print("="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-19-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 19 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 19 Output}, numbers=left, frame=single]
 ============================================================
 ISSUER: Revocation Registries
 ============================================================
@@ -10587,7 +10852,7 @@ Registry #2: 9pbXiFBZZGwXKp61HQBz3J:4:9pbXiFBZZGwXKp61HQBz3J:3:CL:8:default:CL_A
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-20}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 20}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 20}, numbers=left, frame=single]
 # Cell 20: Credential REVOKEN (staged)
 
 print("="*60)
@@ -10634,7 +10899,7 @@ print("\n" + "="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-20-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 20 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 20 Output}, numbers=left, frame=single]
 ============================================================
 Credential REVOKEN (staged)
 ============================================================
@@ -10655,7 +10920,7 @@ Nächster Schritt: Führe Cell 21 aus um auf Ledger zu publishen!
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-21}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 21}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 21}, numbers=left, frame=single]
 # Cell 21: Revocations auf Ledger PUBLISHEN
 
 print("="*60)
@@ -10773,7 +11038,7 @@ print("="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-21-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 21 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 21 Output}, numbers=left, frame=single]
 ============================================================
 PUBLISH Revocations auf Ledger
 ============================================================
@@ -10819,7 +11084,8 @@ Transaction Type: REVOC_REG_ENTRY
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "3PQ8M9mis3aFgJUtiZ967NuzfiNETFgoMVFTSoFb2XXjxSXbRvpY3XyCGQQ3x5Wq9F59tmC4XjiH2vmeqeRvmXFz"
+        "value": "3PQ8M9mis3aFgJUtiZ967NuzfiNETFgoMVFTSoFb2X
+        XjxSXbRvpY3XyCGQQ3x5Wq9F59tmC4XjiH2vmeqeRvmXFz"
       }
     ]
   },
@@ -10858,7 +11124,7 @@ Transaction Type: REVOC_REG_ENTRY
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-14-output-revocation}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 14 Output Revocation}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 14 Output Revocation}, numbers=left, frame=single]
 Holder Wallet - Gespeicherte Credentials:
 
 
@@ -10884,7 +11150,7 @@ Attribute:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-15-output-revocation}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 15 Output Revocation}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 15 Output Revocation}, numbers=left, frame=single]
 Proof Request senden (Verifier --> Holder)...
 
 Proof Request für KRITIS-Zutrittsberechtigung:
@@ -10902,7 +11168,7 @@ Proof Request gesendet
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-16-output-revocation}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 16 Output Revocation}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 16 Output Revocation}, numbers=left, frame=single]
 Holder: Proof Request verarbeiten...
 
 Holder hat Proof Request empfangen
@@ -10931,7 +11197,7 @@ Total: 1 passende Credential(s) gefunden
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-17-output-revocation}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 17 Output Revocation}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 17 Output Revocation}, numbers=left, frame=single]
 Holder: Presentation senden...
 
 Credentials für Presentation gefunden
@@ -10965,7 +11231,7 @@ Holder hat Presentation gesendet
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-18-output-revocation}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 18 Output Revocation}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 18 Output Revocation}, numbers=left, frame=single]
 Presentation verifizieren (Verifier)...
 
 Proof erfolgreich verifiziert!
@@ -11020,7 +11286,7 @@ Privacy-Preserving Verification erfolgreich (DSGVO-konform)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-22}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 22}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 22}, numbers=left, frame=single]
 # Cell 22: Erst Zelle 14-18 ausführen... Credential Deletion - Holder löscht Credential aus Wallet
 
 print("Credential Deletion - Holder löscht Credential aus Wallet\n")
@@ -11153,7 +11419,7 @@ print("   -   Für echte Revocation: Siehe Cell 32-34 (Revocation Workflow)")
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-22-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 22 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 22 Output}, numbers=left, frame=single]
 Credential Deletion - Holder löscht Credential aus Wallet
 
 ============================================================
@@ -11208,7 +11474,7 @@ Hinweis:
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-23}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 23}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 23}, numbers=left, frame=single]
 # Cell 23: Revocation Registry ROTATION (Optional)
 
 print("="*60)
@@ -11329,7 +11595,7 @@ print("="*60)
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-23-output}
-\begin{lstlisting}[language=python, caption={Listing \arabic{lstlisting}: Jupyter Notebook Cell 23 Output}, numbers=left, frame=single]
+\begin{lstlisting}[language=python, caption={Jupyter Notebook Cell 23 Output}, numbers=left, frame=single]
 ============================================================
 Revocation Registry ROTATION
 ============================================================
@@ -11378,7 +11644,8 @@ Transaction Type: REVOC_REG_DEF
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "4UtWmZaPxLan3Bd1bj1dyC2oHAfW4UZ6afzxuEQKasPfZvBdPf71shyUGc3asTDtdBaxK8iEohD1c5duzaRrV9Wb"
+        "value": "4UtWmZaPxLan3Bd1bj1dyC2oHAfW4UZ6afzxuEQKas
+        PfZvBdPf71shyUGc3asTDtdBaxK8iEohD1c5duzaRrV9Wb"
       }
     ]
   },
@@ -11441,7 +11708,8 @@ Transaction Type: REVOC_REG_ENTRY
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "4TgYaZSqiVgmmpM3hxytd2N92gtPY8kEFiKh8F2KZAX9gnDwRZgTGZM3f7L9qTm7UBB5LBXGcvFBVkFtECYAihpn"
+        "value": "4TgYaZSqiVgmmpM3hxytd2N92gtPY8kEFiKh8F2KZA
+        X9gnDwRZgTGZM3f7L9qTm7UBB5LBXGcvFBVkFtECYAihpn"
       }
     ]
   },
@@ -11491,7 +11759,8 @@ Transaction Type: REVOC_REG_DEF
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "ta5zuAF4hQ6oEJwGpq2CJwnwUaGaY97BVZDskDQU338iAvTr7FJ9dLy5qnQDj9ihuuQAzEzxq2v5Pqp4dfLRcT6"
+        "value": "ta5zuAF4hQ6oEJwGpq2CJwnwUaGaY97BVZDskDQU338
+        iAvTr7FJ9dLy5qnQDj9ihuuQAzEzxq2v5Pqp4dfLRcT6"
       }
     ]
   },
@@ -11551,7 +11820,8 @@ Transaction Type: REVOC_REG_ENTRY
     "values": [
       {
         "from": "9pbXiFBZZGwXKp61HQBz3J",
-        "value": "PgyVEwJqR79KnfXqSydKr42cWRDXqxEC8mf8js17cuiB7LHf342DFmkybmniNn4KSPgZqKeanrPfAw94oaHk7bd"
+        "value": "PgyVEwJqR79KnfXqSydKr42cWRDXqxEC8mf8js17cu
+        iB7LHf342DFmkybmniNn4KSPgZqKeanrPfAw94oaHk7bd"
       }
     ]
   },
@@ -11582,4 +11852,496 @@ Transaction Type: REVOC_REG_ENTRY
 }
 
 ============================================================
+\end{lstlisting}
+
+\subsection{Validierung der KRITIS-Compliance-Anforderungen}
+
+\subsubsection{Protokollierung Sicherheitsrelevanter Ereignisse}
+
+\refstepcounter{manualListingCounter}
+\label{lst:issuer-acapy-agent-logs}
+\begin{lstlisting}[language=bash, caption={Issuer acapy agent logs}, numbers=left, frame=single]
+2025-12-10 18:55:12,652 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:12 +0000] "GET /connections HTTP/1.0" 200 3425 "-" "python-requests/2.32.5"
+2025-12-10 18:55:12,671 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:12 +0000] "GET /connections/d75e516d-66dd-473a-8aa4-ee417a85ef4e HTTP/1.0" 200 3410 "-" "python-requests/2.32.5"
+2025-12-10 18:55:22,852 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:22 +0000] "POST /issue-credential-2.0/send-offer HTTP/1.0" 200 22208 "-" "python-requests/2.32.5"
+2025-12-10 18:55:22,854 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO Using PQC pack mode: sender_pqc=True, recipients=['pqc']
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO Using PQC unpack mode: alg=PQC-Authcrypt
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO ================================================================================
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Starting recipient decryption loop
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Found 1 recipients in JWE
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Recipient KIDs: ['39zdn...sovF']
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Trying recipient: 39zdnQamPoRAWZiAT3YAA3ns1XnqMi9TtiCTVeSJW215p5pQUKJWm5bvYekG...
+2025-12-10 18:55:23,008 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Calling session.fetch_key(39zdnQamPoRAWZiAT3YAA3ns1XnqMi9TtiCTVeSJW215p5pQUKJWm5bvYekG...)
+2025-12-10 18:55:23,009 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] fetch_key result: PQCKey(algorithm=ml-kem-768)
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Verifying ML-DSA-65 signature...
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]   sender_vk (base58): 5sN6ZWoHgEv8dwS8z7MGrdhGoZvwsV8foHf2tPiT3E5DVrcr28cH5L9JK2JT...
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]   sender_public (bytes): 1952 bytes
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]  Signature verified!
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]  SUCCESS! recip_vk set to: 39zdnQamPoRAWZiAT3YAA3ns1XnqMi9TtiCTVeSJW215p5pQUKJWm5bvYekG
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Loop finished. recip_vk = 39zd...ovF
+2025-12-10 18:55:23,013 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO ================================================================================
+2025-12-10 18:55:23,014 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:23 +0000] "POST / HTTP/1.0" 200 75 "-" "Python/3.12 aiohttp/3.12.15"
+2025-12-10 18:55:23,107 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO Using PQC pack mode: sender_pqc=True, recipients=['pqc']
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO Using PQC unpack mode: alg=PQC-Authcrypt
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO ================================================================================
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Starting recipient decryption loop
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Found 1 recipients in JWE
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Recipient KIDs: ['39zdnQamP...TAsovF']
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Trying recipient: 39zdnQamPoRAWZiAT3YAA3ns1XnqMi9TtiCTVeSJW215p5pQUKJWm5bvYekG...
+2025-12-10 18:55:23,250 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Calling session.fetch_key(39zdnQamPoRAWZiAT3YAA3ns1XnqMi9TtiCTVeSJW215p5pQUKJWm5bvYekG...)
+2025-12-10 18:55:23,251 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] fetch_key result: PQCKey(algorithm=ml-kem-768)
+2025-12-10 18:55:23,254 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Verifying ML-DSA-65 signature...
+2025-12-10 18:55:23,254 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]   sender_vk (base58): 5sN6ZWoHgEv8dwS8z7MGrdhGoZvwsV8foHf2tPiT3E5DVrcr28cH5L9JK2JT...
+2025-12-10 18:55:23,254 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]   sender_public (bytes): 1952 bytes
+2025-12-10 18:55:23,255 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] ok    Signature verified!
+2025-12-10 18:55:23,255 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG]  SUCCESS! recip_vk set to: 39zdnQamPoRAWZiAT3YAA3ns1XnqMi9TtiCTVeSJW215p5pQUKJWm5bvYekG
+2025-12-10 18:55:23,255 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO [PQC UNPACK DEBUG] Loop finished. recip_vk = 39zd...LEj9gsyymTAsovF
+2025-12-10 18:55:23,255 pqc_didpeer4_fm.v1_0.pqc_didcomm_v1 INFO ================================================================================
+2025-12-10 18:55:23,256 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:23 +0000] "POST / HTTP/1.0" 200 75 "-" "Python/3.12 aiohttp/3.12.15"
+2025-12-10 18:55:27,891 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:27 +0000] "GET /issue-credential-2.0/records/90e02709-9ab2-4fca-b2e4-bb43d51f2191 HTTP/1.0" 200 43641 "-" "python-requests/2.32.5"
+2025-12-10 18:55:27,937 aiohttp.access INFO 172.23.0.3 [10/Dec/2025:18:55:27 +0000] "GET /issue-credential-2.0/records HTTP/1.0" 200 43656 "-" "python-requests/2.32.5"
+\end{lstlisting}
+
+\refstepcounter{manualListingCounter}
+\label{lst:issuer-nginx-logs}
+\begin{lstlisting}[language=bash, caption={Issuer sidecar proxy logs}, numbers=left, frame=single]
+172.23.0.1 - - [10/Dec/2025:18:55:10 +0000] "POST /out-of-band/create-invitation?auto_accept=true&multi_use=false HTTP/1.1" 200 16180 "-" "python-requests/2.32.5" "-"
+2025/12/10 18:55:10 [info] 8#0: *23 client 172.23.0.1 closed keepalive connection
+2025/12/10 18:55:10 [warn] 8#0: *25 a client request body is buffered to a temporary file /opt/nginx/client_body_temp/0000000001, client: 172.23.0.1, server: pqc-sidecarproxy-issuer, request: "POST / HTTP/1.1", host: "host.docker.internal:8020"
+172.23.0.1 - - [10/Dec/2025:18:55:10 +0000] "POST / HTTP/1.1" 200 0 "-" "Python/3.12 aiohttp/3.12.15" "-"
+2025/12/10 18:55:10 [warn] 8#0: *25 a client request body is buffered to a temporary file /opt/nginx/client_body_temp/0000000002, client: 172.23.0.1, server: pqc-sidecarproxy-issuer, request: "POST / HTTP/1.1", host: "host.docker.internal:8020"
+172.23.0.1 - - [10/Dec/2025:18:55:10 +0000] "POST / HTTP/1.1" 200 0 "-" "Python/3.12 aiohttp/3.12.15" "-"
+2025/12/10 18:55:11 [warn] 8#0: *25 a client request body is buffered to a temporary file /opt/nginx/client_body_temp/0000000003, client: 172.23.0.1, server: pqc-sidecarproxy-issuer, request: "POST / HTTP/1.1", host: "host.docker.internal:8020"
+172.23.0.1 - - [10/Dec/2025:18:55:11 +0000] "POST / HTTP/1.1" 200 0 "-" "Python/3.12 aiohttp/3.12.15" "-"
+172.23.0.1 - - [10/Dec/2025:18:55:12 +0000] "GET /connections HTTP/1.1" 200 3300 "-" "python-requests/2.32.5" "-"
+2025/12/10 18:55:12 [info] 8#0: *29 client 172.23.0.1 closed keepalive connection
+172.23.0.1 - - [10/Dec/2025:18:55:12 +0000] "GET /connections/d75e516d-66dd-473a-8aa4-ee417a85ef4e HTTP/1.1" 200 3285 "-" "python-requests/2.32.5" "-"
+2025/12/10 18:55:12 [info] 8#0: *31 client 172.23.0.1 closed keepalive connection
+172.23.0.1 - - [10/Dec/2025:18:55:22 +0000] "POST /issue-credential-2.0/send-offer HTTP/1.1" 200 22082 "-" "python-requests/2.32.5" "-"
+2025/12/10 18:55:22 [info] 8#0: *33 client 172.23.0.1 closed keepalive connection
+2025/12/10 18:55:23 [warn] 8#0: *25 a client request body is buffered to a temporary file /opt/nginx/client_body_temp/0000000004, client: 172.23.0.1, server: pqc-sidecarproxy-issuer, request: "POST / HTTP/1.1", host: "host.docker.internal:8020"
+172.23.0.1 - - [10/Dec/2025:18:55:23 +0000] "POST / HTTP/1.1" 200 0 "-" "Python/3.12 aiohttp/3.12.15" "-"
+2025/12/10 18:55:23 [warn] 8#0: *25 a client request body is buffered to a temporary file /opt/nginx/client_body_temp/0000000005, client: 172.23.0.1, server: pqc-sidecarproxy-issuer, request: "POST / HTTP/1.1", host: "host.docker.internal:8020"
+172.23.0.1 - - [10/Dec/2025:18:55:23 +0000] "POST / HTTP/1.1" 200 0 "-" "Python/3.12 aiohttp/3.12.15" "-"
+172.23.0.1 - - [10/Dec/2025:18:55:27 +0000] "GET /issue-credential-2.0/records/90e02709-9ab2-4fca-b2e4-bb43d51f2191 HTTP/1.1" 200 43515 "-" "python-requests/2.32.5" "-"
+2025/12/10 18:55:46 [info] 11#0: *102 SSL_do_handshake() failed (SSL: error:0A000102:SSL routines::unsupported protocol) while SSL handshaking, client: 172.23.0.1, server: 0.0.0.0:8021
+\end{lstlisting}
+
+\subsection{Validierung der Kryptoagilität - Applikationslayer}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Jupyter-Notebook-Cell-9-Demonstration-Kryptoagilität-ed25519}
+\begin{lstlisting}[language=bash, caption={Jupyter Notebook Cell 9 Demonstration Kryptoagilität ed25519}, numbers=left, frame=single]
+# Cell 9: Connection Issuer Holder erstellen
+
+print("Connection: Issuer --> Holder erstellen...\n")
+
+start_time = time.time()
+
+# ========================================
+# 1. PRE-CHECK: Existierende Connections prüfen
+# ========================================
+print("Pre-Check: Prüfe existierende Connections...\n")
+
+existing_conn_issuer_holder = None
+existing_conn_holder = None
+
+# Prüfe Issuer-Seite: GET /connections
+issuer_conns_response = api_get(ISSUER_ADMIN_URL, "/connections")
+if issuer_conns_response and "results" in issuer_conns_response:
+    print(f"   Issuer: {len(issuer_conns_response['results'])} Connection(s) gefunden")
+    for conn in issuer_conns_response["results"]:
+        if conn.get("state") == "completed":
+            existing_conn_issuer_holder = conn["connection_id"]
+            print(f"     Connection {existing_conn_issuer_holder} (State: completed)")
+            break
+else:
+    print("   Issuer: Keine Connections gefunden")
+
+# Prüfe Holder-Seite: GET /connections
+holder_conns_response = api_get(HOLDER_ADMIN_URL, "/connections")
+if holder_conns_response and "results" in holder_conns_response:
+    print(f"   Holder: {len(holder_conns_response['results'])} Connection(s) gefunden")
+    for conn in holder_conns_response["results"]:
+        if conn.get("state") == "completed":
+            existing_conn_holder = conn["connection_id"]
+            print(f"     Connection {existing_conn_holder} (State: completed)")
+            break
+else:
+    print("   Holder: Keine Connections gefunden")
+
+if existing_conn_issuer_holder and existing_conn_holder:
+    print(f"\nExistierende Connection gefunden!")
+    print(f"   Issuer Connection ID: {existing_conn_issuer_holder}")
+    print(f"   Holder Connection ID: {existing_conn_holder}")
+    print("   Überspringe Connection-Erstellung\n")
+    conn_id_issuer_holder = existing_conn_issuer_holder
+    conn_id_holder = existing_conn_holder
+else:
+    print("\n   Keine vollständige existierende Connection gefunden")
+    print("   Erstelle neue Connection mit did:peer:4...\n")
+    
+    # ========================================
+    # 2. HAUPT-WORKFLOW: Connection mit did:peer erstellen
+    # ========================================
+    
+    # Initialisiere Variablen
+    conn_id_issuer_holder = None
+    conn_id_holder = None
+    invitation_msg_id = None
+    invitation_key = None
+    
+    # Issuer erstellt Out-of-Band Invitation mit did:peer:4
+    invitation_data = {
+        "handshake_protocols": ["https://didcomm.org/didexchange/1.1"],
+        "use_did_method": "did:peer:4",
+        "metadata": {"key_type": "ed25519"},
+        "my_label": "Issuer Agent",
+        "goal": "Establish connection for credential issuance",
+        "goal_code": "issue-vc",
+        "accept": [
+            "didcomm/aip1",
+            "didcomm/aip2;env=rfc19"
+        ]
+    }
+    
+    print("Invitation-Modus: did:peer:4 (P2P Connection)")
+    
+    # API Call mit Query-Parametern für auto-accept
+    invitation_response = api_post(
+        ISSUER_ADMIN_URL,
+        "/out-of-band/create-invitation?auto_accept=true&multi_use=false",
+        invitation_data
+    )
+    
+    if invitation_response and "invitation" in invitation_response:
+        invitation = invitation_response["invitation"]
+        oob_id = invitation_response.get("oob_id")
+        invitation_url = invitation_response.get("invitation_url", "")
+        state = invitation_response.get("state")
+        
+        # WICHTIG: Speichere invitation_msg_id aus der Invitation
+        invitation_msg_id = invitation.get("@id")
+        
+        # Optional: Extrahiere invitation_key aus services (falls vorhanden)
+        services = invitation.get("services", [])
+        if services and len(services) > 0:
+            # Bei did:peer:4 ist der Service oft inline
+            service = services[0]
+            if isinstance(service, dict):
+                recipient_keys = service.get("recipientKeys", [])
+                if recipient_keys:
+                    invitation_key = recipient_keys[0]
+        
+        print(f"Issuer: Invitation erstellt")
+        print(f"   OOB ID: {oob_id}")
+        print(f"   State: {state}")
+        print(f"   Invitation Msg ID: {invitation_msg_id}")
+        if invitation_key:
+            print(f"   Invitation Key: {invitation_key[:30]}...")
+        print(f"   Services: {len(invitation.get('services', []))} service(s)")
+        print(f"   Label: {invitation_data['my_label']}")
+        print(f"   Goal: {invitation_data['goal']}")
+        
+        # Holder akzeptiert Invitation (mit auto-accept)
+        receive_response = api_post(
+            HOLDER_ADMIN_URL,
+            "/out-of-band/receive-invitation?auto_accept=true",
+            invitation
+        )
+        
+        if receive_response is not None:
+            conn_id_holder = receive_response.get("connection_id")
+            print(f"\nHolder: Invitation akzeptiert")
+            print(f"   Connection ID (Holder): {conn_id_holder}")
+            
+            # Issuer findet seine Connection via invitation_msg_id
+            print(f"\n   Issuer sucht Connection via invitation_msg_id...")
+            time.sleep(2)  # Kurze Wartezeit für DIDExchange Protocol
+            
+            # Hole alle Issuer Connections
+            issuer_conns = api_get(ISSUER_ADMIN_URL, "/connections")
+            if issuer_conns and "results" in issuer_conns:
+                connections = issuer_conns["results"]
+                
+                print(f"     Prüfe {len(connections)} Connection(s)...")
+                
+                # Finde Connection anhand invitation_msg_id (exaktes Match!)
+                connection_found = False
+                for conn in connections:
+                    conn_invitation_msg_id = conn.get("invitation_msg_id")
+                    conn_invitation_key = conn.get("invitation_key")
+                    
+                    # Match via invitation_msg_id (bevorzugt)
+                    if invitation_msg_id and conn_invitation_msg_id == invitation_msg_id:
+                        conn_id_issuer_holder = conn["connection_id"]
+                        conn_state = conn.get("state")
+                        print(f"\n   Issuer: Connection gefunden via invitation_msg_id!")
+                        print(f"      Connection ID: {conn_id_issuer_holder}")
+                        print(f"      State: {conn_state}")
+                        print(f"      Invitation Msg ID: {conn_invitation_msg_id}")
+                        print(f"      Their Label: {conn.get('their_label', 'N/A')}")
+                        print(f"      Updated At: {conn.get('updated_at', 'N/A')}")
+                        connection_found = True
+                        break
+                    
+                    # Fallback: Match via invitation_key
+                    elif invitation_key and conn_invitation_key == invitation_key:
+                        conn_id_issuer_holder = conn["connection_id"]
+                        conn_state = conn.get("state")
+                        print(f"\n   Issuer: Connection gefunden via invitation_key!")
+                        print(f"     Connection ID: {conn_id_issuer_holder}")
+                        print(f"     State: {conn_state}")
+                        print(f"     Invitation Key: {conn_invitation_key[:30]}...")
+                        print(f"     Their Label: {conn.get('their_label', 'N/A')}")
+                        connection_found = True
+                        break
+                
+                if not connection_found:
+                    print(f"      Keine Connection mit matching invitation_msg_id gefunden")
+                    print(f"     Gesuchte invitation_msg_id: {invitation_msg_id}")
+            else:
+                print(f"     Konnte Issuer Connections nicht abrufen")
+        else:
+            print("Holder konnte Invitation nicht akzeptieren")
+    else:
+        print("Fehler beim Erstellen der Invitation")
+
+# ========================================
+# 3. POST-VALIDATION: Connection-Status verifizieren
+# ========================================
+print("\nPost-Validation: Verifiziere Connection-Status...\n")
+
+validation_success = False
+issuer_state = None
+holder_state = None
+
+if conn_id_issuer_holder:
+    # Prüfe Issuer-Seite mit spezifischem Endpoint: GET /connections/{conn_id}
+    issuer_conn_detail = api_get(
+        ISSUER_ADMIN_URL,
+        f"/connections/{conn_id_issuer_holder}"
+    )
+    
+    if issuer_conn_detail:
+        issuer_state = issuer_conn_detail.get("state")
+        issuer_their_label = issuer_conn_detail.get("their_label")
+        issuer_their_role = issuer_conn_detail.get("their_role")
+        issuer_invitation_msg_id = issuer_conn_detail.get("invitation_msg_id")
+        
+        print(f"   Issuer Connection {conn_id_issuer_holder}:")
+        print(f"    State: {issuer_state}")
+        print(f"    Their Label: {issuer_their_label}")
+        print(f"    Their Role: {issuer_their_role}")
+        print(f"    Invitation Msg ID: {issuer_invitation_msg_id}")
+
+# Prüfe Holder-Seite (falls conn_id_holder bekannt)
+if conn_id_holder:
+    # Prüfe Holder-Seite mit spezifischem Endpoint: GET /connections/{conn_id}
+    holder_conn_detail = api_get(
+        HOLDER_ADMIN_URL,
+        f"/connections/{conn_id_holder}"
+    )
+    
+    if holder_conn_detail:
+        holder_state = holder_conn_detail.get("state")
+        holder_their_label = holder_conn_detail.get("their_label")
+        holder_their_role = holder_conn_detail.get("their_role")
+        holder_invitation_msg_id = holder_conn_detail.get("invitation_msg_id")
+        
+        print(f"\n   Holder Connection {conn_id_holder}:")
+        print(f"      State: {holder_state}")
+        print(f"      Their Label: {holder_their_label}")
+        print(f"      Their Role: {holder_their_role}")
+        print(f"      Invitation Msg ID: {holder_invitation_msg_id}")
+        
+        # Verifiziere dass invitation_msg_id übereinstimmt
+        if invitation_msg_id and issuer_invitation_msg_id == holder_invitation_msg_id:
+            print(f"      Invitation Msg IDs stimmen überein!")
+
+# Validierung
+if issuer_state == "active" and holder_state == "active":
+    validation_success = True
+elif issuer_state == "active" and not conn_id_holder:
+    # Bei existierender Connection nur Issuer-Seite bekannt
+    validation_success = True
+
+# Finale Ausgabe
+print(f"\n{'='*60}")
+if validation_success:
+    print(f"CONNECTION ESTABLISHED (did:peer:4): Issuer <--> Holder")
+    print(f"   Issuer Connection ID: {conn_id_issuer_holder}")
+    if conn_id_holder:
+        print(f"   Holder Connection ID: {conn_id_holder}")
+    print(f"   Issuer State: {issuer_state}")
+    if holder_state:
+        print(f"   Holder State: {holder_state}")
+    if invitation_msg_id:
+        print(f"   Invitation Msg ID: {invitation_msg_id}")
+else:
+    print(f"CONNECTION STATUS UNCLEAR")
+    print(f"   Issuer State: {issuer_state if issuer_state else 'N/A'}")
+    print(f"   Holder State: {holder_state if holder_state else 'N/A'}")
+    if conn_id_issuer_holder:
+        print(f"   Issuer Connection ID: {conn_id_issuer_holder}")
+    if conn_id_holder:
+        print(f"   Holder Connection ID: {conn_id_holder}")
+
+print(f"{'='*60}")
+\end{lstlisting}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Jupyter-Notebook-Cell-9-Demonstration-Kryptoagilität-ed25519-output}
+\begin{lstlisting}[language=bash, caption={Jupyter Notebook Cell 9 Demonstration Kryptoagilität ed25519 Output}, numbers=left, frame=single]
+Connection: Issuer --> Holder erstellen...
+
+Pre-Check: Prüfe existierende Connections...
+
+   Issuer: 0 Connection(s) gefunden
+   Holder: 0 Connection(s) gefunden
+
+   Keine vollständige existierende Connection gefunden
+   Erstelle neue Connection mit did:peer:4...
+
+Invitation-Modus: did:peer:4 (P2P Connection)
+Issuer: Invitation erstellt
+   OOB ID: 6def3ce1-a8d2-49bd-ad8d-9a43a0fde93d
+   State: initial
+   Invitation Msg ID: a4d6d5e4-53b2-420b-a7c1-d50e3aa6efe9
+   Services: 1 service(s)
+   Label: Issuer Agent
+   Goal: Establish connection for credential issuance
+
+Holder: Invitation akzeptiert
+   Connection ID (Holder): 539bd397-21c2-4330-9d61-428a0e5a544d
+
+   Issuer sucht Connection via invitation_msg_id...
+     Prüfe 1 Connection(s)...
+
+   Issuer: Connection gefunden via invitation_msg_id!
+      Connection ID: 3dd04340-dc11-4fc7-afda-86b011a9ac11
+      State: active
+      Invitation Msg ID: a4d6d5e4-53b2-420b-a7c1-d50e3aa6efe9
+      Their Label: Holder Agent
+      Updated At: 2025-12-12T12:03:58.769683Z
+
+Post-Validation: Verifiziere Connection-Status...
+
+   Issuer Connection 3dd04340-dc11-4fc7-afda-86b011a9ac11:
+      State: active
+      Their Label: Holder Agent
+      Their Role: invitee
+      Invitation Msg ID: a4d6d5e4-53b2-420b-a7c1-d50e3aa6efe9
+
+   Holder Connection 539bd397-21c2-4330-9d61-428a0e5a544d:
+      State: active
+      Their Label: Issuer Agent
+      Their Role: inviter
+      Invitation Msg ID: a4d6d5e4-53b2-420b-a7c1-d50e3aa6efe9
+      Invitation Msg IDs stimmen überein!
+
+============================================================
+ CONNECTION ESTABLISHED (did:peer:4): Issuer <--> Holder
+   Issuer Connection ID: 3dd04340-dc11-4fc7-afda-86b011a9ac11
+   Holder Connection ID: 539bd397-21c2-4330-9d61-428a0e5a544d
+   Issuer State: active
+   Holder State: active
+   Invitation Msg ID: a4d6d5e4-53b2-420b-a7c1-d50e3aa6efe9
+============================================================
+\end{lstlisting}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Jupyter-Notebook-Cell-11-Demonstration-Kryptoagilität-ed25519}
+\begin{lstlisting}[language=bash, caption={Jupyter Notebook Cell 11 Demonstration Kryptoagilität ed25519}, numbers=left, frame=single]
+# Cell 12 Wallet DID Übersicht anzeigen
+
+print("Wallet-Übersicht - Alle DIDs:\n")
+
+# Alle DIDs von allen Agenten abrufen
+issuer_dids = api_get(ISSUER_ADMIN_URL, "/wallet/did")
+holder_dids = api_get(HOLDER_ADMIN_URL, "/wallet/did")
+verifier_dids = api_get(VERIFIER_ADMIN_URL, "/wallet/did")
+
+#Zeige originale Responses
+print("Originale /wallet/did Responses:\n")
+if issuer_dids:
+    pretty_print(issuer_dids, "Issuer Wallet DIDs")
+if holder_dids:
+    pretty_print(holder_dids, "Holder Wallet DIDs")
+if verifier_dids:
+    pretty_print(verifier_dids, "Verifier Wallet DIDs")
+\end{lstlisting}
+
+\refstepcounter{manualListingCounter}
+\label{lst:Jupyter-Notebook-Cell-11-Demonstration-Kryptoagilität-ed25519-output}
+\begin{lstlisting}[language=bash, caption={Jupyter Notebook Cell 11 Demonstration Kryptoagilität ed25519 Output}, numbers=left, frame=single]
+Wallet-Übersicht - Alle DIDs:
+
+Originale /wallet/did Responses:
+
+
+============================================================
+  Issuer Wallet DIDs
+============================================================
+{
+  "results": [
+    {
+      "did": "did:peer:4zQmVgo4trzrW244SytguXneycfvEgHHnsZKF7SibioFfk3a",
+      "verkey": "C4ypQhnn6R6g6Nth5LFrx7FNAwWjWiHSG1JDLfpRr3Ud",
+      "posture": "wallet_only",
+      "key_type": "ed25519",
+      "method": "did:peer:4",
+      "metadata": {}
+    },
+    {
+      "did": "did:peer:4zQmVgo4trzrW244SytguXneycfvEgHHnsZKF7SibioFfk3a:zKXbgJ6nwB...6R7R5Tu6g8XDQSx",
+      "verkey": "C4ypQhnn6R6g6Nth5LFrx7FNAwWjWiHSG1JDLfpRr3Ud",
+      "posture": "wallet_only",
+      "key_type": "ed25519",
+      "method": "did:peer:4",
+      "metadata": {}
+    },
+    {
+      "did": "did:peer:4zQme8gBSG5x813d5KGKWig9tihua8dPSbENuqW7KNvkzo1h:zKXbgJ...gnfJBRT3cUDa",
+      "verkey": "GqqE1rZfqJ8koS7CYznRwm1729YxXkHyaAK9YeRcedKT",
+      "posture": "wallet_only",
+      "key_type": "ed25519",
+      "method": "did:peer:4",
+      "metadata": {
+        "invitation_reuse": "true"
+      }
+    }
+  ]
+}
+
+============================================================
+  Holder Wallet DIDs
+============================================================
+{
+  "results": [
+    {
+      "did": "did:peer:4zQmd6WegsSPVbYbxDG5gcTTPgV748PBeKg3fxVw3Q6fYysv",
+      "verkey": "9rVcKr3YMR3nCbcPcxyx8GyEhJ3rMtcwxuTtgoTpzpQv",
+      "posture": "wallet_only",
+      "key_type": "ed25519",
+      "method": "did:peer:4",
+      "metadata": {}
+    },
+    {
+      "did": "did:peer:4zQmd6WegsSPVbYbxDG5gcTTPgV748PBeKg3fxVw3Q6fYysv:zKXbgJ6nwBf...XpiV5oNAvYMrxt",
+      "verkey": "9rVcKr3YMR3nCbcPcxyx8GyEhJ3rMtcwxuTtgoTpzpQv",
+      "posture": "wallet_only",
+      "key_type": "ed25519",
+      "method": "did:peer:4",
+      "metadata": {}
+    }
+  ]
+}
+
+============================================================
+  Verifier Wallet DIDs
+============================================================
+{
+  "results": []
+}
 \end{lstlisting}

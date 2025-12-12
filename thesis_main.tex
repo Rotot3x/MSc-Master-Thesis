@@ -526,8 +526,19 @@ In dieser Arbeit wurde Künstliche Intelligenz (KI), insbesondere GitHub Copilot
 % Listingverzeichnis 
 %-----------------------------------
 \renewcommand{\lstlistlistingname}{Listingverzeichnis}
-\newcounter{manualListingCounter} % Neuer Zähler für Referenzen
-\renewcommand{\thelstlisting}{} % Nummerierung und Format im Listingsverzeichnis anpassen
+\newcounter{manualListingCounter}
+
+% Caption-Format für Listings: Nummer und Titel auf separaten Zeilen
+\makeatletter
+\renewcommand\lst@makecaption[2]{%
+  \vskip\abovecaptionskip
+  {\textbf{Listing \themanualListingCounter}\par\textit{#2}\par}%
+  \vskip\belowcaptionskip
+}
+\makeatother
+
+
+\renewcommand{\thelstlisting}{Listing \arabic{lstlisting}:}
 \lstlistoflistings
 \newpage
 
