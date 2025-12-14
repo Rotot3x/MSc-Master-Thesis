@@ -1,3 +1,45 @@
+\section{Self-Sovereign Identity}
+\label{sec:Anhang_Self-Sovereign_Identity}
+
+\begin{longtable}{L{3cm}L{8cm}}
+    \caption{Zehn Prinzipien von Self-Sovereign Identity}
+    \label{tab:allen_ten_ssi_principles} \\
+    \toprule
+    \textbf{Prinzip} & \textbf{Beschreibung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{2}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Prinzip} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{2}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{2}{p{\linewidth}}{\textit{Anmerkung.} Basierend auf \textcite{allen_PathSelfSovereignIdentity_2016}.} \\
+    \endlastfoot
+    Existenz & Benutzer müssen eine unabhängige Existenz haben \\
+    \midrule
+    Kontrolle & Benutzer müssen die Kontrolle über ihre Identität behalten \\
+    \midrule
+    Zugriff & Benutzer müssen Zugriff auf ihre eigenen Daten haben \\
+    \midrule
+    Transparenz & Systeme und Algorithmen müssen transparent sein \\
+    \midrule
+    Persistenz & Identitäten müssen langlebig sein \\
+    \midrule
+    Übertragbarkeit & Informationen und Dienste rund um die Identität müssen übertragbar sein \\
+    \midrule
+    Interoperabilität &  Identitäten sollten so weit wie möglich nutzbar sein \\
+    \midrule
+    Einverständnis & Die Nutzer müssen der Verwendung ihrer Identität zustimmen \\
+    \midrule
+    Minimalisierung & Die Offenlegung von Daten muss auf ein Minimum beschränkt werden \\
+    \midrule
+    Schutz & Die Rechte der Nutzer müssen geschützt werden \\
+\end{longtable}
+
 \section{Systematische Literaturrecherche}
 \label{sec:Anhang_Dokumentation_der_systematischen_Literaturrecherche}
 
@@ -6546,6 +6588,34 @@ Executing task in folder ferris: docker logs --tail 1000 -f 767d8558623044fb63e5
 \label{sec:Anhang_Summative Evaluation}
 
 \subsection{KRITIS Szenario}
+
+% 1. ISSUANCE
+%    - Betreiber (Issuer) stellt "Notfall-Wartungszertifikat" aus
+%    - Techniker (Holder) empfängt VC mit PQC-Signatur
+   
+% 2. VERIFICATION
+%    - Techniker präsentiert Credential am Umspannwerk-Zugang
+%    - Verifier (Zutrittssystem) verifiziert ZKP-Proof
+%    - Zugang wird gewährt
+   
+% 3. REVOCATION (optional, aber impactful)
+%    - Einsatz beendet → Credential wird revoked
+%    - Techniker versucht sich erneut zu authentifizieren
+%    - Zugang wird nicht mehr gewährt
+
+
+
+%  Verifizierte Attribute (REVEALED):
+%  - Zertifikatstyp: Notfall-Wartungsberechtigung
+%  - Anlage: Umspannwerk Nord-Ost
+%  - Sicherheitsstufe: Stufe-3-Kritisch
+%  - Gültigkeitszeiträume: 1765026000 bis 1765033200
+%  - Rolle: Notfalltechniker
+
+%  PER ZKP VERIFIZIERT ABER DURCH DATENSCHUTZ GESCHÜTZT (UNREVEALED):
+% -  Vorname: NICHT offengelegt (Zero-Knowledge-Proof)
+%  - Nachname: NICHT offengelegt(Zero-Knowledge-Proof)
+%  - Organisation: NICHT offengelegt (Zero-Knowledge-Proof)
 
 Dieses Jupyter Notebook demonstriert einen vollständigen Self-Sovereign Identity (SSI) Workflow für kritische Infrastrukturen (KRITIS) im Energiesektor. Der vorliegende Use Case zeigt die durchgängigen Prozesse der Ausstellung, Verwaltung und Verifikation von Notfall-Wartungszertifikaten für den Zugang zu einem Umspannwerk auf.
 
