@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.2.7">
+  <diagram name="Seite-1" id="Nwow3DyHz7-a79IZbKz2">
+    <mxGraphModel dx="1678" dy="893" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mziHF213Mk7iXqilJpLU-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Windows 10 Pro mit Hyper-V&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;OS-Version: 10.0.19045&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Hyper-V-Version: 9.0&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="770" width="720" x="570" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="mziHF213Mk7iXqilJpLU-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Ubuntu 24.04 LTS VM&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python: 3.12.3&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Openssl: 3.5.4&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="660" width="680" x="590" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="mziHF213Mk7iXqilJpLU-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Docker&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Engine: 28.2.2&lt;br&gt;API: 1.50&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Compose: 2.37.1&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="550" width="250" x="610" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="mziHF213Mk7iXqilJpLU-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;git&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Version: 2.43.0&lt;/font&gt;" vertex="1">
+          <mxGeometry height="550" width="370" x="880" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="mziHF213Mk7iXqilJpLU-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;openwallet-foundation/acapy repository&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;commit&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;ea8c51ee989732b019ca8152effe681c3bd40083&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Stand: 17. September 2025&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="330" x="900" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="mziHF213Mk7iXqilJpLU-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;bcgov/von-network repository&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;commit&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;f5f86aedb51d6dc295138ed7456e764591523fa0&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Stand: 17. September 2025&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="330" x="900" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="mziHF213Mk7iXqilJpLU-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;bcgov/indy-tails-server repository&lt;/font&gt;&lt;/div&gt;&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;commit&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;c51e3e881be21e1d306d4049f38a0b9e2014f269&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Stand: 17. September 2025&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="330" x="900" y="720" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

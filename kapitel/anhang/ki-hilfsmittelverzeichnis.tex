@@ -1,0 +1,33 @@
+\newpage
+\section*{KI-Hilfsmittelverzeichnis}
+\addcontentsline{toc}{section}{KI-Hilfsmittelverzeichnis}
+
+\renewcommand{\thetable}{A-\arabic{table}}
+\renewcommand{\theHtable}{A-\arabic{table}} % für hyperref
+
+Die in \autoref{tab:ki-hilfsmittelverzeichnis} gelisteten Generative KI-Tools wurden in einem iterativen Prozess als kritische Analyseinstrumente in interaktiver, dialogischer Weise eingesetzt. Ausgehend von selbst verfassten Textentwürfen und literaturgestützten Kernaussagen wurden mehrere Optimierungszyklen durchlaufen, in denen die KI zur Schärfung von Formulierungen, Präzisierung der Argumentationslogik und Verbesserung der sprachlichen Kohärenz beitrug. Die KI fungierte dabei als Qualitätssicherungsinstanz für bereits konzipierte Inhalte, nicht als Inhaltsgenerator. Im technischen Teil unterstützte die KI durch Code-Validierung, der Identifikation logischer Fehler, Effizienzoptimierung und Syntaxkonformitätsprüfung während der iterativen PQC-SSI-Prototyp-Entwicklung.
+
+\begin{longtable}{L{3cm}L{5cm}L{5cm}}
+    \caption{KI-Hilfsmittelverzeichnis}
+    \label{tab:ki-hilfsmittelverzeichnis} \\
+    \toprule
+    \textbf{KI-Tool} & \textbf{Beschreibung} & \textbf{Einsatzbereich} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{KI-Tool} & \textbf{Beschreibung} & \textbf{Einsatzbereich} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung der eingesetzen KI-Hilfsmittel.} \\
+    \endlastfoot
+    Claude \newline 4.5 Sonnet & Vielseitiges Sprachmodell von Anthropic mit erweiterten Reasoning- und Computer-Use-Fähigkeiten. & Optimierung und Syntaxkontrolle des selbst verfassten Source-Codes und LaTeX-Korrektur \\
+    \midrule
+    Perplexity.ai \newline Sonar Reasoning & Reasoning-Modell mit integrierter Web-Suche und Chain-of-Thought-Fähigkeiten. & Recherche, Textvalidierung, Faktencheck \\
+    \midrule
+    Github Copilot \newline 1.0 & KI-gestützte Programmierhilfe zur Analyse und Optimierung der LaTeX-Syntax & Textvalidierung, Rechtschreib- und Grammatik-Prüfung innerhalb der LaTeX-Dokumente \\
+\end{longtable}

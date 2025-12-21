@@ -732,9 +732,97 @@ Nach Abschluss des zweistufigen Screening-Prozesses verblieben [W] Publikationen
 
 
 \newpage
-\section{Artefaktentwicklung Iteration 1} \label{sec:Anhang_Artefaktentwicklung Iteration 1}
+\section{Erste Iteration der Artefaktentwicklung} \label{sec:Anhang_Artefaktentwicklung Iteration 1}
 
-\subsection{Zertifikatserstellungsworkflow}
+\subsection{Framework- und Technologie-Auswahl}
+\label{sec:Anhang_Framework- und Technologie-Auswahl}
+
+\subsubsection{DLT-Plattform} \label{sec:Anhang_DLT-Plattform}
+
+Die Auswahl der DLT-Plattform für die Implementierung des PQC-SSI-Prototypen erfolgte unter Berücksichtigung der in Kapitel~\ref{sec:Anforderungsanalyse} definierten funktionalen Anforderungen sowie der KRITIS-Compliance-Anforderungen an SSI-Systeme. Wie von \textcite[S. 3]{ghosh_DecentralizedCrossNetworkIdentityManagementBlockchainInteroperation_2021} demonstriert, setzen dezentrale Identitätsverwaltungssysteme auf existierende Frameworks als technologische Bausteine. 
+
+Für die vorliegende Arbeit wurde Hyperledger Indy als DLT-Plattform gewählt, da es als einzige Enterprise-Blockchain-Lösung explizit für Self-Sovereign Identity konzipiert wurde \parencite[S. 547--548]{su_HyperledgerIndybasedRoamingIdentityManagementSystem_2023}.
+
+Hyperledger Indy bietet eine permissioned Ledger-Architektur \parencite[Tabelle~1]{dixit_DecentralizedIIoTIdentityFrameworkbasedSelfSovereignIdentityusingBlockchain_2022}, die offene Leseoperationen ermöglicht, während Schreibrechte auf designierte Trust Anchors \parencite[S. 4]{ghosh_DecentralizedCrossNetworkIdentityManagementBlockchainInteroperation_2021} beschränkt bleiben, die als autorisierte Akteure DID-Registrierungen und Credential-Schemata publizieren können.
+
+Die Plattform implementiert nativ das \ac{VCM} mit den vier zentralen Attributen Issuer-Identität, Holder-Kontrolle, manipulationssichere Claims und Revocation-Status \parencite[S. 548]{su_HyperledgerIndybasedRoamingIdentityManagementSystem_2023}. Hyperledger Indy unterstützt kryptographische Akkumulatoren als Revocation Registries, die Privacy-Preserving Non-Revocation Proofs via Zero-Knowledge-Verfahren ermöglichen \cite[S. 548]{su_HyperledgerIndybasedRoamingIdentityManagementSystem_2023}.
+
+Für die konkrete Implementierung wurde VON-Network \parencite{bcgov_GitHubBcgovVonnetworkportabledevelopmentlevelIndyNodenetwork_} als containerisierte Indy-Deployment-Lösung eingesetzt. VON-Network stellt eine vorkonfigurierte Indy-Node-Pool-Infrastruktur bereit, bestehend aus vier Validator-Nodes, einem Genesis-Webserver zur Bereitstellung der Pool-Transaktionsdatei sowie einem Ledger-Browser für Transparenz- und Audit-Zwecke \parencite{bcgov_GitHubBcgovVonnetworkportabledevelopmentlevelIndyNodenetwork_}.
+
+\subsubsection{SSI-Framework}
+
+Für die Implementierung der SSI-Agenten wurde Hyperledger \ac{ACA-Py} als Framework ausgewählt. \ac{ACA-Py} ist eine produktionsreife, quelloffene SSI-Agenten-Infrastruktur, die es ermöglicht, Verifiable-Credential-Ökosysteme als Issuer, Holder oder Verifier zu implementieren \parencite[S. 3,7]{ghosh_DecentralizedCrossNetworkIdentityManagementBlockchainInteroperation_2021}. Die Kombination von Hyperledger Aries und Hyperledger Indy hat sich als zentrale Toolchain für die Entwicklung von SSI-Anwendungen etabliert \parencite[S. 5]{ferdous_SSI4WebSelfsovereignIdentitySSIFrameworkWeb_2022}.
+
+Die Architektur von \ac{ACA-Py} basiert auf einer Trennung zwischen Agent und Controller. Der Agent verwaltet alle Aries-Kernfunktionalitäten wie die Interaktion mit anderen Agents, sichere Speicherverwaltung und Event-Benachrichtigungen, während der Controller das spezifische Verhalten der Agenten-Instanz definiert \parencite[S. 10]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}. Der Agent stellt dem Controller eine REST-API für administrative Nachrichten bereit, und der Controller registriert einen Webhook beim Agent, um HTTP-Callbacks für Event-Benachrichtigungen zu empfangen \parencite[vgl.][S. 10--11]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}.
+
+Ein weiteres zentrales Feature ist die Unterstützung von DIDComm-Messaging-Protokollen, die asynchrone, Ende-zu-Ende-verschlüsselte Kommunikation zwischen Agents ermöglichen, wobei Nachrichten über intermediäre Agent-Konfigurationen geroutet werden \parencite[S. 10]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}.
+
+Im Vergleich zu alternativen Frameworks wie Aries Go wurde ACA-Py ausgewählt, da Aries Go zum Zeitpunkt der Implementierung noch nicht produktionsbereit war \parencite[S. 13--14]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}. Die Entscheidung für ACA-Py ermöglicht zudem die Nutzung des Aries-Askar-Wallets als Speicher-Backend, welches im Vergleich zum älteren Indy-Wallet signifikante Performance-Verbesserungen bietet \parencite[S. 13]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}.
+
+\subsubsection{Kryptografiebibliothek}
+
+Die Auswahl von liboqs als zentrale Kryptografiebibliothek wird durch das Konzept des \ac{OQS} Projekts motiviert, das \textcite[S. 30--33]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} als Ansatz zur Prototypisierung quantenresistenter Kryptografie mit dem Ziel des zuverlässigen flächendeckenden Einsatzes entworfen hat. \textcite[S. 30]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} definiert OQS als open-source Softwareframework bestehend aus liboqs, einer C-Bibliothek mit quantenresistenten Algorithmen, und deren Integration in etablierte Protokolle wie OpenSSL.
+
+Die Bibliothek bietet eine gemeinsame Schnittstelle für Schlüsselaustausch und digitale Signaturschemen \parencite[S. 31]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} sowie Implementierungen verschiedener Post-Quantum-Algorithmen \parencite[3--4, Tabelle 1]{solavagione_TransitionSelfSovereignIdentityPostQuantumCryptography_2025}.
+
+\textcite[S. 5]{sikeridis_PostQuantumAuthenticationTLS13PerformanceStudy_2020} demonstrieren die praktische Integration von liboqs-basierten Algorithmen in das OQS OpenSSL Fork für TLS 1.3. Ihre Ergebnisse zeigen, dass die liboqs-Abstraktionsschicht es ermöglicht verschiedene PQ-Signaturen in X.509-Zertifikaten zu integrieren \parencite[S. 11--14]{sikeridis_PostQuantumAuthenticationTLS13PerformanceStudy_2020}.
+
+\subsubsection{Revocation-Infrastruktur}
+
+Für die Revocation-Anforderung wird das Revocation-Schema von Hyperledger Indy (\ref{sec:Anhang_DLT-Plattform}) gewählt. Indy implementiert Privacy-Preserving-Revocation durch kryptografische Akkumulatoren, wodurch Holder Nicht-Widerrufung via Zero-Knowledge-Proofs nachweisen können, ohne ihre Credential-IDs oder Indizes preiszugeben \parencite{hardman_0011CredentialRevocationHyperledgerIndyHIPEdocumentation_2018}.
+
+Der Indy Tails Server \parencite{bcgov_GitHubBcgovIndytailsserverThissoftwarestoresmakesavailabletailsfilesuseHyperledger_} wird als Infrastrukturkomponente gewählt, um die erforderlichen Faktoren für das Akkumulator-Verfahren bereitzustellen. Die BC-Government-Referenzimplementierung bietet native Integration mit ACA-Py \parencite{_ACAPyDocs_} und stellt sicher, dass Holder und Verifier die notwendigen kryptografischen Daten abrufen können.
+
+\subsubsection{Sidecar Proxy}
+\label{sec:Anhang_Sidecar Proxy}
+
+Das \gls{Sidecar Proxy}-Pattern wird zur transparenten Integration der Post-Quantum-Kryptografie auf Transportebene gewählt, ohne die zugrundeliegende ACA-Py-Anwendungslogik zu modifizieren. \textcite[S.~2, 5]{berlato_WorkinProgressSidecarProxyUsablePerformanceAdaptableEndtoEndProtectionCommunicationsCloudNativeApplications_2024} identifizieren Transparenz, Automatisierung und Modularität als zentrale Eigenschaften dieses Architekturmusters. Die vorliegende Arbeit adaptiert dieses Pattern von Cryptographic Access Control auf die PQC-Integration für SSI-Systeme.
+
+Durch die Deployment-seitige Ergänzung von Sidecar-Containern können unterstützende Funktionalitäten für alle Services zentral implementiert werden, ohne die Komplexität einzelner Microservices zu erhöhen \parencite[S. 158]{meadows_SidecarbasedPathawareSecurityMicroservices_2023}.
+
+\autoref{fig:sidecar_proxy_pod} visualisiert die grundlegende Funktionsweise eines \gls{Sidecar Proxy} innerhalb eines Pods.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Sidecar Proxy_POD.png}
+    \caption{POD mit Sidecar Proxy}
+    \begin{flushleft}
+    \textit{Anmerkung.} Aus \textcite[S.~3]{berlato_WorkinProgressSidecarProxyUsablePerformanceAdaptableEndtoEndProtectionCommunicationsCloudNativeApplications_2024}.
+    \end{flushleft}
+    \label{fig:sidecar_proxy_pod}
+\end{figure}
+
+NGINX \parencite{nginx_GitHubNginxNginxofficialNGINXOpenSourcerepository_} wird als Implementierung gewählt, da es mit OpenSSL~3.5+ kompiliert über den OQS-Provider NIST-standardisierte PQC-Algorithmen unterstützt \parencite{_BuildingNginxSources_}.
+
+\subsection{Implementierung}
+
+\subsubsection{Setup der Entwicklungsumgebung}
+\label{sec:Anhang_Setup der Entwicklungsumgebung}
+
+\fixme{KAPITEL TEXT FIXEN}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Entwicklungsumgebung}
+    \caption{Setup der Entwicklungsumgebung}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Setup der Entwicklungsumgebung}
+\end{figure}
+
+Die Entwicklungsumgebung für diese Arbeit folgt einer geschichteten Architektur, die Ressourceneffizienz, Isolierung und Reproduzierbarkeit kombiniert. Das System nutzt Hyper-V als Type-1-Hypervisor unter Windows 10, der direkt auf der Hardware-Ebene arbeitet und eine stabile Grundlage für die virtualisierte Umgebung bietet.
+
+Auf der Hyper-V-Infrastruktur wird eine Ubuntu 24.04 LTS Virtual Machine betrieben, die als Gastbetriebssystem für die Entwicklungsarbeit dient. Ubuntu 24.04 LTS erfüllt die notwendigen Systemanforderungen und bietet als Long-Term-Support-Version langfristige Stabilität und Sicherheitsupdates - entscheidend für reproduzierbare akademische Forschung.
+
+Die eigentliche Entwicklungsumgebung wird durch Docker-Container bereitgestellt, die auf der Ubuntu-VM ausgeführt werden. Docker ermöglicht die Definition isolierter, vorkonfigurierter Entwicklungsumgebungen über Dockerfiles, wodurch Abhängigkeiten und Toolketten konsistent verwaltet werden. Dies minimiert Konfigurationsfehler und gewährleistet, dass alle Iterationen der Forschungsarbeit unter identischen Bedingungen reproduzierbar sind.
+
+Die Quellcodeverwaltung erfolgt über Git und GitHub, wodurch Versionskontrolle, Kollaborationsmöglichkeiten und vollständige Nachverfolgbarkeit aller Entwicklungsschritte realisiert werden. Diese Kombination aus Hyper-V, Ubuntu, Docker und Git/GitHub schafft eine isolierte, versionskontrollierte und hochgradig reproduzierbare Forschungsinfrastruktur, die akademische Standards erfüllt und gleichzeitig moderne DevOps-Praktiken umsetzt.
+
+\subsubsection{Zertifikatserstellungsworkflow}
+\label{sec:Anhang_Zertfikatserstellungsworkflow}
+
+Listing~\ref{lst:Zertifikatserstellungsworkflow} zeigt den vollständigen Workflow  der Post-Quantum-Zertifikatserstellung für die Sidecar-Proxies mittels OpenSSL~3.5.4 am Beispiel des Issuers.
 
 \refstepcounter{manualListingCounter}
 \label{lst:Zertifikatserstellungsworkflow}
@@ -760,13 +848,28 @@ openssl req -new -key server.key -out server.csr \
     -addext "subjectAltName=DNS:issuer,DNS:pqc-sidecarproxy-issuer,DNS:host.docker.internal,DNS:localhost,IP:127.0.0.1"
 
 # Signierung mit ML-DSA-65 (Balance zwischen Sicherheit und Performance)
-openssl x509 -req -in von-webserver-pqc-proxy.csr \
+openssl x509 -req -in server.csr \
   -CA rootCA.crt -CAkey rootCA.key -CAcreateserial \
-  -out von-webserver-pqc-proxy.crt -days 365 -sha3-256 \
+  -out server.crt -days 365 -sha3-256 \
   -copy_extensions copy
 \end{lstlisting}
 
-\subsection{Dockerfile: Sidecar Proxy nginx}
+Das Root-CA-Zertifikat besitzt eine Gültigkeit von zehn Jahren und wird in den System-Trust-Store aller Container importiert, sodass Python-Bibliotheken wie \texttt{requests} und Kommandozeilen-Tools wie \texttt{curl} die ML-DSA-65-signierten Zertifikate automatisch als vertrauenswürdig erkennen.
+
+Für jeden der fünf Sidecar-Proxies wurde ein dediziertes Server-Zertifikat generiert: \texttt{issuer.crt}, \texttt{holder.crt}, \texttt{verifier.crt}, \texttt{von-webserver.crt} und \texttt{tails-server.crt}. Jedes dieser Zertifikate wird mittels Certificate Signing Request (CSR) erstellt und von der Root CA mit ML-DSA-65 signiert. Die Zertifikate enthalten Subject Alternative Names (SAN), die sowohl den DNS-Namen \texttt{localhost} als auch die IP-Adresse \texttt{127.0.0.1} umfassen, um flexible Zugriffsmöglichkeiten während der Entwicklung zu ermöglichen. Die Zertifikatsgröße liegt bei durchschnittlich 9.500 Bytes pro Agent-Zertifikat, während die Root CA mit 10.312 Bytes aufgrund zusätzlicher Metadaten geringfügig größer ausfällt. Diese Größenordnung ist charakteristisch für ML-DSA-65-Signaturen, deren Signaturlänge 3.293 Bytes beträgt und damit signifikant über klassischen ECDSA-Signaturen (ca.\ 64--72 Bytes) liegt.
+
+Die Integration der Zertifikate erfolgt über Docker-Volume-Mounts: Das Verzeichnis \texttt{hopE/pqc\_sidecarproxy\_nginx/certs/} wird als Read-Only-Volume in jeden Nginx-Container unter \texttt{/opt/nginx/certs/} eingebunden. In der Nginx-Konfiguration werden die Zertifikate durch die Direktiven \texttt{ssl\_certificate /opt/nginx/certs/<agent>.crt} und \texttt{ssl\_certificate\_key /opt/nginx/certs/<agent>.key} referenziert. Parallel dazu wird das Root-CA-Zertifikat in allen ACA-Py-Agent-Containern nach \texttt{/usr/local/share/ca-certificates/pqc-root-ca.crt} kopiert und mittels \texttt{update-ca-certificates} in den System-Trust-Store importiert. Zusätzlich werden die Umgebungsvariablen \texttt{SSL\_CERT\_FILE}, \texttt{REQUESTS\_CA\_BUNDLE} und \texttt{CURL\_CA\_BUNDLE} auf \texttt{/etc/ssl/certs/ca-certificates.crt} gesetzt, um sicherzustellen, dass Python-Anwendungen und HTTP-Clients die importierte Root CA verwenden und TLS-Verbindungen zu den PQC-Proxies erfolgreich validieren können.
+
+\subsubsection{Dockerfile: Sidecar Proxy nginx}
+\label{sec:Anhang_Dockerfile Sidecar Proxy nginx}
+
+Listing~\ref{lst:Dockerfile-Sidecar-Proxy-nginx} beinhaltet den Code des Dockerfiles parallel zur visuellen Darstellung in \autoref{fig:Sidecar_Proxy_nginx_Dockerfile}.
+
+In der Build-Phase findet die gesamte Kompilierung und Zusammenführung der für den Betrieb erforderlichen Abhängigkeiten statt. Zunächst werden Versionsangaben für Bibliotheken, Algorithmen, TLS-Gruppen und Installationsverzeichnisse als Build-Parameter definiert. Anschließend werden die projektrelevanten Quellen wie \texttt{liboqs}, \texttt{oqs-provider}, \texttt{openssl}, \texttt{nginx} und \texttt{curl} gezielt und versioniert aus ihren jeweiligen Repositories geladen. Die Kompilierung erfolgt dabei in einer spezifischen Reihenfolge: OpenSSL und liboqs werden mit definierten Einstellungen gebaut, NGINX wird unter Einbindung des OQS Providers und einer hybrid gelinkten OpenSSL-Version kompiliert, und curl wird dynamisch mit OpenSSL gebaut, um HTTPS-Unterstützung sicherzustellen. Abschließend werden die generierten Binaries optimiert und nicht benötigte Dateien entfernt, um das finale Image so schlank wie möglich zu gestalten.
+
+Die Runtime-Stage bildet daraufhin das minimalistische Endprodukt, das zum produktiven Einsatz bestimmt ist. Die in der Build-Phase erzeugten Binaries und Konfigurationen werden hier in das neue Runtime-Image übernommen. Die notwendigen Einstellungen für Post-Quantum-TLS-Gruppen und Logging werden über Umgebungsvariablen und angepasste Konfigurationen gesetzt. Das Image läuft nach dem Least-Privilege-Prinzip \parencite[S. 1]{khattar_DockerProEssentialPracticesSecureScalableContainers_2025} mit einem dedizierten Non-Root User (\texttt{oqs}), und der Container-Entrypoint ist klar über den Aufruf von nginx definiert.
+
+Gegenüber dem Original-Dockerfile \parencite{open-quantum-safe_OpenquantumsafeOqsdemosNginxDockerfile_2025} wurden mehrere zielgerichtete Modifikationen (in \autoref{fig:Sidecar_Proxy_nginx_Dockerfile} in rot markiert) vorgenommen. Die OpenSSL-Version wurde von variablen Tags auf die explizite Versionsnummer \texttt{3.5.4} festgelegt, da dieses Release als LTS mit aktuellen Sicherheitsfixes gilt. Die für den Key-Encapsulation-Mechanism zentralen TLS-Gruppen wurden auf \texttt{X25519MLKEM768}, \texttt{mlkem768}, \texttt{x25519} und \texttt{mlkem1024} reduziert, um gezielt ML-KEM-768 zu forcieren. Im Originalskript werden Zertifikate direkt während des Builds generiert; die modifizierte Version hingegen verzichtet darauf und sieht vor, dass Zertifikate via Volume von außen eingebracht werden, was dem Produktionsszenario entspricht. Die Build-Reihenfolge wurde neu strukturiert: OpenSSL wird zuerst als Shared Library kompiliert, um eine dynamische Verlinkung von curl und nginx zu ermöglichen. Dies umgeht auch Inkompatibilitäten zwischen Alpine Linux und statisch gelinkten OpenSSL-Versionen. Die Optimierung und Entfernung nicht benötigter Artefakte erfolgt granularer, wobei dynamische Binaries und Modul-Dateien wie \texttt{oqsprovider.so} gezielt gestreift werden. Das finale Runtime-Image wurde zusätzlich verschlankt: Es werden \texttt{ca-certificates} als Runtime-Abhängigkeit hinzugefügt, Ports werden explizit nicht mehr im Dockerfile exponiert (dies erfolgt stattdessen via Docker Compose oder Kubernetes), und der ENTRYPOINT ist strikt auf den Sidecar-Proxy-Einsatz ausgerichtet.
 
 \refstepcounter{manualListingCounter}
 \label{lst:Dockerfile-Sidecar-Proxy-nginx}
@@ -945,7 +1048,14 @@ STOPSIGNAL SIGTERM
 CMD ["nginx", "-c", "nginx-conf/nginx.conf", "-g", "daemon off;"]
 \end{lstlisting}
 
-\subsection{nginx\_holder.conf}
+\subsubsection{nginx\_holder.conf}
+\label{sec:Anhang_nginx_holder.conf}
+
+Strukturell folgen alle Konfigurationen einem konsistenten Schichtenmodell. Die globale Konfigurationsebene definiert Worker-Prozesse, Logging-Parameter sowie HTTP-Grundeinstellungen. Die mittlere Ebene besteht aus \textbf{Upstream-Blöcken}, die interne Services abstrahieren (\texttt{holder:8030}, \texttt{holder:8031}). Die oberste Ebene enthält \textbf{Server-Blöcke}, die für jeden öffentlich erreichbaren Endpoint eine HTTPS-Schnittstelle exponieren.
+
+Das zentrale Sicherheitsmerkmal aller Konfigurationen ist die Direktive \texttt{ssl\_ecdh\_curve X25519MLKEM768}, die den Hybrid-Key-Exchange zwischen klassischer Elliptischen-Kurven-Kryptografie und dem post-quantensicheren ML-KEM-768-Algorithmus aktiviert. Die konkrete Gruppenauswahl wird extern über die Umgebungsvariable \texttt{DEFAULT\_GROUPS} gesteuert, was eine Trennung von Konfiguration und Deploymentslogik ermöglicht. Komplementär hierzu werden SSL-Zertifikate mit \textit{ML-DSA-65}-Signaturalgorithmus verwendet, die als Volume-Mounts unter \texttt{/opt/nginx/certs/} eingebunden werden. Dieser Ansatz gewährleistet, dass sowohl der Schlüsselaustausch als auch die Server-Authentifikation post-quantensicher erfolgen, während die Zertifikate unabhängig von der Container-Runtime verwaltet und rotiert werden können.
+
+Die Reverse-Proxy-Funktionalität wird durch \texttt{location /}-Blöcke realisiert, die Anfragen an Upstream-Services weiterleiten. Alle Konfigurationen exponieren einen \texttt{/health}-Endpoint für Orchestrierungs-Health-Checks.
 
 \refstepcounter{manualListingCounter}
 \label{lst:nginx_holder.conf}
@@ -1060,7 +1170,14 @@ http {
 }
 \end{lstlisting}
 
-\subsection{docker-compose.yml: DLT-Infrastruktur}
+\subsubsection{DLT-Infrastruktur}
+\label{sec:Anhang_DLT-Infrastruktur}
+
+Die unmodifizierte von-network-Implementierung stellt vier Indy-Validator-Nodes \parencite{bcgov_VonnetworkDocsAddNewNodemdmainbcgovvonnetworkGitHub_} bereit, die über das \ac{PBFT} Konsensprotokoll synchronisiert werden \parencite{hyperledger_IndyNodeTroubleshootingguideHyperledgerIndyNodedocumentation_}. Jeder Node exponiert zwei Ports für die Indy-Protokollkommunikation (9701--9708) und verfügt über ein dediziertes Docker-Volume zur Persistierung des Ledger-Zustands \parencite{bcgov_VonnetworkDockercomposeymlMainbcgovvonnetworkGitHub_}. Zusätzlich zu den Validator-Nodes wird ein Webserver-Container deployt, der ein Web-Interface zur Ledger-Visualisierung sowie einen HTTP-Endpoint zur Genesis-File-Distribution bereitstellt \parencite{bcgov_VonnetworkDockercomposeymlMainbcgovvonnetworkGitHub_}. Diese Architektur ermöglicht es \ac{ACA-Py}-Agents, beim Start die Genesis-Transaktionsdatei über eine konfigurierbare URL abzurufen und sich automatisch mit dem Indy-Netzwerk zu verbinden.
+
+Neben der Proxy-Integration wurden die Indy-Validator-Nodes und der Webserver-Container vollständig unverändert aus dem Original-Repository übernommen. Dies umfasst das Base-Image \texttt{ghcr.io/bcgov/von-image:node-1.12-6} \parencite{bcgov_VonimageNode1126_}, die Genesis-Generierungslogik in \texttt{scripts/init\_genesis.sh} \parencite{bcgov_VonnetworkScriptsMainbcgovvonnetworkGitHub_} sowie die Node-Startup-Scripts \texttt{scripts/start\_node.sh} \parencite{bcgov_VonnetworkScriptsMainbcgovvonnetworkGitHub_}. Die Beibehaltung des ursprünglichen Indy-Node-Codes gewährleistet, dass die blockchain-interne Validierung, Konsens-Mechanismen und Ledger-Operationen identisch mit etablierten Indy-Deployments funktionieren und ausschließlich die externe Kommunikationsschicht durch Post-Quantum-Kryptografie abgesichert wird.
+
+Die Ledger-Struktur von Hyperledger Indy bleibt ebenfalls unverändert und umfasst drei logische Ledger-Typen. Der \textit{Domain Ledger} speichert DIDs, Schemas und Credential Definitions, der \textit{Pool Ledger} verwaltet die Validator-Node-Registry, der \textit{Config Ledger} enthält Netzwerk-Konfigurationen wie Transaction Author Agreements (TAA) und Acceptable Mechanism Lists (AML) \parencite{bcgov_VonnetworkDocsUsingVONNetworkmdmainbcgovvonnetworkGitHub_}. Die Persistierung dieser Ledger erfolgt über Docker-Volumes (\texttt{node1-data} bis \texttt{node4-data}) \parencite{bcgov_VonnetworkDockercomposeymlMainbcgovvonnetworkGitHub_}.
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-DLT-Infrastruktur}
@@ -1301,7 +1418,7 @@ volumes:
   nginx-logs:
 \end{lstlisting}
 
-\subsection{Dockerfile: acapy-base}
+\subsubsection{Dockerfile: acapy-base}
 
 \fixme{CHECK REVOC REGISTRY hier richtig?}
 
@@ -1412,7 +1529,7 @@ RUN acapy_agent_package=$(find ./ -name "acapy_agent*.whl" | head -n 1) && \
 ENTRYPOINT ["aca-py"]
 \end{lstlisting}
 
-\subsection{docker-compose.yml: Revocation Registry}
+\subsubsection{docker-compose.yml: Revocation Registry}
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-Revocation-Registry}
@@ -1497,7 +1614,7 @@ volumes:
   nginx-logs:
 \end{lstlisting}
 
-\subsection{docker-compose.yml: SSI-Agenten}
+\subsubsection{docker-compose.yml: SSI-Agenten}
 
 \refstepcounter{manualListingCounter}
 \label{lst:docker-compose.yml-SSI-Agenten}
@@ -1790,6 +1907,8 @@ volumes:
 \subsection{Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
 \label{Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
 
+\fixme{überarbeiten}
+
 Zur experimentellen Evaluation von Verfahren der Post-Quanten-Kryptographie (PQC) im Kontext realer Webbrowser wurde ein Chromium-basierter Browser mit erweiterten TLS-Fähigkeiten selbst kompiliert. Grundlage bildete das von Open Quantum Safe (OQS) bereitgestellte Chromium-Demoprojekt, das eine Integration der \emph{liboqs}-Bibliothek in die TLS-Implementierung von Chromium (BoringSSL) demonstriert und hybride sowie rein PQ-basierte Schlüsselaustausch- und Signaturverfahren bereitstellt \parencite{open-quantum-safe_OqsdemosChromium643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_,open-quantum-safe_OqsdemosChromiumREADMELinuxmd643ef99297fe8c6ebd3587b5dd238d5e7a457037openquantumsafeoqsdemos_}. Ziel war es, eine lauffähige Build-Umgebung unter Linux aufzusetzen, den OQS-angepassten Quellcode zu beziehen, die notwendigen Abhängigkeiten zu installieren und anschließend ein reproduzierbares Build-Artefakt des Browsers mit PQC-Unterstützung zu erzeugen.
 
 Die Einrichtung der Build-Umgebung erfolgte weitgehend entsprechend der offiziellen Linux-Build-Dokumentation des Chromium-Projekts \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Hierzu wurden zunächst die von Chromium bereitgestellten \texttt{depot\_tools} geklont und in den \texttt{PATH} eingebunden, um Werkzeuge wie \texttt{fetch}, \texttt{gclient} und \texttt{gn} verwenden zu können. Anschließend wurde ein separates Arbeitsverzeichnis angelegt und über \texttt{fetch} ein Chromium-Checkout inklusive aller benötigten Abhängigkeiten durchgeführt. Unter einer aktuellen Ubuntu-Linux-Distribution wurden im nächsten Schritt die von Chromium empfohlenen Systemabhängigkeiten installiert, etwa über das Skript \texttt{build/install-build-deps.sh}, welches Compiler, Entwicklungsbibliotheken und Laufzeitbibliotheken für das spätere Linken der Browser-Binärdateien bereitstellt \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Nach Abschluss dieser Vorbereitungen wurden mittels \texttt{gclient runhooks} die Chromium-spezifischen Hooks ausgeführt, um zusätzliche Werkzeuge und vorkompilierte Komponenten nachzuladen.
@@ -1871,7 +1990,7 @@ Executing task in folder ferris: docker logs --tail 1000 -f 179e43b336fa16b399ef
 
 
 \newpage
-\section{Artefaktentwicklung Iteration 2}
+\section{Zweite Iteration der Artefaktentwicklung}
 \label{sec:Anhang_Artefaktentwicklung Iteration 2}
 
 

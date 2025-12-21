@@ -605,8 +605,18 @@ Zur besseren Lesbarkeit wird in dieser Arbeit das generische Maskulinum verwende
 
 \begin{appendices}
 
+\setcounter{manualListingCounter}{0}
+\renewcommand{\thelstlisting}{Listing A-\arabic{manualListingCounter}}
+\renewcommand{\theHlstlisting}{Listing A-\arabic{manualListingCounter}} % für hyperref
+
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A-\arabic{figure}}
+\renewcommand{\theHfigure}{A-\arabic{figure}} % für hyperref
+
+
 \renewcommand{\thetable}{A-\arabic{table}}
-\renewcommand{\theHtable}{A-\arabic{table}}
+\renewcommand{\theHtable}{A-\arabic{table}} % für hyperref
 \setcounter{table}{0}
 
 \makeatletter
@@ -686,6 +696,14 @@ Zur besseren Lesbarkeit wird in dieser Arbeit das generische Maskulinum verwende
 % Inhaltsverzeicnis anzeigen.
 %\printbibliography[type=online,heading=bibintoc,title={\headingNameInternetSources}]
 \printbibliography[type=online,heading=subbibliography,title={\headingNameInternetSources}]
+
+
+
+%-----------------------------------
+% KI-Hilfsmittelverzeichnis
+%-----------------------------------
+\input{kapitel/anhang/ki-hilfsmittelverzeichnis.tex}
+
 
 \input{kapitel/anhang/erklaerung}
 \end{document}
