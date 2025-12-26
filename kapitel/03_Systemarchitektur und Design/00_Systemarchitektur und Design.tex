@@ -114,6 +114,8 @@ Der dritte Schritt definiert die konkreten Eigenschaften, die evaluiert werden s
 \end{enumerate}
 
 \subsubsection{Schritt 4: Design der individuellen Evaluationsepisoden}
+\label{sec:Schritt4-Design der individuellen Evaluationsepisoden}
+
 Der vierte Schritt umfasst das Design konkreter Evaluationsepisoden \parencite[S. 8]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016}. Für diese Arbeit wurden drei diskrete Episoden definiert, die parallel zu den Entwicklungszyklen verlaufen und in \autoref{tab:eval_episodes} dem jeweiligen Arbeitsfortschritt zugeordnet sind.
 
 \begin{longtable}{L{1.5cm}L{5cm}L{8.5cm}}
@@ -303,9 +305,12 @@ Die dritte Säule bildet der \textbf{Datenschutz} (Nr. 7-9) auf Basis der DSGVO.
 
 \subsection{Framework- und Technologie-Auswahl}
 
-Wie von \textcite[S.\,3]{ghosh_DecentralizedCrossNetworkIdentityManagementBlockchainInteroperation_2021} demonstriert, setzt auch die vorliegende Arbeit auf existierende Konzepte und Tools für dezentrale Identitätsverwaltung als Bausteine für die Entwicklung des \ac{PQC}-\ac{SSI}-Prototypen. Die systematische Auswahl der Frameworks und Technologien -- bestehend aus der \ac{DLT}-Plattform, dem SSI-Framework, der Kryptografiebibliothek, der Revocation-Infrastruktur und dem \gls{Sidecar Proxy} -- wird transparent in \ref{sec:Anhang_Framework- und Technologie-Auswahl} dokumentiert und begründet.
+Wie von \textcite[S. 3]{ghosh_DecentralizedCrossNetworkIdentityManagementBlockchainInteroperation_2021} demonstriert, setzt auch die vorliegende Arbeit auf existierende Konzepte und Tools für dezentrale Identitätsverwaltung als Bausteine für die Entwicklung des \ac{PQC}-\ac{SSI}-Prototypen. Die systematische Auswahl der Frameworks und Technologien -- bestehend aus der \ac{DLT}-Plattform, dem SSI-Framework, der Kryptografiebibliothek, der Revocation-Infrastruktur und dem \gls{Sidecar Proxy} -- wird transparent in \ref{sec:Anhang_Framework- und Technologie-Auswahl} dokumentiert und begründet.
 
 \subsection{Architekturentwurf}
+
+\subsubsection{Gesamtarchitektur}
+\label{sec:Gesamtarchitektur_Iteration1}
 
 Der Architekturentwurf dieser Iteration operationalisiert die in Kapitel~\ref{sec:Designziele_Iteration_1} definierten Designziele durch eine dreischichtige, containerbasierte Systemarchitektur, die Post-Quantum-Kryptografie auf der Transportebene verankert. Abbildung~\ref{fig:Architektur_Iteration1} visualisiert die Zielarchitektur, bestehend aus der DLT-Schicht mit vier Hyperledger-Indy-Validator-Nodes samt Ledger Browser, der Revocation-Schicht mit dediziertem Tails-Server sowie der SSI-Agenten-Schicht mit drei ACA-Py-Instanzen in den Rollen Issuer, Holder und Verifier.
 
@@ -323,11 +328,35 @@ Das zentrale Architekturprinzip bildet das Sidecar Proxy Pattern (\ref{sec:Anhan
 
 Die Backend-Dienste (Indy-Nodes, Webserver, Tails-Server und ACA-Py-Agents) verbleiben innerhalb isolierter interner Docker-Netzwerke und kommunizieren ausschließlich über unverschlüsseltes HTTP. Externe Zugriffe erfolgen ausschließlich über das gemeinsame Netzwerk sidecar\_proxy, das als quantensichere Kommunikationsdomäne fungiert und eine strikte Netzsegmentierung gemäß der sechsten \ac{KRITIS}-Anforderung (\autoref{tab:compliance_requirements}) gewährleistet.
 
+\subsubsection{ACA-Py Applikationsarchitektur}
+\label{sec:ACA-Py Applikationsarchitektur_Iteration1}
+
+Die Architektur von \ac{ACA-Py} folgt einem modularen Designansatz, der durch eine strikte Trennung zwischen der generischen Protokollebene und der anwendungsspezifischen Geschäftslogik gekennzeichnet ist. Dieses Architekturmuster entkoppelt die kryptografischen Kernfunktionen und das DIDComm-Messaging (Agent) von der Steuerungslogik (Controller) \parencite{openwallet-foundation_AcapyREADMEmdMainopenwalletfoundationacapyGitHub_}. \autoref{fig:ACAPY_Application_Architecture_Iteration 1} visualisiert diese High-Level-Applikationsarchitektur und verdeutlicht die Interaktion der Schichten.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{ACAPY Application Architecture_Iteration 1}
+    \caption{ACA-Py High Level Applikationsarchitektur}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung auf Basis von \textcite{openwallet-foundation_AcapyREADMEmdMainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentAdminserverpymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0routespymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentProtocolsissue_credentialv2_0routespymainopenwalletfoundationacapyGitHub_,decentralized-identity_AriesrfcsFeatures0434outofbandREADMEmdmaindecentralizedidentityariesrfcs_,decentralized-identity_AriesrfcsFeatures0023didexchangemaindecentralizedidentityariesrfcs_,decentralized-identity_AriesrfcsFeatures0453issuecredentialv2maindecentralizedidentityariesrfcsGitHub_,openwallet-foundation_AcapyAcapy_agentWalletaskarpymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0managerpymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentAskarstorepymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentAskardidcommv1pymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentTransportinboundhttppymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentTransportoutboundhttppymainopenwalletfoundationacapyGitHub_}.
+    \end{flushleft}
+    \label{fig:ACAPY_Application_Architecture_Iteration 1}
+\end{figure}
+
+Layer 1 bildet eine HTTP-REST-API (Admin API), die über \enquote{server.py} implementiert wird \parencite{openwallet-foundation_AcapyAcapy_agentAdminserverpymainopenwalletfoundationacapyGitHub_}. Sie ermöglicht es Controller-Anwendungen den Agent über standardisierte Endpoints wie \enquote{/out-of-band/create-invitation} \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0routespymainopenwalletfoundationacapyGitHub_} oder \enquote{/issue-credential-2.0/send} \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsissue_credentialv2_0routespymainopenwalletfoundationacapyGitHub_} zu steuern, ohne direkt mit der Python-Codebasis zu interagieren. Die Endpunkte werden hierbei durch mehrere \enquote{routes.py} umgesetzt.
+
+Layer 2 implementiert die SSI-Geschäftslogik als Protocol Handler durch mehrere \enquote{manager.py}, die Aries \ac{RFC}s umsetzen. Das Out-of-Band Protocol (RFC 0434) \parencite{decentralized-identity_AriesrfcsFeatures0434outofbandREADMEmdmaindecentralizedidentityariesrfcs_} generiert Invitation-Nachrichten mit \enquote{did\:peer\:4-DIDs} \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0managerpymainopenwalletfoundationacapyGitHub_}, das DID Exchange Protocol (RFC 0023) \parencite{decentralized-identity_AriesrfcsFeatures0023didexchangemaindecentralizedidentityariesrfcs_} authentifiziert Agent-Verbindungen mittels ED25519-Signaturen \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsdidexchangev1_0managerpymainopenwalletfoundationacapyGitHub_}, und das Issue Credential Protocol (RFC 0453) \parencite{decentralized-identity_AriesrfcsFeatures0453issuecredentialv2maindecentralizedidentityariesrfcsGitHub_} erstellt AnonCreds-Credentials \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsissue_credentialv2_0managerpymainopenwalletfoundationacapyGitHub_}.
+
+Layer 3 abstrahiert die Schlüsselverwaltung durch das Aries-Askar-Wallet \parencite{openwallet-foundation_AcapyAcapy_agentWalletaskarpymainopenwalletfoundationacapyGitHub_}, das ED25519-Schlüsselpaare für Signaturen und X25519-Schlüsselpaare für Key Agreement generiert \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_}, diese mit Multicodec-Präfixen kodiert \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_} und verschlüsselt in einer SQLite-Datenbank ablegt \parencite{openwallet-foundation_AcapyAcapy_agentAskarstorepymainopenwalletfoundationacapyGitHub_}, wobei ChaCha20-Poly1305-Authenticated-Encryption verwendet wird \parencite{openwallet-foundation_AcapyAcapy_agentAskardidcommv1pymainopenwalletfoundationacapyGitHub_}.
+
+Layer 4 realisiert das DIDComm-Messaging über \enquote{pack\_message()} und \enquote{unpack\_message()} \parencite{openwallet-foundation_AcapyAcapy_agentAskardidcommv1pymainopenwalletfoundationacapyGitHub_}, welches anschließend mittels HTTP-basierter Transport-Mechanismen für Inbound- \parencite{openwallet-foundation_AcapyAcapy_agentTransportinboundhttppymainopenwalletfoundationacapyGitHub_} und Outbound-Kommunikation \parencite{openwallet-foundation_AcapyAcapy_agentTransportoutboundhttppymainopenwalletfoundationacapyGitHub_} übertragen wird, wobei in der klassischen Architektur kein quantensicheres TLS verwendet wird.
+
 \subsection{Implementierung}
 
-Die Entwicklungsumgebung wird beschrieben in \ref{sec:Anhang_Setup der Entwicklungsumgebung}.
+Die Implementierung realisiert die Zertifikatsinfrastruktur mit ML-DSA-Signaturen, PQC-Sidecar-Proxies mit TLS~1.3 und hybrider Schlüsseleinigung, die Hyperledger-Indy-DLT-Schicht, die Revocation Registry sowie drei ACA-Py-Agenten, die mittels Docker-Compose mit expliziter Netzsegmentierung orchestriert werden. Die hierfür genutzte Entwicklungsumgebung ist in \ref{sec:Anhang_Setup der Entwicklungsumgebung} dokumentiert.
 
 \subsubsection{Zertifikatsstruktur}
+\label{sec:Zertifikatsstruktur}
 
 Die Zertifikatsinfrastruktur für die PQC-Sidecar-Proxies basiert auf einer selbstsignierten Root \ac{CA}, die mit dem Post-Quantum-Signaturalgorithmus ML-DSA-87 erstellt wurde. Die Root \ac{CA} dient als Trust Anchor für alle in der Architektur verwendeten TLS-Zertifikate und gewährleistet, dass sämtliche Zertifikatssignaturen quantenresistent nach der höchsten \ac{NIST} Sicherheitsstufe 5 sind \parencite[S. 15]{nationalinstituteofstandardsandtechnologyus_ModulelatticebasedDigitalSignaturestandard_2024} .
 
@@ -348,11 +377,9 @@ Zunächst wird der Root-CA-Schlüssel generiert (Step 1), gefolgt von der Erstel
 \subsubsection{Sidecar Proxy nginx}
 \label{sec:Sidecar Proxy nginx}
 
-Die Implementierung der post-quanten-kryptographischen Absicherung auf Transport-Layer-Ebene basiert zum einen auf einer modifizierten Version des NGINX-Dockerfiles von \textcite{open-quantum-safe_OpenquantumsafeOqsdemosNginxDockerfile_2025}, zum anderen auf spezifischen NGINX-Konfigurationsdateien für jeden Sidecar-Proxy, welche beide \ac{PQC} mit \ac{ECC} als Fallback realisieren.
+Die Implementierung der post-quanten-kryptographischen Absicherung auf Transport-Layer-Ebene basiert auf einer modifizierten Version des NGINX-Dockerfiles von \textcite{open-quantum-safe_OpenquantumsafeOqsdemosNginxDockerfile_2025} sowie spezifischen NGINX-Konfigurationsdateien für jeden \gls{Sidecar Proxy}. Beide Komponenten realisieren ein konsistentes Konzept bestehend aus Hybrid-Key-Exchange mit \ac{ECC} als Fallback, welches auf Transport-Layer-Ebene Anwendung findet.
 
-\paragraph*{Dockerfile}
-
-\autoref{fig:Sidecar_Proxy_nginx_Dockerfile} visualisiert den zweistufigen Aufbau des modifizierten Dockerfiles (Listing~\ref{lst:Dockerfile-Sidecar-Proxy-nginx}) für eine post-quantenfähige NGINX-Sidecar-Proxy-Lösung, die auf die Integration von OpenSSL 3.5.4 und dem OQS Provider ausgerichtet ist. Hybrid-Key-Exchange mit \ac{ECC} als Fallback wird innerhalb des Dockerfiles durch die DEFAULT-GROUPS-Konfiguration X25519MLKEM768:X25519 realisiert.
+Das modifizierte Dockerfile folgt dem Multi-Stage-Build-Prinzip nach \textcite[S. 1]{rosa_MiningMeasuringImpactchangepatternsimprovingsizebuildtimedockerimages_2025} und integriert OpenSSL 3.5.4, liboqs und den oqs-provider. \autoref{fig:Sidecar_Proxy_nginx_Dockerfile} visualisiert die zwei zentralen Phasen (Build-Stage und Runtime-Stage) sowie die Modifikationen gegenüber dem Original-Dockerfile (rote Markierungen). Die Hybrid-Key-Exchange mit \ac{ECC}-Fallback wird durch die DEFAULT-GROUPS-Konfiguration X25519MLKEM768:X25519 realisiert, eine Konvention, die sich konsistent durch die gesamte Implementierung zieht und in \ref{sec:Anhang_Dockerfile Sidecar Proxy nginx} ausführlich erläutert wird.
 
 \begin{figure}[H]
     \centering
@@ -364,125 +391,43 @@ Die Implementierung der post-quanten-kryptographischen Absicherung auf Transport
     \label{fig:Sidecar_Proxy_nginx_Dockerfile}
 \end{figure}
 
- Das modifizierte Dockerfile folgt dabei dem Multi-Stage-Build-Prinzip, einer Optimierungsstrategie nach \textcite[S. 1]{rosa_MiningMeasuringImpactchangepatternsimprovingsizebuildtimedockerimages_2025}. Die zwei zentralen Phasen (Build-Stage und Runtime-Stage) samt der  gegenüber dem Original-Dockerfile \parencite{open-quantum-safe_OpenquantumsafeOqsdemosNginxDockerfile_2025} vorgenommenen Modifikationen (in \autoref{fig:Sidecar_Proxy_nginx_Dockerfile} in rot markiert) werden in \ref{sec:Anhang_Dockerfile Sidecar Proxy nginx} näher erläutert.
-
-\paragraph*{nginx.conf}
-
-Die NGINX-Konfigurationsdateien implementieren ein standardisiertes \gls{Sidecar Proxy} Pattern für die post-quantensichere Verschlüsselung von Datenverkehr auf Transport-Layer-Ebene. Wie in Listing~\ref{lst:nginx_holder.conf} dargestellt, wird TLS~1.3 mit Hybrid-Key-Exchange mittels der Direktive ssl\_ecdh\_curve X25519MLKEM768:X25519 konfiguriert, die einen Fallback auf klassische \ac{ECC}-basierte Kurven ermöglicht. Alle Konfigurationsdateien folgen dabei einem konsistenten Schichtenmodell aus globalen Parametern, internen Service-Abstraktionen über Upstream-Blöcke und externen HTTPS-Endpunkten über Server-Blöcke. Das zentrale Sicherheitsmerkmal ist die aktivierte Direktive ssl\_protocols TLSv1.3 in Kombination mit der Elliptic-Curve-Konfiguration, die den Hybrid-Key-Exchange zwischen klassischer ECC und dem ML-KEM-768-Algorithmus realisiert. Komplementär werden SSL-Zertifikate mit ML-DSA-65-Signaturalgorithmus eingebunden, sodass sowohl der Schlüsselaustausch als auch die Server-Authentifikation post-quantensicher erfolgen. Die gesamte Konfigurationen wird in \ref{sec:Anhang_nginx_holder.conf} erläutert.
+Die NGINX-Konfigurationsdateien implementieren ein standardisiertes \gls{Sidecar Proxy} Pattern, das diese Architektur operationalisiert. Sie folgen einem konsistenten Schichtenmodell aus globalen Parametern, internen Service-Abstraktionen über Upstream-Blöcke und externen HTTPS-Endpunkten über Server-Blöcke. TLS~1.3 wird durch die Direktive ssl\_ecdh\_curve X25519MLKEM768:X25519 konfiguriert (Listing~\ref{lst:nginx_holder.conf}), wodurch Schlüsselaustausch und Fallback auf klassische \ac{ECC}-basierte Kurven ermöglicht werden. Die aktivierte Direktive ssl\_protocols TLSv1.3 wird durch SSL-Zertifikate mit ML-DSA-65-Signaturalgorithmus ergänzt, sodass sowohl der Schlüsselaustausch als auch die Server-Authentifikation post-quantensicher erfolgen. Die gesamte Konfiguration wird in \ref{sec:Anhang_nginx_holder.conf} erläutert.
 
 \subsubsection{DLT-Infrastruktur}
 
 Für die \ac{PQC}-Integration Transport-Layer-Ebene wurde die von-network-Architektur um einen PQC Nginx Sidecar Proxy erweitert.
-Diese Modifikation stellt die zentrale Anpassung gegenüber dem Original-Quellcode \parencite{bcgov_GitHubBcgovVonnetworkportabledevelopmentlevelIndyNodenetwork_} dar und betrifft primär die docker-compose.yml-Konfigurationsdatei (Listing \ref{lst:docker-compose.yml-DLT-Infrastruktur}) sowie die Hinzufügung eines neuen Verzeichnisses pqc\_sidecarproxy\_nginx/, das die in Kapitel~\ref{sec:Sidecar Proxy nginx} vorgestellten Dockerfile- und Nginx-Konfigurationsdateien für den quantensicheren Reverse Proxy enthält. Der Webserver-Container, der im Original-Setup direkt auf Port 9000 exponiert wurde \parencite{bcgov_VonnetworkDockercomposeymlMainbcgovvonnetworkGitHub_}, verbleibt in der modifizierten Architektur ausschließlich im internen Docker-Netzwerk von. Stattdessen terminiert der neu hinzugefügte pqc-sidecarproxy-webserver-Container alle eingehenden \ac{TLS}-1.3-Verbindungen auf Port 8000 und leitet die Anfragen nach erfolgreicher \glslink{Hybride Schemata}{hybrider Schlüsselvereinbarung} und ML-DSA-65-Zertifikatsverifikation als unverschlüsseltes HTTP an den internen Webserver-Container weiter. Die unmodifizierte von-network-Implementierung wird in Kapitel~\ref{sec:Anhang_DLT-Infrastruktur} näher erläutert.
+Diese Modifikation stellt die zentrale Anpassung gegenüber dem Original-Quellcode \parencite{bcgov_GitHubBcgovVonnetworkportabledevelopmentlevelIndyNodenetwork_} dar und betrifft primär die docker-compose.yml-Konfigurationsdatei (Listing \ref{lst:docker-compose.yml-DLT-Infrastruktur}), sowie die Hinzufügung eines neuen Verzeichnisses \enquote{pqc\_sidecarproxy\_nginx/}, welches die in Kapitel~\ref{sec:Sidecar Proxy nginx} und Kapitel~\ref{sec:Zertifikatsstruktur} vorgestellten Dockerfile-, Nginx-Konfigurationsdatei und Zertifikate für den quantensicheren \gls{Sidecar Proxy} enthält. Der Webserver-Container, der im Original-Setup direkt auf Port 9000 exponiert ist \parencite{bcgov_VonnetworkDockercomposeymlMainbcgovvonnetworkGitHub_}, verbleibt in der modifizierten Architektur ausschließlich im internen Docker-Netzwerk \enquote{von}. Stattdessen terminiert der neu hinzugefügte pqc-sidecarproxy-webserver-Container alle eingehenden \ac{TLS}-1.3-Verbindungen auf Port 8000 und leitet die Anfragen nach erfolgreicher \glslink{Hybride Schemata}{hybrider Schlüsselvereinbarung} und ML-DSA-65-Zertifikatsverifikation als unverschlüsseltes HTTP an den internen Webserver-Container weiter. Die unmodifizierte von-network-Implementierung wird in Kapitel~\ref{sec:Anhang_DLT-Infrastruktur} näher erläutert.
 
-Die Integration des Sidecar Proxies erforderte die Definition eines zusätzlichen, extern zugänglichen Docker-Netzwerks von\_sidecarproxy, das als gemeinsame Kommunikationsebene für alle PQC-Proxies der Gesamtarchitektur dient. Dieses Netzwerk wird in der docker-compose.yml (Listing \ref{lst:docker-compose.yml-DLT-Infrastruktur}) als \enquote{external: true} deklariert. Der pqc-sidecarproxy-webserver-Container ist sowohl mit dem internen von-Netzwerk (für Backend-Kommunikation) als auch mit dem externen von\_sidecarproxy-Netzwerk (für Client-Zugriffe) verbunden, wodurch eine strikte Netzwerksegmentierung zwischen interner und externer Kommunikation gewährleistet wird.
-
-% Zusammenfassend beschränkt sich die Modifikation des von-network-Projekts auf die Hinzufügung einer PQC-Transport-Layer-Sicherheitsebene, während die Core-Funktionalität der Indy-Blockchain-Infrastruktur vollständig erhalten bleibt. Diese minimalinvasive Anpassungsstrategie entspricht dem Sidecar-Pattern-Prinzip, das eine klare Separation zwischen kryptografischen Sicherheitsmechanismen (Proxy-Ebene) und Geschäftslogik (Blockchain-Ebene) etabliert. Die Wiederverwendbarkeit des etablierten von-network-Codes reduziert die Implementierungskomplexität und gewährleistet, dass die DLT-Infrastruktur auf bewährten, produktionserprobten Komponenten basiert, während die quantensichere Absicherung als modulare Erweiterungsschicht implementiert wird.
+Die Integration des Sidecar Proxies erforderte die Definition eines zusätzlichen, extern zugänglichen Docker-Netzwerks \enquote{von\_sidecarproxy}, das als gemeinsame Kommunikationsebene für alle PQC-Proxies der Gesamtarchitektur dient. Dieses Netzwerk wird in der docker-compose.yml (Listing \ref{lst:docker-compose.yml-DLT-Infrastruktur}) als \enquote{external: true} deklariert. Der pqc-sidecarproxy-webserver-Container ist sowohl mit dem internen von-Netzwerk (für Backend-Kommunikation) als auch mit dem externen von\_sidecarproxy-Netzwerk (für Client-Zugriffe) verbunden, wodurch eine strikte Netzwerksegmentierung zwischen interner und externer Kommunikation gewährleistet wird.
 
 \subsubsection{Revocation Registry}
 
-Die Implementierung der Revocation-Registry-Infrastruktur basiert auf dem offiziellen \textit{indy-tails-server}-Repository \parencite{bcgov_GitHubBcgovIndytailsserverThissoftwarestoresmakesavailabletailsfilesuseHyperledger_}, das einen dedizierten File-Server für die Speicherung und Distribution von Revocation-Registry-Tails-Dateien bereitstellt. Im Kontext von AnonCreds -- dem Privacy-Preserving-Credential-Format von Hyperledger Indy -- werden Tails-Dateien benötigt, um Non-Revocation-Proofs zu generieren und zu verifizieren, ohne dabei die gesamte Revocation-Registry-Datenstruktur im Ledger zu speichern. Der Tails-Server fungiert als zentraler Storage-Service, auf den sowohl Credential-Issuer (zum Upload der Tails-Dateien) als auch Verifier (zum Download für Proof-Verifikation) zugreifen.
+Für die Integration in die Post-Quantum-gesicherte Gesamtarchitektur wurde der indy-tails-server analog zur DLT-Infrastruktur um einen PQC Nginx Sidecar Proxy erweitert. Diese Modifikation betrifft primär die Docker-Compose-Konfigurationsdatei (Listing \ref{lst:docker-compose.yml-Revocation-Registry}), in der ein zusätzlicher Service \enquote{pqc-sidecarproxy-tails-server} definiert wurde, sowie die Hinzufügung eines neuen Verzeichnisses \enquote{pqc\_sidecarproxy\_nginx/}, welches die in Kapitel~\ref{sec:Sidecar Proxy nginx} und Kapitel~\ref{sec:Zertifikatsstruktur} vorgestellten Dockerfile-, Nginx-Konfigurationsdatei und Zertifikate für den quantensicheren \gls{Sidecar Proxy} enthält. Der ursprüngliche Tails-Server-Container verbleibt im internen Docker-Netzwerk \enquote{tails-server} und exponiert Port 6543 ausschließlich innerhalb dieses Netzwerks. Der neu hinzugefügte PQC-Proxy-Container terminiert alle externen \ac{TLS}-1.3-Verbindungen auf Port 6543 und leitet die Anfragen nach erfolgreicher erfolgreicher \glslink{Hybride Schemata}{hybrider Schlüsselvereinbarung} und ML-DSA-65-Zertifikatsverifikation als unverschlüsseltes HTTP an den internen Tails-Server weiter. Die unmodifizierte indy-tails-server-Implementierung wird in Kapitel~\ref{sec:Anhang_Revocation Registry} näher erläutert.
 
-Die unmodifizierte indy-tails-server-Implementierung stellt eine Python-basierte REST-API bereit, die zwei primäre Operationen unterstützt: Das Hochladen von Tails-Dateien über HTTP-PUT-Requests auf die Endpoints \texttt{/hash/\{tails-hash\}} oder \texttt{/\{revoc\_reg\_id\}} sowie das Abrufen von Tails-Dateien über HTTP-GET-Requests. Die Server-Architektur implementiert eine Hash-basierte Integritätsvalidierung, bei der der SHA-256-Hash der hochgeladenen Datei mit dem in der URL spezifizierten Hash verglichen wird, um Dateikorruption oder Manipulation zu detektieren. Die Tails-Dateien werden im Dateisystem des Containers persistiert, wobei der Speicherpfad über die Umgebungsvariable \texttt{STORAGE\_PATH} konfigurierbar ist.
-
-Für die Integration in die Post-Quantum-gesicherte Gesamtarchitektur wurde der indy-tails-server analog zur DLT-Infrastruktur um einen PQC Nginx Sidecar Proxy erweitert. Diese Modifikation betrifft primär die Docker-Compose-Konfigurationsdatei (Listing \ref{lst:docker-compose.yml-Revocation-Registry}), in der ein zusätzlicher Service \texttt{pqc-sidecarproxy-tails-server} definiert wurde, sowie die Hin-
-zufügung eines neuen Verzeichnisses pqc\_sidecarproxy\_nginx/, das die \fixme{in Kapitel XY vorgestellten} Dockerfile- und Nginx-Konfigurationsdateien für den
-quantensicheren Reverse Proxy enthält. Der ursprüngliche Tails-Server-Container verbleibt im internen Docker-Netzwerk \texttt{tails-server} und exponiert Port 6543 ausschließlich innerhalb dieses Netzwerks. Der neu hinzugefügte PQC-Proxy-Container terminiert alle externen TLS-1.3-Verbindungen auf Port 6543 und leitet die Anfragen nach erfolgreicher quantensicherer Authentifizierung (ML-DSA-65-Zertifikatsverifikation) und Schlüsselvereinbarung (ML-KEM-768) als unverschlüsseltes HTTP an den internen Tails-Server weiter.
-
-Die Netzwerk-Integration folgt dem etablierten Sidecar-Pattern: Der \texttt{pqc-sidecarproxy-tails-server}-Container ist sowohl mit dem internen \texttt{tails-server}-Netzwerk (für Backend-Kommunikation) als auch mit dem externen, manuell erstellten \texttt{von\_sidecarproxy}-Netzwerk (für Client-Zugriffe) verbunden. Diese Dual-Network-Architektur erzwingt, dass alle externen Zugriffe auf den Tails-Server -- sowohl von ACA-Py-Issuer-Agents beim Upload als auch von Verifier-Agents beim Download -- über den quantensicheren Reverse Proxy geleitet werden.
-
-Die funktionale Logik des Tails-Servers -- einschließlich File-Upload-Validierung, Hash-Verifikation und Storage-Management -- bleibt vollständig unverändert. Dies umfasst die Python-basierte REST-API-Implementierung, die Multi-Part-File-Upload-Handler sowie die Fehlerbehandlung für invalide Hashes oder fehlende Dateien. Die Beibehaltung des Original-Codes gewährleistet, dass die Revocation-Mechanismen kompatibel mit Standard-AnonCreds-Implementierungen bleiben und ausschließlich die Transport-Layer-Sicherheit durch Post-Quantum-Kryptografie erweitert wird.
-
-% Ein wesentlicher Aspekt der Tails-Server-Integration ist die Performance-Charakteristik in Abhängigkeit von der Revocation-Registry-Größe. Bei der Erstellung einer Credential Definition mit aktivierter Revocation wird ein Parameter \texttt{revocation\_registry\_size} spezifiziert, der die maximale Anzahl widerrufbarer Credentials festlegt. Die Größe der resultierenden Tails-Datei korreliert linear mit der Registry-Größe: Eine Registry mit 3\,000 Einträgen erzeugt eine 768\,KB-Datei, während 32\,768 Einträge eine 8,4\,MB-Datei generieren. Diese Dateien müssen von Verifier-Agents während der Proof-Verifikation heruntergeladen werden, wobei der PQC-Proxy-Overhead durch ML-KEM-768-Schlüsselaustausch die Transfer-Latenz geringfügig erhöht. Empirische Tests zeigten, dass die zusätzliche TLS-1.3-Handshake-Latenz mit ML-KEM-768 im Vergleich zu klassischem X25519 durchschnittlich 15--25\,ms beträgt, was bei typischen Tails-File-Transfer-Zeiten von mehreren Sekunden vernachlässigbar ist.
-
-Die Docker-Compose-Orchestrierung des Tails-Servers definiert ein persistentes Volume \texttt{tails-files}, das den \texttt{STORAGE\_PATH}-Verzeichnis-Mount bereitstellt. Dieses Volume gewährleistet, dass hochgeladene Tails-Dateien über Container-Neustarts hinweg erhalten bleiben, was insbesondere in Entwicklungsumgebungen relevant ist, in denen Credential Definitions mit Revocation Registry wiederverwendet werden sollen. Die Health-Check-Konfiguration des Proxy-Containers überwacht die Verfügbarkeit des HTTPS-Endpoints und stellt sicher, dass nachgelagerte Services (ACA-Py-Agents) erst starten, wenn die Tails-Server-Infrastruktur vollständig einsatzbereit ist.
-
-% Zusammenfassend beschränkt sich die Modifikation des indy-tails-server-Projekts auf die Integration einer quantensicheren Transport-Layer-Sicherheitsebene, während die Core-Funktionalität des Revocation-Registry-File-Servers vollständig erhalten bleibt. Diese Anpassungsstrategie entspricht dem übergeordneten Architekturprinzip, bestehende, produktionserprobte Hyperledger-Komponenten mit minimalen Eingriffen zu erweitern und die Post-Quantum-Kryptografie als modulare, nicht-invasive Sicherheitsschicht zu implementieren. Die resultierende Architektur gewährleistet, dass alle Tails-File-Transfers -- sowohl Upload durch Issuer als auch Download durch Verifier -- über ML-KEM-768-gesicherte TLS-1.3-Verbindungen erfolgen und somit resistent gegen zukünftige Angriffe durch Quantencomputer sind.
+Die Netzwerk-Integration folgt dem etablierten \gls{Sidecar Proxy} Pattern. Der \enquote{pqc-sidecarproxy-tails-server}-Container ist sowohl mit dem internen \enquote{tails-server}-Netzwerk (für Backend-Kommunikation) als auch mit dem externen, manuell erstellten \enquote{von\_sidecarproxy}-Netzwerk (für Client-Zugriffe) verbunden. Diese Dual-Network-Architektur erzwingt, dass alle externen Zugriffe auf den Tails-Server über den quantensicheren \gls{Sidecar Proxy} geleitet werden.
 
 \subsubsection{SSI-Agenten} \label{SSI-Agenten}
 
-Die Implementierung der Self-Sovereign-Identity-Agenten basiert auf Hyperledger Aries Cloud Agent Python (ACA-Py) \parencite{openwallet-foundation_GitHubOpenwalletfoundationAcapyACAPyfoundationbuildingdecentralizedidentityapplicationsservicesrunningnonmobile_}, der offiziellen Referenzimplementierung des Aries Interop Profile (AIP) 2.0. ACA-Py stellt eine vollständige SSI-Agent-Infrastruktur bereit, die alle erforderlichen Protokolle für DID-basierte Verbindungen, Credential Issuance, Presentation Exchange und Revocation Management implementiert. Die Architektur folgt dem Controller-Pattern, bei dem der Agent als eigenständiger Service agiert und über eine REST-API (Admin API) von externen Controller-Anwendungen gesteuert wird.
+Die SSI-Agent-Schicht bildet die Anwendungsebene der Gesamtarchitektur und implementiert die drei klassischen Rollen des SSI-Ökosystems Issuer, Holder und Verifier (Kapitel~\ref{sec:Self-Sovereign Identity}) samt ihrer dedizierten PQC Nginx Sidecar Proxies. Die Architektur folgt dem in Kapitel~\ref{sec:ACA-Py Applikationsarchitektur} beschriebenen Referenzmodell, alle drei Agenten basieren auf dem unmodifizierten \ac{ACA-Py} Base-Image (Listing \ref{lst:Dockerfile-acapy-base}) und werden ausschließlich über Kommandozeilen-Parameter konfiguriert, ohne Änderungen am ACA-Py-Quellcode vorzunehmen.
 
-In der vorliegenden Iteration-1-Implementierung wurden drei ACA-Py-Agent-Instanzen deployt, die die klassischen SSI-Rollen abbilden: Ein \textit{Issuer Agent}, der Credentials ausstellt; ein \textit{Holder Agent}, der Credentials empfängt und speichert; sowie ein \textit{Verifier Agent}, der Proof-Requests erstellt und Presentations verifiziert \fixme{folgt theorie kapitel XY}. Alle drei Agents verwenden das unmodifizierte ACA-Py-Base-Image (Listing \ref{lst:Dockerfile-acapy-base}) aus dem offiziellen Hyperledger-Repository und werden ausschließlich über Kommandozeilen-Parameter konfiguriert, ohne Änderungen am ACA-Py-Quellcode vorzunehmen.
+Listing \ref{lst:docker-compose.yml-SSI-Agenten} zeigt die Docker-Compose-Konfiguration der drei ACA-Py-Agenten innerhalb der Gesamtarchitektur. Die Agent-Konfiguration erfolgt hierbei vollständig deklarativ über Docker-Compose-Service-Definitionen, die jeweils den \enquote{start}-Befehl von \ac{ACA-Py} mit rollenspezifischen Parametern aufrufen. Jeder Agent wird in einem dedizierten Docker-Netzwerk isoliert betrieben und über einen PQC Nginx Sidecar Proxy mit quantensicherer TLS-1.3-Verschlüsselung nach außen exponiert. Die Wallet-Konfiguration nutzt persistente Docker-Volumes zur Speicherung von DIDs, Credentials und Connections über Container-Neustarts hinweg. Die Agents verbinden sich über PQC-gesicherte Proxies mit der DLT-Infrastruktur und der Revocation Registry. Auto-Response-Features ermöglichen vollständig scriptgesteuerte SSI-Workflows ohne manuelle Interaktion. Die Netzwerk-Architektur folgt einem strikten Isolation-Prinzip, sodass Agents nur über das externe \enquote{von\_sidecarproxy}-Netzwerk untereinander kommunizieren können. Health-Checks und Service-Dependencies orchestrieren deterministische Startup-Sequenzen und eliminieren Race-Conditions während des Deployments.
+Eine ausführliche Darstellung der Agent-Konfigurationsparameter und der Sidecar-Proxy-Architektur findet sich in \ref{sec:Anhang_SSI-Agenten}.
 
-Listing \ref{lst:docker-compose.yml-SSI-Agenten} zeigt die Docker-Compose-Konfiguration der drei ACA-Py-Agenten innerhalb der Gesamtarchitektur. Die Agent-Konfiguration erfolgt hierbei vollständig deklarativ über Docker-Compose-Service-Definitionen, die jeweils den \texttt{start}-Befehl von ACA-Py mit rollenspezifischen Parametern aufrufen. Zentrale Konfigurationsparameter umfassen \texttt{--label} (zur Identifikation des Agents), \texttt{--inbound-transport http 0.0.0.0 <port>} (zur Definition des DIDComm-Message-Endpoints), \texttt{--outbound-transport http} (für ausgehende Verbindungen), \texttt{--admin 0.0.0.0 <port>} (zur Aktivierung der Admin-API) sowie \texttt{--wallet-type askar} (zur Spezifikation des Wallet-Backends). Alle Agents verwenden Aries Askar als Wallet-Implementierung, das eine moderne, in Rust implementierte Wallet-Architektur mit ChaCha20-Poly1305-Verschlüsselung und Argon2id-Key-Derivation bereitstellt.
-
-Ein kritischer Konfigurationsparameter ist \texttt{--endpoint https://host.docker.internal:<port>}, der spezifiziert, unter welcher URL der Agent für eingehende DIDComm-Verbindungen erreichbar ist. Dieser Parameter wird in Out-of-Band-Invitations und DID-Exchange-Nachrichten eingebettet und muss auf den externen PQC-Proxy-Endpoint zeigen, nicht auf den internen Agent-Container. Beispielsweise konfiguriert der Issuer-Agent \texttt{--endpoint https://host.docker.internal:8020}, wodurch andere Agents ihre DIDComm-Nachrichten an den PQC-Proxy auf Port 8020 senden, der diese nach TLS-Terminierung an den internen Issuer-Container weiterleitet. Diese Indirektion ist essentiell, um sicherzustellen, dass alle Agent-zu-Agent-Verbindungen die Post-Quantum-gesicherte Transport-Layer-Sicherheit nutzen.
-
-Die Wallet-Konfiguration erfolgt über die Parameter \texttt{--wallet-name <name>}, \texttt{--wallet-key <key>} und \texttt{--auto-provision}, wobei letzterer sicherstellt, dass das Wallet automatisch beim ersten Start initialisiert wird. Jedes Wallet wird in einem dedizierten Docker-Volume persistiert (\texttt{issuer-data}, \texttt{holder-data}, \texttt{verifier-data}), sodass DID-Keypairs, Credentials und Connections über Container-Neustarts hinweg erhalten bleiben. Die Wallet-Verschlüsselung mittels ChaCha20-Poly1305 gewährleistet, dass gespeicherte kryptografische Schlüssel selbst bei Kompromittierung des Host-Filesystems nicht ohne den Wallet-Key extrahiert werden können.
-
-Ein wesentlicher Aspekt der Agent-Konfiguration ist die Anbindung an die DLT-Infrastruktur über den Parameter \texttt{--genesis-url https://host.docker.internal:8000/genesis}. Diese URL referenziert den PQC-gesicherten Webserver der DLT-Infrastruktur und ermöglicht es den Agents, beim Start die Genesis-Transaktionsdatei über eine quantensichere TLS-1.3-Verbindung abzurufen. Analog dazu wird die Verbindung zur Revocation Registry über \texttt{--tails-server-base-url https://host.docker.internal:6543} konfiguriert, wobei ebenfalls der PQC Nginx Sidecar Proxy als Endpoint fungiert. Die Verwendung von \texttt{host.docker.internal} ermöglicht dabei die Adressierung des Docker-Hosts aus Container-Perspektive und abstrahiert plattformspezifische Netzwerk-Unterschiede zwischen Linux, macOS und Windows.
-
-Zusätzlich zu den grundlegenden Konfigurations-Parametern aktivieren die Agents mehrere Auto-Response-Features, die für Entwicklungs- und Testzwecke die manuelle Interaktion reduzieren: \texttt{--auto-accept-invites} (automatisches Akzeptieren von Connection-Invitations), \texttt{--auto-respond-credential-proposal}, \texttt{--auto-respond-credential-offer} und \texttt{--auto-respond-credential-request} (automatische Credential-Exchange-Antworten beim Issuer), \texttt{--auto-store-credential} (automatisches Speichern empfangener Credentials beim Holder) sowie \texttt{--auto-verify-presentation} (automatische Presentation-Verifikation beim Verifier). Diese Automatisierungen ermöglichen vollständig scriptgesteuerte SSI-Workflows über die Admin-API, wie sie in Jupyter-Notebook-basierten Demonstrationen implementiert sind.
-
-Für die Post-Quantum-Absicherung der Agent-Kommunikation wurde analog zur DLT-Infrastruktur und Revocation Registry ein dedizierter PQC Nginx Sidecar Proxy pro Agent implementiert. Die Docker-Compose-Konfiguration definiert drei zusätzliche Services -- \texttt{pqc-sidecarproxy-issuer}, \texttt{pqc-sidecarproxy-holder} und \texttt{pqc-sidecarproxy-verifier} --, die jeweils als Reverse Proxy vor dem zugehörigen Agent platziert werden. Jeder Agent-Container exponiert zwei interne HTTP-Ports: einen für Inbound-Transport (8020, 8030, 8040) und einen für die Admin-API (8021, 8031, 8041). Diese Ports sind ausschließlich im agent-spezifischen internen Docker-Netzwerk (\texttt{hope-issuer}, \texttt{hope-holder}, \texttt{hope-verifier}) zugänglich.
-
-Die Sidecar Proxies terminieren alle eingehenden TLS-1.3-Verbindungen und leiten die Anfragen nach erfolgreicher quantensicherer Authentifizierung und Schlüsselvereinbarung als unverschlüsseltes HTTP an die internen Agent-Ports weiter. Jeder Proxy ist mit zwei Docker-Netzwerken verbunden: dem agent-spezifischen internen Netzwerk für Backend-Kommunikation sowie dem gemeinsamen externen \texttt{von\_sidecarproxy}-Netzwerk für Client-Zugriffe. Diese Dual-Network-Architektur erzwingt, dass sämtliche externe Kommunikation -- einschließlich DIDComm-Nachrichten zwischen Agents, Admin-API-Zugriffe durch Controller-Anwendungen sowie Ledger- und Tails-Server-Requests -- über quantensichere TLS-Verbindungen erfolgt.
-
-Die Netzwerk-Architektur folgt einem strikten Isolation-Prinzip: Jeder Agent residiert in einem dedizierten internen Docker-Netzwerk, das ausschließlich den Agent-Container und den zugehörigen PQC-Proxy umfasst. Die Agents können untereinander nicht direkt kommunizieren, sondern ausschließlich über das externe \texttt{von\_sidecarproxy}-Netzwerk, das die PQC-Proxies verbindet. Diese Segmentierung erzeugt eine Defense-in-Depth-Architektur, bei der selbst bei einer Kompromittierung eines Agent-Containers der Zugriff auf andere Agents durch Netzwerk-Isolation verhindert wird.
-
-Die Health-Check-Konfiguration der Agent-Container überwacht die Verfügbarkeit der Admin-API mittels periodischer HTTP-Requests an \texttt{http://localhost:<admin-port>/status/ready}. Zusätzlich definieren die Service-Dependencies (\texttt{depends\_on}) eine Startup-Reihenfolge, die sicherstellt, dass die PQC-Proxies vor den Agents starten und dass die Infrastruktur-Services (von-network, Tails-Server) vollständig initialisiert sind, bevor die Agents ihre Genesis-Datei abrufen. Diese Orchestrierung eliminiert Race-Conditions während des Deployment-Prozesses und gewährleistet eine deterministische Startup-Sequenz.
-
-%Zusammenfassend basiert die SSI-Agent-Implementierung auf vollständig unmodifizierten ACA-Py-Komponenten, wobei die Post-Quantum-Kryptografie ausschließlich über externe Nginx-Sidecar-Proxies integriert wird. Diese nicht-invasive Architektur gewährleistet, dass die Agents mit Standard-Aries-Protokollen und -Workflows kompatibel bleiben, während alle externen Kommunikationskanäle durch ML-KEM-768-basierte Schlüsselvereinbarung und ML-DSA-65-Zertifikatsauthentifizierung quantensicher abgesichert sind. Die strikte Netzwerk-Segmentierung und das Sidecar-Pattern etablieren eine klare Separation zwischen kryptografischer Transport-Sicherheit und SSI-Geschäftslogik, was die Grundlage für nachfolgende Iterationen bildet, in denen PQC schrittweise auf die Application-Layer-Ebene erweitert wird.
-
-\subsubsection{Docker Orchestrierung der Gesamtarchitektur} \label{Docker Orchestrierung der Gesamtarchitektur}
-
-\fixme{manage scripts im Anhang hinterlegen?}
+\subsubsection{Docker Orchestrierung der Gesamtarchitektur} \label{sec:Docker Orchestrierung der Gesamtarchitektur}
 
 Die in den vorangegangenen Abschnitten beschriebenen Einzelkomponenten -- Zertifikatsinfrastruktur, PQC-Sidecar-Proxies, DLT-Infrastruktur, Revocation Registry und SSI-Agenten -- werden mittels einer mehrstufigen Docker-Compose-Orchestrierung zu einem funktionsfähigen Gesamtsystem integriert. Der Startprozess der Gesamtarchitektur folgt einer deterministischen Sequenz, die in Listing~\ref{lst:Docker-Compose-Start-der-Gesamtarchitektur} dokumentiert ist und die korrekten Abhängigkeiten zwischen den Infrastrukturschichten gewährleistet.
 
-Die Orchestrierung gliedert sich in drei sequenzielle Phasen, die jeweils durch separate Docker-Compose-Konfigurationen gesteuert werden. In der ersten Phase wird die DLT-Infrastruktur über das \texttt{von-network}-Management-Skript initialisiert, wodurch die vier Indy-Validator-Nodes, der Genesis-Webserver sowie der zugehörige PQC-Sidecar-Proxy gestartet werden. Diese Phase erzeugt das gemeinsame externe Docker-Netzwerk \texttt{von\_sidecarproxy}, das als zentrale Kommunikationsschicht für alle quantensicheren Verbindungen dient. Die zweite Phase umfasst die Initialisierung der Revocation Registry mittels des \texttt{indy-tails-server}-Management-Skripts, wodurch der Tails-Server-Container sowie dessen PQC-Proxy-Frontend bereitgestellt werden. In der dritten Phase werden schließlich die SSI-Agenten -- Issuer, Holder und Verifier -- gemeinsam mit ihren jeweiligen PQC-Sidecar-Proxies über die projektspezifische Docker-Compose-Konfiguration gestartet.
+Die Orchestrierung gliedert sich in drei sequenzielle Phasen, die jeweils durch separate Docker-Compose-Konfigurationen gesteuert werden. In der ersten Phase wird die DLT-Infrastruktur über das von-network-Management-Skript (Listing~\ref{lst:von-network-manage-script}) initialisiert, wodurch die vier Indy-Validator-Nodes, der Genesis-Webserver sowie der zugehörige PQC-Sidecar-Proxy gestartet werden. Diese Phase erzeugt das gemeinsame externe Docker-Netzwerk \enquote{von\_sidecarproxy}, das als zentrale Kommunikationsschicht für alle quantensicheren Verbindungen dient. Die zweite Phase umfasst die Initialisierung der Revocation Registry mittels des indy-tails-server-Management-Skripts (Listing~\ref{lst:indy-tails-server-manage-script}), wodurch der Tails-Server-Container sowie dessen PQC-Proxy-Frontend bereitgestellt werden. In der dritten Phase werden schließlich die SSI-Agenten gemeinsam mit ihren jeweiligen PQC-Sidecar-Proxies über die projektspezifische Docker-Compose-Konfiguration (Listing~\ref{lst:docker-compose.yml-SSI-Agenten}) gestartet.
 
-\refstepcounter{manualListingCounter}
-\label{lst:Docker-Compose-Start-der-Gesamtarchitektur}
-\begin{lstlisting}[language=bash, caption={Docker Compose Start der Gesamtarchitektur}, numbers=left, frame=single]
-(.venv) ferris@blockchain-ssi-pqc:~/github/MSc-blockchain-ssi-pqc$ ./von-network/manage start && ./indy-tails-server/docker/manage start && docker compose -f ./hopE/docker-compose.yml up -d
-[+] Running 15/15
-Network von_von                                 Created     0.0s 
-Network von_sidecarproxy                        Created     0.0s 
-Volume "von_webserver-ledger"                   Created     0.0s 
-Volume "von_node1-data"                         Created     0.0s 
-Volume "von_node3-data"                         Created     0.0s 
-Volume "von_node2-data"                         Created     0.0s 
-Volume "von_node4-data"                         Created     0.0s 
-Volume "von_nginx-logs"                         Created     0.0s 
-Volume "von_webserver-cli"                      Created     0.0s 
-Container von-node4                             Started     0.6s 
-Container von-webserver                         Started     0.4s 
-Container von-node3                             Started     0.4s 
-Container von-node2                             Started     0.5s 
-Container von-node1                             Started     0.5s 
-Container von-pqc-sidecarproxy-webserver        Started     0.6s 
-Want to see the scrolling container logs? Run "./manage logs"
-[+] Running 4/4
-Network docker_tails-server                     Created     0.0s 
-Volume "docker_nginx-logs"                      Created     0.0s 
-Container docker-tails-server-1                 Started     0.3s 
-Container pqc-sidecarproxy-tails-server         Started     0.5s 
-Run './manage logs' for logs
-WARN[0000] /home/ferris/github/MSc-blockchain-ssi-pqc/hopE/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
-[+] Running 13/13
-Network hope_hope-issuer                        Created     0.0s 
-Network hope_hope-holder                        Created     0.0s 
-Network hope_hope-verifier                      Created     0.0s 
-Volume "hope_issuer-data"                       Created     0.0s 
-Volume "hope_holder-data"                       Created     0.0s 
-Volume "hope_verifier-data"                     Created     0.0s 
-Volume "hope_nginx-logs"                        Created     0.0s 
-Container issuer-agent                          Started     0.6s 
-Container holder-agent                          Started     0.5s 
-Container verifier-agent                        Started     0.5s 
-Container pqc-sidecarproxy-holder               Started     1.3s 
-Container pqc-sidecarproxy-issuer               Started     1.0s 
-Container pqc-sidecarproxy-verifier             Started     1.2s
-\end{lstlisting}
+Die in \autoref{fig:Docker-Compose-Übersicht-Iteration-1} visualisierte Containerarchitektur verdeutlicht die resultierende Systemtopologie. Die Gesamtarchitektur umfasst insgesamt 14 Container, die sich auf die drei funktionalen Schichten verteilen. Die DLT-Schicht besteht aus insgesamt sechs Containern, den vier Validator-Nodes, einem Webserver und einem PQC Sidecar Proxy. Die Revocation-Schicht umfasst insgesamt zwei Container, einen Tails-Server und dessen PQC Sidecar Proxy. Die Agent-Schicht besteht aus insgesamt sechs Containern für die drei SSI-Agenten und ihre jeweiligen PQC Sidecar Proxies.
 
+Die Netzwerktopologie nutzt sechs dedizierte Docker-Bridges, um die logische Separation der Schichten zu realisieren. Das hope\_hope-holder-, hope\_hope-issuer- und hope\_hope-verifier-Netzwerk verbinden jeweils die SSI-Agenten mit der DLT-Schicht. Das docker\_tails-server-Netzwerk isoliert die Revocation-Infrastruktur, während das von\_sidecarproxy-Netzwerk die PQC-Sidecar-Proxies konnektiviert. Das von\_von-Netzwerk integriert die Validator-Nodes untereinander und mit der Revocation-Schicht.
 
-Die in \autoref{fig:Docker-Compose-Übersicht-Iteration-1} visualisierte Containerarchitektur verdeutlicht die resultierende Systemtopologie. Die Gesamtarchitektur umfasst insgesamt 14 Container, die sich auf die drei funktionalen Schichten verteilen: Die DLT-Schicht besteht aus sechs Containern -- vier Validator-Nodes, einem Webserver und einem PQC-Proxy. Die Revocation-Schicht umfasst zwei Container für den Tails-Server und dessen PQC-Proxy. Die Agent-Schicht besteht aus sechs Containern für die drei SSI-Agenten und ihre jeweiligen PQC-Proxies.
+Die Datenpersistenz wird durch elf Docker Volumes realisiert. Während docker\_nginx-logs und von\_nginx-logs die Webserver-Logs aggregieren, speichern hope\_holder-data, hope\_issuer-data und hope\_verifier-data die lokalen Wallets und kryptografischen Materialien der SSI-Agenten. Die Validator-Node-Datenbank wird durch von\_node1-data bis von\_node4-data persistiert, während von\_webserver-cli und von\_webserver-ledger die Ledger-Zustandsdaten und CLI-Konfigurationen verwalten. Diese Volumenstruktur entkoppelt den Containern-Lebenszyklus vom Datenschicksal und ermöglicht die Wiederaufnahme der Systemzustände über Container-Neustarts hinweg.
 
-% Die Netzwerksegmentierung folgt einem strikten Isolation-Prinzip. Jede funktionale Einheit -- DLT-Infrastruktur, Revocation Registry sowie jeder einzelne SSI-Agent -- residiert in einem dedizierten internen Docker-Netzwerk, das ausschließlich den jeweiligen Service-Container und den zugehörigen PQC-Proxy umfasst. Die einzige Verbindung zwischen diesen isolierten Netzwerken erfolgt über das externe \texttt{von\_sidecarproxy}-Netzwerk, an das alle PQC-Proxies angebunden sind. Diese Architektur erzwingt, dass sämtliche inter-service Kommunikation -- einschließlich DIDComm-Nachrichten zwischen Agenten, Admin-API-Zugriffe, Genesis-File-Abrufe und Tails-Server-Requests -- ausschließlich über die quantensicheren TLS-1.3-Verbindungen mit ML-KEM-768-Schlüsselvereinbarung und ML-DSA-65-Zertifikatsauthentifizierung erfolgt.
+Die \enquote{depends\_on}-Direktiven in den Docker-Compose-Konfigurationen (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~\ref{lst:docker-compose.yml-Revocation-Registry} und Listing~\ref{lst:docker-compose.yml-SSI-Agenten}) definieren explizite Startup-Abhängigkeiten, die Race-Conditions während des Deployment-Prozesses eliminieren. Die PQC Sidecar Proxies werden vor den ihnen zugeordneten Backend-Services gestartet, und die SSI-Agenten warten auf die vollständige Initialisierung der Infrastruktur-Services, bevor sie ihre Genesis-Transaktionsdatei abrufen. Diese Orchestrierung gewährleistet eine deterministische Startup-Sequenz und stellt sicher, dass alle Komponenten beim Erreichen ihres operativen Zustands auf vollständig verfügbare Abhängigkeiten zugreifen können.
 
-Die \texttt{depends\_on}-Direktiven in den Docker-Compose-Konfigurationen definieren explizite Startup-Abhängigkeiten, die Race-Conditions während des Deployment-Prozesses eliminieren. Die PQC-Proxies werden vor den ihnen zugeordneten Backend-Services gestartet, und die SSI-Agenten warten auf die vollständige Initialisierung der Infrastruktur-Services, bevor sie ihre Genesis-Transaktionsdatei abrufen. Diese Orchestrierung gewährleistet eine deterministische Startup-Sequenz und stellt sicher, dass alle Komponenten beim Erreichen ihres operativen Zustands auf vollständig verfügbare Abhängigkeiten zugreifen können.
+Die \enquote{depends\_on}-Direktiven in den Docker-Compose-Konfigurationen (Listing~\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~\ref{lst:docker-compose.yml-Revocation-Registry} und Listing~\ref{lst:docker-compose.yml-SSI-Agenten}) definieren explizite Startup-Abhängigkeiten, die über reine Ausführungsreihenfolgen hinausgehen. Ohne Synchronisation führen verfrühte Interaktionen abhängiger Services zu \enquote{faulty interactions} während der Boot-Phase \parencite[S. 25]{deiasio_FrameworkMicroservicesSynchronization_2021}. Die implementierte Konfiguration eliminiert diese Race-Conditions, indem sie sicherstellt, dass die PQC Sidecar Proxies nicht gestartet werden, bevor die ihnen zugeordneten Backend-Services den Status (\enquote{ready}) erreichen. Diese Orchestrierung erzwingt eine deterministische Startup-Sequenz, die verhindert, dass abhängige Komponenten auf Dienste zugreifen, die sich zwar im Status \textit{Running}, aber noch nicht im Status \textit{Ready} befinden \parencite[S. 29]{deiasio_FrameworkMicroservicesSynchronization_2021}.
 
 \begin{figure}[H]
     \centering
@@ -497,9 +442,11 @@ Die \texttt{depends\_on}-Direktiven in den Docker-Compose-Konfigurationen defini
 \subsection{Formative Evaluation}
 \label{sec:formative_evaluation_iteration1}
 
-Die formative Evaluation dieser Iteration orientiert sich an der \textit{Technical Risk \& Efficacy Strategy} des FEDS-Frameworks nach \textcite[S. 4--5]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} und erfolgt unter einem künstlichen Evaluationsparadigma in der Laborumgebung. Ziel ist die Validierung der technischen Funktionsfähigkeit der implementierten Komponenten als Voraussetzung für die nachfolgende Iteration, nicht jedoch die vollständige Prüfung gegen die in Kapitel~\ref{sec:Anforderungsanalyse} definierten Anforderungen -- diese erfolgt im Rahmen der summativen Evaluation in Kapitel~\ref{sec:Summative Evaluation}.
+In Übereinstimmung mit dem in Kapitel~\ref{sec:Schritt4-Design der individuellen Evaluationsepisoden} entworfenen Evaluationsdesign setzt dieser Abschnitt die erste definierte Evaluationsepisode (\autoref{tab:eval_episodes}) um. Charakterisiert als formative und artifizielle Untersuchung, liegt der Fokus dieser Phase exklusiv auf der Validierung der Transport-Layer-Security sowie der korrekten Konfiguration der Infrastrukturkomponenten. Ziel ist es, gemäß den Prinzipien von \textcite[S. 6, 7]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} Designfehler in der Sidecar-Architektur frühzeitig zu identifizieren.
 
-Für die formative Evaluation während der ersten Iteration war die Bereitstellung eines PQC-fähigen Browsers zwingend erforderlich, da aktuelle Produktivbrowser keine Post-Quanten-Kryptographie in ihren TLS-Implementierungen unterstützen. Diese Limitation führt bei Verbindungsversuchen zu PQC-fähigen Servern zu einem Cipher-Mismatch, wie in \autoref{fig:Cipher-Mismatch-Blockchain-Webserver} veranschaulicht. Um diese Inkompatibilität zu überwinden, wurde ein Chromium-basierter Browser mit integrierter PQC-Unterstützung kompiliert (\ref{Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}). Dieser selbstkompilierte Browser ermöglicht die Durchführung von TLS-Handshakes mit hybriden und rein PQ-basierten Algorithmen und dient als fundamentale Testplattform für die experimentelle Analyse von PQC-Verfahren im Kontext realer Webanwendungen.
+Methodisch erfolgt dies primär durch White-Box-Tests. Da bei diesem Verfahren die internen Strukturen und Implementierungsdetails der Software bekannt sind und gezielt in die Prüfung einbezogen werden \parencite[S. 10]{myers_ArtSoftwareTesting_2012}, eignet es sich besonders gut, um die korrekte Konfiguration der kryptographischen Primitive innerhalb der Container-Architektur durch eine detaillierte Analyse der Handshake-Logs zu validieren.
+
+Für die technische Durchführung dieser Analysen war die Bereitstellung eines \ac{PQC}-fähigen Browsers zwingend erforderlich, da aktuelle Produktivbrowser noch keine Post-Quanten-Kryptographie in ihren \ac{TLS}-Implementierungen unterstützen. Diese Limitation führt bei Verbindungsversuchen zu \ac{PQC}-fähigen Servern unweigerlich zu einem Cipher-Mismatch, wie in \autoref{fig:Cipher-Mismatch-Blockchain-Webserver} veranschaulicht. Um diese Inkompatibilität zu überwinden, wurde ein Chromium-basierter Browser mit integrierter \ac{PQC}-Unterstützung kompiliert (siehe \ref{sec:Anhang_Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}). Dieser ermöglicht die Durchführung von TLS-Handshakes mit hybriden sowie rein \ac{PQC}-basierten Algorithmen und dient als fundamentale Testplattform für die experimentelle Analyse der implementierten Verfahren.
 
 \begin{figure}[H]
     \centering
@@ -513,7 +460,7 @@ Für die formative Evaluation während der ersten Iteration war die Bereitstellu
 
 \subsubsection{Validierung der Zertifikatskette und ML-DSA-Signaturen}
 
-Zur Verifikation der kryptographischen Integrität der implementierten Public-Key-Infrastruktur wurde die Zertifikatskette der Sidecar-Proxies mittels \texttt{openssl}-Diagnosewerkzeugen analysiert. Ziel war der Nachweis, dass die ausgelieferten X.509-Zertifikate korrekt auf den spezifizierten Post-Quanten-Signaturalgorithmen basieren. Die Inspektion des vom Issuer-Agenten-Proxy bereitgestellten Zertifikats (\autoref{fig:Successful-Validation-Issuer-MLDSA-Cert}) bestätigt, dass der öffentliche Schlüssel des Leaf-Zertifikats (\textit{pqc reverseproxy issuer agent}) den Algorithmus \texttt{ML-DSA-65} verwendet. Des Weiteren belegt der Signaturalgorithmus \texttt{ML-DSA-87}, dass die Zertifikatskette valide durch die \textit{Master Thesis PQC Root CA} signiert wurde, was die erfolgreiche Generierung und Einbindung der Dilithium-basierten Zertifikate in den TLS-Handshake beweist.
+Zur Verifikation der kryptographischen Integrität der implementierten \ac{PKI} wurde die Zertifikatskette der Sidecar-Proxies mittels openssl-Diagnosewerkzeugen analysiert. Ziel war der Nachweis, dass die ausgelieferten X.509-Zertifikate korrekt auf den spezifizierten Post-Quanten-Signaturalgorithmen basieren. Die Inspektion des vom Issuer-Agenten-Proxy bereitgestellten Zertifikats (\autoref{fig:Successful-Validation-Issuer-MLDSA-Cert}) bestätigt, dass der öffentliche Schlüssel des Leaf-Zertifikats (\enquote{pqc reverseproxy issuer agent}) den Algorithmus \enquote{ML-DSA-65} verwendet. Des Weiteren belegt der Signaturalgorithmus \enquote{ML-DSA-87}, dass die Zertifikatskette valide durch die \enquote{Master Thesis PQC Root CA} signiert wurde, was die erfolgreiche Generierung und Einbindung der Dilithium-basierten Zertifikate in den TLS-Handshake beweist.
 
 \begin{figure}[H]
     \centering
@@ -527,7 +474,7 @@ Zur Verifikation der kryptographischen Integrität der implementierten Public-Ke
 
 \subsubsection{Validierung der TLS 1.3 Algorithmen-Aushandlung}
 
-Die erfolgreiche Integration der PQC-Algorithmen in das Transportprotokoll wurde durch einen Verbindungsaufbau mittels \texttt{openssl s\_client} verifiziert. Wie in \autoref{fig:Successful-Validation-Issuer-TLS1.3} dargestellt, konnte erfolgreich eine TLS-1.3-Sitzung etabliert werden. Die Analyse der Handshake-Parameter bestätigt die Verwendung der hybrid-post-quanten Schlüsselaustauschgruppe \texttt{X25519MLKEM768}, welche den klassischen elliptischen Kurvenalgorithmus X25519 mit dem KEM-Verfahren ML-KEM-768 kombiniert. Zudem wird für die Authentifizierung des Peer-Zertifikats der Signaturalgorithmus \texttt{mldsa65} (Dilithium) ausgewiesen. Diese Ergebnisse validieren die korrekte Konfiguration der OQS-Provider-Bibliothek innerhalb der Proxy-Komponenten und belegen die praktische Funktionsfähigkeit des hybriden Schlüsselaustauschs im Zusammenspiel mit PQC-Signaturen.
+Die erfolgreiche Integration der PQC-Algorithmen in das Transportprotokoll wurde durch einen Verbindungsaufbau mittels \enquote{openssl s\_client} verifiziert. Wie in \autoref{fig:Successful-Validation-Issuer-TLS1.3} dargestellt, konnte erfolgreich eine TLS-1.3-Sitzung etabliert werden. Die Analyse der Handshake-Parameter bestätigt die Verwendung der hybrid-post-quanten Schlüsselaustauschgruppe \enquote{X25519MLKEM768}, welche den klassischen elliptischen Kurvenalgorithmus X25519 mit dem KEM-Verfahren ML-KEM-768 kombiniert. Zudem wird für die Authentifizierung des Peer-Zertifikats der Signaturalgorithmus \enquote{mldsa65} ausgewiesen. Diese Ergebnisse validieren die korrekte Konfiguration der OQS-Provider-Bibliothek innerhalb der Proxy-Komponenten und belegen die praktische Funktionsfähigkeit des hybriden Schlüsselaustauschs im Zusammenspiel mit PQC-Signaturen.
 
 \begin{figure}[H]
     \centering
@@ -541,7 +488,7 @@ Die erfolgreiche Integration der PQC-Algorithmen in das Transportprotokoll wurde
 
 \subsubsection{Validierung der Ledger-Initialisierung}
 
-Die operative Funktionsfähigkeit des Hyperledger Indy Netzwerks wurde primär über das Web-Interface des Blockchain-Servers validiert. Wie in \autoref{fig:Successful-Validation-Blockchain-Webserver} dargestellt, zeigen die Statusindikatoren aller vier Validator-Nodes eine aktive Beteiligung am Konsensus-Protokoll (Status \textit{Node1--4}), womit der Distributed Ledger erfolgreich initialisiert ist. Simultan belegt diese Abbildung die korrekte PQC-Absicherung der Webserver-Komponente: Der Zugriff erfolgt über den eigens kompilierten PQC-Chromium-Browser, dessen Security-Panel explizit eine authentifizierte TLS-1.3-Verbindung unter Verwendung der hybriden Schlüsselaustauschgruppe \texttt{X25519MLKEM768} ausweist.
+Die operative Funktionsfähigkeit des Hyperledger Indy Netzwerks wurde primär über das Web-Interface des Blockchain-Servers validiert. Wie in \autoref{fig:Successful-Validation-Blockchain-Webserver} dargestellt, zeigen die Statusindikatoren aller vier Validator-Nodes eine aktive Beteiligung am Konsensus-Protokoll (Status Node1-4), womit der Distributed Ledger erfolgreich initialisiert ist. Simultan belegt diese Abbildung die korrekte PQC-Absicherung der Webserver-Komponente. Der Zugriff erfolgt über den eigens kompilierten PQC-Chromium-Browser, dessen Security-Panel explizit eine authentifizierte \ac{TLS}-1.3-Verbindung unter Verwendung der hybriden Schlüsselaustauschgruppe \enquote{X25519MLKEM768} ausweist.
 
 \begin{figure}[H]
     \centering
@@ -553,7 +500,7 @@ Die operative Funktionsfähigkeit des Hyperledger Indy Netzwerks wurde primär �
     \label{fig:Successful-Validation-Blockchain-Webserver}
 \end{figure}
 
-Als zweite notwendige Bedingung für die spätere Anbindung der SSI-Agenten (ACA-Py) wurde die Verfügbarkeit der Genesis-Datei verifiziert. \autoref{fig:Successful-Validation-Genesis-File-Blockchain-Webserver} dokumentiert den Abruf des \texttt{/genesis}-Endpunkts mittels \texttt{curl}. Die erfolgreiche Rückgabe der JSON-formatierten Genesis-Transaktionen bestätigt, dass die für das Bootstrapping externer Clients erforderlichen Netzwerkinformationen korrekt publiziert werden.
+Als zweite notwendige Bedingung für die spätere Anbindung der SSI-Agenten wurde die Verfügbarkeit der Genesis-Datei verifiziert. \autoref{fig:Successful-Validation-Genesis-File-Blockchain-Webserver} dokumentiert den Abruf des Endpunkts \enquote{/genesis} mittels \enquote{curl}. Die erfolgreiche Rückgabe der JSON-formatierten Genesis-Transaktionen bestätigt, dass die für die Anbindung externer Clients erforderlichen Netzwerkinformationen korrekt publiziert werden.
 
 \begin{figure}[H]
     \centering
@@ -567,7 +514,7 @@ Als zweite notwendige Bedingung für die spätere Anbindung der SSI-Agenten (ACA
 
 \subsubsection{Validierung der ACA-Py API-Verfügbarkeit}
 
-Die funktionale Erreichbarkeit der SSI-Agenten wurde durch eine systematische Analyse der Initialisierungsphase und der anschließenden API-Verfügbarkeit validiert. Die Logging-Ausgabe des Issuer-Agenten (Listing~\ref{lst:Issuer-Agent-Boot-Logs}) dokumentiert die erfolgreiche Genesis-Datei-Abrufung über \texttt{https://host.docker.internal:8000/genesis} (Zeile 3) und die vollständige Ledger-Konfiguration (Zeile 8). Die Erstellung eines neuen Wallet-Profils mit Askar-Backend (Zeile 5) und die erfolgreiche Initialisierung der Inbound- und Outbound-Transports (Zeile 10--26) demonstrieren die korrekte Konfiguration des ACA-Py-Agents. Die durchgeführten Health-Checks über den \texttt{/status/ready}-Endpunkt (Zeile 51--52) bestätigen die vollständige Initialisierung und Bereitschaft des Agenten.
+Die funktionale Erreichbarkeit der SSI-Agenten wurde durch eine systematische Analyse der Initialisierungsphase und der anschließenden API-Verfügbarkeit validiert. Die Logging-Ausgabe des Issuer-Agenten (Listing~\ref{lst:Issuer-Agent-Boot-Logs}) dokumentiert den erfolgreichen Abruf der Genesis-Datei und die vollständige Ledger-Konfiguration. Die Erstellung eines neuen Wallet-Profils mit Askar-Backend und die erfolgreiche Initialisierung der Inbound- und Outbound-Transports demonstrieren die korrekte Konfiguration des ACA-Py-Agents. Die durchgeführten Health-Checks über den Endpunkt \enquote{/status/ready} bestätigen die vollständige Initialisierung und Bereitschaft des Agenten.
 
 Die Visualisierung der Swagger-basierten Admin-Oberfläche (\autoref{fig:Successful-Validation-Issuer-Agent-ACA-Py-Swagger-API}) ergänzt diese technischen Log-Daten durch den Nachweis, dass die Admin-API über den PQC-Reverse-Proxy fehlerfrei erreichbar ist und alle administrativen Endpunkte zur Steuerung der Agenten-Komponente bereitstellt. Die Tatsache, dass die Swagger-Oberfläche unter dem PQC-gesicherten HTTPS-Endpoint vollständig funktionsfähig ist, belegt die korrekte TLS-Terminierung am Proxy sowie die fehlerfreie Weiterleitung der HTTP-Anfragen an den ACA-Py-Container.
 
@@ -583,7 +530,7 @@ Die Visualisierung der Swagger-basierten Admin-Oberfläche (\autoref{fig:Success
 
 \subsubsection{Validierung der Netzwerkisolation}
 
-Die integrale Sicherheitseigenschaft der Netzwerksegmentierung wurde durch eine Inspektion der Docker-Netzwerktopologie und systematische Erreichbarkeitstests validiert. Die Architektur implementiert ein striktes Micro-Segmentation-Konzept, bei dem jeder SSI-Akteur in einem dedizierten, isolierten Subnetz operiert. \autoref{fig:Darstellung-Network-Isolation} belegt diese Topologie anhand des \texttt{docker network inspect}-Outputs: Der Issuer-Agent befindet sich exklusiv im Netzwerksegment \texttt{hope\_hope-issuer}, während der Holder-Agent im Segment \texttt{hope\_hope-holder} isoliert ist. In jedem dieser Segmente fungiert der zugehörige PQC-Sidecar-Proxy als einziger Ingress-Punkt.
+Die integrale Sicherheitseigenschaft der Netzwerksegmentierung wurde durch eine Inspektion der Docker-Netzwerktopologie und systematische Erreichbarkeitstests validiert. \autoref{fig:Darstellung-Network-Isolation} belegt diese Topologie anhand des \enquote{docker network inspect}-Outputs: Der Issuer-Agent befindet sich exklusiv im Netzwerksegment \enquote{hope\_hope-issuer}, während der Holder-Agent im Segment \enquote{hope\_hope-holder} isoliert ist. In jedem dieser Segmente fungiert der zugehörige PQC-Sidecar-Proxy als einziger Ingress-Punkt.
 
 \begin{figure}[H]
     \centering
@@ -595,7 +542,7 @@ Die integrale Sicherheitseigenschaft der Netzwerksegmentierung wurde durch eine 
     \label{fig:Darstellung-Network-Isolation}
 \end{figure}
 
-\autoref{fig:Successful-Validation-Network-Isolation-Through-Tests} demonstriert die Wirksamkeit dieser Isolation auf zwei Ebenen. Erstens zeigt die Prozessliste (\texttt{docker ps}), dass lediglich die Sidecar-Proxies externe Ports (z.\,B. 8020, 8030, 8040) an das Host-System binden, während die Ports der ACA-Py-Container (z.\,B. \texttt{issuer-agent}) nicht exponiert sind. Zweitens beweisen die Inter-Container-Verbindungstests die logische Trennung: Ein direkter Zugriffsversuch aus dem \texttt{issuer-agent}-Container auf den \texttt{holder-agent} schlägt mit einem DNS-Auflösungsfehler (\textit{Could not resolve host}) fehl, da keine Routing-Route zwischen den isolierten Netzwerkbrücken existiert. Im Gegensatz dazu ist der lokale Zugriff des \texttt{pqc-sidecarproxy-holder} auf seinen zugehörigen Agenten erfolgreich möglich. Diese Konfiguration erzwingt, dass jegliche Kommunikation zwischen den Akteuren das Host-Netzwerk passieren muss, wo sie durch die in den Proxies terminierte Post-Quanten-Kryptographie (TLS 1.3 mit ML-KEM) abgesichert wird.
+\autoref{fig:Successful-Validation-Network-Isolation-Through-Tests} demonstriert die Wirksamkeit dieser Isolation auf zwei Ebenen. Erstens zeigt die Prozessliste (\enquote{docker ps}), dass lediglich die Sidecar-Proxies externe Ports (8020, 8030, 8040) an das Host-System binden, während die Ports der ACA-Py-Container nicht exponiert sind. Zweitens beweisen die Inter-Container-Verbindungstests die logische Trennung. Ein direkter Zugriffsversuch aus dem \enquote{issuer-agent}-Container auf den \enquote{holder-agent} schlägt mit einem DNS-Auflösungsfehler (\enquote{Could not resolve host}) fehl, da keine Routing-Route zwischen den isolierten Netzwerkbrücken existiert. Im Gegensatz dazu ist der lokale Zugriff des \enquote{pqc-sidecarproxy-holder} auf seinen zugehörigen Agenten erfolgreich möglich.
 
 \begin{figure}[H]
     \centering
@@ -608,67 +555,57 @@ Die integrale Sicherheitseigenschaft der Netzwerksegmentierung wurde durch eine 
 \end{figure}
 
 \subsection{Erkenntnisse und Anpassungsbedarfe}
+\label{subsec:findings_adaptation_needs}
 
-Die erste Iteration bildet das fundamentale technologische Fundament der Forschungsarbeit. Die formative Evaluation (Kapitel \ref{sec:Formative-Evaluation-I1}) validierte die operative Integrität der entwickelten Architektur: Die verteilten Micro-Services, der Hyperledger Indy Ledger und die PQC-Sidecar-Proxies interagieren funktional korrekt. Diese Initialphase generierte jedoch spezifische Erkenntnisse, die eine gezielte Weiterentwicklung in der zweiten Iteration motivieren. Diese werden nachfolgend in Bezug auf die Designziele und die Funktionsmerkmale (FF) analysiert.
+Die erste Iteration bildet das fundamentale technologische Fundament der Forschungsarbeit. Die formative Evaluation (Kapitel~\ref{sec:formative_evaluation_iteration1}) validierte die operative Integrität der entwickelten Architektur. Die verteilten Micro-Services, der Hyperledger Indy Ledger und die PQC-Sidecar-Proxies interagieren funktional korrekt. Diese Initialphase generierte jedoch spezifische Erkenntnisse, die eine gezielte Weiterentwicklung in der zweiten Iteration motivieren. Diese werden nachfolgend in Bezug auf die Designziele analysiert.
 
-\subsubsection{Abgleich mit den Designzielen der ersten Iteration}
+\subsubsection{Abgleich mit den Designzielen und kritische Erkenntnisse}
+\label{subsubsec:design_goals_critique}
 
-Das primäre Designziel, die Absicherung der Transportebene in einem SSI-Ökosystem mittels Post-Quanten-Kryptographie, wurde vollständig erreicht. Die erfolgreiche Validierung des Sidecar-Musters belegt die Machbarkeit einer transparenten PQC-Migration für Legacy-Systeme (ACA-Py, Indy Node) ohne Eingriffe in deren Kerncode. Die implementierte Micro-Segmentation erfüllt zudem die architektonischen Anforderungen an Netzwerkisolation und Angriffsflächenminimierung in KRITIS-Umgebungen.
+Das primäre Designziel, die Absicherung der Transportebene in einem SSI-Ökosystem mittels Post-Quanten-Kryptographie, wurde vollständig erreicht. Die erfolgreiche Validierung des Sidecar-Musters belegt die Machbarkeit einer transparenten PQC-Migration für Legacy-Systeme (ACA-Py, Indy Node) ohne Eingriffe in deren Kerncode. Die implementierte Micro-Segmentation erfüllt zudem die architektonischen Anforderungen an logische Netzsegmentierung in \ac{KRITIS}-Umgebungen (\autoref{tab:compliance_requirements}).
 
-\subsubsection{FF1: Funktionale SSI-Kernprozesse \& Systemarchitektur}
+Durch die strikte Entkopplung der kryptographischen Terminierung von der Business-Logik durch die Sidecar-Proxy-Architektur konnte eine PQC-Integration realisiert werden, die die Kernprozesse der Identitätsverwaltung funktional nicht beeinträchtigt. Diese architektonische Entscheidung ermöglicht es, sicherheitskritische Updates an der Krypto-Komponente vorzunehmen, ohne die Integrität der komplexen SSI-Logik zu gefährden. Die empirische Validierung der Zertifikatsketten und TLS-1.3-Handshake-Protokolle (\autoref{sec:formative_evaluation_iteration1}) bestätigt die technische Reife dieser Architekturentscheidung.
 
-Die implementierte Sidecar-Proxy-Architektur erwies sich als effektives Design-Pattern zur Realisierung einer \emph{Separation of Concerns} im KRITIS-Kontext. Durch die strikte Entkopplung der kryptographischen Terminierung (Proxy) von der Business-Logik (SSI-Agent) konnte eine PQC-Integration realisiert werden, die die Kernprozesse der Identitätsverwaltung funktional nicht beeinträchtigt. Diese architektonische Entscheidung ermöglicht es, sicherheitskritische Updates an der Krypto-Komponente vorzunehmen, ohne die Integrität der komplexen SSI-Logik zu gefährden.
+Bezüglich der Algorithmenauswahl und Sicherheitsbewertung operationalisiert die erste Iteration die in Tabelle~\ref{tab:compliance_requirements} definierten BSI-Vorgaben für Post-Quantum-Kryptografie durch die Implementierung der NIST-standardisierten Algorithmen ML-DSA-65 und ML-KEM-768, welche explizit die NIST Security Strength Categories 3/5 erfüllen \parencite[Kap.~2.4, 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. Die formative Evaluation bestätigte die technische Machbarkeit dieser Algorithmen in der Sidecar-Proxy-Infrastruktur durch die erfolgreiche Validierung hybrider Zertifikatsketten und TLS-1.3-Handshake-Protokolle mit der Schlüsselaustauschgruppe \enquote{X25519MLKEM768}.
 
-\subsubsection{FF2: Sicherheit, Compliance \& Algorithmenwahl}
+Bezüglich der kryptografischen Agilität zeigt die erste Iteration, dass das Designziel einer architektonischen Vorbereitung auf Algorithmenaustauschbarkeit erreicht wurde. Die containerbasierte Sidecar-Architektur ermglicht es, kryptografische Bibliotheken durch Rolling Updates der Proxy-Images auszutauschen, ohne ACA-Py oder die übrige Systemlogik anzupassen, was direkt die von \textcite[S. 102]{mehrez_CryptoAgilityProperties_2018} geforderte \enquote{Extensibility} kryptoagiler Systeme adressiert. Gleichzeitig nutzt die TLS-1.3-Integration eine konfigurationsbasierte Fallback-Kette (\enquote{DEFAULT\_GROUPS:X25519:ML-KEM-768:mlkem768x25519:mlkem1024}), sodass hybride und klassische Verfahren orthogonal ausgehandelt und bei Inkompatibilitäten automatisch gewechselt werden können \parencite[S. 26]{rescorla_TransportLayerSecurityTLSProtocolVersion13_2018}. Diese Protokoll- und Infrastrukturmechanismen realisieren damit zentrale Kryptoagilitäts-Eigenschaften wie \enquote{Fungibility} und \enquote{Updateability} \parencite[S. 102--103]{mehrez_CryptoAgilityProperties_2018} und entsprechen dem Erfordernis, kryptografische Komponenten ohne grundlegende Systemumgestaltung migrieren zu können \parencite[S. 670]{kreutzer_Kryptoagilitaet_2024a}.
 
-Die Implementierung von ML-KEM-768 und ML-DSA-65 bestätigte die technische Reife dieser Algorithmen für den produktiven Einsatz. Die durchgeführten Tests validierten die Interoperabilität von hybriden Zertifikatsketten. Eine zentrale Erkenntnis ist jedoch, dass Sicherheit im KRITIS-Kontext über die Transportebene hinausgehen muss. Die aktuelle Transportverschlüsselung schützt zwar Daten "in Transit", bietet aber keine Ende-zu-Ende-Integrität auf Anwendungsebene (z.B. für VCs im Ruhezustand). Eine Erweiterung des Sicherheitsmodells auf die Applikationsschicht ist daher für Defense-in-Depth unerlässlich.
+Eine zentrale Limitation identifizierte jedoch die Analyse der Sicherheitsmodelle. Während die Transportebene durch die Sidecar-Proxies vollständig quantensicher abgesichert ist (\gls{Data-In-Motion}), verbleiben Verifiable Credentials und DID-Dokumente (\gls{Data-At-Rest}) mittels klassischer Kryptografie verschlüsselt. Diese Diskrepanz zwischen Transportschutz (PQC-gesichert) und Datenpersistierung (klassische Kryptografie) widerspricht dem mehrschichtigen Sicherheitsansatz \enquote{Defense in Depth} von \textcite[S. 242--243]{alsaqour_DefenseDepthMultilayersecurity_2021}, bei dem konsistente, sich gegenseitig verstärkende Kontrollen auf mehreren Ebenen implementiert werden, um Ressourcen und Assets umfassend zu schützen. Diese Erkenntnisse folgern eine Erweiterung des Sicherheitsmodells von der Transportebene auf die Applikationsschicht in der zweiten Iteration.
 
-\subsubsection{FF3: Kryptografische Agilität}
+\subsubsection{Design-Refinements und Operationalisierung der zweiten Iteration}
+\label{subsubsec:design_refinements_iteration2}
 
-Entgegen der Annahme, dass statische Proxy-Konfigurationen starr sind, offenbarten die Tests, dass die gewählte Container-Architektur in Kombination mit TLS 1.3 ein hohes Maß an \textit{operativer Krypto-Agilität} bietet.
-Erstens ermöglicht die Containerisierung (Docker) den Austausch kryptografischer Bibliotheken durch einfache Image-Updates. Ein Algorithmenwechsel erfordert lediglich den Austausch des Proxy-Containers ("Rolling Update"), ohne dass der SSI-Agent (Business-Logik) gestoppt oder rekompiliert werden muss \textcite{docker2017rolling}. Dies realisiert eine Agilität auf Infrastrukturebene.
-Zweitens erlaubt das TLS 1.3-Protokoll eine dynamische Aushandlung (Negotiation) der Cipher Suites \textcite{keyfactor2023tls}. Die Sidecar-Proxies können so konfiguriert werden, dass sie mehrere PQC-Algorithmen parallel unterstützen und je nach Client-Fähigkeit den stärksten gemeinsamen Standard wählen. Dies stellt eine Protokoll-basierte Agilität dar.
-Drittens begünstigt die Micro-Segmentation granulare Migrationspfade: Einzelne Netzwerksegmente (z.B. nur der Issuer) können isoliert auf neuere Algorithmen umgestellt werden, ohne das Gesamtsystem zu gefährden \textcite{colortokens2025microsegmentation}.
+Die systematische Analyse der Evaluationsergebnisse führt zu zwei konvergenten Design-Refinements, die die identifizierten Sicherheitslücken adressieren und die zweite Iteration strukturieren.
 
-\subsubsection{Design-Refinements für die zweite Iteration}
+\textbf{Refinement 1: Applikationsebenen-Integration der Post-Quanten-Kryptografie.} Dieses Refinement adressiert die identifizierte Sicherheitslücke durch technische Erweiterung der PQC-Integration von der Transportebene auf die Applikationsebene. Die direkte Einbindung der \emph{liboqs}-Bibliothek in die ACA-Py-Agenten ermöglicht ML-DSA-65-Signaturen für Verifiable Credentials und DIDComm-Nachrichten, wodurch die kritische Diskrepanz zwischen quantensicherer Transportverschlüsselung und ungeschützter Datenpersistierung geschlossen wird. Die Implementierung als modulares Plugin-System realisiert das Open-Closed-Prinzip \parencite[S. 99]{martin_AgileSoftwareDevelopmentprinciplespatternspractices_2003} und ermöglicht eine nicht-invasive Erweiterung der ACA-Py-Kernarchitektur, ohne deren Codebasis zu modifizieren.
 
-Basierend auf diesen Erkenntnissen wird das Design für Iteration 2 gezielt erweitert, um PQC zusätzlich auf der Applikationsebene zu verankern:
+\textbf{Refinement 2: Hybride Sicherheitsarchitektur mit redundanter Tiefenstaffelung.} Dieses Refinement etabliert ein übergeordnetes Defense-in-Depth-Modell durch beibehaltene Sidecar-Proxies als erste Verteidigungslinie (Transport Layer Security) bei gleichzeitiger Quantensicherung der Datenobjekte auf Anwendungsebene (Application Layer Security). Diese redundante Absicherung schafft eine tiefengestaffelte Sicherheitsarchitektur, bei der ein Bruch einzelner Schichten, nicht automatisch zum Kollaps der Gesamtsicherheit führt. Das Refinement implementiert damit die von \textcite[S. 242--243]{alsaqour_DefenseDepthMultilayersecurity_2021} geforderte Prinzipienkonsistenz über alle Architekturebenen hinweg und gewährleistet die Resilienz des Systems gegen hybride Angriffszenarien.
 
-\begin{itemize}
-\item \textbf{Application-Layer-PQC:} Integration der \emph{liboqs} direkt in die SSI-Agenten. Dies ermöglicht PQC-Signaturen für VCs und DIDComm-Nachrichten, wodurch eine Ende-zu-Ende-Integrität unabhängig vom Transportkanal gewährleistet wird (Adressierung FF2).
-\item \textbf{Hybride Sicherheitsarchitektur:} Beibehaltung der Sidecar-Proxies als erste Verteidigungslinie (Transport Security) bei gleichzeitiger Härtung der Datenobjekte selbst (Application Security). Dies schafft Redundanz und Tiefenverteidigung.
-\end{itemize}
+
 
 \newpage
 \section{Zweite Iteration der Artefaktentwicklung}
 \label{Zweite Iteration der Artefaktentwicklung}
 
 \subsection{Designziele dieser Iteration} \label{sec:Designziele_Iteration_2}
-%   ALLE FF, mit SCHWERPUNKT auf FF2 (PQC), FF3 (Performance) \\
-%   → FF1 (Architektur): Blockchain-Integration finalisieren \\
-%   → FF1 (Architektur): Compliance-Layer finalisieren (BSI, DSGVO) \
-%   → FF2 (Algorithmen): Vollständige PQC-Suite (ML-DSA, ML-KEM) \\
-%   → FF2 (Algorithmen): Hybride Schemata implementieren \
-%   → FF3 (Kryptoagilität): Plugin-System für Algorithmen implementieren
-%   → FF3 (Kryptoagilität): Key-Rotation-Mechanismus validieren
 
 Die zweite Iteration der Artefaktentwicklung baut auf der in Iteration 1 erfolgreich validierten Basisarchitektur auf und korrespondiert erneut mit der DSRM-Phase 2 \textit{Objectives} nach \textcite[S. 54]{peffers_DesignScienceResearchmethodologyinformationsystemsresearch_2007}. Der Fokus dieser Iteration liegt auf der Erweiterung des Prototyps um eine tiefgreifende PQC-Integration auf der Anwendungsebene (Application Layer). Im Kontext des Drei-Zyklen-Modells nach \textcite[S. 88]{hevner_ThreeCycleViewDesignScienceResearch_2007} wird der Design Cycle intensiviert, um die kryptografische Sicherheit von der reinen Transportsicherung (TLS) auf die tatsächlichen Nutzdaten (Verifiable Credentials und DID-Dokumente) auszuweiten und somit eine Ende-zu-Ende-Sicherheit zu gewährleisten.
 
-Die Designziele dieser Iteration leiten sich konsistent aus den in Kapitel~\ref{sec:Zielsetzung und Forschungsfragen} definierten Forschungsfragen ab, wobei eine inhaltliche Vertiefung der technischen Anforderungen erfolgt:
+Die Designziele dieser Iteration leiten sich konsistent aus den in Kapitel~\ref{sec:Zielsetzung und Forschungsfragen} definierten Forschungsfragen ab, wobei eine inhaltliche Vertiefung der technischen Anforderungen erfolgt.
 
-Bezüglich \textbf{FF1 (Systemarchitektur \& Compliance)} wird das Ziel verfolgt, die SSI-Kernprozesse - insbesondere Issuance und Verification - so zu modifizieren, dass sie quantenresistente Signaturen und Schlüsselformate nativ unterstützen. Das Design muss sicherstellen, dass die Unveränderlichkeit und Authentizität von Identitätsnachweisen unabhängig vom Transportkanal auch langfristig gegenüber Quantencomputer-Angriffen gewährleistet bleibt, was eine zentrale Anforderung für den Einsatz in KRITIS-Umgebungen darstellt.
+Bezüglich FF1 (Systemarchitektur \& Compliance) wird das Ziel verfolgt, die SSI-Kernprozesse so zu modifizieren, dass sie quantenresistente Signaturen und Schlüsselformate nativ unterstützen. Das Design muss sicherstellen, dass die Unveränderlichkeit und Authentizität von Identitätsnachweisen unabhängig vom Transportkanal auch langfristig gegenüber Quantencomputer-Angriffen gewährleistet bleibt, was eine zentrale Anforderung für den Einsatz in KRITIS-Umgebungen darstellt \parencite[.S 25]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}.
 
-Hinsichtlich \textbf{FF2 (Algorithmenauswahl \& Sicherheitsbewertung)} liegt der Fokus auf der Integration und Evaluierung des NIST-standardisierten Signaturalgorithmus ML-DSA (Dilithium) innerhalb der Credential-Strukturen. Das Designziel besteht darin, die praktische Machbarkeit von PQC-Signaturen in Verifiable Credentials (VCs) und Decentralized Identifiers (DIDs) nachzuweisen.
+Hinsichtlich FF2 (Algorithmenauswahl \& Sicherheitsbewertung) wird das Ziel verfolgt, die praktische Machbarkeit von NIST-standardisierten Post-Quantum-Algorithmen in den Kernkomponenten des SSI-Systems nachzuweisen. Der Fokus liegt auf der Integration quantenresistenter Signatur- und Verschlüsselungsverfahren auf der Applikationsebene, um die digitale Authentizität und Integrität von Identitätsnachweisen langfristig gegen Quantencomputer-Angriffe zu schützen.
 
-Für \textbf{FF3 (Kryptografische Agilität)} zielt diese Iteration auf die Implementierung von Agilitätsmechanismen direkt in den Datenstrukturen ab. Das System soll so gestaltet werden, dass es hybride Szenarien unterstützt und eine Koexistenz sowie den nahtlosen Wechsel zwischen klassischen (z.\,B. Ed25519) und post-quanten Kryptografieverfahren innerhalb der DID-Methoden und Credential-Definitionen ermöglicht, ohne die Interoperabilität grundlegend zu gefährden.
+Für FF3 (Kryptografische Agilität) zielt diese Iteration auf die Implementierung von Agilitätsmechanismen direkt in den Datenstrukturen ab. Das System soll so gestaltet werden, dass es hybride Szenarien unterstützt und eine Koexistenz sowie den nahtlosen Wechsel zwischen klassischen (z.\,B. Ed25519) und post-quanten Kryptografieverfahren innerhalb der DID-Methoden und Credential-Definitionen ermöglicht, ohne die Interoperabilität grundlegend zu gefährden.
 
 \subsection{Architekturentwurf}
-%   - Application-Layer-PQC-Integration (liboqs in ACA-Py) \\
-%   - Kryptoagiles Design (Plugin-Architektur) \\
-
-\fixme{\url{https://github.com/decentralized-identity/aries-rfcs} ==> Aries RFCs referenzieren}
 
 \subsubsection{Gesamtarchitektur}
+
+Die Gesamtarchitektur der zweiten Iteration erweitert die in Kapitel~\ref{sec:Gesamtarchitektur_Iteration1} etablierte dreischichtige Containerarchitektur um eine zusätzliche Kryptoebene auf der Anwendungsschicht. Während die in der ersten Iteration implementierte Sidecar-Proxy-Architektur mit TLS~1.3 und hybrider Schlüsseleinigung (X25519 + ML-KEM-768) vollständig beibehalten wird und weiterhin die Transportverschlüsselung zwischen den Komponenten gewährleistet, wird in dieser Iteration die kryptografische Absicherung auf die SSI-Agenten-Schicht ausgeweitet.
+
+\autoref{fig:Gesamtarchitektur_Iteration2} visualisiert diese Erweiterung durch die Integration von \enquote{PQC-PLUGIN}-Modulen in die drei ACA-Py-Instanzen (Issuer, Holder, Verifier). Diese Plugin-Module ermöglichen die Verwendung quantenresistenter Signaturalgorithmen (ML-DSA-65) innerhalb von Verifiable Credentials und Decentralized Identifiers sowie die Verwendung quantenresistenter Schlüsselkapselungsverfahren (ML-KEM-768) für die DIDComm-Messaging-Verschlüsselung. Durch diese duale Architektur mit Sidecar-Proxies für die Transportebene und Plugin-Module für die Applikationsebene wird eine durchgängige Ende-zu-Ende-Quantenresistenz realisiert, die sowohl \gls{Data-In-Motion} als auch \gls{Data-At-Rest} schützt. Die DLT-Infrastruktur (vier Hyperledger-Indy-Validator-Nodes, Ledger-Browser, Webserver), die Revocation Registry (Tails-Server) sowie die zugrundeliegende Docker-Netzwerktopologie bleiben strukturell unverändert und gewährleisten die Kontinuität der in Iteration~1 validierten Infrastrukturkomponenten.
 
 \begin{figure}[H]
     \centering
@@ -682,76 +619,41 @@ Für \textbf{FF3 (Kryptografische Agilität)} zielt diese Iteration auf die Impl
 
 \subsubsection{ACA-Py Applikationsarchitektur}
 
-\fixme{Überflüssig?}
+Während Kapitel~\ref{sec:ACA-Py Applikationsarchitektur_Iteration1} die klassische Applikationsarchitektur als geschichtete, unveränderliche Referenzimplementierung vorstellt, demonstriert die zweite Iteration die transparente Applikationsschicht-Integration von PQC durch ein modulares Plugin-System, das bestehendes Kerncode-Design respektiert und durch gezieltes Patching erweitert. ACA-Py-Plugins ermöglichen hierbei eine standardisierte Erweiterbarkeit, ohne die ACA-Py-Codebasis zu überlasten \parencite{_ACAPyPluginsACAPyDocs_}. 
+
+\autoref{fig:ACAPY_Application_Architecture_Iteration2_PQC} visualisiert diese erweiterte Architektur und verdeutlicht die Integration des PQC-Plugins als zentrale Interceptions- und Delegationsschicht. Die roten Markierungen heben die Unterschiede zur klassischen ACA-Py Applikationsarchitektur (\autoref{fig:ACAPY_Application_Architecture_Iteration_1}) hervor. Das Plugin ist seitlich an alle vier klassischen Schichten (Protocol Handlers, Wallet Interface, Transport Layer, externe Business Logic) angebunden, woraus sich bidirektionale Pfeile ergeben. Diese Bidirektionalität symbolisiert die transparente Interception. Wenn eine klassische Schicht eine Operation initiiert, wird diese zunächst vom Plugin abgefangen. Das Plugin führt eine PQC-äquivalente Operation durch und gibt das Ergebnis an die ursprüngliche Schicht zurück. Diese Interceptions-Delegation ermöglicht es dem Plugin, als Zwischenschicht zu fungieren, ohne die übergeordnete Geschäftslogik zu modifizieren. Die Erweiterungen manifestieren sich somit nicht nur auf vier Architekturebenen, sondern auch in der Rolle des Plugins als verteilte, querschichtliche Integrationsfläche, die nachfolgend charakterisiert werden.
+
+Die Protocol Handlers-Schicht wird durch eine PQC-Interception-Delegation erweitert. Während die klassische Architektur DID Exchange, Credential Issuance und Presentation Proof ausschließlich mit Signaturen klassischer Kryptografie durchführt \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_}, delegiert die erweiterte Variante diese Operationen an das Plugin, das ML-DSA-65 als Signaturverfahren verwendet.
+
+Die Wallet Interface-Schicht wird nicht ersetzt, sondern erweitert. Das klassische Aries-Askar-Backend bleibt vollständig funktionsfähig und verwaltet weiterhin klassische Kryptografie \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_}. Parallel dazu registriert das Plugin zusätzliche Operationsmethoden für die PQC-Schlüssel ML-DSA-65-Signaturen, ML-KEM-768-Key-Encapsulation und angepasste Speicherfunktionen, die die größeren Schlüssellängen in der bestehenden SQLite-Struktur persistieren. Diese Erweiterung ist nicht-invasiv und erhält die ChaCha20-Poly1305-Verschlüsselung der Wallet-Datenbank.
+
+Die Key-Type-Registry und DIDComm-Verschlüsselung werden dynamisch erweitert. Das Plugin registriert ML-DSA-65 und ML-KEM-768 als vollwertige Schlüsseltypen neben den klassischen Varianten ed25519 und x25519 \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_}. Die DIDComm-Verschlüsselung wird orthogonal erweitert, sodass PQC-Nachrichten ML-KEM-768-Key-Encapsulation nutzen.
+
+Die Integration-Patching-Schicht realisiert die transparente Einbettung der PQC-Funktionalität durch gezieltes \gls{Monkey-Patching}, das kritische Funktionen der bestehenden Schichten zur Laufzeit überschreibt, ohne den ACA-Py-Quellcode zu modifizieren. Dies ermöglicht die Einbindung von PQC-Operationen (Schlüsselgenerierung, Signatur, Key-Encapsulation) in bestehende Workflows und erlaubt hybride Betriebsweisen, bei denen Agenten je nach Plugin-Ladezustand klassische oder quantenresistente Schlüssel erzeugen.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{ACAPY Application Architecture_Iteration 2.png}
-    \caption{ACA-Py High Level Applikationsarchitektur}
-    \begin{flushleft}
-    \textit{Anmerkung.} Eigene Darstellung.
-    \end{flushleft}
-    \label{fig:ACAPY_Application_Architecture_Iteration2}
-\end{figure}
-
-Die Architektur von Hyperledger Aries Cloud Agent Python (ACA-Py) folgt einem fünfschichtigen Design mit klarer Verantwortlichkeitstrennung.
-
-\textit{Layer 1} bildet eine zustandslose HTTP-REST-API (Admin API), die es Controller-Anwendungen ermöglicht, den Agent über standardisierte Endpoints wie \texttt{/out-of-band/create-invitation}, \texttt{/issue-credential-2.0/send} oder \texttt{/present-proof-2.0/send-request} zu steuern, ohne direkt mit der Python-Codebasis zu interagieren.
-
-\textit{Layer 2} implementiert die SSI-Geschäftslogik als Protocol Handler, die Aries RFCs (Request for Comments) in Form zustandsbasierter State Machines umsetzen: Das Out-of-Band Protocol (RFC 0434) generiert Invitation-Nachrichten mit \texttt{did:peer:4}-DIDs, das DID Exchange Protocol (RFC 0023) authentifiziert Agent-Verbindungen mittels ED25519-Signaturen, das Issue Credential Protocol (RFC 0453) erstellt AnonCreds-CL-signierte Credentials, und das Present Proof Protocol (RFC 0454) orchestriert Zero-Knowledge-Proof-basierte Presentations.
-
-\textit{Layer 3} abstrahiert die Schlüsselverwaltung durch das Aries-Askar-Wallet, das ED25519-Schlüsselpaare (32 Bytes, für Signaturen) und X25519-Schlüsselpaare (32 Bytes, für Key Agreement) generiert, diese mit Multicodec-Präfixen (\texttt{0xed}, \texttt{0xec}) kodiert und verschlüsselt in einer SQLite-Datenbank ablegt, wobei ChaCha20-Poly1305-Authenticated-Encryption nach Argon2id-basierter Schlüsselableitung verwendet wird.
-
-\textit{Layer 4} realisiert DIDComm-Messaging über \texttt{pack\_message()} und \texttt{unpack\_message()}: Nachrichten werden mittels X25519-ECDH-Key-Agreement, HKDF-SHA256-Schlüsselableitung und XChaCha20-Poly1305-Verschlüsselung in JWE-Strukturen transformiert, die Vertraulichkeit und Integrität zwischen Agents gewährleisten.
-
-\textit{Layer 5} implementiert HTTP- und WebSocket-basierte Transport-Mechanismen für Inbound- (\texttt{--inbound-transport http 0.0.0.0 8020}) und Outbound-Kommunikation, wobei in der klassischen Architektur kein quantensicheres TLS verwendet wird. Die gesamte kryptografische Basis -- ED25519 für DID-Authentifizierung, X25519 für DIDComm-Encryption und AnonCreds-CL-Signaturen für Credentials -- ist nicht quantenresistent, da elliptische Kurven durch Shor's Algorithmus auf Quantencomputern kompromittiert werden können, was die Notwendigkeit einer systematischen Post-Quantum-Kryptografie-Integration begründet.
-
-
-\subsubsection{ACA-Py Applikationsarchitektur mit PQC-Integration}
-
-Die Integration von Post-Quantum-Kryptografie in Hyperledger Aries Cloud Agent Python erfolgt über eine plugin-basierte Architektur, die sechs zentrale Design-Prinzipien verfolgt: Transparenz, Erweiterbarkeit, Interoperabilität, Defense-in-Depth, Standards-Konformität und Separierung von Belangen.
-Abbildung~\ref{fig:ACAPY_Application_Architecture_Iteration2_PQC} visualisiert die erweiterte Architektur und hebt die Unterschiede zur klassischen Implementierung hervor.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{ACA-Py Applikationsarchitektur mit PQC-Integration.png}
+    \includegraphics[width=\linewidth]{ACA-Py Applikationsarchitektur mit PQC-Integration}
     \caption{ACA-Py High Level Applikationsarchitektur mit PQC-Integration}
     \begin{flushleft}
-    \textit{Anmerkung.} Eigene Darstellung.
+    \textit{Anmerkung.} Eigene Darstellung auf Basis von \autoref{fig:ACAPY_Application_Architecture_Iteration 1}.
     \end{flushleft}
     \label{fig:ACAPY_Application_Architecture_Iteration2_PQC}
 \end{figure}
 
-Das fundamentale Design-Prinzip der \textit{Transparenz} manifestiert sich in der vollständigen Beibehaltung der Controller-Application-Schnittstelle und der ACA-Py Admin API. Beide Schichten bleiben unverändert, wodurch bestehende Controller-Anwendungen -- beispielsweise Web-Applikationen, Jupyter-Notebooks oder CLI-Tools -- ohne Modifikationen weiterhin funktionieren. Die HTTP-REST-API exponiert identische Endpoints (\texttt{/out-of-band/create-invitation}, \texttt{/issue-credential-2.0/send}, etc.) mit strukturell unveränderten Request- und Response-Schemata. Diese Architekturentscheidung eliminiert Breaking Changes und ermöglicht eine schrittweise Migration: Controller-Code bleibt kompatibel, während die kryptografischen Primitive unterhalb der API-Ebene ausgetauscht werden. Das Diagramm markiert diese Schichten explizit mit \texttt{NO CHANGE}, um die Nicht-Invasivität der PQC-Integration zu verdeutlichen.
-
-Die \textit{Erweiterbarkeit} der Architektur wird durch das Key-Type-Registry-Pattern gewährleistet. Das PQC-Plugin erweitert die Wallet-Schnittstelle um neue Schlüsseltypen (ML-DSA-65 für digitale Signaturen, ML-KEM-768 für Key Encapsulation), ohne die bestehende Registry zu modifizieren. Diese Erweiterung erfolgt zur Laufzeit durch Registrierung zusätzlicher \texttt{KeyType}-Objekte, die Multicodec-Präfixe (\texttt{0xd065} für ML-DSA-65, \texttt{0xe018} für ML-KEM-768), Multicodec-Namen und JWS-Algorithmus-Identifier definieren. Die Architektur nutzt pluggable Crypto Backends: Das PQC-Plugin bindet \texttt{liboqs-python} als kryptografische Engine ein, während klassische Operationen weiterhin über \texttt{libsodium} abgewickelt werden. Dieses Backend-Abstraktionsmodell erlaubt die Integration zukünftiger Post-Quantum-Algorithmen -- beispielsweise SLH-DSA (NIST FIPS-205) oder zukünftige NIST-Standardisierungsrunden -- durch Addition weiterer Backend-Module ohne Änderungen an der Core-Architektur.
-
-Das Design gewährleistet \textit{Interoperabilität} durch explizite Fallback-Mechanismen zu klassischen Algorithmen. Die Wallet-Operation-Wrapper im Plugin implementieren Key-Type-Erkennung: Wenn eine Operation einen klassischen Schlüssel (ED25519, X25519) detektiert, delegiert sie an die ursprüngliche Implementierung; bei PQC-Schlüsseln erfolgt die Delegation an die \texttt{liboqs}-Integration. Diese Dual-Mode-Architektur ermöglicht hybride Deployments, in denen Agents sowohl mit PQC-fähigen als auch mit Legacy-Agents kommunizieren können. Zusätzlich unterstützt das Design explizit Hybrid-Kryptografie (X25519MLKEM768), bei der klassische und quantensichere Algorithmen kombiniert werden, um Crop-and-Paste-Resistenz gemäß BSI-Richtlinien zu erreichen. Die strukturelle JWE-Kompatibilität bleibt erhalten: DIDComm-Nachrichten verwenden weiterhin die JSON-Web-Encryption-Struktur mit \texttt{protected}, \texttt{recipients}, \texttt{iv}, \texttt{ciphertext} und \texttt{tag}-Feldern, wobei lediglich das \texttt{encrypted\_key}-Feld größere Ciphertexte aufnimmt (1088 Bytes für ML-KEM-768 statt circa 32 Bytes für X25519-ECDH) und der \texttt{alg}-Header den verwendeten Algorithmus spezifiziert.
-
-Das Prinzip \textit{Defense-in-Depth} wird durch zweischichtige Quantenresistenz realisiert. Auf Transport-Layer-Ebene (Iteration 1, bereits implementiert) terminieren Nginx-Reverse-Proxies TLS-1.3-Verbindungen mit ML-KEM-768-Schlüsselaustausch und ML-DSA-65-Zertifikaten, wodurch alle HTTP-basierten Kommunikationskanäle quantensicher werden. Auf Application-Layer-Ebene (Iteration 2, Plugin-Integration) verschlüsselt das DIDComm-Messaging-Protokoll Nachrichten mittels ML-KEM-768-basierter Key Encapsulation, unabhängig vom zugrundeliegenden Transport-Protokoll. Diese doppelte Absicherung gewährleistet, dass selbst bei Kompromittierung der Transport-Layer-Infrastruktur (z.\,B.\ Proxy-Penetration) die End-to-End-verschlüsselten DIDComm-Nachrichten quantenresistent bleiben. Das Architekturdiagramm visualisiert diese Schichtung durch separate Markierungen für \texttt{Iteration 2: PQC within DIDComm} (Transport Layer) und die PQC-spezifischen Wallet-Operationen (\texttt{PQC Pack/Unpack}).
-
-Die \textit{Standards-Konformität} manifestiert sich in der strukturellen Beibehaltung aller Aries RFCs. Das Out-of-Band Protocol (RFC 0434), DID Exchange Protocol (RFC 0023), Issue Credential Protocol (RFC 0453) und Present Proof Protocol (RFC 0454) bleiben als Python-Module unverändert; lediglich die von ihnen aufgerufenen Wallet-Operationen werden durch das Plugin abgefangen und an PQC-Implementierungen delegiert. Diese Interception-Architektur (im Diagramm als \texttt{PQC-Interception} und \texttt{Delegation to PQC-Plugin} markiert) gewährleistet, dass die State-Machine-Logik der Protokoll-Handler intakt bleibt. Die Multicodec-Spezifikation für ML-DSA-65 und ML-KEM-768 ist derzeit provisorisch (W3C-Standardisierung ausstehend), jedoch strukturell kompatibel mit dem bestehenden Multicodec-Framework. Die DIDComm-v1-JWE-Kompatibilität bleibt vollständig erhalten, sodass Messages zwischen PQC-fähigen und klassischen Agents ausgetauscht werden können, sofern beide Seiten die entsprechenden Algorithmen unterstützen.
-
-Das Prinzip der \textit{Separierung von Belangen} reflektiert die schrittweise Migrationsstrategie. AnonCreds-Credentials verwenden weiterhin CL-Signaturen (Camenisch-Lysyanskaya), da der AnonCreds-Standard keine Post-Quantum-Signaturen spezifiziert und eine Änderung Inkompatibilität mit bestehenden Indy-Ledger-Deployments erzeugen würde. Diese Entscheidung isoliert die PQC-Integration auf die DID-Ebene (did:peer:4-Generierung mit ML-DSA-65/ML-KEM-768) und die Transport-Ebene (TLS 1.3 und DIDComm), während die Credential-Signatur-Ebene klassisch bleibt. Zukünftige Migrationen könnten W3C Verifiable Credentials mit PQC-Signaturen nutzen, ohne die bestehende AnonCreds-Infrastruktur zu beeinflussen. Diese Architektur vermeidet einen Big-Bang-Ansatz, bei dem alle kryptografischen Schichten simultan migriert werden müssten, zugunsten einer inkrementellen, risikominimierten Transition.
-
-Die zentrale architektonische Innovation ist das \texttt{PQC Plugin}-Modul, das als Vermittlungsschicht zwischen Protocol Handlers, Wallet Interface und den kryptografischen Backends fungiert. Das Plugin umfasst vier Kernkomponenten: Den \texttt{liboqs Integration Layer}, der Python-Bindings zu den NIST-standardisierten Algorithmen bereitstellt; den \texttt{PQC did:peer:4 Generator}, der Dual-Key-DIDs (Signing Key: ML-DSA-65, Agreement Key: ML-KEM-768) mit korrekter Multicodec-Kodierung erzeugt; die \texttt{Protocol Interceptors}, die Aufrufe von Protocol Handlers abfangen und an PQC-Implementierungen delegieren; sowie die \texttt{Wallet Operation Wrappers}, die \texttt{create\_key()}, \texttt{sign\_message()}, \texttt{verify\_message()}, \texttt{pack\_message()} und \texttt{unpack\_message()} durch PQC-Varianten erweitern. Diese Komponenten werden beim Agent-Start durch die Plugin-Setup-Funktion registriert und installiert, wodurch die Interception-Logik zur Laufzeit aktiviert wird.
-
-Die Wallet-Implementierung (Aries Askar mit SQLite-Backend) erfährt zwei wesentliche Erweiterungen: Die \texttt{Expanded Key-Type-Registry} speichert Metadaten für ML-DSA-65- und ML-KEM-768-Schlüssel, einschließlich Schlüsselgrößen (Public Key: 1952 Bytes bzw.\ 1184 Bytes, Private Key: 4000 Bytes bzw.\ 2400 Bytes) und Algorithmus-Identifiern. Die \texttt{PQC-Key-Storage}-Erweiterung persistiert diese Schlüssel verschlüsselt in der SQLite-Datenbank, wobei die bestehende ChaCha20-Poly1305-AEAD-Verschlüsselung nach Argon2id-Key-Derivation unverändert bleibt. Die Wallet-Schnittstelle exponiert neue Operationen (\texttt{PQC Key Operations}, \texttt{PQC Sign/Verify}, \texttt{PQC Pack/Unpack}), die transparent von den Protocol Handlers aufgerufen werden, ohne dass diese Kenntnis über die zugrundeliegenden Algorithmen besitzen müssen.
-
-Die Architektur gewährleistet, dass alle Schichten oberhalb der Wallet-Schnittstelle -- insbesondere Protocol Handlers und Admin API -- keine Änderungen erfahren. Dies reduziert die Testoberfläche, da ausschließlich die Plugin-Komponenten und Wallet-Erweiterungen validiert werden müssen, während die etablierte Aries-Protokoll-Logik unverändert bleibt. Die resultierende Architektur kombiniert die Produktionsreife von Hyperledger Aries mit der Quantenresistenz von NIST-standardisierten Post-Quantum-Algorithmen, ohne die Interoperabilität mit bestehenden SSI-Deployments zu kompromittieren.
-
-
-%  - PQC-Algorithmen-Integration (ML-DSA, ML-KEM) \\
-%  - Kryptoagiles Design (Plugin-Architektur) \\
 \subsection{Implementierung}
 
-% Die Implementierung der PQC-Unterstützung auf Application-Ebene erfolgt durch das \texttt{pqc\_didpeer4\_fm}-Plugin, das über den ACA-Py Plugin-Mechanismus transparent in die Agent-Architektur integriert wird. ACA-Py definiert ein Plugin als Python-Paket mit einem \texttt{setup(context)}-Entrypoint, der beim Agent-Start aufgerufen wird und Zugriff auf zentrale Agent-Komponenten (Wallet, DIDComm, Protocol Registry) über einen \texttt{PluginContext} erhält. Plugins können entweder neue Protokolle registrieren oder bestehende Funktionen durch Monkey-Patching erweitern.
+Die Implementierung der PQC-Unterstützung auf Application-Ebene folgt einem zweistufigen Ansatz. In der ersten Stufe wird das pqc\_didpeer4\_fm-Plugin entwickelt, das sich in den ACA-Py Plugin-Mechanismus nach \textcite{_ACAPyPluginsACAPyDocs_,_ACAPyPluginsACAPyPlugins_,openwallet-foundation_OpenwalletfoundationAcapyplugins_2025} einfügt. Das Plugin ist als Python-Paket strukturiert und definiert einen setup-Entrypoint, der beim Agent-Start aufgerufen wird. Über den PluginContext erhält das Plugin unmittelbaren Zugriff auf zentrale Agent-Komponenten wie die Wallet, das DIDComm-System und die Protocol Registry. Diese Architektur ermöglicht es Plugins, neue Protokolle zu registrieren oder bestehende Funktionen durch Monkey-Patching zu erweitern, ohne den ACA-Py Kern zu modifizieren. Die zweite Stufe integriert das entwickelte Plugin in die containerisierte Deployment-Infrastruktur. Dabei wird das Plugin als Abhängigkeit in dem Dockerfile definiert, sodass es während des Container-Builds installiert wird. Anschließend erfolgt die Konfiguration über docker-compose, indem der ACA-Py Service mit den erforderlichen Umgebungsvariablen und Plugin-Parametern initialisiert wird.
 
-Die Implementierung der PQC-Unterstützung auf Application-Ebene folgt einem zweistufigen Ansatz. In der ersten Stufe wird das \texttt{pqc\_didpeer4\_fm}-Plugin entwickelt, das sich in den ACA-Py Plugin-Mechanismus einfügt. Das Plugin ist als Python-Paket strukturiert und definiert einen \texttt{setup(context)}-Entrypoint, der beim Agent-Start aufgerufen wird. Über den \texttt{PluginContext} erhält das Plugin unmittelbaren Zugriff auf zentrale Agent-Komponenten wie die Wallet, das DIDComm-System und die Protocol Registry. Diese Architektur ermöglicht es Plugins, neue Protokolle zu registrieren oder bestehende Funktionen durch Monkey-Patching zu erweitern, ohne den ACA-Py Kern zu modifizieren.
+Der Aufbau des PQC-Plugins gliedert sich in drei funktionale Schichten, in die die in \autoref{fig:pqc_didpeer4_fm_directory_structure} dargestellten 15 Module eingeteilt sind. Diese Architektur garantiert vollständige PQC-Funktionalität ohne Änderungen am ACA-Py-Quellcode.
 
-Die zweite Stufe integriert das entwickelte Plugin in die containerisierte Deployment-Infrastruktur. Dabei wird das Plugin als Abhängigkeit in der \texttt{Dockerfile} definiert, sodass es während des Container-Builds installiert wird. Anschließend erfolgt die Konfiguration über \texttt{docker-compose}, indem der ACA-Py Service mit den erforderlichen Umgebungsvariablen und Plugin-Parametern initialisiert wird. Diese Trennung von Plugin-Entwicklung und Deployment-Integration gewährleistet Modularität und Wartbarkeit.
+Die Kryptografische Abstraktionsschicht bildet die Grundlage und abstrahiert die Komplexität der liboqs-C-Bibliothek durch ein Python-Wrapper-Modul (liboqs\_wrapper.py). Sie stellt einheitliche Operationen für ML-DSA-65 (digitale Signaturen) und ML-KEM-768 (Schlüsselencapsulation) bereit und garantiert, dass kryptografisches Schlüsselmaterial als Byte-Sequenzen serialisiert wird, was eine Voraussetzung für Wallet-Persistierung und Multi-Codec-Kodierungen darstellt.
 
-\begin{figure}[h]
+Die DID-Verarbeitungsschicht orchestriert die vollständige Lebenszyklusbearbeitung von PQC-fähigen did:peer:4-Identifikatoren. Dazu zählen, die Erzeugung und Auflösung (pqc\_peer4\_creator.py, pqc\_peer4\_resolver.py), W3C-konforme Multicodecs (pqc\_multicodec.py, pqc\_multikey.py) und standardisierte DIDComm-Nachrichtenverschlüsselung (pqc\_didcomm\_v1.py). Diese Schicht verbindet kryptografische Primitive mit Identity-Protokollen und ermöglicht hybrid-sichere Kommunikation zwischen PQC- und klassischen Agenten.
+
+Die Integration-Patching-Schicht implementiert die transparente Einbettung in ACA-Py durch gezieltes \gls{Monkey-Patching} und Registry-Erweiterungen. Neun spezialisierte Module patchen Wallet-Operationen (askar\_pqc\_patch.py, wallet\_patch.py), Connection-Management (base\_manager\_patch.py, connection\_target\_patch.py), Schlüsseltyp-Infrastruktur (key\_types.py, key\_type\_patches.py), Validierungslogik (validator\_patch.py), Multicodec-Registries (multicodec\_patch.py) und koordinieren deren Installation (monkey\_patches.py).
+
+\begin{figure}[H]
   \flushleft
   \caption{Verzeichnisstruktur des Projekts}
   \label{fig:pqc_didpeer4_fm_directory_structure}
@@ -783,85 +685,9 @@ Die zweite Stufe integriert das entwickelte Plugin in die containerisierte Deplo
 \end{flushleft}
 \end{figure}
 
-% Das \texttt{pqc\_didpeer4\_fm}-Plugin nutzt beide Erweiterungsmechanismen: Es registriert neue PQC-Schlüsseltypen über \texttt{key\_types.py} und \texttt{key\_type\_patches.py} in der globalen \texttt{KeyType}-Registry und erweitert durch Monkey-Patching bestehende ACA-Py-Funktionen. Die Plugin-Initialisierung in \texttt{\_\_init\_\_.py} orchestriert die schrittweise Integration aller Module beim Agent-Start.
-
-Die Implementierung des PQC-Plugins gliedert sich in drei funktionale Schichten, in die die in \autoref{fig:pqc_didpeer4_fm_directory_structure} dargestellten 15 Module eingeteilt sind: 
-
-Die \textit{Kryptografie-Abstraktionsschicht} (\texttt{liboqs\_wrapper.py}) kapselt ML-DSA-65- und ML-KEM-768-Operationen, 
-
-die \textit{DID-Verarbeitungsschicht} umfasst \texttt{pqc\_peer4\_creator.py} (did:peer:4-Generierung), \texttt{pqc\_peer4\_resolver.py} (DID-Auflösung), \texttt{pqc\_multicodec.py} und \texttt{pqc\_multikey.py} (Multiformat-Kodierung) sowie \texttt{pqc\_didcomm\_v1.py} (DIDComm-Verschlüsselung), 
-
-und die \textit{Integration-Patching-Schicht} mit \texttt{monkey\_patches.py} (zentrale Funktion-Interceptors), \texttt{askar\_pqc\_patch.py} und \texttt{wallet\_patch.py} (Wallet-Operationen), \texttt{base\_manager\_patch.py} und \texttt{connection\_target\_patch.py} (Connection-Management), \texttt{validator\_patch.py} (Input-Validierung) sowie \texttt{multicodec\_patch.py} (Multicodec-Registry-Erweiterung). Diese modulare Architektur ermöglicht eine vollständig transparente PQC-Integration ohne Modifikation des ACA-Py-Kerncodes.
-
-% \paragraph{Kryptografie-Abstraktionsschicht (liboqs Integration Layer)}
-% - Einbindung der liboqs-python-Bibliothek \\
-% - ML-DSA-65 Signatur-Operationen \\
-% - ML-KEM-768 Key Encapsulation
-
-%  - liboqs-Wrapper-Implementierung (liboqs\_wrapper.py) \\
-%   - ML-DSA-65 Signatur-Operationen \\
-%   - ML-KEM-768 Key Encapsulation \\
-%   - Fehlerbehandlung und Validierung
-
-% \paragraph{PQC did:peer:4 Generator}
-% - Multicodec und Multikey-Kodierung \\
-% - did:peer:4 Struktur mit Dual-Keys
-
-%   - DID-Generierung mit PQC-Schlüsseln (pqc\_peer4\_creator.py) \\
-%   - DID-Auflösung (pqc\_peer4\_resolver.py) \\
-%   - Multicodec-Kodierung (pqc\_multicodec.py, multicodec\_patch.py) \\
-%   - Multikey-Transformation (pqc\_multikey.py) \\
-%   - did:peer:4 Struktur mit Dual-Keys (ML-DSA-65 + ML-KEM-768)
-
-% \paragraph{Protocol Interceptors (Monkey-Patching)}
-% - Interception-Mechanismus \\
-% - Connection Manager Interception \\
-% - DID Exchange Signatur-Interception \\
-% - Installation der Patches
-
-%   - Interception-Mechanismus (\_\_init\_\_.py, monkey\_patches.py) \\
-%   - Connection Manager Interception (base\_manager\_patch.py) \\
-%   - DID Exchange und Connection Target (connection\_target\_patch.py) \\
-%   - JWS-Validierung (validator\_patch.py) \\
-%   - Installation der Patches (Reihenfolge und Abhängigkeiten)
-
-% \paragraph{Wallet Operation Wrappers}
-% - Key-Creation-Wrapper \\
-% - Signatur-Wrapper (sign\_message / verify\_message) \\
-% - DIDComm Pack/Unpack-Wrapper \\
-
-%   - Askar-Integration (askar\_pqc\_patch.py)
-%   - Key-Creation-Wrapper und Verkey-Lookup (wallet\_patch.py)
-%   - Signatur-Wrapper (sign\_message / verify\_message)
-%   - DIDComm Pack/Unpack-Wrapper (pqc\_didcomm\_v1.py)
-
-% \paragraph{Key-Type-Registry-Erweiterung}
-% - KeyType-Datenstruktur \\
-% - Registrierung im Wallet \\
-% - Fallback-Mechanismus \\
-
-%   - KeyType-Definitionen (key\_types.py)
-%   - Registry-Integration (key\_type\_patches.py)
-%   - API-Schema-Anpassungen
-%   - Fallback-Mechanismus
-
-% \paragraph{Wallet-Speicherung und Persistierung}
-% - SQLite-Schema (Aries Askar) \\
-
-% \paragraph{Deployment und Konfiguration}
-% - Plugin-Installation (Dockerfile.acapy-base-pqc)\\
-% - Agent-Konfiguration \\
-% - Umgebungsvariablen \\
-% - Verifikation der Installation
-
-%   - Plugin-Installation (Dockerfile.acapy-base-pqc, setup.py) \\
-%   - Agent-Konfiguration (--plugin pqc\_didpeer4\_fm) \\
-%   - Umgebungsvariablen (OQS\_DISABLE=0) \\
-%   - Verifikation der Installation
-
 \subsubsection{Pluginentwicklung: Kryptografie-Abstraktionsschicht}
 
-Die Kryptografie-Abstraktionsschicht bildet die unterste Ebene der PQC-Integration und wird durch das Modul \texttt{liboqs\_wrapper.py} (Abbildung~\ref{fig:pqc_didpeer4_fm_directory_structure_Kryptografie-Abstraktionsschicht}) realisiert. Dieses Modul kapselt die nativen Operationen der C-basierten liboqs-Bibliothek und stellt eine Python-API für die NIST-standardisierten PQC-Algorithmen ML-DSA-65 (Dilithium3, FIPS-204) und ML-KEM-768 (Kyber768, FIPS-203) bereit.
+Die Kryptografie-Abstraktionsschicht bildet die unterste Ebene der PQC-Integration und wird durch das Modul liboqs\_wrapper.py (\autoref{fig:pqc_didpeer4_fm_directory_structure_Kryptografie-Abstraktionsschicht}) realisiert. Dieses Modul kapselt die nativen Operationen der C-basierten liboqs-Bibliothek und stellt eine Python-API für die NIST-standardisierten PQC-Algorithmen ML-DSA-65 und ML-KEM-768 bereit.
 
 \begin{figure}[H]
   \flushleft
@@ -895,9 +721,9 @@ Die Kryptografie-Abstraktionsschicht bildet die unterste Ebene der PQC-Integrati
 \end{flushleft}
 \end{figure}
 
-Die Implementierung (Listing~\ref{lst:liboqs_wrapper.py}) definiert eine \texttt{LibOQSWrapper}-Klasse mit sechs Kern\-methoden: \texttt{generate\_ml\_dsa\_65\_keypair()} und \texttt{generate\_ml\_kem\_768\_keypair()} erzeugen kryptografische Schlüsselpaare, \texttt{sign\_ml\_dsa\_65()} und \texttt{verify\_ml\_dsa\_65()} implementieren digitale Signaturen, während \texttt{encapsulate\_ml\_kem\_768()} und \texttt{decapsulate\_ml\_kem\_768()} die Key Encapsulation für sichere Schlüsselvereinbarung realisieren.
+Die Implementierung (Listing~\ref{lst:liboqs_wrapper.py}) definiert eine LibOQSWrapper-Klasse mit sechs Kernmethoden. Die ersten beiden Methoden generate\_ml\_dsa\_65\_keypair() und generate\_ml\_kem\_768\_keypair() erzeugen kryptografische Schlüsselpaare, sign\_ml\_dsa\_65() und verify\_ml\_dsa\_65() implementieren digitale Signaturen, während encapsulate\_ml\_kem\_768() und decapsulate\_ml\_kem\_768() die Key Encapsulation für sichere Schlüsselvereinbarung realisieren.
 
-Die Wrapper-Architektur abstrahiert die komplexen Foreign-Function-Interface-Aufrufe (FFI) an die liboqs-C-Bibliothek und stellt sicher, dass Schlüsselmaterial ausschließlich als Byte-Arrays (\texttt{bytes}) serialisiert wird - eine Voraussetzung für die Persistierung in der Aries-Askar-Wallet und die Kodierung in Multicodec-Formate. Das Singleton-Pattern (\texttt{get\_liboqs()}) gewährleistet eine einzige globale Instanz zur Vermeidung redundanter Initialisierungen. Diese Abstraktionsschicht ermöglicht es den höheren Modulen (DID-Generierung, DIDComm-Verschlüsselung), PQC-Operationen durchzuführen, ohne direkte Abhängigkeiten zur liboqs-C-API zu haben.
+Die Wrapper-Architektur abstrahiert die komplexen \ac{FFI}-Aufrufe an die liboqs-C-Bibliothek und stellt sicher, dass Schlüsselmaterial ausschließlich als Byte-Arrays serialisiert wird, was eine Voraussetzung für die Persistierung in der Aries-Askar-Wallet \parencite{_EntryAries_askarEntryRust_} und die Kodierung in Multicodec-Formaten \parencite{multiformats_MultiformatsMulticodec_2025} darstellt. Das Singleton-Pattern (get\_liboqs()) gewährleistet eine einzige globale Instanz zur Vermeidung redundanter Initialisierungen. Diese Abstraktionsschicht ermöglicht es den höheren Modulen (DID-Generierung, DIDComm-Verschlüsselung), PQC-Operationen durchzuführen, ohne direkte Abhängigkeiten zur liboqs-C-API zu haben.
 
 \subsubsection{Pluginentwicklung: DID-Verarbeitungsschicht}
 
@@ -935,16 +761,13 @@ Die DID-Verarbeitungsschicht (siehe Abbildung~\ref{fig:pqc_didpeer4_fm_directory
 \end{flushleft}
 \end{figure}
 
-Das Modul \texttt{pqc\_peer4\_creator.py} (Listing~\ref{lst:pqc_peer4_creator.py}) implementiert die Funktion \texttt{create\_pqc\_peer4\_did()}, die aus zwei PQC-Schlüsselpaaren (ML-DSA-65 für \texttt{authentication}/\texttt{assertionMethod}, ML-KEM-768 für \texttt{keyAgreement}) einen did:peer:4-Long-Form-Identifier generiert. Die Schlüssel werden über die Wallet-API erzeugt, in Multikey-Format transformiert und als \texttt{KeySpec}-Objekte in einem did:peer:4-Input-Dokument strukturiert, wobei die Reihenfolge der Schlüssel deren Fragment-IDs determiniert (\texttt{\#key-0} für Signaturen, \texttt{\#key-1} für Verschlüsselung in \texttt{recipientKeys}). Das Gegenstück \texttt{pqc\_peer4\_resolver.py} (Listing~\ref{lst:pqc_peer4_resolver.py}) registriert einen DID-Resolver für die \texttt{peer}-Methode, der did:peer:4-Long-Form-DIDs in DID-Dokumente
-  auflöst und dabei PQC-Multicodec-Präfixe korrekt dekodiert.
+Das Modul pqc\_peer4\_creator.py (Listing~\ref{lst:pqc_peer4_creator.py}) implementiert die Funktion create\_pqc\_peer4\_did(), die aus zwei PQC-Schlüsselpaaren (ML-DSA-65 für authentication/assertionMethod, ML-KEM-768 für keyAgreement) einen did:peer:4-Long-Form-Identifier generiert. Die Schlüssel werden über die Wallet-API erzeugt, in Multikey-Format transformiert und als KeySpec-Objekte in einem did:peer:4-Input-Dokument strukturiert, wobei die Reihenfolge der Schlüssel deren Fragment-IDs determiniert (\#key-0 für Signaturen, \#key-1 für Verschlüsselung in recipientKeys). Das Gegenstück pqc\_peer4\_resolver.py (Listing~\ref{lst:pqc_peer4_resolver.py}) registriert einen DID-Resolver für die peer-Methode, der did:peer:4-Long-Form-DIDs in DID-Dokumente auflöst und dabei PQC-Multicodec-Präfixe korrekt dekodiert.
 
-Die Multiformat-Kodierung wird durch drei Module realisiert: \texttt{pqc\_multicodec.py} (Listing~\ref{lst:pqc_multicodec.py}) definiert eine Multicodec-Registry mit provisorischen Präfixen gemäß W3C-Draft (ML-DSA-65: \texttt{0xd065}, ML-KEM-768: \texttt{0xe018}) und stellt Wrapper-Funktionen (\texttt{wrap\_pqc()}, \texttt{unwrap\_pqc()}) für Präfix-Operationen bereit. \texttt{pqc\_multikey.py} (Listing~\ref{lst:pqc_multikey.py}) transformiert Schlüsselinformationen in das Multikey-Format durch Verkettung von Multicodec-Präfix und Schlüsselmaterial sowie Base58-Kodierung mit Multibase-Präfix \texttt{z} (Base58btc), wodurch Multikeys wie \texttt{z6MNxxx...} (ML-DSA-65) oder \texttt{z6MK768xxx...} (ML-KEM-768) entstehen.
-
-Das Modul \texttt{pqc\_didcomm\_v1.py} (Listing~\ref{lst:pqc_didcomm_v1.py}) erweitert die DIDComm-v1-Envelope-Verarbeitung um PQC-Unterstützung: \texttt{pack\_message\_pqc()} und \texttt{unpack\_message\_pqc()} detektieren automatisch anhand der Schlüssellänge (ML-KEM-768: 1184~Bytes $\approx$ 1615~Base58-Zeichen vs. X25519: 32~Bytes $\approx$ 44~Zeichen), ob PQC- oder klassische Kryptografie verwendet werden muss, und generieren JWE-Envelopes mit angepassten Algorithmus-Headern (\texttt{alg: "PQC-Authcrypt"} bzw. \texttt{"PQC-Anoncrypt"}). Die Content Encryption erfolgt weiterhin mit XChaCha20-Poly1305 (quantum-sicher für symmetrische Verschlüsselung), während der Content Encryption Key (CEK) mittels ML-KEM-768 Key Encapsulation für jeden Empfänger verschlüsselt wird - im Gegensatz zur klassischen ECDH-ES-basierten CEK-Vereinbarung. Diese Schicht ermöglicht eine hybride Betriebsweise, bei der PQC- und klassische Agenten koexistieren können, solange jeweils homogene Verschlüsselungsmodi verwendet werden.
+Die Multiformat-Kodierung nach \parencite[Kap. 5.6]{w3c_ControlledIdentifiersV11_2025} wird durch drei Module realisiert. Das Modul pqc\_multicodec.py (Listing~\ref{lst:pqc_multicodec.py}) definiert eine Multicodec-Registry mit provisorischen Präfixen (ML-DSA-65: 0xd065, ML-KEM-768: 0xe018) und stellt Wrapper-Funktionen (wrap\_pqc(), unwrap\_pqc()) für Präfix-Operationen bereit. Das Modul pqc\_multikey.py (Listing~\ref{lst:pqc_multikey.py}) transformiert Schlüsselinformationen in das Multikey-Format durch Verkettung von Multicodec-Präfix und Schlüsselmaterial sowie Base58-Kodierung mit Multibase-Präfix \enquote{z} (Base58btc), wodurch Multikeys wie \enquote{z6MNxxx...} (ML-DSA-65) oder \enquote{z6MK768xxx...} (ML-KEM-768) entstehen. Das Modul pqc\_didcomm\_v1.py (Listing~\ref{lst:pqc_didcomm_v1.py}) erweitert die DIDComm-v1-Envelope-Verarbeitung um PQC-Unterstützung. Hier detektieren die beiden Methoden pack\_message\_pqc() und unpack\_message\_pqc() automatisch anhand der unterschiedlichen Schlüssellängen ob PQC- oder klassische Kryptografie verwendet werden muss, und generieren JWE-Envelopes mit angepassten Algorithmus-Headern. Die Content Encryption erfolgt weiterhin mit XChaCha20-Poly1305,  während der Content Encryption Key mittels ML-KEM-768 Key Encapsulation für jeden Empfänger verschlüsselt wird. Diese Schicht ermöglicht eine hybride Betriebsweise, bei der PQC- und klassische Agenten koexistieren können, solange jeweils homogene Verschlüsselungsmodi verwendet werden.
 
 \subsubsection{Pluginentwicklung: Integration-Patching-Schicht}
 
-Die Integration-Patching-Schicht (siehe Abbildung~\ref{fig:pqc_didpeer4_fm_directory_structure_Integration-Patching-Schicht}) implementiert die transparente Einbettung der PQC-Funktionalität in den ACA-Py-Kern durch gezieltes Monkey-Patching kritischer Funktionen und Erweiterung globaler Registries. Diese Schicht umfasst neun Module, die gemeinsam eine vollständig transparente PQC-Integration ohne Modifikation des ACA-Py-Quellcodes ermöglichen - existierende Workflows und API-Aufrufe bleiben unverändert funktionsfähig.
+Die Integration-Patching-Schicht (Abbildung~\ref{fig:pqc_didpeer4_fm_directory_structure_Integration-Patching-Schicht}) implementiert die transparente Einbettung der PQC-Funktionalität in den ACA-Py-Kern durch gezieltes Monkey-Patching kritischer Funktionen und Erweiterung globaler Registries. Diese Schicht umfasst neun Module, die gemeinsam eine vollständig transparente PQC-Integration ohne Modifikation des ACA-Py-Quellcodes ermöglichen, sodass existierende Workflows und API-Aufrufe unverändert funktionsfähig bleiben.
 
 \begin{figure}[H]
   \flushleft
@@ -978,65 +801,19 @@ Die Integration-Patching-Schicht (siehe Abbildung~\ref{fig:pqc_didpeer4_fm_direc
 \end{flushleft}
 \end{figure}
 
-Das zentrale Orchestrierungsmodul \texttt{monkey\_patches.py} (Listing~\ref{lst:monkey_patches.py}) koordiniert die Installation aller Patches durch die Funktion \texttt{apply\_all\_patches()}, die beim Plugin-Setup aufgerufen wird. Dieses Modul überschreibt Methoden der Klasse \texttt{BaseConnectionManager} (z.\,B. \texttt{create\_did\_peer\_4()}, \texttt{\_extract\_key\_material\_in\_base58\_format()}, \texttt{long\_did\_peer\_4\_to\_short()}) und delegiert deren Implementierung an spezialisierte Patch-Module, wobei die ursprünglichen Methoden als Fallback-Referenzen gespeichert werden. Das Modul \texttt{base\_manager\_patch.py} (Listing~\ref{lst:base_manager_patch.py}) stellt die PQC-Implementierungen dieser \texttt{BaseConnectionManager}-Methoden bereit: \texttt{create\_did\_peer\_4\_pqc\_complete()} generiert did:peer:4-DIDs mit ML-DSA-65- und ML-KEM-768-Schlüsseln anstelle klassischer ED25519/X25519-Schlüssel, \texttt{\_extract\_key\_material\_in\_base58\_format\_pqc()} extrahiert PQC-Schlüsselmaterial aus DID-Dokumenten unter Berücksichtigung der größeren Schlüssellängen, und \texttt{record\_keys\_for\_resolvable\_did\_pqc()} persistiert beide PQC-Schlüssel (Signatur- und Verschlüsselungsschlüssel) in der Wallet-Datenbank.
+Das zentrale Orchestrierungsmodul monkey\_patches.py (Listing~\ref{lst:monkey_patches.py}) koordiniert die Installation aller Patches durch die Funktion apply\_all\_patches(), die beim Plugin-Setup aufgerufen wird. Dieses Modul überschreibt Methoden der Klasse BaseConnectionManager (z.\,B. create\_did\_peer\_4(), \_extract\_key\_material\_in\_base58\_format(), long\_did\_peer\_4\_to\_short()) und delegiert deren Implementierung an spezialisierte Patch-Module, wobei die ursprünglichen Methoden als Fallback-Referenzen gespeichert werden. Das Modul base\_manager\_patch.py (Listing~\ref{lst:base_manager_patch.py}) stellt die PQC-Implementierungen dieser BaseConnectionManager-Methoden bereit: create\_did\_peer\_4\_pqc\_complete() generiert did:peer:4-DIDs mit ML-DSA-65- und ML-KEM-768-Schlüsseln anstelle klassischer ED25519/X25519-Schlüssel, \_extract\_key\_material\_in\_base58\_format\_pqc() extrahiert PQC-Schlüsselmaterial aus DID-Dokumenten unter Berücksichtigung der größeren Schlüssellängen, und record\_keys\_for\_resolvable\_did\_pqc() persistiert beide PQC-Schlüssel (Signatur- und Verschlüsselungsschlüssel) in der Wallet-Datenbank.
 
-Die Wallet-Integration erfolgt durch drei Module: \texttt{askar\_pqc\_patch.py} (Listing~\ref{lst:askar_pqc_patch.py}) patcht die Aries-Askar-Funktionen \texttt{create\_keypair()} zur Unterstützung von PQC-Schlüsselgenerierung mittels liboqs sowie \texttt{pack\_message()} und \texttt{unpack\_message()} zur Integration der PQC-DIDComm-v1-Implementierung aus \texttt{pqc\_didcomm\_v1.py}. \texttt{wallet\_patch.py} (Listing~\ref{lst:wallet_patch.py}) erweitert die Methode \texttt{get\_local\_did\_for\_verkey()} der \texttt{AskarWallet}-Klasse, um ML-KEM-768-Verkeys (1184~Bytes Länge) korrekt in der Datenbank zu lokalisieren – eine kritische Anpassung, da klassische Verkey-Lookups nur für 32-Byte-ED25519-Schlüssel ausgelegt sind. \texttt{connection\_target\_patch.py} (Listing~\ref{lst:connection_target_patch.py}) passt das Marshmallow-Schema der \texttt{ConnectionTarget}-Klasse an, indem die Validierungsregeln für \texttt{recipient\_keys} PQC-konforme Schlüssellängen akzeptieren (bisherige Validierung: exakt 44~Base58-Zeichen für ED25519).
+Die Wallet-Integration erfolgt durch drei Module: askar\_pqc\_patch.py (Listing~\ref{lst:askar_pqc_patch.py}) patcht die Aries-Askar-Funktionen create\_keypair() zur Unterstützung von PQC-Schlüsselgenerierung mittels liboqs sowie pack\_message() und unpack\_message() zur Integration der PQC-DIDComm-v1-Implementierung aus pqc\_didcomm\_v1.py. wallet\_patch.py (Listing~\ref{lst:wallet_patch.py}) erweitert die Methode get\_local\_did\_for\_verkey() der AskarWallet-Klasse, um ML-KEM-768-Verkeys korrekt in der Datenbank zu lokalisieren. Dies stellt eine kritische Anpassung dar, da klassische Verkey-Lookups, wie in der Originalmethode get\_local\_did\_for\_verkey() \parencite{openwallet-foundation_AcapyAcapy_agentWalletaskarpymainopenwalletfoundationacapyGitHub_} demonstriert, nur für 32-Byte-ED25519-Schlüssel ausgelegt sind. connection\_target\_patch.py (Listing~\ref{lst:connection_target_patch.py}) passt das Marshmallow-Schema der ConnectionTarget-Klasse an, indem die Validierungsregeln für recipient\_keys PQC-konforme Schlüssellängen akzeptieren.
 
-Die Erweiterung der Schlüsseltyp-Infrastruktur erfolgt durch zwei Module: \texttt{key\_types.py} (Listing~\ref{lst:key_types.py}) definiert neue \texttt{KeyType}-Konstanten (\texttt{ML\_DSA\_65}, \texttt{ML\_KEM\_768}) mit Metadaten wie NIST-FIPS-Referenzen, Schlüssellängen und Multicodec-Präfixen. \texttt{key\_type\_patches.py} (Listing~\ref{lst:key_type_patches.py}) registriert diese KeyTypes in der globalen ACA-Py-Registry durch \texttt{register\_pqc\_key\_types()}, erweitert die Admin-API-Schemata (\texttt{patch\_api\_key\_type\_schemas()}) zur Akzeptanz von PQC-KeyType-Strings in JSON-Requests, und patcht Algorithmus-Mappings (\texttt{patch\_alg\_mappings\_for\_pqc()}) für JWS/JWE-Header-Generierung. \texttt{multicodec\_patch.py} (Listing~\ref{lst:multicodec_patch.py}) erweitert die globale \texttt{SupportedCodecs}-Enumeration durch dynamisches Hinzufügen von ML-DSA-65- und ML-KEM-768-Multicodec-Einträgen, sodass Multicodec-Dekodierungsfunktionen aus \texttt{multiformats}-Bibliotheken PQC-Präfixe verarbeiten können.
+Die Erweiterung der Schlüsseltyp-Infrastruktur erfolgt durch zwei Module: key\_types.py (Listing~\ref{lst:key_types.py}) definiert neue KeyType-Konstanten (ML\_DSA\_65, ML\_KEM\_768) mit Metadaten wie NIST-FIPS-Referenzen, Schlüssellängen und Multicodec-Präfixen. key\_type\_patches.py (Listing~\ref{lst:key_type_patches.py}) registriert diese KeyTypes in der globalen ACA-Py-Registry durch register\_pqc\_key\_types(), erweitert die Admin-API-Schemata (patch\_api\_key\_type\_schemas()) zur Akzeptanz von PQC-KeyType-Strings in JSON-Requests, und patcht Algorithmus-Mappings (patch\_alg\_mappings\_for\_pqc()) für JWS/JWE-Header-Generierung. multicodec\_patch.py (Listing~\ref{lst:multicodec_patch.py}) erweitert die globale SupportedCodecs-Enumeration durch dynamisches Hinzufügen von ML-DSA-65- und ML-KEM-768-Multicodec-Einträgen, sodass Multicodec-Dekodierungsfunktionen aus multiformats-Bibliotheken PQC-Präfixe verarbeiten können.
 
-Das Modul \texttt{validator\_patch.py} (Listing~\ref{lst:validator_patch.py}) patcht die \texttt{JWSHeaderKid}-Validierungsklasse, die standardmäßig nur klassische DID-Formate (did:key, did:sov) in JWS-Header-\texttt{kid}-Feldern akzeptiert, um did:peer:4-Identifier zu unterstützen – eine Voraussetzung für ML-DSA-65-signierte DID-Exchange-AttachDecorators. Diese neun Module bilden gemeinsam eine Patch-Architektur, die durch sequenzielle Installation beim Plugin-Setup (orchestriert in \texttt{\_\_init\_\_.py}) eine vollständige PQC-Funktionalität in ACA-Py injiziert, ohne dass Änderungen an Controllern, Admin-API-Endpunkten oder externen Business-Logic-Schichten erforderlich sind.
+Das Modul validator\_patch.py (Listing~\ref{lst:validator_patch.py}) patcht die JWSHeaderKid-Validierungsklasse, die standardmäßig nur klassische DID-Formate (did:key, did:sov) in JWS-Header-kid-Feldern akzeptiert, um did:peer:4-Identifier zu unterstützen. Dies ist eine Voraussetzung für ML-DSA-65-signierte DID-Exchange-AttachDecorators. 
 
-% \paragraph{Deployment und Konfiguration}'
-% - Plugin-Installation (Dockerfile.acapy-base-pqc) \\
-% - Agent-Konfiguration \\
-% - Umgebungsvariablen \\
-% - Verifikation der Installation
-
-%   - Umgebungsvariablen (OQS\_DISABLE=0) \\
-%   - Verifikation der Installation
-
-% Das Deployment des PQC-Plugins erfolgt über die Python-Package-Infrastruktur (siehe Abbildung~\ref{fig:pqc_didpeer4_fm_directory_structure_Deployment}). Das Modul \texttt{setup.py} (Listing~\ref{lst:setup.py}) definiert das Plugin als installierbare Python-Distribution mit Entry-Point-Registration (\texttt{aries\_cloudagent.plugins = pqc\_didpeer4\_fm}), sodass ACA-Py das Plugin beim Start automatisch über setuptools-Discovery erkennt und die \texttt{setup()}-Funktion aus \texttt{\_\_init\_\_.py} aufruft. Die Plugin-Aktivierung erfolgt durch den Kommandozeilenparameter \texttt{--plugin pqc\_didpeer4\_fm} beim Agent-Start oder durch entsprechende Konfiguration in docker-compose.yml-Dateien. Das \texttt{README.md} (Listing~\ref{lst:README.md}) dokumentiert die Installation (\texttt{pip install -e .}), Konfigurationsparameter und den transparenten Integrationsmechanismus, der keine API-Änderungen erfordert - existierende Workflows wie \texttt{POST /out-of-band/create-invitation} mit Parameter \texttt{use\_did\_method: "did:peer:4"} erzeugen automatisch PQC-fähige DIDs anstelle klassischer ED25519-basierter Identifikatoren. Die Verifikation erfolgt über die Admin-API-Endpoint \texttt{GET /wallet/did}, die für PQC-DIDs erweiterte Metadaten (\texttt{pqc\_enabled: true}, \texttt{signature\_algorithm: "ml-dsa-65"}, \texttt{key\_agreement\_algorithm: "ml-kem-768"}) zurückgibt.
-
-% \begin{figure}[H]
-%   \flushleft
-%   \caption{Verzeichnisstruktur des Projekts}
-%   \label{fig:pqc_didpeer4_fm_directory_structure_Deployment}
-% \dirtree{%
-% .1 pqc\_didpeer4\_fm/.
-% .2 pqc\_didpeer4\_fm/.
-% .3 v1\_0/.
-% .4 askar\_pqc\_patch.py.
-% .4 base\_manager\_patch.py.
-% .4 connection\_target\_patch.py.
-% .4 key\_type\_patches.py.
-% .4 key\_types.py.
-% .4 liboqs\_wrapper.py.
-% .4 monkey\_patches.py.
-% .4 multicodec\_patch.py.
-% .4 pqc\_didcomm\_v1.py.
-% .4 pqc\_multicodec.py.
-% .4 pqc\_multikey.py.
-% .4 pqc\_peer4\_creator.py.
-% .4 pqc\_peer4\_resolver.py.
-% .4 validator\_patch.py.
-% .4 wallet\_patch.py.
-% .3 \_\_init\_\_.py.
-% .2 \textbf{README.md}.
-% .2 \textbf{setup.py}.
-% }
-% \begin{flushleft}
-%     \textit{Anmerkung.} Eigene Darstellung.
-% \end{flushleft}
-% \end{figure}
-
-% \textbf{Plugin-Installation}
-%   - Weiterentwicklung vom Dockerfile.acapy-base zum Dockerfile.acapy-base-pqc + setup.py \\
+Diese neun Module bilden gemeinsam eine Patch-Architektur, die durch sequenzielle Installation beim Plugin-Setup (orchestriert in \_\_init\_\_.py) eine vollständige PQC-Funktionalität in ACA-Py injiziert, ohne dass Änderungen an Controllern, Admin-API-Endpunkten oder externen Business-Logic-Schichten erforderlich sind.
 
 \subsubsection{Dockerfile-Modifikation}
 
-Für die Integration des Plugins wurde das ACA-Py Docker-Base-Image (Listing~\ref{lst:Dockerfile-acapy-base}) aus Iteration~1 Kapitel~\ref{SSI-Agenten} modifiziert. Die Baseline-Architektur von Iteration~1 verwendet einen 2-stufigen Build-Prozess (Poetry-Wheel-Building + Runtime-Installation) mit System-OpenSSL und unterstützt ausschließlich klassische Kryptografie (ED25519, X25519, RSA).
-
-Iteration~2 (Listing~\ref{lst:Dockerfile-acapy-base-pqc}, siehe Abbildung~\ref{fig:Iteration2_Acapy_Multi_Stage_Build}) erweitert die Architektur auf einen 4-stufigen Multi-Stage-Build: Stage~1 kompiliert OpenSSL~3.5.4 mit FIPS-Modul und nativer ML-KEM/ML-DSA-Unterstützung, Stage~2 baut liboqs~0.14.0 als Shared Library, Stage~3 bleibt identisch zu Iteration~1 (Poetry-basiertes ACA-Py-Wheel), und Stage~4 integriert alle Artefakte durch \texttt{COPY --from}-Direktiven aus den Builder-Stages. Die Runtime-Stage überschreibt System-OpenSSL-Symlinks mittels \texttt{ln -sf}, aktualisiert Shared-Library-Pfade via \texttt{ldconfig}, importiert das PQC-Root-CA-Zertifikat in den System-Trust-Store (\texttt{update-ca-certificates}), und installiert das \texttt{pqc\_didpeer4\_fm}-Plugin mithilfe von pip direkt in das Container-Image.
+In der zweiten Iteration wurde das ACA-Py Docker-Base-Image (Listing~\ref{lst:Dockerfile-acapy-base}) aus der ersten Iteration (Kapitel~\ref{SSI-Agenten}) auf einen vier-stufigen Multi-Stage-Build erweitert (Listing~\ref{lst:Dockerfile-acapy-base-pqc} visualisiert dargestellt in \autoref{fig:Iteration2_Acapy_Multi_Stage_Build}).
 
 \begin{figure}[H]
     \centering
@@ -1048,16 +825,16 @@ Iteration~2 (Listing~\ref{lst:Dockerfile-acapy-base-pqc}, siehe Abbildung~\ref{f
     \label{fig:Iteration2_Acapy_Multi_Stage_Build}
 \end{figure}
 
+Stage~1 kompiliert OpenSSL~3.5.4 mit FIPS-Modul und nativer ML-KEM/ML-DSA-Unterstützung, Stage~2 baut liboqs~0.14.0 als Shared Library, Stage~3 bleibt identisch zur ersten Iteration (Poetry-basiertes ACA-Py-Wheel), und Stage~4 integriert alle Artefakte durch \enquote{COPY --from}-Direktiven aus den Builder-Stages. Die Runtime-Stage überschreibt System-OpenSSL-Symlinks mittels \enquote{ln -sf}, aktualisiert Shared-Library-Pfade via \enquote{ldconfig}, importiert das PQC-Root-CA-Zertifikat in den System-Trust-Store (\enquote{update-ca-certificates}), und installiert das pqc\_didpeer4\_fm-Plugin mithilfe von \enquote{pip} direkt in das Container-Image.
+
 \subsubsection{Deployment in docker-compose.yml}
 
-Das Deployment der PQC-fähigen SSI-Agenten erfolgt innerhalb der in Iteration 1 (Kapitel~\ref{Docker Orchestrierung der Gesamtarchitektur}) entwickelten docker-compose.yml-Orchestrierung, deren Evolution vom klassischen Setup (Iteration~1, Listing~\ref{lst:docker-compose.yml-SSI-Agenten}) zur PQC-Integration (Iteration~2, Listing~\ref{lst:docker-compose.yml-SSI-Agenten-mit-acapy-base-pqc-und-plugin}) zwei zentrale Anpassungen umfasst. Während die Iteration~1-Konfiguration noch das klassische ACA-Py-Base-Image ohne PQC-Unterstützung und Plugin-Aktivierung verwendet, wurde in Iteration~2 im Rahmen der ersten Anpassung die docker-compose.yml so modifiziert, dass alle drei Agent-Services (issuer, holder, verifier) das neue \texttt{acapy-base-pqc}-Image nutzen in welchem das \texttt{pqc\_didpeer4\_fm}-Plugin enthalten ist. Diese Änderung kann durch den Vergleich von \autoref{fig:Docker-Compose-Übersicht-Iteration-2} mit \autoref{fig:Docker-Compose-Übersicht-Iteration-1} nachvollzogen werden.
-
-Die zweite Anpassung erweitert die \texttt{command}-Direktive aller drei Agenten um den Parameter \texttt{--plugin pqc\_didpeer4\_fm}, der beim Agent start das \texttt{pqc\_didpeer4\_fm}-Plugin lädt.
+Das Deployment der PQC-fähigen SSI-Agenten erfolgt innerhalb der in der ersten Iteration (Kapitel~\ref{sec:Docker Orchestrierung der Gesamtarchitektur}) entwickelten docker-compose.yml-Orchestrierung, deren Evolution vom klassischen Setup (erste Iteration, Listing~\ref{lst:docker-compose.yml-SSI-Agenten}) zur PQC-Integration (zweite Iteration, Listing~\ref{lst:docker-compose.yml-SSI-Agenten-mit-acapy-base-pqc-und-plugin}) zwei zentrale Anpassungen umfasst. Während die Konfiguration der ersten Iteration noch das klassische ACA-Py-Base-Image ohne PQC-Unterstützung und Plugin-Aktivierung verwendet, wurde in der zweiten Iteration im Rahmen der ersten Anpassung die docker-compose.yml so modifiziert, dass alle drei Agent-Services (issuer, holder, verifier) das neue \texttt{acapy-base-pqc}-Image nutzen in welchem das pqc\_didpeer4\_fm-Plugin enthalten ist. Diese Änderung kann durch den Vergleich von \autoref{fig:Docker-Compose-Übersicht-Iteration-2} mit \autoref{fig:Docker-Compose-Übersicht-Iteration-1} nachvollzogen werden. Die zweite Anpassung erweitert die command-Direktive aller drei Agenten um den Parameter \enquote{--plugin pqc\_didpeer4\_fm}, der beim Agent start das pqc\_didpeer4\_fm-Plugin lädt.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{docker_compose_übersicht_pqc_plugin.png}
-    \caption{Docker-Compose-Übersicht der Iteration 2 Architektur}
+    \caption{Docker-Compose-Übersicht der zweiten Iteration}
     \begin{flushleft}
     \textit{Anmerkung.} Eigene Darstellung.
     \end{flushleft}
@@ -1067,39 +844,29 @@ Die zweite Anpassung erweitert die \texttt{command}-Direktive aller drei Agenten
 \subsection{Formative Evaluation} \label{sec:formative_evaluation_iteration2}
 
 \subsubsection{Validierung des Plugin-Ladevorgangs bei Agent-Start}
-% - Issuer Agent Boot Log Iteration 1 vs Iteration 2 \\
-
-% Listing~\ref{lst:Issuer-Agent-Boot-Logs} vs. Listing~\ref{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin}
 
 Die erste formative Evaluationsmaßnahme bestand in der Validierung des korrekten Plugin-Ladevorgangs beim Start eines ACA-Py-Agenten. Dieser Test diente der Sicherstellung, dass die PQC-Integration transparent und ohne Beeinträchtigung der Standard-ACA-Py-Funktionalität erfolgt.
 
-Listing~\ref{lst:Issuer-Agent-Boot-Logs} zeigt den Boot-Prozess eines Standard-ACA-Py-Agenten (Version 1.3.2) ohne PQC-Plugin. Nach der Registrierung der Default- und Askar-Plugins wird direkt mit der Ledger-Konfiguration und Wallet-Initialisierung fortgefahren.
-
-Im Vergleich dazu zeigt Listing~\ref{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin} den erweiterten Boot-Prozess mit geladenem \texttt{pqc\_didpeer4\_fm}-Plugin. Zwischen der Askar-Plugin-Registrierung und der Ledger-Konfiguration erfolgt nun die Plugin-Initialisierung mit mehreren charakteristischen Schritten:
+Listing~\ref{lst:Issuer-Agent-Boot-Logs} zeigt den Boot-Prozess eines Standard-ACA-Py-Agenten ohne PQC-Plugin. Nach der Registrierung der Default- und Askar-Plugins wird direkt mit der Ledger-Konfiguration und Wallet-Initialisierung fortgefahren. Im Vergleich dazu zeigt Listing~\ref{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin} den erweiterten Boot-Prozess mit geladenem pqc\_didpeer4\_fm-Plugin. Zwischen der Askar-Plugin-Registrierung und der Ledger-Konfiguration erfolgt nun die Plugin-Initialisierung mit mehreren charakteristischen Schritten.
 
 \begin{enumerate}
-\item \textbf{Askar-Patching:} Die \texttt{\_create\_keypair}-Funktion wird durch eine PQC-fähige Variante ersetzt, die ML-DSA-65 und ML-KEM-768 unterstützt. Zusätzlich werden \texttt{Session}-Methoden (\texttt{insert\_key}, \texttt{fetch\_key}, \texttt{update\_key}) und \texttt{AskarWallet.assign\_kid\_to\_key()} gepatcht.
-\item \textbf{KeyType-Registry-Erweiterung:} Die neuen Schlüsseltypen \texttt{ml-dsa-65} und \texttt{ml-kem-768} werden in der ACA-Py KeyTypes-Registry registriert und die API-Schemas zur Laufzeit erweitert.
-\item \textbf{did:peer:4-Erweiterung:} Die unterstützten Schlüsseltypen für did:peer:4 werden von \texttt{['ed25519', 'x25519']} auf \texttt{['ed25519', 'x25519', 'ml-dsa-65', 'ml-kem-768']} erweitert.
-\item \textbf{Multicodec-Patching:} Die \texttt{SupportedCodecs}-Klasse wird für PQC-Multicodec-Präfixe erweitert (ML-DSA-65: \texttt{0xd065}, ML-KEM-768: \texttt{0xe018}).
-\item \textbf{DIDComm-Patching:} \texttt{AskarWallet.pack\_message()} und \texttt{unpack\_message()} werden für ML-KEM-768-basierte Verschlüsselung angepasst. Die \texttt{AttachDecorator}-Klasse wird für ML-DSA-65-JWS-Signaturen erweitert.
-\item \textbf{Monkey-Patches:} Die \texttt{BaseConnectionManager}-Methoden (\texttt{create\_did\_peer\_4}, \texttt{record\_keys\_for\_resolvable\_did}, etc.) werden durch PQC-fähige Varianten ersetzt.
+\item Askar-Patching: Die \_create\_keypair-Funktion wird durch eine PQC-fähige Variante ersetzt, die ML-DSA-65 und ML-KEM-768 unterstützt. Zusätzlich werden Session-Methoden (insert\_key, fetch\_key, update\_key) und AskarWallet.assign\_kid\_to\_key() gepatcht.
+\item KeyType-Registry-Erweiterung: Die neuen Schlüsseltypen ml-dsa-65 und ml-kem-768 werden in der ACA-Py KeyTypes-Registry registriert und die API-Schemas zur Laufzeit erweitert.
+\item did:peer:4-Erweiterung: Die unterstützten Schlüsseltypen für did:peer:4 werden von ['ed25519', 'x25519'] auf ['ed25519', 'x25519', 'ml-dsa-65', 'ml-kem-768'] erweitert.
+\item Multicodec-Patching: Die SupportedCodecs-Klasse wird für PQC-Multicodec-Präfixe erweitert (ML-DSA-65: 0xd065, ML-KEM-768: 0xe018).
+\item DIDComm-Patching: AskarWallet.pack\_message() und unpack\_message() werden für ML-KEM-768-basierte Verschlüsselung angepasst. Die AttachDecorator-Klasse wird für ML-DSA-65-JWS-Signaturen erweitert.
+\item Monkey-Patches: Die BaseConnectionManager-Methoden (create\_did\_peer\_4, record\_keys\_for\_resolvable\_did, etc.) werden durch PQC-fähige Varianten ersetzt.
 \end{enumerate}
-
-
 
 \subsubsection{Validierung der Pluginfunktionalität: Out-of-Band Invitation mit did:peer:4}
 
-% did:peer:4 ==> /out-of-band/create-invitation
-% - Admin-API Aufruf: \texttt{POST /out-of-band/create-invitation} mit Parameter \texttt{use\_did\_method: "did:peer:4"} \\
-
 Die zweite formative Evaluationsmaßnahme validierte die Kernfunktionalität des Plugins: die transparente Erstellung von PQC-fähigen did:peer:4-DIDs während des Out-of-Band-Invitation-Prozesses.
 
-Listing~\ref{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-vor-OOB-Invitation} zeigt die initiale Wallet-Abfrage eines frisch gestarteten Issuer-Agenten. Das leere \texttt{results}-Array bestätigt, dass noch keine DIDs im Wallet vorhanden sind.
+Listing~\ref{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-vor-OOB-Invitation} zeigt die initiale Wallet-Abfrage eines frisch gestarteten Issuer-Agenten. Das leere results-Array bestätigt, dass noch keine DIDs im Wallet vorhanden sind.
 
 \refstepcounter{manualListingCounter}
 \label{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-vor-OOB-Invitation}
-\begin{lstlisting}[language=bash, caption={Iteration 2 - Validierung der Pluginfunktionalität - Wallet DID Abfrage vor Out-of-Band Invitation}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Zweite Iteration - Wallet DID Abfrage vor Out-of-Band Invitation}, numbers=left, frame=single]
 ferris@blockchain-ssi-pqc:~$ curl -X GET https://host.docker.internal:8021/wallet/did | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1109,11 +876,11 @@ ferris@blockchain-ssi-pqc:~$ curl -X GET https://host.docker.internal:8021/walle
 }
 \end{lstlisting}
 
-Anschließend wurde mittels \texttt{POST /out-of-band/create-invitation} mit dem Parameter \texttt{use\_did\_method: "did:peer:4"} eine Einladung erstellt (Listing~\ref{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin}). Die API-Response enthält eine vollständige did:peer:4-Langform-DID im \texttt{services}-Array der Invitation, erkennbar am charakteristischen Format \texttt{did:peer:4zQm...:z25g...}.
+Anschließend wurde mittels \enquote{POST /out-of-band/create-invitation} mit dem Parameter \enquote{use\_did\_method: 'did:peer:4'} eine Einladung erstellt (Listing~\ref{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin}). Die API-Response enthält eine vollständige did:peer:4-Langform-DID im services-Array der Invitation, erkennbar am charakteristischen Format \enquote{did:peer:4zQm...:z25g...}.
 
 \refstepcounter{manualListingCounter}
 \label{lst:Issuer-Agent-Boot-Logs-mit-PQC-Plugin}
-\begin{lstlisting}[language=bash, caption={Iteration 2 - Validierung der Pluginfunktionalität - Out-of-Band Invitation}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Zweite Iteration - Out-of-Band Invitation}, numbers=left, frame=single]
 ferris@blockchain-ssi-pqc:~$ curl -X POST https://host.docker.internal:8021/out-of-band/create-invitation     -H "Content-Type: application/json"     -d '{
       "handshake_protocols": ["https://didcomm.org/didexchange/1.1"],
       "use_did_method": "did:peer:4",
@@ -1145,14 +912,14 @@ ferris@blockchain-ssi-pqc:~$ curl -X POST https://host.docker.internal:8021/out-
 Die entscheidende Validierung erfolgt in Listing~\ref{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-nach-OOB-Invitation} durch eine erneute Wallet-Abfrage nach der Invitation-Erstellung. Die Response zeigt nun die automatisch generierte PQC-DID mit folgenden charakteristischen Merkmalen:
 
 \begin{itemize}
-\item \textbf{Dual-Key-Struktur:} Das \texttt{key\_type}-Feld weist den Wert \texttt{ml-dsa-65} auf, während die Metadata zusätzlich \texttt{kem\_verkey} (ML-KEM-768) enthält. Dies bestätigt die erfolgreiche Implementierung der Hybrid-Kryptografie mit getrennten Schlüsseln für digitale Signaturen und Schlüsselvereinbarung.
-\item \textbf{PQC-Metadata:} Die Metadaten enthalten explizite Marker (\texttt{pqc\_enabled: true}, \texttt{signature\_algorithm: "ml-dsa-65"}, \texttt{key\_agreement\_algorithm: "ml-kem-768"}), die eine eindeutige Identifikation PQC-fähiger DIDs zur Laufzeit ermöglichen.
-\item \textbf{Key Identifier:} Das \texttt{kem\_key\_kid}-Feld referenziert den KEM-Schlüssel über den DID-URL-Fragment-Identifier \texttt{\#key-1}, was der did:peer:4-Spezifikation entspricht, bei der Verification-Methods sequenziell nummeriert werden (\texttt{\#key-0} für Authentication, \texttt{\#key-1} für Key Agreement).
+\item Dual-Key-Struktur: Das key\_type-Feld weist den Wert ml-dsa-65 auf, während die Metadata zusätzlich kem\_verkey (ML-KEM-768) enthält. Dies bestätigt die erfolgreiche Implementierung der Hybrid-Kryptografie mit getrennten Schlüsseln für digitale Signaturen und Schlüsselvereinbarung.
+\item PQC-Metadata: Die Metadaten enthalten explizite Marker (pqc\_enabled: true, signature\_algorithm: "ml-dsa-65", key\_agreement\_algorithm: "ml-kem-768"), die eine eindeutige Identifikation PQC-fähiger DIDs zur Laufzeit ermöglichen.
+\item Key Identifier: Das kem\_key\_kid-Feld referenziert den KEM-Schlüssel über den DID-URL-Fragment-Identifier \#key-1, was der did:peer:4-Spezifikation entspricht, bei der Verification-Methods sequenziell nummeriert werden (\#key-0 für Authentication, \#key-1 für Key Agreement).
 \end{itemize}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Iteration2_Validierung-der-Pluginfunktionalität-Wallet-DID-Abfrage-nach-OOB-Invitation}
-\begin{lstlisting}[language=bash, caption={Iteration 2 - Validierung der Pluginfunktionalität - Wallet DID Abfrage nach Out-of-Band Invitation}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={Zweite Iteration - Wallet DID Abfrage nach Out-of-Band Invitation}, numbers=left, frame=single]
 ferris@blockchain-ssi-pqc:~$ curl -X GET https://host.docker.internal:8021/wallet/did | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1180,33 +947,15 @@ ferris@blockchain-ssi-pqc:~$ curl -X GET https://host.docker.internal:8021/walle
 }
 \end{lstlisting}
 
-
-
-% ==> /wallet/did um zu schauen was personalisiertes
-
-% LOGS anzeigen lassen vom Webserver und vom Agenten selbst
-
-    %    - Überprüfung der Plugin-Registrierung in Logs \\
-    %    - Testaufruf einer gepatchten Funktion (z.\,B. DID-Erstellung)
-%   → FF1: Blockchain-DID-Registry funktioniert? \\
-%   → FF2: Alle PQC-Algorithmen korrekt integriert? \\
-%   → FF3: Performance-Vergleich klassisch vs. PQC \\
-%   → FF4: Algorithmus-Wechsel ohne Code-Änderung möglich? \\
-%    \\
-%      - Funktionalitätstests (UC1-UC7) \\
-%      - Kryptografische Validierung (Signatur-Verifikation)
-
-% https://dspace.bracu.ac.bd/xmlui/bitstream/handle/10361/25158/24141271,%2020101496,%202010360,%2020101053_CSE.pdf?sequence=1&isAllowed=y#cite.0@indyGithub
-
 \subsection{Finales Artefakt}
 
-Das finale Artefakt der zweiten Iteration repräsentiert einen funktionsfähigen SSI-Prototypen mit vollständiger Post-Quantum-Kryptografie-Integration auf Application-Layer-Ebene. Die Architektur vereint die in Iteration~1 etablierte Transport-Layer-Sicherung mittels PQC-Sidecar-Proxies mit einer tiefgreifenden Anwendungsschicht-Integration durch das entwickelte \texttt{pqc\_did\_peer4\_fm}-Plugin.
+Das finale Artefakt der zweiten Iteration repräsentiert einen funktionsfähigen SSI-Prototypen mit vollständiger Post-Quantum-Kryptografie-Integration auf Application-Layer-Ebene. Die Architektur vereint die in Iteration~1 etablierte Transport-Layer-Sicherung mittels PQC-Sidecar-Proxies mit einer tiefgreifenden Anwendungsschicht-Integration durch das entwickelte pqc\_did\_peer4\_fm-Plugin.
 
-Die Kernkomponente bildet das ACA-Py-Plugin mit dreischichtiger Architektur. Die Kryptografie-Abstraktionsschicht kapselt native \texttt{liboqs}-Operationen und exponiert eine Python-API für ML-DSA-65 und ML-KEM-768. Die DID-Verarbeitungsschicht orchestriert Generierung, Auflösung und Kodierung PQC-fähiger \texttt{did:peer:4}-Identifikatoren. Die Integration-Patching-Schicht realisiert transparentes Monkey-Patching kritischer ACA-Py-Kernfunktionen ohne Modifikation des Framework-Quellcodes.
+Die Kernkomponente bildet das ACA-Py-Plugin mit dreischichtiger Architektur. Die Kryptografie-Abstraktionsschicht kapselt native liboqs-Operationen und exponiert eine Python-API für ML-DSA-65 und ML-KEM-768. Die DID-Verarbeitungsschicht orchestriert Generierung, Auflösung und Kodierung PQC-fähiger did:peer:4-Identifikatoren. Die Integration-Patching-Schicht realisiert transparentes Monkey-Patching kritischer ACA-Py-Kernfunktionen ohne Modifikation des Framework-Quellcodes.
 
-Hinsichtlich der in Kapitel~4.2.1 definierten Designziele erfüllt das finale Artefakt sämtliche Anforderungen. Das Designziel zu FF1 (Systemarchitektur \& Compliance) wird durch die native Unterstützung quantenresistenter Signaturen in den DID-Dokumenten adressiert, wodurch die Authentizität von Identitätsnachweisen unabhängig vom Transportkanal langfristig gegenüber Quantencomputer-Angriffen gewährleistet bleibt. Das Designziel zu FF2 (Algorithmenauswahl \& Sicherheitsbewertung) manifestiert sich in der erfolgreichen Integration von ML-DSA-65 für digitale Signaturen innerhalb der \texttt{did:peer:4}-Strukturen, was die praktische Machbarkeit von PQC-Signaturen in dezentralen Identifikatoren nachweist. Das Designziel zu FF3 (Kryptografische Agilität) wird durch die Erweiterung der Multicodec-Registry um provisorische Präfixe für ML-DSA-65 (\texttt{0xd065}) und ML-KEM-768 (\texttt{0xe018}) sowie die abstrahierte Kryptografie-Schicht realisiert, welche die Koexistenz klassischer und post-quanten Verfahren innerhalb der DID-Methoden ermöglicht.
+Hinsichtlich der in Kapitel~4.2.1 definierten Designziele erfüllt das finale Artefakt sämtliche Anforderungen. Das Designziel zu FF1 (Systemarchitektur \& Compliance) wird durch die native Unterstützung quantenresistenter Signaturen in den DID-Dokumenten adressiert, wodurch die Authentizität von Identitätsnachweisen unabhängig vom Transportkanal langfristig gegenüber Quantencomputer-Angriffen gewährleistet bleibt. Das Designziel zu FF2 (Algorithmenauswahl \& Sicherheitsbewertung) manifestiert sich in der erfolgreichen Integration von ML-DSA-65 für digitale Signaturen innerhalb der did:peer:4-Strukturen, was die praktische Machbarkeit von PQC-Signaturen in dezentralen Identifikatoren nachweist. Das Designziel zu FF3 (Kryptografische Agilität) wird durch die Erweiterung der Multicodec-Registry um provisorische Präfixe für ML-DSA-65 (0xd065) und ML-KEM-768 (0xe018) sowie die abstrahierte Kryptografie-Schicht realisiert, welche die Koexistenz klassischer und post-quanten Verfahren innerhalb der DID-Methoden ermöglicht.
 
-Das Multi-Stage-Build-Dockerfile integriert alle Abhängigkeiten in ein kohärentes Container-Image: Stage~1 kompiliert OpenSSL~3.5.4 mit nativer ML-KEM/ML-DSA-Unterstützung, Stage~2 baut \texttt{liboqs}~0.14.0, Stage~3 generiert das ACA-Py-Wheel, und Stage~4 fusioniert alle Artefakte in ein produktionsfähiges Runtime-Image. Die formative Evaluation validierte die funktionale Korrektheit durch erfolgreiche Plugin-Registrierung beim Agent-Start sowie korrekte Generierung von \texttt{did:peer:4}-Long-Form-DIDs mit PQC-Schlüsselmaterial im Out-of-Band-Invitation-Workflow.
+Das Multi-Stage-Build-Dockerfile integriert alle Abhängigkeiten in ein kohärentes Container-Image: Stage~1 kompiliert OpenSSL~3.5.4 mit nativer ML-KEM/ML-DSA-Unterstützung, Stage~2 baut liboqs~0.14.0, Stage~3 generiert das ACA-Py-Wheel, und Stage~4 fusioniert alle Artefakte in ein produktionsfähiges Runtime-Image. Die formative Evaluation validierte die funktionale Korrektheit durch erfolgreiche Plugin-Registrierung beim Agent-Start sowie korrekte Generierung von did:peer:4-Long-Form-DIDs mit PQC-Schlüsselmaterial im Out-of-Band-Invitation-Workflow.
 
 
 
