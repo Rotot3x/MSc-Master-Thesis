@@ -257,7 +257,7 @@ Basierend auf den zuvor definierten Schlüsselkonzepten wurden die wichtigsten S
 
 \paragraph*{Erstellung einer strukturierten Suchanfrage mit Booleschen Operatoren}
 
-Listing~\ref{lst:boolesche_suchanfrage} stellt eine strukturierte Suchstrategie mit Booleschen Operatoren auf Basis der identifizierten Keywords dar. Die Suchanfrage verbindet zentrale Schlüsselkonzepte und nutzt gezielt Synonyme und Akronyme zur Abdeckung verschiedener Terminologien und Schreibweisen.
+Listing~A-\ref{lst:boolesche_suchanfrage} stellt eine strukturierte Suchstrategie mit Booleschen Operatoren auf Basis der identifizierten Keywords dar. Die Suchanfrage verbindet zentrale Schlüsselkonzepte und nutzt gezielt Synonyme und Akronyme zur Abdeckung verschiedener Terminologien und Schreibweisen.
 \newline
 
 \refstepcounter{manualListingCounter}
@@ -826,7 +826,7 @@ Die Quellcodeverwaltung erfolgt über Git und GitHub, wodurch Versionskontrolle,
 \subsubsection{Zertifikatserstellungsworkflow}
 \label{sec:Anhang_Zertfikatserstellungsworkflow}
 
-Listing~\ref{lst:Zertifikatserstellungsworkflow} zeigt den vollständigen Workflow  der Post-Quantum-Zertifikatserstellung für die Sidecar-Proxies mittels OpenSSL~3.5.4 am Beispiel des Issuers.
+Listing~A-\ref{lst:Zertifikatserstellungsworkflow} zeigt den vollständigen Workflow  der Post-Quantum-Zertifikatserstellung für die Sidecar-Proxies mittels OpenSSL~3.5.4 am Beispiel des Issuers.
 
 \refstepcounter{manualListingCounter}
 \label{lst:Zertifikatserstellungsworkflow}
@@ -867,7 +867,7 @@ Die Integration der Zertifikate erfolgt über Docker-Volume-Mounts: Das Verzeich
 \subsubsection{Dockerfile: Sidecar Proxy nginx}
 \label{sec:Anhang_Dockerfile Sidecar Proxy nginx}
 
-Listing~\ref{lst:Dockerfile-Sidecar-Proxy-nginx} beinhaltet den Code des Dockerfiles parallel zur visuellen Darstellung in \autoref{fig:Sidecar_Proxy_nginx_Dockerfile}.
+Listing~A-\ref{lst:Dockerfile-Sidecar-Proxy-nginx} beinhaltet den Code des Dockerfiles parallel zur visuellen Darstellung in \autoref{fig:Sidecar_Proxy_nginx_Dockerfile}.
 
 In der Build-Phase findet die gesamte Kompilierung und Zusammenführung der für den Betrieb erforderlichen Abhängigkeiten statt. Zunächst werden Versionsangaben für Bibliotheken, Algorithmen, TLS-Gruppen und Installationsverzeichnisse als Build-Parameter definiert. Anschließend werden die projektrelevanten Quellen wie \texttt{liboqs}, \texttt{oqs-provider}, \texttt{openssl}, \texttt{nginx} und \texttt{curl} gezielt und versioniert aus ihren jeweiligen Repositories geladen. Die Kompilierung erfolgt dabei in einer spezifischen Reihenfolge: OpenSSL und liboqs werden mit definierten Einstellungen gebaut, NGINX wird unter Einbindung des OQS Providers und einer hybrid gelinkten OpenSSL-Version kompiliert, und curl wird dynamisch mit OpenSSL gebaut, um HTTPS-Unterstützung sicherzustellen. Abschließend werden die generierten Binaries optimiert und nicht benötigte Dateien entfernt, um das finale Image so schlank wie möglich zu gestalten.
 
@@ -1624,7 +1624,7 @@ ENTRYPOINT ["aca-py"]
 \subsubsection{SSI-Agenten}
 \label{sec:Anhang_SSI-Agenten}
 
-Die Agent-Konfiguration in Listing~\ref{lst:docker-compose.yml-SSI-Agenten} erfolgt vollständig deklarativ über Docker-Compose-Service-Definitionen, die jeweils den \enquote{start}-Befehl von ACA-Py mit rollenspezifischen Parametern aufrufen. Zentrale Konfigurationsparameter umfassen \enquote{--label} (zur Identifikation des Agents), \enquote{--inbound-transport http 0.0.0.0 <port>} (zur Definition des DIDComm-Message-Endpoints), \enquote{--outbound-transport http} (für ausgehende Verbindungen), \enquote{--admin 0.0.0.0 <port>} (zur Aktivierung der Admin-API) sowie \enquote{--wallet-type askar} (zur Spezifikation des Wallet-Backends Aries Askar).
+Die Agent-Konfiguration in Listing~A-\ref{lst:docker-compose.yml-SSI-Agenten} erfolgt vollständig deklarativ über Docker-Compose-Service-Definitionen, die jeweils den \enquote{start}-Befehl von ACA-Py mit rollenspezifischen Parametern aufrufen. Zentrale Konfigurationsparameter umfassen \enquote{--label} (zur Identifikation des Agents), \enquote{--inbound-transport http 0.0.0.0 <port>} (zur Definition des DIDComm-Message-Endpoints), \enquote{--outbound-transport http} (für ausgehende Verbindungen), \enquote{--admin 0.0.0.0 <port>} (zur Aktivierung der Admin-API) sowie \enquote{--wallet-type askar} (zur Spezifikation des Wallet-Backends Aries Askar).
 
 Ein kritischer Konfigurationsparameter ist \enquote{--endpoint https://host.docker.internal:<port>}, der spezifiziert, unter welcher URL der Agent für eingehende DIDComm-Verbindungen erreichbar ist. Dieser Parameter wird in Out-of-Band-Invitations und DID-Exchange-Nachrichten eingebettet und muss auf den externen PQC-Proxy-Endpoint zeigen, nicht auf den internen Agent-Container. Beispielsweise konfiguriert der Issuer-Agent \enquote{--endpoint https://host.docker.internal:8020}, wodurch andere Agents ihre DIDComm-Nachrichten an den PQC-Proxy auf Port 8020 senden, der diese nach TLS-Terminierung an den internen Issuer-Container weiterleitet. Diese Indirektion ist essentiell, um sicherzustellen, dass alle Agent-zu-Agent-Verbindungen die Post-Quantum-gesicherte Transport-Layer-Sicherheit nutzen.
 
@@ -1930,7 +1930,7 @@ volumes:
   nginx-logs:
 \end{lstlisting}
 
-\subsection{Docker Orchestrierung der Gesamtarchitektur}
+\subsubsection{Docker Orchestrierung der Gesamtarchitektur}
 \label{sec:Anhang_Docker Orchestrierung der Gesamtarchitektur}
 
 \refstepcounter{manualListingCounter}
@@ -3139,7 +3139,9 @@ esac
 popd >/dev/null
 \end{lstlisting}
 
-\subsection{Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
+\subsection{Formative Evaluation}
+
+\subsubsection{Eigenkompilation eines PQC-Chromium-Browsers}
 \label{sec:Anhang_Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
 
 \fixme{überarbeiten}
@@ -3153,7 +3155,7 @@ Aufbauend auf dieser Standard-Umgebung wurde der von OQS bereitgestellte Chromiu
 Im Anschluss daran erfolgte der eigentliche Kompiliervorgang des Browsers mit dem von Chromium vorgesehenen Build-Werkzeug \texttt{autoninja}, das die GN-Konfiguration nutzt, um alle notwendigen Targets effizient zu bauen \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Durch den Aufruf von \texttt{autoninja -C out/oqs-Default chrome} wurde eine Browser-Binärdatei erzeugt, die die OQS-Erweiterungen in der TLS-Schicht enthält. Der resultierende Browser konnte direkt aus dem Build-Verzeichnis gestartet und gegen PQC-fähige Testserver genutzt werden, um TLS-Verbindungen mit hybriden oder rein PQ-basierten Schlüsselaustauschmechanismen zu etablieren. Die so aufgebaute Umgebung ermöglicht eine kontrollierte experimentelle Analyse der praktischen Auswirkungen von PQC im Browserkontext, etwa hinsichtlich Kompatibilität, Performance und Protokollhandshake, auf Basis eines realen Chromium-Builds mit explizit aktivierter Post-Quanten-Kryptographie.
 
 
-\subsection{Issuer Agent Boot Logs}
+\subsubsection{Issuer Agent Boot Logs}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Issuer-Agent-Boot-Logs}
@@ -3228,60 +3230,6 @@ Executing task in folder ferris: docker logs --tail 1000 -f 179e43b336fa16b399ef
 \section{Zweite Iteration der Artefaktentwicklung}
 \label{sec:Anhang_Artefaktentwicklung Iteration 2}
 
-
-\subsection{ACA-Py Applikationsarchitektur ohne Post-Quantum-Kryptografie}
-
-\fixme{rein oder raus? Quellen?}
-
-Die Architektur von Hyperledger Aries Cloud Agent Python (ACA-Py) folgt einem mehrschichtigen Design, das klare Verantwortlichkeitstrennung zwischen Controller-Interface, Protokoll-Logik, Kryptografie-Operationen und Transport-Mechanismen etabliert. Im Folgenden wird die klassische Architektur ohne Post-Quantum-Kryptografie beschrieben, um die Grundlage für den nachfolgenden PQC-Plugin-Architekturentwurf zu schaffen.
-
-\subsubsection{Layer 1: Controller Interface (Admin API)}
-
-Die oberste Schicht der ACA-Py-Architektur bildet eine zustandslose HTTP-REST-API, die als Admin-API bezeichnet wird und über Swagger/OpenAPI dokumentiert ist. Diese Schnittstelle ermöglicht es externen Controller-Anwendungen -- beispielsweise Web-Applikationen, CLI-Tools oder Jupyter-Notebooks --, den Agent zu steuern, ohne direkt mit der internen Python-Codebasis interagieren zu müssen. Jede Agent-Instanz exponiert die Admin-API auf einem konfigurierbaren Port (z.\,B.\ 8021 für den Issuer-Agent) und stellt eine Vielzahl von Endpoints bereit, die SSI-spezifische Operationen abstrahieren.
-
-Zentrale Endpoints umfassen \texttt{POST /out-of-band/create-invitation} zur Initiierung von Agent-Verbindungen, \texttt{GET /connections} zur Auflistung bestehender Verbindungen, \texttt{POST /schemas} zur Registrierung von Credential-Schemas auf dem Ledger, \texttt{POST /credential-definitions} zur Erstellung von Credential Definitions, \texttt{POST /issue-credential-2.0/send} zur Ausstellung von Credentials sowie \texttt{POST /present-proof-2.0/send-request} zur Anforderung von Zero-Knowledge-Proof-basierten Presentations. Ein typischer Interaktionsflow sieht vor, dass eine Controller-Anwendung einen HTTP-POST-Request an den Endpoint \texttt{/out-of-band/create-invitation} sendet, woraufhin der Agent eine Invitation-Datenstruktur generiert und als JSON-Antwort zurückliefert. Diese Schnittstelle ist vollständig sprachunabhängig, da sie ausschließlich HTTP als Protokoll verwendet, wodurch Controller in beliebigen Programmiersprachen implementiert werden können.
-
-\subsubsection{Layer 2: Protocol Handlers (Core Business Logic)}
-
-Die zweite Architekturschicht implementiert die eigentliche SSI-Geschäftslogik in Form von Protocol Handlern, die als Python-Module im Verzeichnis \texttt{acapy\_agent/protocols/} organisiert sind. Jeder Protocol Handler implementiert eine spezifische Aries RFC (Request for Comments) und modelliert den zugehörigen Protokoll-Ablauf als zustandsbasierte State Machine. Die wichtigsten Protocol Handler für den SSI-Workflow sind das Out-of-Band Protocol, das DID Exchange Protocol, das Issue Credential Protocol sowie das Present Proof Protocol.
-
-Das \textit{Out-of-Band Protocol} (RFC 0434) wird bei der Initialisierung von Agent-Verbindungen genutzt. Wenn ein Controller-Request an \texttt{POST /out-of-band/create-invitation} eingeht, delegiert die Admin-API an den \texttt{OOBManager}, der wiederum den \texttt{ConnectionManager} aufruft, um ein neues \texttt{did:peer:4}-DID zu generieren. Dieser Prozess involviert die Erstellung zweier kryptografischer Schlüsselpaare über die Wallet-Schnittstelle: Ein ED25519-Schlüsselpaar (32 Bytes privater Schlüssel, 32 Bytes öffentlicher Schlüssel) für digitale Signaturen sowie ein X25519-Schlüsselpaar für Diffie-Hellman-basierte Schlüsselvereinbarung. Der \texttt{DIDPeer4Creator} kodiert diese öffentlichen Schlüssel mit Multicodec-Präfixen (\texttt{0xed} für ED25519, \texttt{0xec} für X25519) und generiert Multikey-Identifier (z.\,B.\ \texttt{z6Mk...} für ED25519-Keys). Die resultierende Invitation-Datenstruktur enthält ein \texttt{service}-Objekt mit \texttt{recipientKeys}, die auf die generierten Schlüssel referenzieren.
-
-Das \textit{DID Exchange Protocol} (RFC 0023) übernimmt die wechselseitige Authentifizierung von Agent-Verbindungen. Wenn ein Holder-Agent eine Invitation über \texttt{POST /out-of-band/receive-invitation} empfängt, erstellt der \texttt{DIDExchangeManager} eine DID-Exchange-Request-Nachricht, die mit dem ED25519-Schlüssel des Holders signiert wird. Der Issuer-Agent empfängt diese Nachricht, verifiziert die ED25519-Signatur mittels des öffentlichen Schlüssels aus der DID-Dokumentstruktur und antwortet mit einer ebenfalls signierten Response-Nachricht. Nach erfolgreichem Austausch wechselt der Verbindungsstatus auf \texttt{"completed"}, und beide Agents speichern einen Connection-Record im Wallet. Die Signatur-Operationen verwenden den ED25519-Algorithmus, der 64-Byte-Signaturen erzeugt, und werden typischerweise im DIDComm-\texttt{\textasciitilde sig}-Decorator eingebettet.
-
-Das \textit{Issue Credential Protocol} (RFC 0453) orchestriert die Credential-Ausstellung. Ein Issuer-Agent empfängt einen Controller-Request über \texttt{POST /issue-credential-2.0/send}, woraufhin der \texttt{IssueCredentialManager} eine Credential-Offer-Nachricht erstellt. Die kryptografische Signatur des Credentials basiert auf AnonCreds CL-Signaturen (Camenisch-Lysyanskaya), nicht auf ED25519, und wird von der \texttt{indy-credx}-Bibliothek generiert. Diese Signatur gewährleistet Zero-Knowledge-Proof-Eigenschaften und ist strukturell deutlich komplexer als klassische digitale Signaturen. Die Credential-Offer-Nachricht wird mittels \texttt{pack\_message()} verschlüsselt, wobei X25519-basierte Elliptic-Curve-Diffie-Hellman (ECDH) Key Agreement in Kombination mit XChaCha20-Poly1305 Authenticated Encryption verwendet wird. Der Holder-Agent empfängt die verschlüsselte Nachricht, entschlüsselt sie mittels \texttt{unpack\_message()} und speichert das Credential im Wallet, sofern die \texttt{--auto-store-credential}-Option aktiviert ist.
-
-Das \textit{Present Proof Protocol} (RFC 0454) implementiert die Proof-Verifikation. Ein Verifier-Agent sendet einen Proof-Request, der spezifiziert, welche Attribute offengelegt und welche Prädikate (z.\,B.\ \texttt{age >= 18}) nachgewiesen werden sollen. Der Holder-Agent generiert eine Zero-Knowledge-Proof-Presentation mittels der \texttt{indy-credx}-Bibliothek, wobei ein Link Secret (Blinding Factor) verwendet wird, um die Privacy-Eigenschaften zu gewährleisten. Der Verifier validiert den Proof durch Abgleich mit der Credential Definition auf dem Ledger sowie durch Überprüfung des Non-Revocation-Status via Tails-File-Download. Die kryptografischen Operationen basieren auf AnonCreds-Protokollen mit Accumulator-basierten Revocation-Mechanismen, nicht auf klassischen Signaturen.
-
-\subsubsection{Layer 3: Wallet Interface}
-
-Die dritte Schicht abstrahiert die Schlüsselverwaltung und Credential-Speicherung durch eine Wallet-Schnittstelle, deren Standard-Implementierung Aries Askar ist (die ältere Indy-SDK-Implementierung gilt als deprecated). Das Wallet verwaltet kryptografische Schlüssel, DIDs, Credentials und Connections in einer verschlüsselten SQLite-Datenbank.
-
-Die DID-Generierung erfolgt über die Methode \texttt{wallet.create\_local\_did()}, die als Parameter \texttt{method="peer"} und \texttt{key\_type="ed25519"} erhält. Diese Methode erzeugt ein ED25519-Schlüsselpaar, speichert es in der Wallet-Datenbank und gibt ein \texttt{DIDInfo}-Objekt zurück, das den DID-String sowie Metadaten wie den Verification Key enthält. Die Speicherung erfolgt in der SQLite-Tabelle \texttt{items} mit der Kategorie \texttt{"did"}, wobei die Schlüsselinformationen als JSON-kodierte Werte abgelegt werden. Die Wallet-Verschlüsselung basiert auf einer Passphrase, die mittels Argon2id Key Derivation Function in einen Verschlüsselungsschlüssel transformiert wird. Alle sensiblen Daten -- einschließlich privater Schlüssel und Credentials -- werden mit ChaCha20-Poly1305 Authenticated Encryption verschlüsselt, bevor sie in die Datenbank geschrieben werden.
-
-Die Schlüsselverwaltung unterscheidet zwei primäre Key Types: ED25519 für digitale Signaturen und X25519 für Key Agreement. ED25519-Schlüssel werden mit dem Multicodec-Präfix \texttt{0xed} kodiert und sind für DID-Authentifizierung sowie DID-Exchange-Signaturen vorgesehen. X25519-Schlüssel verwenden dasMulticodec-Präfix \texttt{0xec} und dienen ausschließlich der DIDComm-Nachrichtenverschlüsselung mittels ECDH. Der \texttt{KeyType}-Datentyp in \texttt{wallet/key\_type.py} definiert zusätzlich den JWS-Algorithmus-Identifier (\texttt{"EdDSA"} für ED25519, \texttt{None} für X25519), der bei JSON Web Signature-Operationen verwendet wird.
-
-Credential-Speicherung erfolgt über \texttt{wallet.store\_credential()}, das Credential-Daten, Metadaten und Credential-ID als Parameter erhält. Die Credentials werden ebenfalls verschlüsselt in der SQLite-Datenbank abgelegt, wobei AnonCreds-spezifische Datenstrukturen wie Link Secret und Credential-Signaturen intakt erhalten bleiben, um spätere Proof-Generierung zu ermöglichen.
-
-\subsubsection{Layer 4: DIDComm Messaging}
-
-Die vierte Schicht implementiert das DIDComm-Messaging-Protokoll (aktuell Version 1, zukünftig Version 2), das verschlüsselte Peer-to-Peer-Kommunikation zwischen Agents gewährleistet. Der zentrale Mechanismus ist die \texttt{pack\_message()}- und \texttt{unpack\_message()}-Funktionalität, die in der Wallet-Implementierung residiert.
-
-Die \texttt{pack\_message()}-Operation transformiert eine Klartext-Nachricht in eine verschlüsselte JWE-Struktur (JSON Web Encryption). Der Verschlüsselungsprozess beginnt mit einem X25519-ECDH-Key-Agreement zwischen dem privaten Schlüssel des Senders und dem öffentlichen Schlüssel des Empfängers, woraus ein Shared Secret resultiert. Dieses Shared Secret wird mittels HKDF-SHA256 (HMAC-based Key Derivation Function) in einen Verschlüsselungsschlüssel abgeleitet, wobei ein zufälliger Salt und kontextspezifische Info-Parameter verwendet werden. Die eigentliche Nachrichtenverschlüsselung erfolgt mit XChaCha20-Poly1305, einem Authenticated Encryption with Associated Data (AEAD) Algorithmus, der sowohl Vertraulichkeit als auch Integrität gewährleistet. Die resultierende JWE-Struktur enthält ein \texttt{protected}-Header-Feld (Base64-kodiert), ein \texttt{recipients}-Array mit verschlüsselten Schlüsseln, einen Initialization Vector (\texttt{iv}), den Ciphertext sowie ein Authentifizierungs-Tag.
-
-Die \texttt{unpack\_message()}-Operation invertiert diesen Prozess: Sie parst die JWE-Struktur, führt ein X25519-ECDH-Key-Agreement mit dem eigenen privaten Schlüssel durch, leitet den Entschlüsselungsschlüssel ab und dekodiert die Nachricht mittels XChaCha20-Poly1305. Optional verifiziert die Methode die Sender-Authentizität, sofern die Nachricht im authenticated encryption-Modus gepackt wurde. Das Rückgabeobjekt enthält die entschlüsselte Nachricht sowie Metadaten wie \texttt{sender\_verkey} und \texttt{recipient\_verkey}.
-
-\subsubsection{Layer 5: Transport Layer}
-
-Die unterste Architekturschicht implementiert die Netzwerk-Transport-Mechanismen für DIDComm-Nachrichten. ACA-Py unterstützt mehrere Transport-Protokolle, wobei HTTP und WebSocket die gängigsten sind.
-
-Der \textit{Inbound Transport} wird über den Parameter \texttt{--inbound-transport http 0.0.0.0 8020} konfiguriert und startet einen HTTP-Server, der auf eingehende POST-Requests mit \texttt{Content-Type: application/ssi-agent-wire} wartet. Eingehende Requests enthalten gepackte DIDComm-Nachrichten im Request-Body. Der Inbound Handler ruft \texttt{unpack\_message()} auf, extrahiert den Nachrichtentyp aus dem \texttt{@type}-Feld und routet die Nachricht zum entsprechenden Protocol Handler. Nach Verarbeitung kann optional eine Response-Nachricht generiert und zurückgesendet werden.
-
-Der \textit{Outbound Transport} wird mittels \texttt{--outbound-transport http} aktiviert und ermöglicht es dem Agent, DIDComm-Nachrichten an andere Agents zu senden. Die Ziel-URL wird aus dem Connection-Record extrahiert, der den Endpoint des Remote-Agents enthält (z.\,B.\ \texttt{https://other-agent:8030/}). Die Nachricht wird mittels \texttt{pack\_message()} verschlüsselt und als HTTP-POST-Request versendet. In der klassischen Architektur ohne PQC-Proxies erfolgt diese Kommunikation entweder als unverschlüsseltes HTTP oder über klassisches TLS mit RSA/ECDSA-Zertifikaten und X25519/ECDHE-Schlüsselvereinbarung, wodurch keine Quantenresistenz auf Transport-Layer-Ebene gegeben ist.
-
-\subsubsection{Kryptografische Primitive in der klassischen Architektur}
-
-Die klassische ACA-Py-Architektur verwendet drei distinkte kryptografische Systeme für unterschiedliche Zwecke: ED25519 (Curve25519-basierte Signaturen) für DID-Authentifizierung und DID-Exchange-Protokolle, X25519 (Curve25519-basierter Diffie-Hellman) für DIDComm-Nachrichtenverschlüsselung sowie AnonCreds CL-Signaturen für Credential-Ausstellung und Zero-Knowledge-Proof-basierte Presentations. Keine dieser kryptografischen Primitive bietet Quantenresistenz, da sowohl elliptische Kurven (ED25519, X25519) als auch RSA-basierte Systeme durch Shor's Algorithmus auf hinreichend leistungsfähigen Quantencomputern kompromittiert werden können. Die Integration von Post-Quantum-Kryptografie erfordert daher systematische Modifikationen an den Layers 2--4, während Layer 1 (Admin API) und Layer 5 (Transport Layer mit PQC-Proxies aus Iteration 1) unverändert bleiben können.
 
 \subsection{ACA-Py-Plugin-Quellcode (pqc\_didpeer4\_fm)}
 
@@ -7943,6 +7891,7 @@ Executing task in folder ferris: docker logs --tail 1000 -f 767d8558623044fb63e5
 \label{sec:Anhang_Summative Evaluation}
 
 \subsection{KRITIS Szenario}
+\label{sec:Anhang_KRITIS Szenario}
 
 % 1. ISSUANCE
 %    - Betreiber (Issuer) stellt "Notfall-Wartungszertifikat" aus
@@ -7972,9 +7921,11 @@ Executing task in folder ferris: docker logs --tail 1000 -f 767d8558623044fb63e5
 %  - Nachname: NICHT offengelegt(Zero-Knowledge-Proof)
 %  - Organisation: NICHT offengelegt (Zero-Knowledge-Proof)
 
-Dieses Jupyter Notebook demonstriert einen vollständigen Self-Sovereign Identity (SSI) Workflow für kritische Infrastrukturen (KRITIS) im Energiesektor. Der vorliegende Use Case zeigt die durchgängigen Prozesse der Ausstellung, Verwaltung und Verifikation von Notfall-Wartungszertifikaten für den Zugang zu einem Umspannwerk auf.
+Dieses Jupyter Notebook demonstriert einen vollständigen \ac{SSI}-Workflow für ein \ac{KRITIS}-Unternehmen im Energiesektor \parencite[§2]{bundesministeriumdesinnern_VerordnungZurBestimmungKritischerInfrastrukturennachBSIGesetzBSIKritisverordnung_2016}. Der vorliegende Use Case zeigt die durchgängigen Prozesse der Ausstellung, Verwaltung und Verifikation von Notfall-Wartungszertifikaten für den Zugang zu einem Umspannwerk des Unternehmens auf, welches die Transformation von 
+Hochspannungsenergie in andere Spannungsebenen regelt, Messung und Überwachung 
+des Stromnetzes durchführt sowie die Steuerung der Stromverteilung regelt \parencite[S. 166]{syahputra_PowerTransformerLoadingAnalysisOrderImproveReliabilitySubstation_2017}.
 
-Das zugrunde liegende Szenario basiert auf folgendem Anwendungsfall: Ein Energienetzbetreiber stellt einem Notfalltechniker ein zeitlich begrenztes Zertifikat aus, das den Zugang zu kritischer Infrastruktur, konkret einem Umspannwerk Nord-Ost, gewährt. Das Zutrittssystem verifiziert die Berechtigung des Technikers mittels Zero-Knowledge-Proofs, ohne dabei die Identität des Technikers offenzulegen. Dieser Ansatz realisiert das Datenschutzprinzip Privacy by Design und gewährleistet die Einhaltung der Datenschutz-Grundverordnung (DSGVO). Die dezentralisierte Natur von SSI-Systemen ermöglicht dabei eine Entkopplung von Identitätsverwaltung und Zutrittskontrolle, wodurch einzelne Kontrollpunkte und zentralisierte Datenbanken als potenzielle Angriffsvektoren reduziert werden.
+Das zugrunde liegende Szenario basiert auf folgendem Anwendungsfall: Ein Energienetzbetreiber stellt einem Notfalltechniker ein zeitlich begrenztes Zertifikat aus, das den Zugang zu kritischer Infrastruktur, konkret einem Umspannwerk Nord-Ost, gewährt. Das Zutrittssystem verifiziert die Berechtigung des Technikers mittels Zero-Knowledge-Proofs, ohne dabei die Identität des Technikers offenzulegen. Dieser Ansatz realisiert das Datenschutzprinzip Privacy by Design und gewährleistet die Einhaltung der \ac{DSGVO}. Die dezentralisierte Natur von SSI-Systemen ermöglicht dabei eine Entkopplung von Identitätsverwaltung und Zutrittskontrolle, wodurch einzelne Kontrollpunkte und zentralisierte Datenbanken als potenzielle Angriffsvektoren reduziert werden.
 
 % 1. ISSUANCE \\
 %    - Betreiber (Issuer) stellt "Notfall-Wartungszertifikat" aus \\
@@ -8994,7 +8945,7 @@ Originale /wallet/did Responses:
 \end{lstlisting}
 
 \subsubsection{Teil 3: Schema \& Credential Definition - Notfall-Wartungszertifikat}
-\label{sec:Teil3-Schema-Credential-Definition-Notfall-Wartungszertifikat}
+\label{sec:Anhang_Teil3-Schema-Credential-Definition-Notfall-Wartungszertifikat}
 
 \refstepcounter{manualListingCounter}
 \label{lst:Jupyter-Notebook-Cell-6}
