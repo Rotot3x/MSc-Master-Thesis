@@ -22,7 +22,7 @@
         <mxCell id="PHca5uIOyzlhwDa6qFun-21" edge="1" parent="1" source="PHca5uIOyzlhwDa6qFun-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="PHca5uIOyzlhwDa6qFun-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PHca5uIOyzlhwDa6qFun-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;" value="STEP 3:&lt;br&gt;&lt;div&gt;SIDECAR PROXY KEY&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;✔ ML-DSA-65&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;✔ Output: .key&lt;/div&gt;" vertex="1">
+        <mxCell id="PHca5uIOyzlhwDa6qFun-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;" value="STEP 3:&lt;br&gt;&lt;div&gt;SIDECAR-PROXY KEY&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;✔ ML-DSA-65&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;✔ Output: .key&lt;/div&gt;" vertex="1">
           <mxGeometry height="160" width="160" x="360" y="200" as="geometry" />
         </mxCell>
         <mxCell id="PHca5uIOyzlhwDa6qFun-22" edge="1" parent="1" source="PHca5uIOyzlhwDa6qFun-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="PHca5uIOyzlhwDa6qFun-8">

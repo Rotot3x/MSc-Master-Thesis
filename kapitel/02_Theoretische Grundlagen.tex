@@ -1,8 +1,6 @@
 \newpage
 \section{Theoretische Grundlagen} \label{sec:Theoretische Grundlagen}
 
-\fixme{3,5 Seiten BILDER/TABELLEN ==> kann erweitert werden}
-
 \subsection{Self-Sovereign Identity} \label{sec:Self-Sovereign Identity}
 
 \ac{SSI} ist ein dezentrales Identitätsparadigma, das Nutzern die vollständige Kontrolle über ihre persönlichen Daten und digitalen Identitäten ermöglicht \cite[S. 1]{satybaldy_TaxonomyChallengesSelfSovereignIdentitySystems_2024}. Im Gegensatz zu traditionellen zentralisierten oder föderalen Identitätsmanagementsystemen, bei denen Identitätsanbieter als Intermediäre agieren, verleiht \ac{SSI} dem Einzelnen die Autorität, eigenständig über die Verfügbarkeit und Weitergabe seiner digitalen Identitätsattribute zu bestimmen \parencite[S. 1]{schardong_SelfSovereignIdentitySystematicReviewMappingTaxonomy_2022}. Diese Kontrollverschiebung nach \textcite[S. 12]{preukschat_SelfsovereignIdentityDecentralizeddigitalidentityverifiablecredentials_2021} vom Issuer und Verifier hin zum User wird in \autoref{fig:ssi_shift_in_control} dargestellt.
@@ -41,7 +39,7 @@ Die Infrastruktur-Schicht bildet die Basis von SSI-Systemen und dient als \ac{DP
 
 \subsubsection{Identifikatoren und kryptographisches Material}
 
-Identifikatoren und kryptographisches Material wie öffentliche Schlüssel werden zur Identifikation von SSI-Nutzern verwendet, unabhängig von der eingenommenen Rolle \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. Die Authentifizierung über Identifikatoren stellt die zwei grundlegenden Funktionalitäten des Identitätsmanagements bereit: Identifikation und Authentifizierung \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. SSI nutzt Identifikatoren, die keine Registrierungsstellen oder Identity Provider erfordern, wobei die häufigsten Identifikatoren dem \ac{DID}-Standard des W3C folgen \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. \ac{DID} sind weltweit eindeutige, kryptographisch verifizierbare Identifikatoren, die dem Aufbau dargestellt in \autoref{fig:ssi_did_aufbau} folgen und es verschiedenen Parteien ermöglichen, mehrere Identitäten zu kontrollieren, um ihre Privatsphäre zu schützen \parencite[S. 22]{strueker_SelfSovereignIdentityGrundlagenAnwendungenundPotenzialeportablerdigitalerIdentitaeten_2021}. 
+\ac{DID} sind weltweit eindeutige, kryptographisch verifizierbare Identifikatoren, die dem Aufbau dargestellt in \autoref{fig:ssi_did_aufbau} folgen und es verschiedenen Parteien ermöglichen, mehrere Identitäten zu kontrollieren, um ihre Privatsphäre zu schützen \parencite[S. 22]{strueker_SelfSovereignIdentityGrundlagenAnwendungenundPotenzialeportablerdigitalerIdentitaeten_2021}. In Verbindung mit kryptographischem Material wie public Keys werden sie zur Identifikation von SSI-Nutzern verwendet, unabhängig ihrer eingenommenen Rolle \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. Die Authentifizierung über Identifikatoren stellt die zwei grundlegenden Funktionalitäten des Identitätsmanagements Identifikation und Authentifizierung bereit \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}.
 
 \begin{figure}[H]
     \centering
@@ -53,7 +51,7 @@ Identifikatoren und kryptographisches Material wie öffentliche Schlüssel werde
     \label{fig:ssi_did_aufbau}
 \end{figure}
 
-DIDs werden von ihren Eigentümern erstellt, sind mit einem öffentlichen Schlüssel verknüpft, der einem privaten Schlüssel zugeordnet ist, und die Eigentümerschaft wird durch Challenge-Response-Verfahren verifiziert \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. Jede DID ist mit einem DID-Dokument verbunden, das öffentliche Schlüssel und Service-Endpoints enthält \parencite[S. 23]{strueker_SelfSovereignIdentityGrundlagenAnwendungenundPotenzialeportablerdigitalerIdentitaeten_2021}.
+SSI nutzt Identifikatoren, die keine Registrierungsstellen oder Identity Provider erfordern, wobei die häufigsten Identifikatoren dem \ac{DID}-Standard des W3C folgen \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. DIDs werden von ihren Eigentümern erstellt, sind mit einem public Key verknüpft, der einem private Key zugeordnet ist, sodass die Eigentümerschaft durch Challenge-Response-Verfahren verifiziert werden kann \parencite[S. 5]{naghmouchi_SystematicReviewLayeredFrameworkPrivacybyDesignSelfSovereignIdentitySystems_2025}. Jede DID ist mit einem DID-Dokument verbunden, das öffentliche Schlüssel und Service-Endpoints enthält \parencite[S. 23]{strueker_SelfSovereignIdentityGrundlagenAnwendungenundPotenzialeportablerdigitalerIdentitaeten_2021}.
 
 \subsubsection{Credentials und Presentations}
 

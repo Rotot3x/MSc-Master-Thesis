@@ -1,0 +1,390 @@
+\newpage
+\section{Erste Iteration der Artefaktentwicklung}
+\label{sec:Erste Iteration der Artefaktentwicklung}
+
+\subsection{Designziele dieser Iteration} \label{sec:Designziele_Iteration_1}
+
+Die Designziele dieser Iteration leiten sich unmittelbar aus den in Kapitel~\ref{sec:Zielsetzung und Forschungsfragen} definierten Forschungsfragen ab und werden operationalisiert durch eine schichtenbasierte Architektur, die die Quantensicherheit auf der Transportebene verankert. 
+
+Im Fokus von FF1 (Systemarchitektur \& Compliance) steht die Etablierung einer modularen Architektur mit klarer Separation zwischen SSI-Agenten, DLT-Infrastruktur und quantensicherer Transportschicht auf Basis ausgewählter Frameworks und Technologien. Das Design soll die Kernherausforderung, Post-Quantum-Kryptografie nicht-invasiv und modular zu integrieren, adressieren.
+
+Bezüglich FF2 (Algorithmenauswahl und Sicherheitsbewertung) liegt das Designziel auf der Erprobung quantenresistenter kryptografischer Primitive für die Transportebene auf Basis standardisierter Algorithmen und hybrider Schlüsselaustauschverfahren. Die formative Evaluierung soll dabei die technische Machbarkeit dieser Algorithmen in der Infrastruktur validieren und Erkenntnisse für die nachgelagerte Iteration generieren.
+
+Für FF3 (Kryptografische Agilität) zielt diese Iteration auf die architektonische Vorbereitung für Austauschbarkeit kryptografischer Algorithmen ab. Das Design soll durch modulare Infrastrukturkomponenten die Voraussetzungen für zukünftige Algorithmenupdates ohne grundlegende Systemumgestaltung schaffen.
+
+\subsection{Anforderungsanalyse} \label{sec:Anforderungsanalyse}
+
+\subsubsection{Funktionale Anforderungen} \label{sec:Funktionale Anforderungen}
+
+Basierend auf der Analyse von \textcite[S. 130]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021} lassen sich für das SSI-System sechs zentrale funktionale Anforderungen identifizieren, die den den vollständigen Lebenszyklus digitaler Identitätsnachweise ab decken (\autoref{tab:functional_requirements}).
+
+\begin{longtable}{L{1cm}L{4cm}L{9cm}}
+    \caption{Funktionale Anforderungen an SSI-Systeme}
+    \label{tab:functional_requirements} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Funktionale Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis der Auflistungen und des Sequenzdiagramms in Anlehnung an \textcite[S. 130-132]{nokhbehzaeem_BlockchainBasedSelfSovereignIdentitySurveyRequirementsUseCasesComparativeStudy_2021}.} \\
+    \endlastfoot
+    FR1 & Issuer Discovery &
+    Das System muss die Auffindbarkeit von publizierten Credential Schemata des Issuers digitaler Identitätsnachweise ermöglichen. \\
+    \midrule
+    FR2 & Connection Creation &
+    Das System muss Verbindungen zwischen den Akteuren des SSI-Ökosystems etablieren können. \\
+    \midrule
+    FR3 & Credential Creation &
+    Das System muss Funktionalität zur Erstellung und Ausstellung digitaler Credentials bereitstellen. \\
+    \midrule
+    FR4 & Verification with Credentials &
+    Das System muss einen Verifikationsprozess zwischen Identity Holder, Verifier und Blockchain-basierter \ac{VDR} durch Validierung eines Identitätsnachweises ermöglichen. \\
+    \midrule
+    FR5 & Credential Revocation &
+    Das System muss die Funktionalität zum Widerruf von Credentials unterstützen. \\
+    \midrule
+    FR6 & Credential Deletion &
+    Das System muss die Funktionalität zur Löschung von Credentials unterstützen. \\
+\end{longtable}
+
+\subsubsection{KRITIS-spezifische Compliance-Anforderungen} \label{sec:KRITIS-spezifische Compliance-Anforderungen}
+
+Die in \autoref{tab:compliance_requirements} konsolidierten Anforderungen definieren den normativen Rahmen für die Gestaltung und Evaluierung des \ac{PQC}-\ac{SSI}-Prototypen im Kontext KRITIS.
+
+Im Bereich der kryptografischen Verfahren (Nr. 1-4) basieren die Vorgaben primär auf den Technischen Richtlinien des BSI. Für die Migration auf Post-Quantum-Kryptografie ist insbesondere die Wahl spezifischer Parameter-Sets für ML-DSA (NIST Level 3/5) und ML-KEM (Level 3/5) sowie die zwingende Implementierung hybrider Schlüsseleinigung vorgeschrieben, um sowohl Integrität als auch langfristige Vertraulichkeit gegen Quantencomputer-Angriffe zu gewährleisten \parencite[Kap. 2.2, 2.4, 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. Ergänzend fordert die TR-02102-2 den Einsatz moderner Transportverschlüsselung via TLS 1.3, um durch Perfect Forward Secrecy (PFS) die Kommunikationskanäle abzusichern \parencite[Kap. 3.2]{bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025}.
+
+Hinsichtlich der Betriebssicherheit (Nr. 5-6) leiten sich die Anforderungen direkt aus dem IT-Sicherheitsgesetz 2.0 (BSIG) und internationalen Standards ab. Essenziell für KRITIS-Betreiber ist hierbei die Implementierung effektiver \gls{SzA} durch umfassende Protokollierung sicherheitsrelevanter Ereignisse gemäß § 8a BSIG \parencite[Nr. 101, 103]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}. Flankierend schreibt die ISO/IEC 27001 eine strikte logische Netzsegmentierung vor, um die Ausbreitung potenzieller Sicherheitsvorfälle innerhalb der Infrastruktur zu begrenzen \parencite[Control A.8.22]{iso/iec_ISOIEC270012022InformationsecuritycybersecurityprivacyprotectionInformationsecuritymanagement_2022}.
+
+Die dritte Säule bildet der Datenschutz (Nr. 7-9) auf Basis der DSGVO. Hierbei stehen Prinzipien wie \enquote{Privacy by Design} gemäß Art. 25 und Datenminimierung nach Art. 5 im Fokus. Zudem muss das Recht auf Löschung nach Art. 17 durch geeignete Architekturmuster, etwa die Trennung von Identifikatoren und Inhaltsdaten, technisch gewährleistet werden \parencite[Art. 5, 17, 25]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}.
+
+\begin{longtable}{L{1cm}L{4cm}L{9cm}}
+    \caption{Compliance Anforderungen an SSI-Systeme im KRITIS-Kontext}
+    \label{tab:compliance_requirements} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Compliance Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{l}{\textit{Tabelle \thetable\ (Fortsetzung)}} \\
+    \toprule
+    \textbf{Nr.} & \textbf{Compliance Anforderung} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\textit{Fortsetzung auf nächster Seite}} \\
+    \endfoot
+    \bottomrule
+    \multicolumn{3}{p{\linewidth}}{\textit{Anmerkung.} Eigene Darstellung auf Basis von \textcite{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025,bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025,bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024,iso/iec_ISOIEC270012022InformationsecuritycybersecurityprivacyprotectionInformationsecuritymanagement_2022,daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}.} \\
+    \endlastfoot
+    CR1 & Einhaltung spezifischer Parameter-Sets für ML-DSA &
+    Zur Gewährleistung der vom BSI geforderten Sicherheitsniveaus dürfen für das Verfahren ML-DSA ausschließlich die Parameter-Sets verwendet werden, die den NIST Security Strength Categories 3 oder 5 entsprechen. Konkret sind dies ML-DSA-65 oder ML-DSA-87 \parencite[Kap. 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025} \\
+    \midrule
+    CR2 & Einhaltung spezifischer Parameter-Sets für ML-KEM &
+    Für den langfristigen Schutz vertraulicher Informationen mittels des gitterbasierten Schlüsselkapselungsverfahrens ML-KEM dürfen gemäß BSI-Einschätzung ausschließlich Parametersätze verwendet werden, die den NIST Security Strength Categories 3 oder 5 entsprechen. Zulässig sind demnach ML-KEM-768 sowie ML-KEM-1024 \parencite[Kap. 2.4.3]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. \\
+    \midrule
+    CR3 & Implementierung hybrider Schlüsseleinigung &
+    Um langfristige Vertraulichkeit (Schutz vor \textit{Store Now, Decrypt Later}) zu gewährleisten, muss für die Schlüsseleinigung zwingend ein hybrides Verfahren implementiert werden, das ein anerkanntes klassisches Verfahren mit einem empfohlenen PQC-KEM kombiniert \parencite[Kap. 2.2, 2.4]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. \\
+    \midrule
+    CR4 & Bevorzugte Verwendung von TLS 1.3 &
+    Für die Absicherung der Transportebene wird gemäß \textcite[Kap. 3.2]{bsi_TechnischeRichtlinieTR021022KryptographischeVerfahrenEmpfehlungenundSchlussellangenTeil2VerwendungTransport_2025} vorrangig das Protokoll TLS 1.3 empfohlen, da es PFS erzwingt und auf unsichere Cipher-Suites verzichtet. \\
+    \midrule
+    CR5 & Protokollierung sicherheitsrelevanter Ereignisse &
+    Sicherheitsrelevante Ereignisse müssen auf System- und Netzebene zentral protokolliert werden, um eine zeitnahe Erkennung von Angriffen zu ermöglichen \parencite[Nr. 101, 103]{bsi_KonkretisierungKRITISAnforderungen8aAbsatz1undAbsatz1aBSIG_2024}. \\
+    \midrule
+    CR6 & Logische Netzsegmentierung &
+    Gruppen von Informationsdiensten, Benutzern und Informationssystemen sollten in den Netzwerken der Organisation getrennt werden \parencite[Control A.8.22]{iso/iec_ISOIEC270012022InformationsecuritycybersecurityprivacyprotectionInformationsecuritymanagement_2022}. \\
+    \midrule
+    CR7 & Datenschutz durch Technikgestaltung (Privacy by Design) &
+    Gemäß \textcite[Art. 25]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016} sind bereits bei der Entwicklung des Systems geeignete technische Maßnahmen zu treffen, die die Datenschutzgrundsätze addressieren. \\
+    \midrule
+    CR8 & Grundsatz der Datenminimierung &
+    Personenbezogene Daten müssen dem Zweck angemessen und auf das notwendige Maß beschränkt sein. \parencite[Art. 5]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}. \\
+    \midrule
+    CR9 & Recht auf Löschung &
+    Die betroffene Person hat das Recht, von dem Verantwortlichen die unverzügliche Löschung sie betreffender personenbezogener Daten zu verlangen. Der Verantwortliche ist verpflichtet, personenbezogene Daten unverzüglich zu löschen \parencite[Art. 17]{daseuropaeischeparlamentundderratdereuropaeischenunion_VerordnungEU2016679EuropaeischenParlamentsundRatesvom27April2016_2016}. \\
+\end{longtable}
+
+\subsection{Framework- und Technologie-Auswahl}
+
+Wie von \textcite[S. 3]{ghosh_DecentralizedCrossNetworkIdentityManagementBlockchainInteroperation_2021} demonstriert, setzt auch die vorliegende Arbeit auf existierende Konzepte und Tools für dezentrale Identitätsverwaltung als Bausteine für die Entwicklung des \ac{PQC}-\ac{SSI}-Prototypen. Hierbei anzumerken ist, dass die Entwicklung von \ac{DID}s und \ac{VC}s sich noch in einem frühen Stadium befindet, wobei nur relativ wenige Implementierungen verfügbar sind \parencite[S. 9]{mazzocca_SurveyDecentralizedIdentifiersVerifiableCredentials_2025}. Die systematische Auswahl der Frameworks und Technologien, bestehend aus der \ac{DLT}-Plattform, dem SSI-Framework, der Kryptografiebibliothek, der Revocation-Infrastruktur und dem \gls{Sidecar-Proxy}, wird transparent in \ref{sec:Anhang_Framework- und Technologie-Auswahl} dokumentiert und begründet.
+
+\subsection{Architekturentwurf}
+
+\subsubsection{Gesamtarchitektur}
+\label{sec:Gesamtarchitektur_Iteration1}
+
+Der Architekturentwurf dieser Iteration operationalisiert die in Kapitel~\ref{sec:Designziele_Iteration_1} definierten Designziele durch eine dreischichtige, containerbasierte Systemarchitektur, die Post-Quantum-Kryptografie auf der Transportebene verankert. Abbildung~\ref{fig:Architektur_Iteration1} visualisiert die Zielarchitektur, bestehend aus der DLT-Schicht mit vier Hyperledger-Indy-Validator-Nodes samt Ledger Browser, der Revocation-Schicht mit dediziertem Tails-Server sowie der SSI-Agenten-Schicht mit drei ACA-Py-Instanzen in den Rollen Issuer, Holder und Verifier.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Architektur_Iteration1}
+    \caption{Architekturentwurf der ersten Iteration}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Architektur_Iteration1}
+\end{figure}
+
+Das zentrale Architekturprinzip bildet das Sidecar-Proxy Pattern (\ref{sec:Anhang_Sidecar-Proxy}). Jede extern erreichbare Komponente wird durch einen nginx-basierten \ac{PQC} Sidecar-Proxy geschützt, der TLS-1.3-Verbindungen mit \glslink{Hybride Schemata}{hybrider Schlüsseleinigung} terminiert und im Fallback \ac{ECC} (X25519MLKEM768:x25519) unterstützt. Die Authentifizierung erfolgt über ML-DSA-65-signierte X.509-Zertifikate. In \autoref{fig:Architektur_Iteration1} wird diese verschlüsselte Kommunikation durch die rot-gestrichelten Verbindungspfeile zwischen den Sidecar-Proxies visualisiert.
+
+Die Backend-Dienste (Indy-Nodes, Webserver, Tails-Server und ACA-Py-Agents) verbleiben innerhalb isolierter interner Docker-Netzwerke und kommunizieren ausschließlich über unverschlüsseltes HTTP. Externe Zugriffe erfolgen ausschließlich über das gemeinsame Netzwerk sidecar\_proxy, das als quantensichere Kommunikationsdomäne fungiert und eine strikte Netzsegmentierung gemäß der sechsten \ac{KRITIS}-Anforderung (\autoref{tab:compliance_requirements}) gewährleistet.
+
+\subsubsection{ACA-Py Applikationsarchitektur}
+\label{sec:ACA-Py Applikationsarchitektur_Iteration1}
+
+Die Architektur von \ac{ACA-Py} folgt einem modularen Designansatz, der durch eine strikte Trennung zwischen der generischen Protokollebene und der anwendungsspezifischen Geschäftslogik gekennzeichnet ist. Dieses Architekturmuster entkoppelt die kryptografischen Kernfunktionen und das \gls{DIDComm}-Messaging (Agent) von der Steuerungslogik (Controller) \parencite{openwallet-foundation_AcapyREADMEmdMainopenwalletfoundationacapyGitHub_}. \autoref{fig:ACAPY_Application_Architecture_Iteration 1} visualisiert diese High-Level-Applikationsarchitektur und verdeutlicht die Interaktion der Schichten.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{ACAPY Application Architecture_Iteration 1}
+    \caption{ACA-Py High Level Applikationsarchitektur}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung auf Basis von \textcite{openwallet-foundation_AcapyREADMEmdMainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentAdminserverpymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0routespymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentProtocolsissue_credentialv2_0routespymainopenwalletfoundationacapyGitHub_,decentralized-identity_AriesrfcsFeatures0434outofbandREADMEmdmaindecentralizedidentityariesrfcs_,decentralized-identity_AriesrfcsFeatures0023didexchangemaindecentralizedidentityariesrfcs_,decentralized-identity_AriesrfcsFeatures0453issuecredentialv2maindecentralizedidentityariesrfcsGitHub_,openwallet-foundation_AcapyAcapy_agentWalletaskarpymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0managerpymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentAskarstorepymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentAskardidcommv1pymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentTransportinboundhttppymainopenwalletfoundationacapyGitHub_,openwallet-foundation_AcapyAcapy_agentTransportoutboundhttppymainopenwalletfoundationacapyGitHub_}.
+    \end{flushleft}
+    \label{fig:ACAPY_Application_Architecture_Iteration 1}
+\end{figure}
+
+Layer 1 bildet eine HTTP-REST-API (Admin API), die über \enquote{server.py} implementiert wird \parencite{openwallet-foundation_AcapyAcapy_agentAdminserverpymainopenwalletfoundationacapyGitHub_}. Sie ermöglicht es Controller-Anwendungen den Agent über standardisierte Endpoints wie \enquote{/out-of-band/create-invitation} \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0routespymainopenwalletfoundationacapyGitHub_} oder \enquote{/issue-credential-2.0/send} \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsissue_credentialv2_0routespymainopenwalletfoundationacapyGitHub_} zu steuern, ohne direkt mit der Python-Codebasis zu interagieren. Die Endpunkte werden hierbei durch mehrere \enquote{routes.py} umgesetzt.
+
+Layer 2 implementiert die SSI-Geschäftslogik als Protocol Handler durch mehrere \enquote{manager.py}, die Aries \ac{RFC}s umsetzen. Das Out-of-Band Protocol (RFC 0434) \parencite{decentralized-identity_AriesrfcsFeatures0434outofbandREADMEmdmaindecentralizedidentityariesrfcs_} generiert Invitation-Nachrichten mit \enquote{did\:peer\:4-DIDs} \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsout_of_bandv1_0managerpymainopenwalletfoundationacapyGitHub_}, das DID Exchange Protocol (RFC 0023) \parencite{decentralized-identity_AriesrfcsFeatures0023didexchangemaindecentralizedidentityariesrfcs_} authentifiziert Agent-Verbindungen mittels ED25519-Signaturen \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsdidexchangev1_0managerpymainopenwalletfoundationacapyGitHub_}, und das Issue Credential Protocol (RFC 0453) \parencite{decentralized-identity_AriesrfcsFeatures0453issuecredentialv2maindecentralizedidentityariesrfcsGitHub_} erstellt AnonCreds-Credentials \parencite{openwallet-foundation_AcapyAcapy_agentProtocolsissue_credentialv2_0managerpymainopenwalletfoundationacapyGitHub_}.
+
+Layer 3 abstrahiert die Schlüsselverwaltung durch das Aries-Askar-Wallet \parencite{openwallet-foundation_AcapyAcapy_agentWalletaskarpymainopenwalletfoundationacapyGitHub_}, das ED25519-Schlüsselpaare für Signaturen und X25519-Schlüsselpaare für Key Agreement generiert \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_}, diese mit Multicodec-Präfixen kodiert \parencite{openwallet-foundation_AcapyAcapy_agentWalletkey_typepymainopenwalletfoundationacapyGitHub_} und verschlüsselt in einer SQLite-Datenbank ablegt \parencite{openwallet-foundation_AcapyAcapy_agentAskarstorepymainopenwalletfoundationacapyGitHub_}, wobei ChaCha20-Poly1305-Authenticated-Encryption verwendet wird \parencite{openwallet-foundation_AcapyAcapy_agentAskardidcommv1pymainopenwalletfoundationacapyGitHub_}.
+
+Layer 4 realisiert das \gls{DIDComm}-Messaging über \enquote{pack\_message()} und \enquote{unpack\_message()} \parencite{openwallet-foundation_AcapyAcapy_agentAskardidcommv1pymainopenwalletfoundationacapyGitHub_}, welches anschließend mittels HTTP-basierter Transport-Mechanismen für Inbound- \parencite{openwallet-foundation_AcapyAcapy_agentTransportinboundhttppymainopenwalletfoundationacapyGitHub_} und Outbound-Kommunikation \parencite{openwallet-foundation_AcapyAcapy_agentTransportoutboundhttppymainopenwalletfoundationacapyGitHub_} übertragen wird, wobei in der klassischen Architektur kein quantensicheres TLS verwendet wird.
+
+\subsection{Implementierung}
+
+Die Implementierung realisiert die Zertifikatsinfrastruktur mit ML-DSA-Signaturen, PQC-Sidecar-Proxies mit TLS~1.3 und hybrider Schlüsseleinigung, die Hyperledger-Indy-DLT-Schicht, die Revocation Registry sowie drei ACA-Py-Agenten, die mittels Docker-Compose mit expliziter Netzsegmentierung orchestriert werden. Die hierfür genutzte Entwicklungsumgebung ist in \ref{sec:Anhang_Setup der Entwicklungsumgebung} dokumentiert.
+
+\subsubsection{Zertifikatsstruktur}
+\label{sec:Zertifikatsstruktur}
+
+Die Zertifikatsinfrastruktur für die PQC-Sidecar-Proxies basiert auf einer selbstsignierten Root Certificate Authority, die mit dem Post-Quantum-Signaturalgorithmus ML-DSA-87 erstellt wurde. Die Root Certificate Authority dient als Trust Anchor für alle in der Architektur verwendeten TLS-Zertifikate und gewährleistet, dass sämtliche Zertifikatssignaturen quantenresistent nach der höchsten \ac{NIST} Sicherheitsstufe 5 sind \parencite[S. 15]{nationalinstituteofstandardsandtechnologyus_ModulelatticebasedDigitalSignaturestandard_2024} .
+
+Das Zertifikatserstellungsverfahren folgt einem fünfschrittigen Workflow, wie in \autoref{fig:Zertifikatserstellungsworkflow} dargestellt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Zertifikatserstellungsworkflow}
+    \caption{Zertifikatserstellungsworkflow für PQC-basierte Sidecar-Proxies}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Zertifikatserstellungsworkflow}
+\end{figure}
+
+Zunächst wird der Root-CA-Schlüssel generiert (Step 1), gefolgt von der Erstellung des selbstsignierten Root-CA-Zertifikats mit einer Gültigkeit von zehn Jahren (Step 2). Anschließend werden für jeden \gls{Sidecar-Proxy} dedizierte Schlüssel mit ML-DSA-65 generiert (Step 3), die ein besseres Verhältnis zwischen Sicherheit und Speicherbedarf bieten \parencite[S. 16]{nationalinstituteofstandardsandtechnologyus_ModulelatticebasedDigitalSignaturestandard_2024}. Für jeden \gls{Sidecar-Proxy} wird ein Certificate Signing Request erstellt, der die erforderlichen Subject Alternative Names enthält (Step 4), bevor die Zertifikate abschließend von der Root CA mit ML-DSA-65 und SHA3-256 signiert werden (Step 5). Die detaillierte Implementierung dieses Workflows ist in \ref{sec:Anhang_Zertfikatserstellungsworkflow} dokumentiert.
+
+\subsubsection{Sidecar-Proxy nginx}
+\label{sec:Sidecar-Proxy nginx}
+
+Die Implementierung der post-quanten-kryptographischen Absicherung auf Transport-Layer-Ebene basiert auf einer modifizierten Version des nginx-Dockerfiles von \textcite{open-quantum-safe_OpenquantumsafeOqsdemosNginxDockerfile_2025} sowie spezifischen nginx-Konfigurationsdateien für jeden \gls{Sidecar-Proxy}. Beide Komponenten realisieren ein konsistentes Konzept bestehend aus Hybrid-Key-Exchange mit \ac{ECC} als Fallback, welches auf Transport-Layer-Ebene Anwendung findet.
+
+Das modifizierte Dockerfile folgt dem Multi-Stage-Build-Prinzip nach \textcite[S. 1]{rosa_MiningMeasuringImpactchangepatternsimprovingsizebuildtimedockerimages_2025} und integriert OpenSSL 3.5.4, liboqs und den oqs-provider. \autoref{fig:Sidecar_Proxy_nginx_Dockerfile} visualisiert die zwei zentralen Phasen (Build-Stage und Runtime-Stage) sowie die Modifikationen gegenüber dem Original-Dockerfile (rote Markierungen). Die Hybrid-Key-Exchange mit \ac{ECC}-Fallback wird durch die DEFAULT-GROUPS-Konfiguration X25519MLKEM768:X25519 realisiert, eine Konvention, die sich konsistent durch die gesamte Implementierung zieht und in \ref{sec:Anhang_Dockerfile Sidecar-Proxy nginx} ausführlich erläutert wird.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{2 Stage Sidecarproxy Dockerfile}
+    \caption{Sidecar-Proxy nginx Dockerfile Multi-Stage Build}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Sidecar_Proxy_nginx_Dockerfile}
+\end{figure}
+
+Die nginx-Konfigurationsdateien implementieren ein standardisiertes \gls{Sidecar-Proxy} Pattern, das diese Architektur operationalisiert. Sie folgen einem konsistenten Schichtenmodell aus globalen Parametern, internen Service-Abstraktionen über Upstream-Blöcke und externen HTTPS-Endpunkten über Server-Blöcke. TLS~1.3 wird durch die Direktive ssl\_ecdh\_curve X25519MLKEM768:X25519 konfiguriert (Listing~A-\ref{lst:nginx_holder.conf}), wodurch Schlüsselaustausch und Fallback auf klassische \ac{ECC}-basierte Kurven ermöglicht werden. Die aktivierte Direktive ssl\_protocols TLSv1.3 wird durch SSL-Zertifikate mit ML-DSA-65-Signaturalgorithmus ergänzt, sodass sowohl der Schlüsselaustausch als auch die Server-Authentifikation post-quantensicher erfolgen. Die gesamte Konfiguration wird in \ref{sec:Anhang_nginx_holder.conf} erläutert.
+
+\subsubsection{DLT-Infrastruktur}
+
+Für die \ac{PQC}-Integration Transport-Layer-Ebene wurde die von-network-Architektur um einen nginx-\ac{PQC}-\gls{Sidecar-Proxy} erweitert.
+Diese Modifikation stellt die zentrale Anpassung gegenüber dem Original-Quellcode \parencite{bcgov_GitHubBcgovVonnetworkportabledevelopmentlevelIndyNodenetwork_} dar und betrifft primär die docker-compose.yml-Konfigurationsdatei (Listing \ref{lst:docker-compose.yml-DLT-Infrastruktur}), sowie die Hinzufügung eines neuen Verzeichnisses \enquote{pqc\_sidecarproxy\_nginx/}, welches die in Kapitel~\ref{sec:Sidecar-Proxy nginx} und Kapitel~\ref{sec:Zertifikatsstruktur} vorgestellten Dockerfile-, nginx-Konfigurationsdatei und Zertifikate für den quantensicheren \gls{Sidecar-Proxy} enthält. Der Webserver-Container, der im Original-Setup direkt auf Port 9000 exponiert ist \parencite{bcgov_VonnetworkDockercomposeymlMainbcgovvonnetworkGitHub_}, verbleibt in der modifizierten Architektur ausschließlich im internen Docker-Netzwerk \enquote{von}. Stattdessen terminiert der neu hinzugefügte pqc-sidecarproxy-webserver-Container alle eingehenden \ac{TLS}-1.3-Verbindungen auf Port 8000 und leitet die Anfragen nach erfolgreicher \glslink{Hybride Schemata}{hybrider Schlüsselvereinbarung} und ML-DSA-65-Zertifikatsverifikation als unverschlüsseltes HTTP an den internen Webserver-Container weiter. Die unmodifizierte von-network-Implementierung wird in Kapitel~\ref{sec:Anhang_DLT-Infrastruktur} näher erläutert.
+
+Die Integration des Sidecar-Proxies erforderte die Definition eines zusätzlichen, extern zugänglichen Docker-Netzwerks \enquote{von\_sidecarproxy}, das als gemeinsame Kommunikationsebene für alle PQC-Proxies der Gesamtarchitektur dient. Dieses Netzwerk wird in der docker-compose.yml (Listing \ref{lst:docker-compose.yml-DLT-Infrastruktur}) als \enquote{external: true} deklariert. Der pqc-sidecarproxy-webserver-Container ist sowohl mit dem internen von-Netzwerk (für Backend-Kommunikation) als auch mit dem externen von\_sidecarproxy-Netzwerk (für Client-Zugriffe) verbunden, wodurch eine strikte Netzwerksegmentierung zwischen interner und externer Kommunikation gewährleistet wird.
+
+\subsubsection{Revocation Registry}
+
+Für die Integration in die Post-Quantum-gesicherte Gesamtarchitektur wurde der indy-tails-server analog zur DLT-Infrastruktur um einen nginx-\ac{PQC}-\gls{Sidecar-Proxy} erweitert. Diese Modifikation betrifft primär die Docker-Compose-Konfigurationsdatei (Listing \ref{lst:docker-compose.yml-Revocation-Registry}), in der ein zusätzlicher Service \enquote{pqc-sidecarproxy-tails-server} definiert wurde, sowie die Hinzufügung eines neuen Verzeichnisses \enquote{pqc\_sidecarproxy\_nginx/}, welches die in Kapitel~\ref{sec:Sidecar-Proxy nginx} und Kapitel~\ref{sec:Zertifikatsstruktur} vorgestellten Dockerfile-, nginx-Konfigurationsdatei und Zertifikate für den quantensicheren \gls{Sidecar-Proxy} enthält. Der ursprüngliche Tails-Server-Container verbleibt im internen Docker-Netzwerk \enquote{tails-server} und exponiert Port 6543 ausschließlich innerhalb dieses Netzwerks. Der neu hinzugefügte PQC-Proxy-Container terminiert alle externen \ac{TLS}-1.3-Verbindungen auf Port 6543 und leitet die Anfragen nach erfolgreicher erfolgreicher \glslink{Hybride Schemata}{hybrider Schlüsselvereinbarung} und ML-DSA-65-Zertifikatsverifikation als unverschlüsseltes HTTP an den internen Tails-Server weiter. Die unmodifizierte indy-tails-server-Implementierung wird in Kapitel~\ref{sec:Anhang_Revocation Registry} näher erläutert.
+
+Die Netzwerk-Integration folgt dem etablierten \gls{Sidecar-Proxy} Pattern. Der \enquote{pqc-sidecarproxy-tails-server}-Container ist sowohl mit dem internen \enquote{tails-server}-Netzwerk (für Backend-Kommunikation) als auch mit dem externen, manuell erstellten \enquote{von\_sidecarproxy}-Netzwerk (für Client-Zugriffe) verbunden. Diese Dual-Network-Architektur erzwingt, dass alle externen Zugriffe auf den Tails-Server über den quantensicheren \gls{Sidecar-Proxy} geleitet werden.
+
+\subsubsection{SSI-Agenten} \label{SSI-Agenten}
+
+Die SSI-Agent-Schicht bildet die Anwendungsebene der Gesamtarchitektur und implementiert die drei klassischen Rollen des SSI-Ökosystems Issuer, Holder und Verifier (Kapitel~\ref{sec:Self-Sovereign Identity}) samt ihrer dedizierten nginx PQC Sidecar-Proxies. Die Architektur folgt dem in Kapitel~\ref{sec:ACA-Py Applikationsarchitektur} beschriebenen Referenzmodell, alle drei Agenten basieren auf dem unmodifizierten \ac{ACA-Py} Base-Image (Listing \ref{lst:Dockerfile-acapy-base}) und werden ausschließlich über Kommandozeilen-Parameter konfiguriert, ohne Änderungen am ACA-Py-Quellcode vorzunehmen.
+
+Listing \ref{lst:docker-compose.yml-SSI-Agenten} zeigt die Docker-Compose-Konfiguration der drei ACA-Py-Agenten innerhalb der Gesamtarchitektur. Die Agent-Konfiguration erfolgt hierbei vollständig deklarativ über Docker-Compose-Service-Definitionen, die jeweils den \enquote{start}-Befehl von \ac{ACA-Py} mit rollenspezifischen Parametern aufrufen. Jeder Agent wird in einem dedizierten Docker-Netzwerk isoliert betrieben und über einen nginx-\ac{PQC}-\gls{Sidecar-Proxy} mit quantensicherer TLS-1.3-Verschlüsselung nach außen exponiert. Die Wallet-Konfiguration nutzt persistente Docker-Volumes zur Speicherung von DIDs, Credentials und Connections über Container-Neustarts hinweg. Die Agents verbinden sich über PQC-gesicherte Proxies mit der DLT-Infrastruktur und der Revocation Registry. Auto-Response-Features ermöglichen vollständig scriptgesteuerte SSI-Workflows ohne manuelle Interaktion. Die Netzwerk-Architektur folgt einem strikten Isolation-Prinzip, sodass Agents nur über das externe \enquote{von\_sidecarproxy}-Netzwerk untereinander kommunizieren können. Health-Checks und Service-Dependencies orchestrieren deterministische Startup-Sequenzen und eliminieren Race-Conditions während des Deployments.
+Eine ausführliche Darstellung der Agent-Konfigurationsparameter und der Sidecar-Proxy-Architektur findet sich in \ref{sec:Anhang_SSI-Agenten}.
+
+\subsubsection{Docker Orchestrierung der Gesamtarchitektur} \label{sec:Docker Orchestrierung der Gesamtarchitektur}
+
+Die in den vorangegangenen Abschnitten beschriebenen Einzelkomponenten -- Zertifikatsinfrastruktur, PQC-Sidecar-Proxies, DLT-Infrastruktur, Revocation Registry und SSI-Agenten -- werden mittels einer mehrstufigen Docker-Compose-Orchestrierung zu einem funktionsfähigen Gesamtsystem integriert. Der Startprozess der Gesamtarchitektur folgt einer deterministischen Sequenz, die in Listing~A-\ref{lst:Docker-Compose-Start-der-Gesamtarchitektur} dokumentiert ist und die korrekten Abhängigkeiten zwischen den Infrastrukturschichten gewährleistet.
+
+Die Orchestrierung gliedert sich in drei sequenzielle Phasen, die jeweils durch separate Docker-Compose-Konfigurationen gesteuert werden. In der ersten Phase wird die DLT-Infrastruktur über das von-network-Management-Skript (Listing~A-\ref{lst:von-network-manage-script}) initialisiert, wodurch die vier Indy-Validator-Nodes, der Genesis-Webserver sowie der zugehörige PQC-Sidecar-Proxy gestartet werden. Diese Phase erzeugt das gemeinsame externe Docker-Netzwerk \enquote{von\_sidecarproxy}, das als zentrale Kommunikationsschicht für alle quantensicheren Verbindungen dient. Die zweite Phase umfasst die Initialisierung der Revocation Registry mittels des indy-tails-server-Management-Skripts (Listing~A-\ref{lst:indy-tails-server-manage-script}), wodurch der Tails-Server-Container sowie dessen PQC-Proxy-Frontend bereitgestellt werden. In der dritten Phase werden schließlich die SSI-Agenten gemeinsam mit ihren jeweiligen PQC-Sidecar-Proxies über die projektspezifische Docker-Compose-Konfiguration (Listing~A-\ref{lst:docker-compose.yml-SSI-Agenten}) gestartet.
+
+Die in \autoref{fig:Docker-Compose-Übersicht-Iteration-1} visualisierte Containerarchitektur verdeutlicht die resultierende Systemtopologie. Die Gesamtarchitektur umfasst insgesamt 14 Container, die sich auf die drei funktionalen Schichten verteilen. Die DLT-Schicht besteht aus insgesamt sechs Containern, den vier Validator-Nodes, einem Webserver und einem PQC Sidecar-Proxy. Die Revocation-Schicht umfasst insgesamt zwei Container, einen Tails-Server und dessen PQC Sidecar-Proxy. Die Agent-Schicht besteht aus insgesamt sechs Containern für die drei SSI-Agenten und ihre jeweiligen PQC Sidecar-Proxies.
+
+Die Netzwerktopologie nutzt sechs dedizierte Docker-Bridges, um die logische Separation der Schichten zu realisieren. Das hope\_hope-holder-, hope\_hope-issuer- und hope\_hope-verifier-Netzwerk verbinden jeweils die SSI-Agenten mit der DLT-Schicht. Das docker\_tails-server-Netzwerk isoliert die Revocation-Infrastruktur, während das von\_sidecarproxy-Netzwerk die PQC-Sidecar-Proxies konnektiviert. Das von\_von-Netzwerk integriert die Validator-Nodes untereinander und mit der Revocation-Schicht.
+
+Die Datenpersistenz wird durch elf Docker Volumes realisiert. Während docker\_nginx-logs und von\_nginx-logs die Webserver-Logs aggregieren, speichern hope\_holder-data, hope\_issuer-data und hope\_verifier-data die lokalen Wallets und kryptografischen Materialien der SSI-Agenten. Die Validator-Node-Datenbank wird durch von\_node1-data bis von\_node4-data persistiert, während von\_webserver-cli und von\_webserver-ledger die Ledger-Zustandsdaten und CLI-Konfigurationen verwalten. Diese Volumenstruktur entkoppelt den Containern-Lebenszyklus vom Datenschicksal und ermöglicht die Wiederaufnahme der Systemzustände über Container-Neustarts hinweg.
+
+Die \enquote{depends\_on}-Direktiven in den Docker-Compose-Konfigurationen (Listing~A-\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~A-\ref{lst:docker-compose.yml-Revocation-Registry} und Listing~A-\ref{lst:docker-compose.yml-SSI-Agenten}) definieren explizite Startup-Abhängigkeiten, die Race-Conditions während des Deployment-Prozesses eliminieren. Die PQC Sidecar-Proxies werden vor den ihnen zugeordneten Backend-Services gestartet, und die SSI-Agenten warten auf die vollständige Initialisierung der Infrastruktur-Services, bevor sie ihre Genesis-Transaktionsdatei abrufen. Diese Orchestrierung gewährleistet eine deterministische Startup-Sequenz und stellt sicher, dass alle Komponenten beim Erreichen ihres operativen Zustands auf vollständig verfügbare Abhängigkeiten zugreifen können.
+
+Die \enquote{depends\_on}-Direktiven in den Docker-Compose-Konfigurationen (Listing~A-\ref{lst:docker-compose.yml-DLT-Infrastruktur}, Listing~A-\ref{lst:docker-compose.yml-Revocation-Registry} und Listing~A-\ref{lst:docker-compose.yml-SSI-Agenten}) definieren explizite Startup-Abhängigkeiten, die über reine Ausführungsreihenfolgen hinausgehen. Ohne Synchronisation führen verfrühte Interaktionen abhängiger Services zu \enquote{faulty interactions} während der Boot-Phase \parencite[S. 25]{deiasio_FrameworkMicroservicesSynchronization_2021}. Die implementierte Konfiguration eliminiert diese Race-Conditions, indem sie sicherstellt, dass die PQC Sidecar-Proxies nicht gestartet werden, bevor die ihnen zugeordneten Backend-Services den Status (\enquote{ready}) erreichen. Diese Orchestrierung erzwingt eine deterministische Startup-Sequenz, die verhindert, dass abhängige Komponenten auf Dienste zugreifen, die sich zwar im Status \textit{Running}, aber noch nicht im Status \textit{Ready} befinden \parencite[S. 29]{deiasio_FrameworkMicroservicesSynchronization_2021}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{docker_compose_übersicht.png}
+    \caption{Docker-Compose-Übersicht der ersten Iteration}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Docker-Compose-Übersicht-Iteration-1}
+\end{figure}
+
+\subsection{Formative Evaluation}
+\label{sec:formative_evaluation_iteration1}
+
+In Übereinstimmung mit dem in Kapitel~\ref{sec:Schritt4-Design der individuellen Evaluationsepisoden} entworfenen Evaluationsdesign setzt dieser Abschnitt die erste definierte Evaluationsepisode (\autoref{tab:eval_episodes}) um. Charakterisiert als formative und artifizielle Untersuchung, liegt der Fokus dieser Phase exklusiv auf der Validierung der Transport-Layer-Security sowie der korrekten Konfiguration der Infrastrukturkomponenten. Ziel ist es, gemäß den Prinzipien von \textcite[S. 6, 7]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} Designfehler in der Sidecar-Architektur frühzeitig zu identifizieren.
+
+Methodisch erfolgt dies primär durch White-Box-Tests. Da bei diesem Verfahren die internen Strukturen und Implementierungsdetails der Software bekannt sind und gezielt in die Prüfung einbezogen werden \parencite[S. 10]{myers_ArtSoftwareTesting_2012}, eignet es sich besonders gut, um die korrekte Konfiguration der kryptographischen Primitive innerhalb der Container-Architektur durch eine detaillierte Analyse der Handshake-Logs zu validieren.
+
+Für die technische Durchführung dieser Analysen war die Bereitstellung eines \ac{PQC}-fähigen Browsers zwingend erforderlich, da aktuelle Produktivbrowser noch keine Post-Quanten-Kryptographie in ihren \ac{TLS}-Implementierungen unterstützen. Diese Limitation führt bei Verbindungsversuchen zu \ac{PQC}-fähigen Servern unweigerlich zu einem Cipher-Mismatch, wie in \autoref{fig:Cipher-Mismatch-Blockchain-Webserver} veranschaulicht. Um diese Inkompatibilität zu überwinden, wurde ein Chromium-basierter Browser mit integrierter \ac{PQC}-Unterstützung kompiliert (siehe \ref{sec:Anhang_Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}). Dieser ermöglicht die Durchführung von TLS-Handshakes mit hybriden sowie rein \ac{PQC}-basierten Algorithmen und dient als fundamentale Testplattform für die experimentelle Analyse der implementierten Verfahren.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_blockchain_webserver_CIPHER_MISMATCH.png}
+    \caption{Cipher Mismatch der TLS-1.3-Verbindung des Webservers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Cipher-Mismatch-Blockchain-Webserver}
+\end{figure}
+
+\subsubsection{Validierung der Zertifikatskette und ML-DSA-Signaturen}
+
+Zur Verifikation der kryptographischen Integrität der implementierten \ac{PKI} wurde die Zertifikatskette der Sidecar-Proxies mittels openssl-Diagnosewerkzeugen analysiert. Ziel war der Nachweis, dass die ausgelieferten X.509-Zertifikate korrekt auf den spezifizierten Post-Quanten-Signaturalgorithmen basieren. Die Inspektion des vom Issuer-Agenten-Proxy bereitgestellten Zertifikats (\autoref{fig:Successful-Validation-Issuer-MLDSA-Cert}) bestätigt, dass der öffentliche Schlüssel des Leaf-Zertifikats (\enquote{pqc reverseproxy issuer agent}) den Algorithmus \enquote{ML-DSA-65} verwendet. Des Weiteren belegt der Signaturalgorithmus \enquote{ML-DSA-87}, dass die Zertifikatskette valide durch die \enquote{Master Thesis PQC Root CA} signiert wurde, was die erfolgreiche Generierung und Einbindung der Dilithium-basierten Zertifikate in den TLS-Handshake beweist.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_issuer_mldsa_cert.png}
+    \caption{Erfolgreiche Validierung des ML-DSA-Zertifikats des Issuer-Agenten}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Issuer-MLDSA-Cert}
+\end{figure}
+
+\subsubsection{Validierung der TLS 1.3 Algorithmen-Aushandlung}
+
+Die erfolgreiche Integration der PQC-Algorithmen in das Transportprotokoll wurde durch einen Verbindungsaufbau mittels \enquote{openssl s\_client} verifiziert. Wie in \autoref{fig:Successful-Validation-Issuer-TLS1.3} dargestellt, konnte erfolgreich eine TLS-1.3-Sitzung etabliert werden. Die Analyse der Handshake-Parameter bestätigt die Verwendung der hybrid-post-quanten Schlüsselaustauschgruppe \enquote{X25519MLKEM768}, welche den klassischen elliptischen Kurvenalgorithmus X25519 mit dem KEM-Verfahren ML-KEM-768 kombiniert. Zudem wird für die Authentifizierung des Peer-Zertifikats der Signaturalgorithmus \enquote{mldsa65} ausgewiesen. Diese Ergebnisse validieren die korrekte Konfiguration der OQS-Provider-Bibliothek innerhalb der Proxy-Komponenten und belegen die praktische Funktionsfähigkeit des hybriden Schlüsselaustauschs im Zusammenspiel mit PQC-Signaturen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_issuer_TLS1.3.png}
+    \caption{Erfolgreiche Validierung der TLS-1.3-Verbindung des Issuer-Agenten}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Issuer-TLS1.3}
+\end{figure}
+
+\subsubsection{Validierung der Ledger-Initialisierung}
+
+Die operative Funktionsfähigkeit des Hyperledger Indy Netzwerks wurde primär über das Web-Interface des Blockchain-Servers validiert. Wie in \autoref{fig:Successful-Validation-Blockchain-Webserver} dargestellt, zeigen die Statusindikatoren aller vier Validator-Nodes eine aktive Beteiligung am Konsensus-Protokoll (Status Node1-4), womit der Distributed Ledger erfolgreich initialisiert ist. Simultan belegt diese Abbildung die korrekte PQC-Absicherung der Webserver-Komponente. Der Zugriff erfolgt über den eigens kompilierten PQC-Chromium-Browser, dessen Security-Panel explizit eine authentifizierte \ac{TLS}-1.3-Verbindung unter Verwendung der hybriden Schlüsselaustauschgruppe \enquote{X25519MLKEM768} ausweist.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_blockchain_webserver.png}
+    \caption{Erfolgreiche Validierung der TLS-1.3-Verbindung des Webservers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Blockchain-Webserver}
+\end{figure}
+
+Als zweite notwendige Bedingung für die spätere Anbindung der SSI-Agenten wurde die Verfügbarkeit der Genesis-Datei verifiziert. \autoref{fig:Successful-Validation-Genesis-File-Blockchain-Webserver} dokumentiert den Abruf des Endpunkts \enquote{/genesis} mittels \enquote{curl}. Die erfolgreiche Rückgabe der JSON-formatierten Genesis-Transaktionen bestätigt, dass die für die Anbindung externer Clients erforderlichen Netzwerkinformationen korrekt publiziert werden.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_genesis.png}
+    \caption{Erfolgreiche Validierung der Genesis-Datei des Webservers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Genesis-File-Blockchain-Webserver}
+\end{figure}
+
+\subsubsection{Validierung der ACA-Py API-Verfügbarkeit}
+
+Die funktionale Erreichbarkeit der SSI-Agenten wurde durch eine systematische Analyse der Initialisierungsphase und der anschließenden API-Verfügbarkeit validiert. Die Logging-Ausgabe des Issuer-Agenten (Listing~A-\ref{lst:Issuer-Agent-Boot-Logs}) dokumentiert den erfolgreichen Abruf der Genesis-Datei und die vollständige Ledger-Konfiguration. Die Erstellung eines neuen Wallet-Profils mit Askar-Backend und die erfolgreiche Initialisierung der Inbound- und Outbound-Transports demonstrieren die korrekte Konfiguration des ACA-Py-Agents. Die durchgeführten Health-Checks über den Endpunkt \enquote{/status/ready} bestätigen die vollständige Initialisierung und Bereitschaft des Agenten.
+
+Die Visualisierung der Swagger-basierten Admin-Oberfläche (\autoref{fig:Successful-Validation-Issuer-Agent-ACA-Py-Swagger-API}) ergänzt diese technischen Log-Daten durch den Nachweis, dass die Admin-API über den PQC-Reverse-Proxy fehlerfrei erreichbar ist und alle administrativen Endpunkte zur Steuerung der Agenten-Komponente bereitstellt. Die Tatsache, dass die Swagger-Oberfläche unter dem PQC-gesicherten HTTPS-Endpoint vollständig funktionsfähig ist, belegt die korrekte TLS-Terminierung am Proxy sowie die fehlerfreie Weiterleitung der HTTP-Anfragen an den ACA-Py-Container.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_Issuer_Agent_Swagger_API.png}
+    \caption{Erfolgreiche Validierung der Issuer Agent ACA-Py Swagger API}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Issuer-Agent-ACA-Py-Swagger-API}
+\end{figure}
+
+\subsubsection{Validierung der Netzwerkisolation}
+
+Die integrale Sicherheitseigenschaft der Netzwerksegmentierung wurde durch eine Inspektion der Docker-Netzwerktopologie und systematische Erreichbarkeitstests validiert. \autoref{fig:Darstellung-Network-Isolation} belegt diese Topologie anhand des \enquote{docker network inspect}-Outputs: Der Issuer-Agent befindet sich exklusiv im Netzwerksegment \enquote{hope\_hope-issuer}, während der Holder-Agent im Segment \enquote{hope\_hope-holder} isoliert ist. In jedem dieser Segmente fungiert der zugehörige PQC-Sidecar-Proxy als einziger Ingress-Punkt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_network_isolation.png}
+    \caption{Darstellung der Netzwerkisolation innerhalb der Gesamtarchitektur}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Darstellung-Network-Isolation}
+\end{figure}
+
+\autoref{fig:Successful-Validation-Network-Isolation-Through-Tests} demonstriert die Wirksamkeit dieser Isolation auf zwei Ebenen. Erstens zeigt die Prozessliste (\enquote{docker ps}), dass lediglich die Sidecar-Proxies externe Ports (8020, 8030, 8040) an das Host-System binden, während die Ports der ACA-Py-Container nicht exponiert sind. Zweitens beweisen die Inter-Container-Verbindungstests die logische Trennung. Ein direkter Zugriffsversuch aus dem \enquote{issuer-agent}-Container auf den \enquote{holder-agent} schlägt mit einem DNS-Auflösungsfehler (\enquote{Could not resolve host}) fehl, da keine Routing-Route zwischen den isolierten Netzwerkbrücken existiert. Im Gegensatz dazu ist der lokale Zugriff des \enquote{pqc-sidecarproxy-holder} auf seinen zugehörigen Agenten erfolgreich möglich.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{validate_network_isolation_through_tests.png}
+    \caption{Erfolgreiche Validierung der Netzwerkisolation}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Network-Isolation-Through-Tests}
+\end{figure}
+
+\subsection{Erkenntnisse und Anpassungsbedarfe}
+\label{subsec:findings_adaptation_needs}
+
+Die erste Iteration bildet das fundamentale technologische Fundament der Forschungsarbeit. Die formative Evaluation (Kapitel~\ref{sec:formative_evaluation_iteration1}) validierte die operative Integrität der entwickelten Architektur. Die verteilten Micro-Services, der Hyperledger Indy Ledger und die PQC-Sidecar-Proxies interagieren funktional korrekt. Diese Initialphase generierte jedoch spezifische Erkenntnisse, die eine gezielte Weiterentwicklung in der zweiten Iteration motivieren. Diese werden nachfolgend in Bezug auf die Designziele analysiert.
+
+\subsubsection{Abgleich mit den Designzielen und kritische Erkenntnisse}
+\label{subsubsec:design_goals_critique}
+
+Das primäre Designziel, die Absicherung der Transportebene in einem SSI-Ökosystem mittels Post-Quanten-Kryptographie, wurde vollständig erreicht. Die erfolgreiche Validierung des Sidecar-Musters belegt die Machbarkeit einer transparenten PQC-Migration für Legacy-Systeme (ACA-Py, Indy Node) ohne Eingriffe in deren Kerncode. Die implementierte Micro-Segmentation erfüllt zudem die architektonischen Anforderungen an logische Netzsegmentierung in \ac{KRITIS}-Umgebungen (\autoref{tab:compliance_requirements}).
+
+Durch die strikte Entkopplung der kryptographischen Terminierung von der Business-Logik durch die Sidecar-Proxy-Architektur konnte eine PQC-Integration realisiert werden, die die Kernprozesse der Identitätsverwaltung funktional nicht beeinträchtigt. Diese architektonische Entscheidung ermöglicht es, sicherheitskritische Updates an der Krypto-Komponente vorzunehmen, ohne die Integrität der komplexen SSI-Logik zu gefährden. Die empirische Validierung der Zertifikatsketten und TLS-1.3-Handshake-Protokolle (\autoref{sec:formative_evaluation_iteration1}) bestätigt die technische Reife dieser Architekturentscheidung.
+
+Bezüglich der Algorithmenauswahl und Sicherheitsbewertung operationalisiert die erste Iteration die in Tabelle~\ref{tab:compliance_requirements} definierten BSI-Vorgaben für Post-Quantum-Kryptografie durch die Implementierung der NIST-standardisierten Algorithmen ML-DSA-65 und ML-KEM-768, welche explizit die NIST Security Strength Categories 3/5 erfüllen \parencite[Kap.~2.4, 5.3.4.2]{bsi_BSITR021021KryptographischeVerfahrenEmpfehlungenundSchluessellaengenVersion202501_2025}. Die formative Evaluation bestätigte die technische Machbarkeit dieser Algorithmen in der Sidecar-Proxy-Infrastruktur durch die erfolgreiche Validierung hybrider Zertifikatsketten und TLS-1.3-Handshake-Protokolle mit der Schlüsselaustauschgruppe \enquote{X25519MLKEM768}.
+
+Bezüglich der kryptografischen Agilität zeigt die erste Iteration, dass das Designziel einer architektonischen Vorbereitung auf Algorithmenaustauschbarkeit erreicht wurde. Die containerbasierte Sidecar-Architektur ermglicht es, kryptografische Bibliotheken durch Rolling Updates der Proxy-Images auszutauschen, ohne ACA-Py oder die übrige Systemlogik anzupassen, was direkt die von \textcite[S. 102]{mehrez_CryptoAgilityProperties_2018} geforderte \enquote{Extensibility} kryptoagiler Systeme adressiert. Gleichzeitig nutzt die TLS-1.3-Integration eine konfigurationsbasierte Fallback-Kette (\enquote{DEFAULT\_GROUPS:X25519:ML-KEM-768:mlkem768x25519:mlkem1024}), sodass hybride und klassische Verfahren orthogonal ausgehandelt und bei Inkompatibilitäten automatisch gewechselt werden können \parencite[S. 26]{rescorla_TransportLayerSecurityTLSProtocolVersion13_2018}. Diese Protokoll- und Infrastrukturmechanismen realisieren damit zentrale Kryptoagilitäts-Eigenschaften wie \enquote{Fungibility} und \enquote{Updateability} \parencite[S. 102--103]{mehrez_CryptoAgilityProperties_2018} und entsprechen dem Erfordernis, kryptografische Komponenten ohne grundlegende Systemumgestaltung migrieren zu können \parencite[S. 670]{kreutzer_Kryptoagilitaet_2024a}.
+
+Eine zentrale Limitation identifizierte jedoch die Analyse der Sicherheitsmodelle. Während die Transportebene durch die Sidecar-Proxies vollständig quantensicher abgesichert ist (\gls{Data-In-Motion}), verbleiben Verifiable Credentials und DID-Dokumente (\gls{Data-At-Rest}) mittels klassischer Kryptografie verschlüsselt. Diese Diskrepanz zwischen Transportschutz (PQC-gesichert) und Datenpersistierung (klassische Kryptografie) widerspricht dem mehrschichtigen Sicherheitsansatz \enquote{Defense in Depth} von \textcite[S. 242--243]{alsaqour_DefenseDepthMultilayersecurity_2021}, bei dem konsistente, sich gegenseitig verstärkende Kontrollen auf mehreren Ebenen implementiert werden, um Ressourcen und Assets umfassend zu schützen. Diese Erkenntnisse folgern eine Erweiterung des Sicherheitsmodells von der Transportebene auf die Applikationsschicht in der zweiten Iteration.
+
+\subsubsection{Design-Refinements und Operationalisierung der zweiten Iteration}
+\label{subsubsec:design_refinements_iteration2}
+
+Die systematische Analyse der Evaluationsergebnisse führt zu zwei konvergenten Design-Refinements, die die identifizierten Sicherheitslücken adressieren und die zweite Iteration strukturieren.
+
+\textbf{Refinement 1: Applikationsebenen-Integration der Post-Quanten-Kryptografie.} Dieses Refinement adressiert die identifizierte Sicherheitslücke durch technische Erweiterung der PQC-Integration von der Transportebene auf die Applikationsebene. Die direkte Einbindung der \emph{liboqs}-Bibliothek in die ACA-Py-Agenten ermöglicht ML-DSA-65-Signaturen für Verifiable Credentials und \gls{DIDComm}-Nachrichten, wodurch die kritische Diskrepanz zwischen quantensicherer Transportverschlüsselung und ungeschützter Datenpersistierung geschlossen wird. Die Implementierung als modulares Plugin-System folgt dem Stabilitätsprinzip nach \textcite[S. 1--2]{hamza_SeparationConcernsEvolvingsystemsstabilitydrivenapproach_2005}, indem kryptografische Primitive in stabile Abstraktionsschichten (Kryptografie-Wrapper, DID-Verarbeitung, Integration-Patching) gekapselt werden, während instabile Algorithmen-spezifische Parameter (ML-DSA-65, ML-KEM-768) als austauschbare Konfigurationselemente behandelt werden. Dies realisiert das Open-Closed-Prinzip nach \textcite{martin_AgileSoftwareDevelopmentprinciplespatternspractices_2003} und minimiert den Aufwand für zukünftige Re-Separation bei Algorithmen-Updates, da nur die Konfigurationsebene modifiziert werden muss, ohne die stabile Plugin-Architektur zu verändern.
+
+\textbf{Refinement 2: Hybride Sicherheitsarchitektur mit redundanter Tiefenstaffelung.} Dieses Refinement etabliert ein übergeordnetes Defense-in-Depth-Modell durch beibehaltene Sidecar-Proxies als erste Verteidigungslinie (Transport Layer Security) bei gleichzeitiger Quantensicherung der Datenobjekte auf Anwendungsebene (Application Layer Security). Diese redundante Absicherung schafft eine tiefengestaffelte Sicherheitsarchitektur, bei der ein Bruch einzelner Schichten, nicht automatisch zum Kollaps der Gesamtsicherheit führt. Das Refinement implementiert damit die von \textcite[S. 242--243]{alsaqour_DefenseDepthMultilayersecurity_2021} geforderte Prinzipienkonsistenz über alle Architekturebenen hinweg und gewährleistet die Resilienz des Systems gegen hybride Angriffszenarien.

@@ -1,58 +1,58 @@
-\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 1}Self-Sovereign Identity}{107}{appendix.1.A}%
-\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 2}Systematische Literaturrecherche}{108}{appendix.1.B}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 2.1}Erste Iteration vom 30. Mai 2025 (Exposé)}{108}{subsection.1.B.1}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 2.2}Zweite Iteration vom 02. November 2025}{169}{subsection.1.B.2}%
-\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3}Erste Iteration der Artefaktentwicklung}{206}{appendix.1.C}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1}Framework- und Technologie-Auswahl}{206}{subsection.1.C.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.1}DLT-Plattform}{206}{subsubsection.1.C.1.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.2}SSI-Framework}{206}{subsubsection.1.C.1.2}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.3}Kryptografiebibliothek}{207}{subsubsection.1.C.1.3}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.4}Revocation-Infrastruktur}{208}{subsubsection.1.C.1.4}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.5}Sidecar Proxy}{208}{subsubsection.1.C.1.5}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2}Implementierung}{209}{subsection.1.C.2}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.1}Setup der Entwicklungsumgebung}{209}{subsubsection.1.C.2.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.2}Zertifikatserstellungsworkflow}{211}{subsubsection.1.C.2.2}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.3}Dockerfile: Sidecar Proxy nginx}{212}{subsubsection.1.C.2.3}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.4}nginx\_holder.conf}{217}{subsubsection.1.C.2.4}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.5}DLT-Infrastruktur}{220}{subsubsection.1.C.2.5}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.6}Revocation Registry}{225}{subsubsection.1.C.2.6}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.7}Dockerfile: acapy-base}{226}{subsubsection.1.C.2.7}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.8}SSI-Agenten}{229}{subsubsection.1.C.2.8}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.9}Docker Orchestrierung der Gesamtarchitektur}{236}{subsubsection.1.C.2.9}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.3}Formative Evaluation}{259}{subsection.1.C.3}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.3.1}Eigenkompilation eines PQC-Chromium-Browsers}{259}{subsubsection.1.C.3.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.3.2}Issuer Agent Boot Logs}{260}{subsubsection.1.C.3.2}%
-\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4}Zweite Iteration der Artefaktentwicklung}{263}{appendix.1.D}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1}ACA-Py-Plugin-Quellcode (pqc\_didpeer4\_fm)}{263}{subsection.1.D.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.1}liboqs\_wrapper.py}{263}{subsubsection.1.D.1.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.2}pqc\_peer4\_creator.py}{267}{subsubsection.1.D.1.2}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.3}pqc\_peer4\_resolver.py}{269}{subsubsection.1.D.1.3}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.4}pqc\_multicodec.py}{271}{subsubsection.1.D.1.4}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.5}pqc\_multikey.py}{273}{subsubsection.1.D.1.5}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.6}pqc\_didcomm\_v1.py}{274}{subsubsection.1.D.1.6}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.7}monkey\_patches.py}{283}{subsubsection.1.D.1.7}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.8}base\_manager\_patch.py}{287}{subsubsection.1.D.1.8}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.9}askar\_pqc\_patch.py}{300}{subsubsection.1.D.1.9}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.10}wallet\_patch.py}{319}{subsubsection.1.D.1.10}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.11}connection\_target\_patch.py}{321}{subsubsection.1.D.1.11}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.12}validator\_patch.py}{323}{subsubsection.1.D.1.12}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.13}key\_types.py}{326}{subsubsection.1.D.1.13}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.14}key\_type\_patches.py}{326}{subsubsection.1.D.1.14}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.15}multicodec\_patch.py}{330}{subsubsection.1.D.1.15}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.16}setup.py}{332}{subsubsection.1.D.1.16}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.17}README.md}{333}{subsubsection.1.D.1.17}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.2}Dockerfile: acapy-base-pqc}{336}{subsection.1.D.2}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.3}docker-compose.yml: SSI Agenten mit acapy-base-pqc \& Plugin}{341}{subsection.1.D.3}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.4}Issuer Agent mit PQC-Plugin Boot Log}{346}{subsection.1.D.4}%
-\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5}Summative Evaluation}{350}{appendix.1.E}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1}KRITIS Szenario}{350}{subsection.1.E.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.1}Teil 1: Setup \& Verbindungstests}{350}{subsubsection.1.E.1.1}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.2}Teil 2: DID Setup \& Ledger Registration - KRITIS-Identitäten}{360}{subsubsection.1.E.1.2}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.3}Teil 3: Schema \& Credential Definition - Notfall-Wartungszertifikat}{368}{subsubsection.1.E.1.3}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.4}Teil 4: Agent Connections - KRITIS-Akteure}{384}{subsubsection.1.E.1.4}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.5}Teil 5: Credential Issuance - Notfall-Wartungszertifikat}{409}{subsubsection.1.E.1.5}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.6}Teil 6: Proof Presentation - Zutrittskontrolle am Umspannwerk}{414}{subsubsection.1.E.1.6}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.7}Teil 7: Revocation \& Deletion- Beendigung der Wartungsberechtigung}{428}{subsubsection.1.E.1.7}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.2}Validierung der KRITIS-Compliance-Anforderungen}{448}{subsection.1.E.2}%
-\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.2.1}Protokollierung Sicherheitsrelevanter Ereignisse}{448}{subsubsection.1.E.2.1}%
-\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.3}Validierung der Kryptoagilität - Applikationslayer}{451}{subsection.1.E.3}%
+\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 1}Self-Sovereign Identity}{109}{appendix.1.A}%
+\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 2}Systematische Literaturrecherche}{110}{appendix.1.B}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 2.1}Erste Iteration vom 30. Mai 2025 (Exposé)}{110}{subsection.1.B.1}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 2.2}Zweite Iteration vom 02. November 2025}{171}{subsection.1.B.2}%
+\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3}Erste Iteration der Artefaktentwicklung}{208}{appendix.1.C}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1}Framework- und Technologie-Auswahl}{208}{subsection.1.C.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.1}DLT-Plattform}{208}{subsubsection.1.C.1.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.2}SSI-Framework}{208}{subsubsection.1.C.1.2}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.3}Kryptografiebibliothek}{209}{subsubsection.1.C.1.3}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.4}Revocation-Infrastruktur}{210}{subsubsection.1.C.1.4}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.1.5}Sidecar-Proxy}{210}{subsubsection.1.C.1.5}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2}Implementierung}{211}{subsection.1.C.2}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.1}Setup der Entwicklungsumgebung}{211}{subsubsection.1.C.2.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.2}Zertifikatserstellungsworkflow}{213}{subsubsection.1.C.2.2}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.3}Dockerfile: Sidecar-Proxy nginx}{214}{subsubsection.1.C.2.3}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.4}nginx\_holder.conf}{219}{subsubsection.1.C.2.4}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.5}DLT-Infrastruktur}{222}{subsubsection.1.C.2.5}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.6}Revocation Registry}{227}{subsubsection.1.C.2.6}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.7}Dockerfile: acapy-base}{228}{subsubsection.1.C.2.7}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.8}SSI-Agenten}{231}{subsubsection.1.C.2.8}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.2.9}Docker Orchestrierung der Gesamtarchitektur}{238}{subsubsection.1.C.2.9}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.3}Formative Evaluation}{261}{subsection.1.C.3}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.3.1}Eigenkompilation eines PQC-Chromium-Browsers}{261}{subsubsection.1.C.3.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 3.3.2}Issuer Agent Boot Logs}{262}{subsubsection.1.C.3.2}%
+\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4}Zweite Iteration der Artefaktentwicklung}{265}{appendix.1.D}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1}ACA-Py-Plugin-Quellcode (pqc\_didpeer4\_fm)}{265}{subsection.1.D.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.1}liboqs\_wrapper.py}{265}{subsubsection.1.D.1.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.2}pqc\_peer4\_creator.py}{269}{subsubsection.1.D.1.2}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.3}pqc\_peer4\_resolver.py}{271}{subsubsection.1.D.1.3}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.4}pqc\_multicodec.py}{273}{subsubsection.1.D.1.4}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.5}pqc\_multikey.py}{275}{subsubsection.1.D.1.5}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.6}pqc\_didcomm\_v1.py}{276}{subsubsection.1.D.1.6}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.7}monkey\_patches.py}{285}{subsubsection.1.D.1.7}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.8}base\_manager\_patch.py}{289}{subsubsection.1.D.1.8}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.9}askar\_pqc\_patch.py}{302}{subsubsection.1.D.1.9}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.10}wallet\_patch.py}{321}{subsubsection.1.D.1.10}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.11}connection\_target\_patch.py}{323}{subsubsection.1.D.1.11}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.12}validator\_patch.py}{325}{subsubsection.1.D.1.12}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.13}key\_types.py}{328}{subsubsection.1.D.1.13}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.14}key\_type\_patches.py}{328}{subsubsection.1.D.1.14}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.15}multicodec\_patch.py}{332}{subsubsection.1.D.1.15}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.16}setup.py}{334}{subsubsection.1.D.1.16}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.1.17}README.md}{335}{subsubsection.1.D.1.17}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.2}Dockerfile: acapy-base-pqc}{338}{subsection.1.D.2}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.3}docker-compose.yml: SSI Agenten mit acapy-base-pqc \& Plugin}{343}{subsection.1.D.3}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 4.4}Issuer Agent mit PQC-Plugin Boot Log}{348}{subsection.1.D.4}%
+\contentsline {appsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5}Summative Evaluation}{352}{appendix.1.E}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1}KRITIS Szenario}{352}{subsection.1.E.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.1}Teil 1: Setup \& Verbindungstests}{352}{subsubsection.1.E.1.1}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.2}Teil 2: DID Setup \& Ledger Registration - KRITIS-Identitäten}{362}{subsubsection.1.E.1.2}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.3}Teil 3: Schema \& Credential Definition - Notfall-Wartungszertifikat}{370}{subsubsection.1.E.1.3}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.4}Teil 4: Agent Connections - KRITIS-Akteure}{386}{subsubsection.1.E.1.4}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.5}Teil 5: Credential Issuance - Notfall-Wartungszertifikat}{411}{subsubsection.1.E.1.5}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.6}Teil 6: Proof Presentation - Zutrittskontrolle am Umspannwerk}{416}{subsubsection.1.E.1.6}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.1.7}Teil 7: Revocation \& Deletion- Beendigung der Wartungsberechtigung}{430}{subsubsection.1.E.1.7}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.2}Validierung der KRITIS-Compliance-Anforderungen}{450}{subsection.1.E.2}%
+\contentsline {appsubsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.2.1}*}{450}{subsubsection.1.E.2.1}%
+\contentsline {appsubsection}{\numberline {\selectlanguage {ngerman}Anhang\ 5.3}Validierung der Kryptoagilität - Applikationslayer}{453}{subsection.1.E.3}%
