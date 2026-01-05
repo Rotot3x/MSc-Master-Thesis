@@ -67,7 +67,7 @@ Konkret realisiert die Integration-Patching-Schicht die transparente Einbettung 
 
 \subsection{Implementierung}
 
-Die Implementierung der PQC-Unterstützung auf Application-Ebene folgt einem zweistufigen Ansatz. In der ersten Stufe wird das pqc\_didpeer4\_fm-Plugin entwickelt, das sich in den ACA-Py Plugin-Mechanismus nach \textcite{_ACAPyPluginsACAPyDocs_,_ACAPyPluginsACAPyPlugins_,openwallet-foundation_OpenwalletfoundationAcapyplugins_2025} einfügt. Das Plugin ist als Python-Paket strukturiert und definiert einen setup-Entrypoint, der beim Agent-Start aufgerufen wird. Über den PluginContext erhält das Plugin unmittelbaren Zugriff auf zentrale Agent-Komponenten wie die Wallet, das \gls{DIDComm}-System und die Protocol Registry. Diese Architektur ermöglicht es Plugins, neue Protokolle zu registrieren oder bestehende Funktionen durch Monkey-Patching zu erweitern, ohne den ACA-Py Kern zu modifizieren. Die zweite Stufe integriert das entwickelte Plugin in die containerisierte Deployment-Infrastruktur. Dabei wird das Plugin als Abhängigkeit in dem Dockerfile definiert, sodass es während des Container-Builds installiert wird. Anschließend erfolgt die Konfiguration über docker-compose, indem der ACA-Py Service mit den erforderlichen Umgebungsvariablen und Plugin-Parametern initialisiert wird.
+Die Implementierung der PQC-Unterstützung auf Application-Ebene folgt einem zweistufigen Ansatz. In der ersten Stufe wird das pqc\_didpeer4\_fm-Plugin entwickelt, das sich in den ACA-Py Plugin-Mechanismus nach \textcite{_ACAPyPluginsACAPyDocs_,_ACAPyPluginsACAPyPlugins_,openwallet-foundation_OpenwalletfoundationAcapyplugins_2025} einfügt. Das Plugin ist als Python-Paket strukturiert und definiert einen setup-Entrypoint, der beim Agent-Start aufgerufen wird. Über den PluginContext erhält das Plugin unmittelbaren Zugriff auf zentrale Agent-Komponenten wie die Wallet, das \gls{DIDComm}-System und die Protocol Registry. Diese Architektur ermöglicht es Plugins, neue Protokolle zu registrieren oder bestehende Funktionen durch \gls{Monkey-Patching} zu erweitern, ohne den ACA-Py Kern zu modifizieren. Die zweite Stufe integriert das entwickelte Plugin in die containerisierte Deployment-Infrastruktur. Dabei wird das Plugin als Abhängigkeit in dem Dockerfile definiert, sodass es während des Container-Builds installiert wird. Anschließend erfolgt die Konfiguration über docker-compose, indem der ACA-Py Service mit den erforderlichen Umgebungsvariablen und Plugin-Parametern initialisiert wird.
 
 Der Aufbau des PQC-Plugins gliedert sich in drei funktionale Schichten, in die die in \autoref{fig:pqc_didpeer4_fm_directory_structure} dargestellten 15 Module eingeteilt sind. Diese Architektur garantiert vollständige PQC-Funktionalität ohne Änderungen am ACA-Py-Quellcode.
 
@@ -77,9 +77,11 @@ Die DID-Verarbeitungsschicht orchestriert die vollständige Lebenszyklusbearbeit
 
 Die Integration-Patching-Schicht implementiert die transparente Einbettung in ACA-Py durch gezieltes \gls{Monkey-Patching} und Registry-Erweiterungen. Neun spezialisierte Module patchen Wallet-Operationen (askar\_pqc\_patch.py, wallet\_patch.py), Connection-Management (base\_manager\_patch.py, connection\_target\_patch.py), Schlüsseltyp-Infrastruktur (key\_types.py, key\_type\_patches.py), Validierungslogik (validator\_patch.py), Multicodec-Registries (multicodec\_patch.py) und koordinieren deren Installation (monkey\_patches.py).
 
+Der gesamte Quellcode des pqc\_didpeer4\_fm-Plugins ist in \ref{sec:Anhang_ACA-Py-Plugin-Quellcode-pqc_didpeer4_fm} dokumentiert.
+
 \begin{figure}[H]
   \flushleft
-  \caption{Verzeichnisstruktur des Projekts}
+  \caption{Aufbau des PQC-Plugins}
   \label{fig:pqc_didpeer4_fm_directory_structure}
 \dirtree{%
 .1 pqc\_didpeer4\_fm/.
@@ -115,7 +117,7 @@ Die Kryptografie-Abstraktionsschicht bildet die unterste Ebene der PQC-Integrati
 
 \begin{figure}[H]
   \flushleft
-  \caption{Verzeichnisstruktur des Projekts}
+  \caption{Aufbau des PQC-Plugins - Kryptografie-Abstraktionsschicht}
   \label{fig:pqc_didpeer4_fm_directory_structure_Kryptografie-Abstraktionsschicht}
 \dirtree{%
 .1 pqc\_didpeer4\_fm/.
@@ -151,11 +153,11 @@ Die Wrapper-Architektur abstrahiert die komplexen \ac{FFI}-Aufrufe an die liboqs
 
 \subsubsection{Pluginentwicklung: DID-Verarbeitungsschicht}
 
-Die DID-Verarbeitungsschicht (siehe Abbildung~\ref{fig:pqc_didpeer4_fm_directory_structure_DID-Verarbeitungsschicht}) orchestriert die Erzeugung, Auflösung und Kodierung von PQC-fähigen did:peer:4-Identifikatoren sowie die \gls{DIDComm}-Nachrichtenverschlüsselung. Diese Schicht umfasst sechs funktional gekoppelte Module, die gemeinsam eine standardkonforme Integration von Post-Quantum-Kryptografie in das did:peer:4-Ökosystem realisieren.
+Die DID-Verarbeitungsschicht (siehe Abbildung~\ref{fig:pqc_didpeer4_fm_directory_structure_DID-Verarbeitungsschicht}) orchestriert die Erzeugung, Auflösung und Kodierung von PQC-fähigen did:peer:4-Identifikatoren sowie die \gls{DIDComm}-Nachrichtenverschlüsselung. Diese Schicht umfasst sechs funktional gekoppelte Module, die gemeinsam eine standardkonforme Integration von \ac{PQC} in das did:peer:4-Ökosystem realisieren.
 
 \begin{figure}[H]
   \flushleft
-  \caption{Verzeichnisstruktur des Projekts}
+  \caption{Aufbau des PQC-Plugins - DID-Verarbeitungsschicht}
   \label{fig:pqc_didpeer4_fm_directory_structure_DID-Verarbeitungsschicht}
 \dirtree{%
 .1 pqc\_didpeer4\_fm/.
@@ -195,7 +197,7 @@ Die Integration-Patching-Schicht (Abbildung~\ref{fig:pqc_didpeer4_fm_directory_s
 
 \begin{figure}[H]
   \flushleft
-  \caption{Verzeichnisstruktur des Projekts}
+  \caption{Aufbau des PQC-Plugins - Integration-Patching-Schicht}
   \label{fig:pqc_didpeer4_fm_directory_structure_Integration-Patching-Schicht}
 \dirtree{%
 .1 pqc\_didpeer4\_fm/.
@@ -266,7 +268,7 @@ Das Deployment der PQC-fähigen SSI-Agenten erfolgt innerhalb der in der ersten 
 \subsection{Formative Evaluation}
 \label{sec:formative_evaluation_iteration2}
 
-In Übereinstimmung mit dem in Kapitel~\ref{sec:Schritt4-Design der individuellen Evaluationsepisoden} entworfenen Evaluationsdesign setzt dieser Abschnitt die zweite definierte Evaluationsepisode (\autoref{tab:eval_episodes}) um. Charakterisiert als formative und artifizielle Untersuchung, liegt der Fokus dieser Phase exklusiv auf der Validierung der Plugin-Integrationsarchitektur sowie der korrekten Funktionalität der kryptographischen Abstraktionsschichten während der Agent-Laufzeit. Ziel ist es, gemäß den Prinzipien von \textcite[S. 6, 7]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} Designfehler in der Monkey-Patching-Strategie und der DID-Verarbeitungskette frühzeitig zu identifizieren und die Integrationsfähigkeit der Post-Quantum-Kryptographie in die bestehende ACA-Py-Infrastruktur nachzuweisen.
+In Übereinstimmung mit dem in Kapitel~\ref{sec:Schritt4-Design der individuellen Evaluationsepisoden} entworfenen Evaluationsdesign setzt dieser Abschnitt die zweite definierte Evaluationsepisode (\autoref{tab:eval_episodes}) um. Charakterisiert als formative und artifizielle Untersuchung, liegt der Fokus dieser Phase exklusiv auf der Validierung der Plugin-Integrationsarchitektur sowie der korrekten Funktionalität der kryptographischen Abstraktionsschichten während der Agent-Laufzeit. Ziel ist es, gemäß den Prinzipien von \textcite[S. 6, 7]{venable_FEDSFrameworkEvaluationDesignScienceResearch_2016} Designfehler in der Monkey-Patching-Strategie und der \ac{DID}-Verarbeitungskette frühzeitig zu identifizieren und die Integrationsfähigkeit der \ac{PQC} in die bestehende \ac{ACA-Py}-Infrastruktur nachzuweisen.
 
 Zentrale Evaluationsziele dieser Phase sind die Korrektheit des Plugin-Ladevorgangs bei der Agenten-Initialisierung sowie die Validierung der Post-Quantum-Funktionalität im Kontext von did:peer:4-basierter Identifiziererstellung. Methodisch erfolgt die Evaluation durch kontrollierten White-Box-Testing \parencite[S. 10]{myers_ArtSoftwareTesting_2012} und Log-Analyse der kritischen Initialisierungsphasen.
 

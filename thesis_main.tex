@@ -587,18 +587,19 @@ Zur besseren Lesbarkeit wird in dieser Arbeit das generische Maskulinum verwende
 
 \begin{appendices}
 
+\newcounter{manualListingCounterA}
+
 % Caption-Format für Listings: Nummer und Titel auf separaten Zeilen
 \makeatletter
 \renewcommand\lst@makecaption[2]{%
   \vskip\abovecaptionskip
-  {\textbf{Listing A-\themanualListingCounter}\par\textit{#2}\par}%
+  {\textbf{Listing A-\themanualListingCounterA}\par\textit{#2}\par}%
   \vskip\belowcaptionskip
 }
 \makeatother
 
-\setcounter{manualListingCounter}{0}
-\renewcommand{\thelstlisting}{Listing A-\arabic{manualListingCounter}:}
-\renewcommand{\theHlstlisting}{Listing A-\arabic{manualListingCounter}:} % für hyperref
+\renewcommand{\thelstlisting}{Listing A-\arabic{manualListingCounterA}:}
+\renewcommand{\theHlstlisting}{Listing A-\arabic{manualListingCounterA}:} % für hyperref
 
 
 \setcounter{figure}{0}
