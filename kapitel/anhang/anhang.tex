@@ -363,7 +363,7 @@ Zunächst werden alle über die EBSCO-Suchanfrage identifizierten 61 Treffer ein
 \paragraph*{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
 
 \begin{longtable}{L{0.5cm}L{4cm}L{1.5cm}L{7cm}}
-    \caption{Erste Iteration - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \caption{Erste Iteration - Relevanzbewertung der identifizierten Quellen}
     \label{tab:quellenbewertung} \\
     \toprule
     \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} & \textbf{Kommentar} \\
@@ -634,7 +634,7 @@ Zunächst werden alle über die EBSCO-Suchanfrage identifizierten 34 Treffer ein
 \paragraph*{Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
 
 \begin{longtable}{L{0.5cm}L{4cm}L{1.5cm}L{7cm}}
-    \caption{Zweite Iteration - Bewertung der identifizierten Quellen hinsichtlich ihrer Relevanz}
+    \caption{Zweite Iteration - Relevanzbewertung der identifizierten Quellen}
     \label{tab:quellenbewertung_iteration2} \\
     \toprule
     \textbf{Nr.} & \textbf{Quelle} & \textbf{Relevanz} & \textbf{Kommentar} \\
@@ -747,11 +747,11 @@ Die Architektur von \ac{ACA-Py} \parencite{openwallet-foundation_GitHubOpenwalle
 
 Ein weiteres zentrales Feature ist die Unterstützung von \gls{DIDComm}-Messaging-Protokollen, die asynchrone, Ende-zu-Ende-verschlüsselte Kommunikation zwischen Agents ermöglichen, wobei Nachrichten über intermediäre Agent-Konfigurationen geroutet werden \parencite[S. 10]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}.
 
-Im Vergleich zu alternativen Frameworks wie Aries Go wurde ACA-Py ausgewählt, da Aries Go zum Zeitpunkt der Implementierung noch nicht produktionsbereit ist \parencite[S. 13--14]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}. Die Entscheidung für ACA-Py ermöglicht zudem die Nutzung des Aries-Askar-Wallets als Speicher-Backend, welches im Vergleich zum älteren Indy-Wallet signifikante Performance-Verbesserungen bietet \parencite[S. 13]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}.
+Im Vergleich zu alternativen Frameworks wie Aries Go wurde ACA-Py ausgewählt, da Aries Go noch nicht produktionsbereit ist \parencite[S. 13--14]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}. Die Entscheidung für ACA-Py ermöglicht zudem die Nutzung des Aries-Askar-Wallets als Speicher-Backend, welches im Vergleich zum älteren Indy-Wallet signifikante Performance-Verbesserungen bietet \parencite[S. 13]{bahce_CaseStudyMobileWalletImplementationSelfSovereignIdentityInfrastructure_2023}.
 
 \subsubsection{Kryptografiebibliothek}
 
-Die Auswahl von liboqs als zentrale Kryptografiebibliothek wird durch das Konzept des \ac{OQS} Projekts motiviert, das \textcite[S. 30--33]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} als Ansatz zur Prototypisierung quantenresistenter Kryptografie mit dem Ziel des zuverlässigen flächendeckenden Einsatzes entworfen hat. \textcite[S. 30]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} definiert OQS als open-source Softwareframework bestehend aus liboqs, einer C-Bibliothek mit quantenresistenten Algorithmen, und deren Integration in etablierte Protokolle wie OpenSSL.
+Die Auswahl von liboqs als zentrale Kryptografiebibliothek wird durch das Konzept des \ac{OQS} Projekts motiviert, welches \textcite[S. 30--33]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} als Ansatz zur Prototypisierung quantenresistenter Kryptografie mit dem Ziel des zuverlässigen flächendeckenden Einsatzes entworfen hat. \textcite[S. 30]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} definiert OQS als open-source Softwareframework bestehend aus liboqs, einer C-Bibliothek mit quantenresistenten Algorithmen, und deren Integration in etablierte Protokolle wie OpenSSL.
 
 Die Bibliothek bietet eine gemeinsame Schnittstelle für Schlüsselaustausch und digitale Signaturschemen \parencite[S. 31]{stebila_PostquantumKeyExchangeInternetOpenQuantumSafeProject_2017} sowie Implementierungen verschiedener Post-Quantum-Algorithmen \parencite[S. 3--4, Tab. 1]{solavagione_TransitionSelfSovereignIdentityPostQuantumCryptography_2025}.
 
@@ -768,7 +768,7 @@ Die BC-Government-Referenzimplementierung bietet native Integration mit \ac{ACA-
 \subsubsection{Sidecar-Proxy}
 \label{sec:Anhang_Sidecar-Proxy}
 
-Das \gls{Sidecar-Proxy}-Pattern wird zur transparenten Integration der Post-Quantum-Kryptografie auf Transportebene gewählt, ohne die zugrundeliegende ACA-Py-Anwendungslogik zu modifizieren. \textcite[S.~2, 5]{berlato_WorkinProgressSidecarProxyUsablePerformanceAdaptableEndtoEndProtectionCommunicationsCloudNativeApplications_2024} identifizieren Transparenz, Automatisierung und Modularität als zentrale Eigenschaften dieses Architekturmusters. Die vorliegende Arbeit adaptiert dieses Pattern von Cryptographic Access Control auf die PQC-Integration für SSI-Systeme.
+Das \gls{Sidecar-Proxy}-Pattern wird zur transparenten Integration der \ac{PQC} auf Transportebene gewählt, ohne die zugrundeliegende \ac{ACA-Py}-Anwendungslogik zu modifizieren. \textcite[S.~2, 5]{berlato_WorkinProgressSidecarProxyUsablePerformanceAdaptableEndtoEndProtectionCommunicationsCloudNativeApplications_2024} identifizieren Transparenz, Automatisierung und Modularität als zentrale Eigenschaften dieses Architekturmusters. Die vorliegende Arbeit adaptiert dieses Pattern von Cryptographic Access Control auf die \ac{PQC}-Integration für \ac{SSI}-Systeme.
 
 Durch die Deployment-seitige Ergänzung von Sidecar-Containern können unterstützende Funktionalitäten für alle Services zentral implementiert werden, ohne die Komplexität einzelner Microservices zu erhöhen \parencite[S. 158]{meadows_SidecarbasedPathawareSecurityMicroservices_2023}.
 
@@ -784,7 +784,7 @@ Durch die Deployment-seitige Ergänzung von Sidecar-Containern können unterstü
     \label{fig:sidecar_proxy_pod}
 \end{figure}
 
-nginx \parencite{nginx_GitHubNginxNginxofficialNGINXOpenSourcerepository_} wird als Implementierung gewählt, da es mit OpenSSL~3.5+ kompiliert über den OQS-Provider NIST-standardisierte PQC-Algorithmen unterstützt \parencite{_BuildingNginxSources_}.
+Für die softwareseitige Umsetzung des Sidecar-Proxy-Pattern wird nginx \parencite{nginx_GitHubNginxNginxofficialNGINXOpenSourcerepository_} gewählt, da es mit OpenSSL~3.5+ kompiliert über den \ac{OQS}-Provider \ac{NIST}-standardisierte \ac{PQC}-Algorithmen unterstützt \parencite{_BuildingNginxSources_}.
 
 \subsection{Implementierung}
 
@@ -860,11 +860,11 @@ openssl x509 -req -in server.csr \
   -copy_extensions copy
 \end{lstlisting}
 
-Die Zertifikatsinfrastruktur für die \ac{PQC}-Sidecar-Proxies basiert auf einer selbstsignierten Root Certificate Authority, die mit dem Post-Quantum-Signaturalgorithmus ML-DSA-87 erstellt wurde. Dieses Zertifikat besitzt eine Gültigkeit von zehn Jahren und wird in den System-Trust-Store aller Container importiert, sodass Python-Bibliotheken und Kommandozeilen-Tools die ML-DSA-65-signierten Zertifikate automatisch als vertrauenswürdig erkennen.
+Die Zertifikatsinfrastruktur für die \ac{PQC}-Sidecar-Proxies basiert auf einer selbstsignierten Root \ac{CA}, die mit dem Post-Quantum-Signaturalgorithmus ML-DSA-87 erstellt wurde. Dieses Zertifikat besitzt eine Gültigkeit von zehn Jahren und wird in den System-Trust-Store aller Container importiert, sodass Python-Bibliotheken und Kommandozeilen-Tools die ML-DSA-65-signierten Zertifikate automatisch als vertrauenswürdig erkennen.
 
-Für jeden der fünf Sidecar-Proxies wurde ein dediziertes Server-Zertifikat generiert: issuer.crt, holder.crt, verifier.crt, von-webserver.crt und tails-server.crt. Jedes dieser Zertifikate wird mittels Certificate Signing Request erstellt und von der Root Certificate Authority mit ML-DSA-65 signiert. Die Zertifikate enthalten Subject Alternative Names, die sowohl den DNS-Namen \enquote{localhost} als auch die IP-Adresse \enquote{127.0.0.1} umfassen, um flexible Zugriffsmöglichkeiten während der Entwicklung zu ermöglichen.
+Für jeden der fünf Sidecar-Proxies wurde ein dediziertes Server-Zertifikat generiert: issuer.crt, holder.crt, verifier.crt, von-webserver.crt und tails-server.crt. Jedes dieser Zertifikate wird mittels Certificate Signing Request erstellt und von der Root \ac{CA} mit ML-DSA-65 signiert. Die Zertifikate enthalten Subject Alternative Names, die sowohl den DNS-Namen \enquote{localhost} als auch die IP-Adresse \enquote{127.0.0.1} umfassen, um flexible Zugriffsmöglichkeiten während der Entwicklung zu ermöglichen.
 
-Die Integration der Zertifikate erfolgt über Docker-Volume-Mounts. Das Verzeichnis \enquote{hopE/pqc\_sidecarproxy\_nginx/certs/} wird als Read-Only-Volume in jeden nginx-Container unter \enquote{/opt/nginx/certs/} eingebunden. In der nginx-Konfiguration werden die Zertifikate durch die Direktiven \enquote{ssl\_certificate /opt/nginx/certs/<agent>.crt} und \enquote{ssl\_certificate\_key /opt/nginx/certs/<agent>.key} referenziert. Parallel dazu wird das Root-CA-Zertifikat in allen \ac{ACA-Py}-Agent-Containern nach \enquote{/usr/local/share/ca-certificates/pqc-root-ca.crt} kopiert und mittels \enquote{update-ca-certificates} in den System-Trust-Store importiert. Zusätzlich werden die Umgebungsvariablen \enquote{SSL\_CERT\_FILE}, \enquote{REQUESTS\_CA\_BUNDLE} und \enquote{CURL\_CA\_BUNDLE} auf \enquote{/etc/ssl/certs/ca-certificates.crt} gesetzt, um sicherzustellen, dass Python-Anwendungen und HTTP-Clients die importierte Root Certificate Authority verwenden und TLS-Verbindungen zu den \ac{PQC}-Sidecar-Proxies erfolgreich validieren können.
+Die Integration der Zertifikate erfolgt über Docker-Volume-Mounts. Das Verzeichnis \enquote{hopE/pqc\_sidecarproxy\_nginx/certs/} wird als Read-Only-Volume in jeden nginx-Container unter \enquote{/opt/nginx/certs/} eingebunden. In der nginx-Konfiguration werden die Zertifikate durch die Direktiven \enquote{ssl\_certificate /opt/nginx/certs/<agent>.crt} und \enquote{ssl\_certificate\_key /opt/nginx/certs/<agent>.key} referenziert. Parallel dazu wird das Root \ac{CA}-Zertifikat in allen \ac{ACA-Py}-Agent-Containern nach \enquote{/usr/local/share/ca-certificates/pqc-root-ca.crt} kopiert und mittels \enquote{update-ca-certificates} in den System-Trust-Store importiert. Zusätzlich werden die Umgebungsvariablen \enquote{SSL\_CERT\_FILE}, \enquote{REQUESTS\_CA\_BUNDLE} und \enquote{CURL\_CA\_BUNDLE} auf \enquote{/etc/ssl/certs/ca-certificates.crt} gesetzt, um sicherzustellen, dass Python-Anwendungen und HTTP-Clients die importierte Root \ac{CA} verwenden und TLS-Verbindungen zu den \ac{PQC}-Sidecar-Proxies erfolgreich validieren können.
 
 \pagebreak
 
@@ -3017,7 +3017,7 @@ popd >/dev/null
 
 \refstepcounter{manualListingCounterA}
 \label{lst:indy-tails-server-manage-script}
-\begin{lstlisting}[language=bash, caption={Indy-Tails-Server Manage Skript}, numbers=left, frame=single]
+\begin{lstlisting}[language=bash, caption={indy-tails-server manage Skript}, numbers=left, frame=single]
 #!/bin/bash
 
 # ===========================================================
@@ -3074,7 +3074,6 @@ exportEnvironment() {
         ;;
     esac
   done
-
   export GENESIS_URL=${GENESIS_URL:-http://$DOCKERHOST:9000/genesis}
   export STORAGE_PATH=${STORAGE_PATH:-/tmp/tails-files}
   export LOG_LEVEL=${LOG_LEVEL:-info}
@@ -3109,7 +3108,6 @@ function logs() {
 }
 
 # ===========================================================
-
 pushd "${SCRIPT_HOME}" >/dev/null
 COMMAND=$(toLower ${1})
 shift || COMMAND=usage
@@ -3143,11 +3141,25 @@ down|rm)
   usage
   ;;
 esac
-
 popd >/dev/null
 \end{lstlisting}
 
 \subsection{Formative Evaluation}
+
+\subsubsection{Cipher Mismatch der TLS-1.3-Verbindung des Webservers}
+\label{sec:Anhang_Cipher Mismatch der TLS-1.3-Verbindung des Webservers}
+
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_blockchain_webserver_CIPHER_MISMATCH.png}
+    \caption{Cipher Mismatch der TLS-1.3-Verbindung des Webservers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Cipher-Mismatch-Blockchain-Webserver}
+\end{figure}
 
 \subsubsection{Eigenkompilation eines PQC-Chromium-Browsers}
 \label{sec:Anhang_Eigenkompilation eines Chromium-Browsers mit PQC-Unterstützung}
@@ -3160,8 +3172,61 @@ Aufbauend auf dieser Standard-Umgebung wurde der von \ac{OQS} bereitgestellte Ch
 
 Im Anschluss daran erfolgte der eigentliche Kompiliervorgang des Browsers mit dem von Chromium vorgesehenen Build-Werkzeug autoninja, das die GN-Konfiguration nutzt, um alle notwendigen Targets effizient zu bauen \parencite{_ChromiumDocsCheckingoutbuildingChromiumLinux_}. Durch den Aufruf von \enquote{autoninja -C out/oqs-Default chrome} wurde eine Browser-Binärdatei erzeugt, die die OQS-Erweiterungen in der TLS-Schicht enthält. Der resultierende Browser konnte direkt aus dem Build-Verzeichnis gestartet und gegen PQC-fähige Testserver genutzt werden, um TLS-Verbindungen mit hybriden oder rein PQ-basierten Schlüsselaustauschmechanismen zu etablieren. Die so aufgebaute Umgebung ermöglicht eine kontrollierte experimentelle Analyse der praktischen Auswirkungen von PQC im Browserkontext, etwa hinsichtlich Kompatibilität, Performance und Protokollhandshake, auf Basis eines realen Chromium-Builds mit explizit aktivierter \ac{PQC}.
 
+\subsubsection{Validierung der Zertifikatskette und ML-DSA-Signaturen}
 
-\subsubsection{Issuer Agent Boot Logs}
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_issuer_mldsa_cert.png}
+    \caption{Erfolgreiche Validierung des ML-DSA-Zertifikats des Issuers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Issuer-MLDSA-Cert}
+\end{figure}
+
+\subsubsection{Validierung der TLS 1.3 Algorithmen-Aushandlung}
+
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_issuer_TLS1.3.png}
+    \caption{Erfolgreiche Validierung der TLS-1.3-Verbindung des Issuers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Issuer-TLS1.3}
+\end{figure}
+
+\subsubsection{Validierung der Ledger-Initialisierung}
+
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_blockchain_webserver.png}
+    \caption{Erfolgreiche Validierung der TLS-1.3-Verbindung des Webservers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Blockchain-Webserver}
+\end{figure}
+
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_genesis.png}
+    \caption{Erfolgreiche Validierung der Genesis-Datei des Webservers}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Genesis-File-Blockchain-Webserver}
+\end{figure}
+
+\subsubsection{Validierung der ACA-Py API-Verfügbarkeit}
 
 \refstepcounter{manualListingCounterA}
 \label{lst:Issuer-Agent-Boot-Logs}
@@ -3231,6 +3296,43 @@ Executing task in folder ferris: docker logs --tail 1000 -f 179e43b336fa16b399ef
 2025-11-28 23:50:22,041 aiohttp.access INFO 127.0.0.1 [28/Nov/2025:23:50:22 +0000] "GET /status/ready HTTP/1.1" 200 138 "-" "curl/7.88.1"
 \end{lstlisting}
 
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_Issuer_Agent_Swagger_API.png}
+    \caption{Erfolgreiche Validierung der Issuer Agent ACA-Py Swagger API}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Issuer-Agent-ACA-Py-Swagger-API}
+\end{figure}
+
+\subsubsection{Validierung der Netzwerkisolation}
+
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_network_isolation.png}
+    \caption{Darstellung der Netzwerkisolation innerhalb der Gesamtarchitektur}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Darstellung-Network-Isolation}
+\end{figure}
+
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio, angle=90]{validate_network_isolation_through_tests.png}
+    \caption{Erfolgreiche Validierung der Netzwerkisolation}
+    \begin{flushleft}
+    \textit{Anmerkung.} Eigene Darstellung.
+    \end{flushleft}
+    \label{fig:Successful-Validation-Network-Isolation-Through-Tests}
+\end{figure}
 
 \newpage
 \section{Zweite Iteration der Artefaktentwicklung}
